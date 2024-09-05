@@ -1,0 +1,29 @@
+
+
+@media (min-width: 1536px) {
+  .container.container-width {
+    max-width: 1400px;
+  }
+
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  /* Adjust as needed */
+  padding: 10px;
+  /* Adjust as needed */
+}
+
+.footer {
+  position: fixed;
+  /* or position: absolute; */
+  bottom: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  /* Adjust as needed */
+  padding: 10px;
+  /* Adjust as needed */
+}
