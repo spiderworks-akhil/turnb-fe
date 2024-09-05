@@ -1,0 +1,104 @@
+.comment1:after {
+  content: " ";
+  position: absolute;
+  left: -15px;
+  top: 10px;
+  border-top: 15px solid transparent;
+  border-right: 15px solid #016c66;
+  border-left: none;
+  border-bottom: 15px solid transparent;
+}
+
+.comments .comment_header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.comments .comment_header .total {
+    color: #777777;
+    font-size: 14px;
+}
+.comments .comment_header .write_comment_btn {
+    margin: 0;
+}
+.comments .write_comment_btn, .comments .write_comment button {
+    display: inline-block;
+    background-color: #138387;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0 0 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 0;
+}
+.comments .write_comment_btn:hover, .comments .write_comment button:hover {
+    background-color: #138387;
+}
+.comments .write_comment {
+    display: none;
+    padding: 20px 0 10px 0;
+}
+.comments .write_comment textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    height: 150px;
+    margin-top: 10px;
+}
+.comments .write_comment input {
+    display: block;
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.comments .write_comment button {
+    cursor: pointer;
+}
+.comments .comment {
+    padding:10px;
+    /*margin: 16px;*/
+    position: relative;
+}
+.comment1{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding:10px;
+    position: relative;
+}
+.comments .comment .name {
+    display: inline;
+    padding: 0 5px 3px 0;
+    margin: 0;
+    font-size: 14px;
+    color: #016c66;
+    font-weight:500;
+}
+.comments .comment .date {
+    color: #888888;
+    font-size: 11px;
+}
+.comments .comment .content {
+    padding: 5px 0 0px 0;
+    font-size:17px;
+}
+.comments .comment .reply_comment_btn {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #888888;
+    position: absolute;
+   top: 25px;
+    right: 35px;
+}
+}
+.comments .comment .replies {
+    padding-left: 30px;
+}
