@@ -27,10 +27,10 @@ const Header = () => {
         <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link href="/aboutus" className="nav-link scrollto active">About Us</Link>
+              <Link href="/about" className="nav-link scrollto active">About Us</Link>
             </li>
             <li className="nav-item">
-              <Link href="/our-services" className="nav-link scrollto">Our Services</Link>
+              <Link href="/services" className="nav-link scrollto">Our Services</Link>
             </li>
             <li className="nav-item dropdown">
               <a className="nav-link scrollto dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +46,7 @@ const Header = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <Link href="/consult-D5tm" className="nav-link scrollto">Consult D5<sup>TM</sup></Link>
+              <Link href="/consult" className="nav-link scrollto">Consult D5<sup>TM</sup></Link>
             </li>
             <li className="nav-item">
               <Link href="/scanB/index" className="nav-link scrollto">ScanB</Link>
