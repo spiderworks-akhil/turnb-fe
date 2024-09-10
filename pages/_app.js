@@ -2,7 +2,8 @@ import '@/styles/globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'aos/dist/aos.css'; // Import AOS styles
 import '../styles/globals.css'; // Existing global 
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 // import '../styles/owl.carousel.min.css';
 // import '../styles/owl.theme.default.min.css';
 import '../styles/boxicons.min.css';
@@ -11,6 +12,10 @@ import '../styles/baguetteBox.min.css';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import AOS from 'aos';
+
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel/dist/assets/owl.theme.default.css';
+
 
 function App({ Component, pageProps }) {
   useEffect(() => {

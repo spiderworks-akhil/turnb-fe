@@ -49,13 +49,13 @@ const Header = () => {
               <Link href="/consult" className="nav-link scrollto">Consult D5<sup>TM</sup></Link>
             </li>
             <li className="nav-item">
-              <Link href="/scanB/index" className="nav-link scrollto">ScanB</Link>
+              <Link href="/scanb" className="nav-link scrollto">ScanB</Link>
             </li>
             <li className="nav-item">
               <Link href="/case-studies" className="nav-link scrollto">Case Studies</Link>
             </li>
             <li className="nav-item">
-              <Link href="/life%40turnb" className="nav-link scrollto">Life@TurnB</Link>
+              <Link href="/life-at-turnb" className="nav-link scrollto">Life@TurnB</Link>
             </li>
             <li className="nav-item">
               <Link href="/career" className="nav-link scrollto">Careers</Link>
