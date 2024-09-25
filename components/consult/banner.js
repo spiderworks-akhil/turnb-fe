@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 
-const ConsultBanner = () => {
+const ConsultBanner = ({ data }) => {
   return (
     <div className="carousel slide mr-topinnerpage" data-bs-ride="carousel" id="carouselExampleIndicators">
       {/* Uncomment if you need indicators */}
@@ -10,16 +11,18 @@ const ConsultBanner = () => {
       </div> */}
       <div className="carousel-inner">
         <div className="carousel-item active" data-aos="fade-in">
-          <img 
-            alt="..." 
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none" 
-            src="/img/banners/consult-D5tm-desktop.jpg" 
+          <Image
+            width={1520} height={714}
+            alt={data?.content?.consult_banner_media_id?.alt_text || data?.name}
+            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+            src={data?.content?.consult_banner_media_id?.file_path}
             data-aos="fade-in"
           />
-          <img 
-            alt="..." 
-            className="d-block w-100 img-fluid d-lg-none d-md-none d-block" 
-            src="/img/banners/consult-D5tm-mobile.jpg" 
+          <Image
+            width={1600} height={900}
+            alt={data?.content?.consult_mobile_banner_media_id?.alt_text || data?.name}
+            className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+            src={data?.content?.consult_mobile_banner_media_id?.file_path}
             data-aos="fade-in"
           />
           {/* Uncomment if you need carousel caption */}

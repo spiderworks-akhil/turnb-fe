@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+  images: {
+    domains: ['turnb.spider.ws'], // Add your external image domains here
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.(woff|woff2|eot|ttf|otf)$/, // Handle font files

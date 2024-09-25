@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 
-const ServiceBanner = () => {
+const ServiceBanner = ({ data }) => {
   return (
     <div className="carousel slide mr-topinnerpage" data-bs-ride="carousel" id="carouselExampleIndicators">
       {/* Uncomment if you need indicators */}
@@ -8,18 +9,20 @@ const ServiceBanner = () => {
         <button aria-label="Slide 1" className="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>
         <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button>
       </div> */}
-      
+
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img 
-            alt="..." 
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none" 
-            src="img/banners/services-page-banner.jpg" 
+          <Image
+            width={1520} height={714}
+            alt={data?.content?.services_banner_media_id?.alt_text || data?.name}
+            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+            src={data?.content?.services_banner_media_id?.file_path}
           />
-          <img 
-            alt="..." 
-            className="d-block w-100 img-fluid d-lg-none d-md-none d-block" 
-            src="img/banners/mob-service-banner.jpg" 
+          <Image
+            width={1600} height={900}
+            alt={data?.content?.case_study_mobile_banner_media_id?.alt_text || data?.name}
+            className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+            src={data?.content?.case_study_mobile_banner_media_id?.file_path}
           />
           {/* Uncomment if you need captions */}
           {/* <div className="carousel-caption">

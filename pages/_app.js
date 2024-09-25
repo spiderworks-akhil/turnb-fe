@@ -4,8 +4,8 @@ import 'aos/dist/aos.css'; // Import AOS styles
 import '../styles/globals.css'; // Existing global 
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-// import '../styles/owl.carousel.min.css';
-// import '../styles/owl.theme.default.min.css';
+import '../styles/owl.carousel.min.css';
+import '../styles/owl.theme.default.min.css';
 import '../styles/boxicons.min.css';
 import '../styles/style.css';
 import '../styles/baguetteBox.min.css';

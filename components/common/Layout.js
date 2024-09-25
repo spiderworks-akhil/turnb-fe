@@ -1,17 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import SEO from './SEO';
 
 
 
-const Layout = ({ page, children}) => {
+const Layout = ({ page, children, general,data }) => {
+
+    const MainMenu = general?.all_menus[0]
+    const FooterMenu = general?.all_menus[1]
+    const Settings=general?.all_settings?.original?.data    
+
     return (
-        <div>
-            {/* {page === "Home" ? <Header /> : <div className='inner-menu-active'><Header /></div>} */}
-            <Header />
-            {children}
-            <Footer />
-        </div>
+        <>
+            <SEO data={data} settings={Settings} />
+            <div>
+                <Header MainMenu={MainMenu} />
+                {children}
+                <Footer FooterMenu={FooterMenu} />
+            </div>
+        </>
     );
 };
 

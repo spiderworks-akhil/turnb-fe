@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-const ConsultStages = () => {
+const ConsultStages = ({ data }) => {
 
     return (
         <>
@@ -11,10 +11,7 @@ const ConsultStages = () => {
                         <div class="col-lg-9 col-md-9 col-12">
                             <div class="text-center position-relative" data-aos="fade-down">
                                 <h1 class="title-ak2 ft-wt2 text-center mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
-                                    <span class="text-dark">
-                                        The Five Stages of a <br />
-                                        <span class="clr-grn ft-wt3">Data-Driven Business Growth</span>
-                                    </span>
+                                    <span class="text-dark home-title" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_1 }} />
                                 </h1>
                             </div>
                         </div>
@@ -24,9 +21,7 @@ const ConsultStages = () => {
                             <div class="text-justify position-relative" data-aos="fade-up">
                                 <div class="bg-image-sec">
                                     <p class="w-auto mt-0 text-center mb-2">
-                                        We help businesses solve complex problems and make informed decisions using data. Our unique
-                                        five-stage framework provides end-to-end support, from understanding your business to delivering
-                                        solutions that help you achieve your goals.
+                                        {data?.content?.consult_description_1}
                                     </p>
                                 </div>
                                 <div class="boxline-new mt-lg-5 mb-5 mt-md-5 mt-2"></div>
@@ -40,7 +35,7 @@ const ConsultStages = () => {
             <div class="container d-block">
                 <div class="row mb-3 mb-5">
                     <div class="col-lg-12 col-md-12 col-12">
-                        <img src="img/consultmob.jpg" class="img-fluid d-block m-auto text-center" />
+                        <Image width={700} height={700} src={data?.content?.consult_section_2_media_id?.file_path} alt={data?.content?.consult_section_2_media_id?.alt_text} className="img-fluid d-block m-auto text-center" />
                     </div>
                 </div>
             </div>
@@ -49,26 +44,29 @@ const ConsultStages = () => {
             <div class="container mt-lg-5 mt-md-5 mt-3 mb-lg-5 mb-md-5 mb-3">
                 <div class="text-center position-relative" data-aos="fade-down">
                     <h1 class="title-ak2 ft-wt2 mb-lg-5 mb-md-5 mb-3 mt-lg-0 mt-md-0 mt-4">
-                        <span class="clr-g">Consult D5™ Framework</span>
+                        <span class="clr-g">{data?.content?.title_2}</span>
                     </h1>
                 </div>
-                <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
-                    <div class="col-lg-9 col-md-9 col-12">
-                        <div class="cosult-box p-4 clearfix">
-                            <div class="box" data-aos="fade-down">
-                                <button class="spin circle"><img src="img/icons/dec.png" class="img-fluid d-block m-auto text-center" /></button>
-                            </div>
-                            <div class="dec-text clearfix" data-aos="fade-up">
-                                <h5 class="clr-grn mt-0 mb-2"><span class="ft-wt2">Decipher:</span> We Understand You</h5>
-                                <p class="mb-0">In the first stage, we extensively understand your business by stepping in your
-                                    shoes, identifying the key parameters that impact it and set goals accordingly. We also analyze any
-                                    constraints that may prevent you from achieving your goals, which further clarifies the business
-                                    problem.</p>
+
+                {
+                    data?.content?.listing_id_consult?.map((obj, index) => (
+                        <div key={index} class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
+                            <div class="col-lg-9 col-md-9 col-12">
+                                <div class="cosult-box p-4 clearfix">
+                                    <div class="box" data-aos="fade-down">
+                                        <button class="spin circle"><Image width={100} height={100} src={obj?.media_id?.file_path} alt={obj?.media_id?.alt_text} className="img-fluid d-block m-auto text-center" /></button>
+                                    </div>
+                                    <div class="dec-text clearfix" data-aos="fade-up">
+                                        <h5 class="clr-grn mt-0 mb-2 consult-listing-title" dangerouslySetInnerHTML={{ __html: obj?.title }} />
+                                        <p class="mb-0">{obj?.short_description}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
+                    ))
+                }
+
+                {/* <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
                     <div class="col-lg-9 col-md-9 col-12">
                         <div class="cosult-box p-4 clearfix">
                             <div class="box" data-aos="fade-down">
@@ -84,6 +82,7 @@ const ConsultStages = () => {
                         </div>
                     </div>
                 </div>
+
                 <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
                     <div class="col-lg-9 col-md-9 col-12">
                         <div class="cosult-box p-4 clearfix">
@@ -131,7 +130,7 @@ const ConsultStages = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             {/* <!-- Partner Section --> */}
@@ -142,17 +141,14 @@ const ConsultStages = () => {
                             <div class="col-lg-7 col-md-7 col-12">
                                 <div class="position-relative" data-aos="fade-down">
                                     <h1 class="title-ak2 text-dark ft-wt3 text-lf mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
-                                        <span class="clr-g">But our partnership <br />
-                                            <span class="clr-grn">doesn't end with delivery!</span>
-                                        </span>
+                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_3 }} />
+                                        {/* <span class="clr-grn">doesn't end with delivery!</span> */}
                                     </h1>
                                     <div class="boxline-new2 mt-lg-3 mt-md-3 mt-2"></div>
                                     <div class="text-lf position-relative" data-aos="fade-down">
                                         <div class="bg-image-sec">
                                             <p class="w-auto mt-0 mb-2">
-                                                We understand that your business needs, goals, and priorities may change after your
-                                                product or service has been delivered. That's why we offer post-delivery support to help
-                                                you achieve your desired outcomes.
+                                                {data?.content?.consult_short_description_3}
                                             </p>
                                         </div>
                                     </div>
@@ -160,7 +156,7 @@ const ConsultStages = () => {
                             </div>
                             <div class="col-lg-5 col-md-5 col-12">
                                 <div class="text-lf position-relative" data-aos="fade-down">
-                                    <img src="img/partner.png" class="img-fluid imgrit" />
+                                    <Image width={800} height={500} src={data?.content?.consult_section_3_media_id?.file_path} alt={data?.content?.consult_section_3_media_id?.alt_text} class="img-fluid imgrit" />
                                 </div>
                             </div>
                         </div>
@@ -170,14 +166,14 @@ const ConsultStages = () => {
                             <div class="text-lf justify position-relative" data-aos="fade-up">
                                 <div class="parter-list border-ritnew clearfix">
                                     <h4 class="ft-wt3">
-                                        <span class="clr-g">We will also focus our efforts on</span><br />
-                                        <span class="clr-grn">performing subsequent tasks in the pipeline, such as:</span>
+                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_1 }} />
                                     </h4>
-                                    <ul class="mt-lg-4 mt-md-4 mt-3 mb-0">
+                                    <div dangerouslySetInnerHTML={{__html:data?.content?.consult_description_2}} />
+                                    {/* <ul class="mt-lg-4 mt-md-4 mt-3 mb-0">
                                         <li>Ongoing maintenance and support</li>
                                         <li>Product enhancements and updates</li>
                                         <li>New product development</li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>
@@ -185,14 +181,15 @@ const ConsultStages = () => {
                             <div class="text-lf justify position-relative" data-aos="fade-up">
                                 <div class="parter-list mr-lfttt clearfix">
                                     <h4 class="ft-wt3">
-                                        <span class="clr-g">During this phase,</span><br />
-                                        <span class="clr-grn">we will work closely with you to:</span>
+                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_2 }} />
                                     </h4>
-                                    <ul class="mt-lg-5 mt-md-5 mt-3 mb-0">
+                                    <div dangerouslySetInnerHTML={{__html:data?.content?.consult_description_3}} />
+
+                                    {/* <ul class="mt-lg-5 mt-md-5 mt-3 mb-0">
                                         <li>Re-examine your business needs, goals, and priorities</li>
                                         <li>Identify any new or emerging opportunities</li>
                                         <li>Develop a plan to execute on your revised goals</li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>

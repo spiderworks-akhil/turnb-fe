@@ -1,8 +1,9 @@
 // components/AboutSection.js
 import React, { useEffect } from 'react';
 import AOS from 'aos';
+import Link from 'next/link';
 
-const AboutSection = () => {
+const AboutSection = ({ data }) => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -19,9 +20,8 @@ const AboutSection = () => {
                   data-aos="fade-down"
                 >
                   <h1 className="title-akn text-lf mb-lg-4 mb-md-4 mb-3 mt-lg-0 mt-md-0 mt-4">
-                    <span className="clr-g">Our <br /> Data-Driven</span>
-                    <br />
-                    <span className="clr-grn">Promise</span>
+                    <span dangerouslySetInnerHTML={{ __html: data?.content?.title_2 }} className="clr-g" />
+                    
                   </h1>
                 </div>
               </div>
@@ -31,13 +31,10 @@ const AboutSection = () => {
                   data-aos="fade-up"
                 >
                   <p className="w-auto mt-0 text-justify mb-2">
-                    At TurnB, we understand your business problems and leverage the power of analytics to deliver
-                    data-driven solutions using a pioneering hybrid model that blends traditional consulting and advanced
-                    analytics. By integrating design thinking with our domain knowledge to generate crucial insights, we
-                    assist you in making informed decisions, and unlocking the true potential of your business.
+                    {data?.content?.description_2}
                   </p>
                   <div className="knw-more mt-lg-3 mt-md-3 clearfix">
-                    <a href="aboutus.html" className="btn btn-primary kn-mb">Know More</a>
+                    <Link href={data?.content?.button_url_section_2} className="btn btn-primary kn-mb">{data?.content?.button_text_section_2}</Link>
                   </div>
                 </div>
               </div>
@@ -51,9 +48,9 @@ const AboutSection = () => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-md-12 col-12">
               <div className="intro">
-                <h1 className="mr-bplong mb-0">Consult D5<sup>TM</sup></h1>
+                <h1 className="mr-bplong mb-0">{data?.content?.title_4}</h1>
                 <p className="text-center" style={{ width: 'auto' }}>
-                  The TurnB Way of Solving Business Problems
+                  {data?.content?.short_description_4}
                 </p>
               </div>
             </div>
@@ -63,8 +60,8 @@ const AboutSection = () => {
         <div className="row justify-content-center">
           <div className="col-lg-9 col-md-9 col-12">
             <video width="100%" height="100%" className="heithvdo" autoPlay loop controls>
-              <source src="/consult.mp4" type="video/mp4" />
-              <source src="/consult.ogg" type="video/ogg" />
+              <source src={data?.content?.home_vedio_media_id?.file_path} type="video/mp4" />
+              {/* <source src="/consult.ogg" type="video/ogg" /> */}
               Your browser does not support the video tag.
             </video>
           </div>
