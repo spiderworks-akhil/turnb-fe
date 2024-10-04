@@ -8,6 +8,7 @@ import '../styles/owl.carousel.min.css';
 import '../styles/owl.theme.default.min.css';
 import '../styles/boxicons.min.css';
 import '../styles/style.css';
+import '../styles/theme.css';
 import '../styles/baguetteBox.min.css';
 import Head from 'next/head';
 import { useEffect } from 'react';

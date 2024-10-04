@@ -6,7 +6,7 @@ const AboutBanner = ({ data }) => {
     <div className="m-auto d-block text-center mr-topinnerpage" id="carouselExampleIndicators">
       {/* Carousel Images */}
       <Image
-        width={1520} height={714}
+        width={1520} height={800}
         alt={data?.content?.about_us_banner_media_id?.alt_text || data?.name}
         className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
         src={data?.content?.about_us_banner_media_id?.file_path}

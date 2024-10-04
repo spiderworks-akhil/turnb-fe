@@ -30,9 +30,9 @@ const AboutSection = ({ data }) => {
                   className="text-justify position-relative aos-init aos-animate"
                   data-aos="fade-up"
                 >
-                  <p className="w-auto mt-0 text-justify mb-2">
-                    {data?.content?.description_2}
-                  </p>
+                  <p dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} className="w-auto mt-0 text-justify mb-2" />
+                    {/* {data?.content?.description_2}
+                  </p> */}
                   <div className="knw-more mt-lg-3 mt-md-3 clearfix">
                     <Link href={data?.content?.button_url_section_2} className="btn btn-primary kn-mb">{data?.content?.button_text_section_2}</Link>
                   </div>

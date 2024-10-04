@@ -1,15 +1,60 @@
 // components/Footer.js
+import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu }) => {
+
+  const { register, handleSubmit, watch, formState: { errors },reset } = useForm()
+
+  const router = useRouter();
+  const pageUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + router.asPath
+      : '';
+
+  const [loading, setLoading] = useState(false)
+
+  const onSubmit = async (details) => {
+    setLoading(true)
+    let dataToSubmit = {
+      name: details?.name,
+      email: details?.email,
+      phone_number: details?.mobile,
+      message: details?.message,
+      source_url: pageUrl,
+      type:'Enquiry'
+    }
+    console.log(dataToSubmit);
+
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+      console.log(response);
+      if (response?.status == 200 || response?.status == 201) {
+        reset()
+        setLoading(false)
+        reset
+      } else {
+        setLoading(false)
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false)
+    }
+
+  }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+
 
   return (
     <>
@@ -112,6 +157,7 @@ const Footer = ({ FooterMenu }) => {
 
         {/* Enquire Now Form Modal */}
         <div
+          onClick={() => { setIsModalOpen(false) }}
           className={`modal fade ${isModalOpen ? 'show' : ''}`}
           id="exampleModal"
           tabIndex="-1"
@@ -120,7 +166,7 @@ const Footer = ({ FooterMenu }) => {
           style={{ display: isModalOpen ? 'block' : 'none' }}
         >
           <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content">
+            <div onClick={(e) => e.stopPropagation()} className="modal-content">
               {/* Modal Header */}
               <div className="modal-header p-0 border-none">
                 <button
@@ -136,10 +182,7 @@ const Footer = ({ FooterMenu }) => {
                     <div className="col-lg-12 col-md-12 col-12">
                       <form
                         className="p-lg-4 col-12 row g-3 pt-3 pb-3"
-                        action="https://www.turnb.com/saveRegister.php"
-                        method="POST"
-                        role="form"
-                        encType="multipart/form-data"
+                        onSubmit={handleSubmit(onSubmit)}
                       >
                         <input type="hidden" name="date" value="2024-09-05 06:07:47" />
                         <div>
@@ -151,7 +194,11 @@ const Footer = ({ FooterMenu }) => {
                         </div>
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userName" className="form-label text-white">Full Name</label>
-                          <input type="text" className="form-control" id="userName" name="name" required />
+                          <input {...register('name', {
+                            required: 'Full Name is required',
+                          })} type="text" className="form-control" id="userName" name="name" />
+                          {errors.name && <span className='form-validation'>{errors.name.message}</span>}
+
                         </div>
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userEmail" className="form-label text-white">Email Address</label>
@@ -161,21 +208,44 @@ const Footer = ({ FooterMenu }) => {
                             id="userEmail"
                             aria-describedby="emailHelp"
                             name="email"
-                            required
+                            {...register('email', {
+                              required: 'Email is required',
+                              pattern: {
+                                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                                message: 'Please enter a valid email address'
+                              }
+                            })}
                           />
+                          {errors.email && <span className='form-validation'>{errors.email.message}</span>}
                         </div>
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userMobile" className="form-label text-white">Mobile Number</label>
-                          <input type="tel" className="form-control" id="userMobile" name="mobile" required />
+                          <input type="tel" className="form-control" id="userMobile" name="mobile"  {...register('mobile', {
+                            required: 'Mobile number is required',
+                            minLength: {
+                              value: 10,
+                              message: 'Mobile number must be at least 10 digits',
+                            },
+                            maxLength: {
+                              value: 15,
+                              message: 'Mobile number must not exceed 15 digits',
+                            },
+                            pattern: {
+                              value: /^[0-9]+$/,
+                              message: 'Only numeric values are allowed',
+                            }
+                          })} />
+                          {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
+
                         </div>
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
                           <textarea
+                            {...register('message')}
                             className="form-control"
                             id="userMessage"
                             rows="1"
                             name="message"
-                            required
                           ></textarea>
                         </div>
                         <div className="col-lg-6 col-md-6 col-12 mt-0">
@@ -186,7 +256,14 @@ const Footer = ({ FooterMenu }) => {
                           </div>
                         </div>
                         <div className="col-12">
-                          <input type="submit" className="btn btn-brand btnsubmt" value="Submit" />
+                          <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
+                            {
+                              loading ?
+                                <div className="loading-spinner"></div>
+                                : 'Submit'
+                            }
+                          </button>
+                          {/* <input type="submit" className="btn btn-brand btnsubmt" value="Submit" /> */}
                         </div>
                       </form>
                     </div>

@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const ScanbFeatures = () => {
+const ScanbFeatures = ({ data }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -20,7 +20,7 @@ const ScanbFeatures = () => {
         <div className="row justify-content-center">
           <div className="col-lg-11 col-md-11 col-12">
             <div className="">
-              <h1 className="mb-lg-5 mb-md-5 mb-3">ScanB Features</h1>
+              <h1 className="mb-lg-5 mb-md-5 mb-3">{data?.content?.scanb_section_5_text}</h1>
             </div>
           </div>
         </div>
@@ -29,12 +29,16 @@ const ScanbFeatures = () => {
           <div className="col-lg-12 col-md-12 col-12">
             <section className="scanb-feature-s game-section">
               <Slider {...settings}>
-                <div className="item" style={{ backgroundImage: 'url(/img/scanb/v1.png)' }}>
-                  <div className="item-desc text-center">
-                    <h3 className="text-white">Effective solutions at a cost-effective price</h3>
-                    <p>You gain valuable insights in a shorter time frame at a zero development cost.</p>
-                  </div>
-                </div>
+                {
+                  data?.content?.listing_id_scanb_feature?.map((obj,index) => (
+                    <div key={index} className="item" style={{ backgroundImage: `url(${obj?.media_id}})` }}>
+                      <div className="item-desc text-center">
+                        <h3 className="text-white">{obj?.title}</h3>
+                        <p>{obj?.short_description}</p>
+                      </div>
+                    </div>
+                  ))
+                }
                 <div className="item" style={{ backgroundImage: 'url(/img/scanb/v3.png)' }}>
                   <div className="item-desc text-center">
                     <h3 className="text-white">Interactive dashboards</h3>

@@ -1877,9 +1877,9 @@ section {
     margin-top: -86px !important;
 }
 
-.mr-topinnerpagescan {
+/* .mr-topinnerpagescan {
     margin-top: -86px !important;
-}
+} */
 
 
 .bg-whywork {
@@ -3686,7 +3686,7 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
 }
 
 .why-us-banner {
-    background: url(../public/img/banners/whyus-banner.jpg) no-repeat;
+    /* background: url(../public/img/banners/whyus-banner.jpg) no-repeat; */
     position: relative;
     background-size: cover;
     /* background-position: center right; */

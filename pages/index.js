@@ -9,11 +9,9 @@ import { HomeApi } from "@/Datas/Endpoints/Home";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({general,data}) {
-  
-  console.log(data);
-  
+    
   return (
-    <Layout general={general}>
+    <Layout general={general} data={data}>
       <Banner data={data} />
       <AboutSection data={data} />
       <ExpertiseSection data={data} />

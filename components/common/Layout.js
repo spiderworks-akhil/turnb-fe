@@ -10,12 +10,12 @@ const Layout = ({ page, children, general,data }) => {
     const MainMenu = general?.all_menus[0]
     const FooterMenu = general?.all_menus[1]
     const Settings=general?.all_settings?.original?.data    
-
+    
     return (
         <>
             <SEO data={data} settings={Settings} />
             <div>
-                <Header MainMenu={MainMenu} />
+                <Header MainMenu={MainMenu} Settings={Settings} />
                 {children}
                 <Footer FooterMenu={FooterMenu} />
             </div>

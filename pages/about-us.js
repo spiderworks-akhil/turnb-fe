@@ -9,20 +9,21 @@ import MilestonesSection from "@/components/about/milestones";
 import KeyMembersSection from "@/components/about/members";
 import { MenuApi } from "@/Datas/Endpoints/Menu";
 import { AboutApi } from "@/Datas/Endpoints/About";
+import { TeamApi } from "@/Datas/Endpoints/Team";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({general, data}) {
-    console.log(data);
+export default function About({general, data,team}) {
+    console.log(team);
     
     return (
         <Layout general={general} data={data}>
             <AboutBanner data={data} />
             <AboutWhoWeAreSection data={data} />
             <AboutWhyUsBanner data={data} />
-            <CoreValuesSection />
-            <MilestonesSection />
-            <KeyMembersSection />
+            <CoreValuesSection data={data} />
+            <MilestonesSection data={data} />
+            <KeyMembersSection data={data} team={team} />
         </Layout>
     );
 }
@@ -32,11 +33,13 @@ export async function getStaticProps() {
     try {
         const general = await MenuApi.genralSettings()
         const data = await AboutApi.index()
+        const team = await TeamApi.featured()
 
         return {
             props: {
                 general: general?.data,
                 data: data?.data?.data,
+                team:team?.data
             },
             revalidate: 10,
         };

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 
 const AboutWhyUsBanner = ({ data }) => {
+  
 
   return (
-    <div className="why-us-banner clearfix">
+    <div style={{background:`url(${data?.content?.why_us_banner_media_id?.file_path})`,backgroundSize:'cover',position:'relative'}} className="why-us-banner clearfix">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-12">

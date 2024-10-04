@@ -1,8 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import AOS from 'aos';
+import Image from 'next/image';
 
-const LifeEventsSection = () => {
+const LifeEventsSection = ({ data }) => {
   // Slick settings
   const settings = {
     dots: true,
@@ -25,11 +26,11 @@ const LifeEventsSection = () => {
       <div className="container" data-aos="fade-up">
         <div className="text-center position-relative" data-aos="fade-down">
           <h2 className="title-ak2 font-htd ft-wt3 text-center mb-lg-5 mb-md-5 mb-3 pt-lg-4 pt-md-4 pt-2 mt-lg-0 mt-md-0 mt-4 clt">
-            Events
+            {data?.content?.life_at_turnb_section_5_title}
           </h2>
         </div>
       </div>
-      
+
       {/* EVENTS SECTION */}
       <section className="testimonials pt-0 pb-5">
         <div className="container">
@@ -37,22 +38,24 @@ const LifeEventsSection = () => {
             <div className="col-lg-11 col-md-11 col-12">
               <Slider {...settings}>
                 {/* Event 1 */}
-                <div className="item">
-                  <div className="shadow-effect text-center">
-                    <img src="/img/e1.png" className="img-fluid d-block text-center" alt="Learning Sessions" />
-                    <p className="mt-3 mb-0 text-center">Learning Sessions</p>
-                  </div>
-                </div>
-                
-                {/* Event 2 */}
-                <div className="item">
+                {
+                  data?.content?.listing_id_events?.map((obj, index) => (
+                    <div key={index} className="item">
+                      <div className="shadow-effect text-center">
+                        <Image width={350} height={260} src={obj?.media_id?.file_path}  className="img-fluid d-block text-center" alt={obj?.media_id?.alt_text} />
+                        <p className="mt-3 mb-0 text-center">{obj?.title}</p>
+                      </div>
+                    </div>
+                  ))
+                }
+
+                {/* <div className="item">
                   <div className="shadow-effect text-center">
                     <img src="/img/e2.png" className="img-fluid d-block text-center" alt="Marathon" />
                     <p className="mt-3 mb-0 text-center">Marathon</p>
                   </div>
                 </div>
 
-                {/* Event 3 */}
                 <div className="item">
                   <div className="shadow-effect text-center">
                     <img src="/img/e3.png" className="img-fluid d-block text-center" alt="Medical Test" />
@@ -60,13 +63,13 @@ const LifeEventsSection = () => {
                   </div>
                 </div>
 
-                {/* Event 4 */}
                 <div className="item">
                   <div className="shadow-effect text-center">
                     <img src="/img/e4.png" className="img-fluid d-block text-center" alt="Team Lunch" />
                     <p className="mt-3 mb-0 text-center">Team Lunch</p>
                   </div>
-                </div>
+                </div> */}
+
               </Slider>
             </div>
           </div>

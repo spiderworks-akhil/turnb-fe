@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 
-const ProductTell = () => {
+const ProductTell = ({ data }) => {
   return (
     <div className="paralx clearfix">
       <div className="d-block pt-lg-0 pt-md-0 pt-2 pb-lg-5 pb-md-5 pb-4 mb-lg-5 mb-md-5 mb-4 position-relative clearfix">
@@ -22,22 +23,24 @@ const ProductTell = () => {
                       data-aos="fade-left"
                       data-aos-duration="3000"
                     >
-                      <h4>
-                        Let products tell their story and help
+                      <h4 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_4_text_1 }} />
+                      {/* Let products tell their story and help
                         <br />
                         you make decisions on the go!
-                      </h4>
+                      </h4> */}
                       <div className="boxgraydsc mt-lg-4 mt-md-4 mt-3 clearfix">
-                        <p className="m-0 text-white">
-                          ScanB translates barcodes into product performance insights with just a scan
-                        </p>
+                        <p className="m-0 text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_4_text_2 }} />
+                        {/* ScanB translates barcodes into product performance insights with just a scan
+                        </p> */}
                       </div>
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-12 p-0" data-aos="fade-left">
-                    <img
-                      src="/img/scanb/let-img.png"
-                      alt="Let Products Tell Their Story"
+                    <Image
+                      height={100}
+                      width={400}
+                      src={data?.content?.scanb_section_4_media_id?.file_path}
+                      alt={data?.content?.scanb_section_4_media_id?.alt_text}
                       className="img-fluid m-apple mt-lg-5 mt-md-5 mt-3"
                     />
                   </div>

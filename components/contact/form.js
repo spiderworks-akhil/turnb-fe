@@ -4,9 +4,10 @@ import BreadCrumbs from '../common/breadCrumbs';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { ContactApi } from '@/Datas/Endpoints/Contact';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 const ContactForm = ({ data }) => {
-  const { register, handleSubmit, watch, formState: { errors }, } = useForm()
+  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm()
 
   const router = useRouter();
   const pageUrl =
@@ -16,23 +17,30 @@ const ContactForm = ({ data }) => {
 
   const [loading, setLoading] = useState(false)
 
-  const onSubmit = (details) => {
+  const onSubmit = async (details) => {
     setLoading(true)
     let dataToSubmit = {
-      first_name: data?.name,
-      email: data?.email,
-      phone_number: data?.mobile,
-      message: data?.message,
-      source_url: pageUrl
+      name: details?.name,
+      email: details?.email,
+      phone_number: details?.mobile,
+      message: details?.message,
+      source_url: pageUrl,
+      type: 'Contact'
     }
+    console.log(dataToSubmit);
+
+
     try {
-      const response = ContactApi.save(dataToSubmit)
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+      console.log(response);
       if (response?.status == 200 || response?.status == 201) {
+        reset()
         setLoading(false)
       } else {
         setLoading(false)
       }
     } catch (error) {
+      console.log(error);
       setLoading(false)
     }
 
@@ -121,6 +129,7 @@ const ContactForm = ({ data }) => {
                 <div className="box-input p-3 clearfix">
                   <label htmlFor="message" className="form-label clr-ab ft-wt2">Message</label>
                   <textarea
+                    {...register('message')}
                     className="form-control"
                     id="message"
                     rows="1"

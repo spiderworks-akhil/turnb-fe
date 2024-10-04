@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-const Header = ({ MainMenu}) => {
+const Header = ({ MainMenu, Settings }) => {
+  
 
   const router = useRouter()
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -13,7 +14,7 @@ const Header = ({ MainMenu}) => {
     <nav className="autohide navbar navbar-expand-lg navbar-light sticky-top topnav">
       <div className="container">
         <Link href="/" className="navbar-brand">
-          <Image width={140} height={43} src="/img/logo-home.png" className="img-fluid wdd-logo" alt="Logo" />
+          <Image width={140} height={43} src={Settings?.logo} className="img-fluid wdd-logo" alt="Logo" />
         </Link>
         <button
           className="navbar-toggler"
@@ -39,16 +40,10 @@ const Header = ({ MainMenu}) => {
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                       {
                         obj?.children?.map((child, childIndex) => (
-                          <li key={childIndex}><Link href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' :  ''} `} >{child?.title}</Link></li>
+                          <li key={childIndex}><Link href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
                         ))
                       }
 
-                      {/* <li><Link href="/industries/retail-industries" className="dropdown-item active">Retail</Link></li>
-                      <li><Link href="/industries/technology-industries" className="dropdown-item">Technology</Link></li>
-                      <li><Link href="/industries/elarning-industries" className="dropdown-item">E-Learning</Link></li>
-                      <li><Link href="/industries/realestate-industries" className="dropdown-item">Real Estate</Link></li>
-                      <li><Link href="/industries/ecommerce-industries" className="dropdown-item">E-Commerce</Link></li>
-                      <li><Link href="/industries/trading-%26-distribution" className="dropdown-item">Trading and Distribution</Link></li> */}
                     </ul>
                   </li>
                   :
@@ -57,45 +52,11 @@ const Header = ({ MainMenu}) => {
                   </li>
               ))
             }
-            {/* <li className="nav-item">
-              <Link href="/about" className="nav-link scrollto active">About Us</Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/services" className="nav-link scrollto">Our Services</Link>
-            </li>
-            <li className="nav-item dropdown">
-              <a className="nav-link scrollto dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-                Industries
-              </a>
-              <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                <li><Link href="/industries/retail-industries" className="dropdown-item active">Retail</Link></li>
-                <li><Link href="/industries/technology-industries" className="dropdown-item">Technology</Link></li>
-                <li><Link href="/industries/elarning-industries" className="dropdown-item">E-Learning</Link></li>
-                <li><Link href="/industries/realestate-industries" className="dropdown-item">Real Estate</Link></li>
-                <li><Link href="/industries/ecommerce-industries" className="dropdown-item">E-Commerce</Link></li>
-                <li><Link href="/industries/trading-%26-distribution" className="dropdown-item">Trading and Distribution</Link></li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <Link href="/consult" className="nav-link scrollto">Consult D5<sup>TM</sup></Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/scanb" className="nav-link scrollto">ScanB</Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/case-studies" className="nav-link scrollto">Case Studies</Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/life-at-turnb" className="nav-link scrollto">Life@TurnB</Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/career" className="nav-link scrollto">Careers</Link>
-            </li>
-            <li className="nav-item">
-              <Link href="/contact-us" className="nav-link scrollto">Contact Us</Link>
-            </li> */}
+
           </ul>
-          <div className="navbar-right">
+
+          {/* search */}
+          {/* <div className="navbar-right">
             <form className="search-form searchbar" role="search" id="hiddenSearchBox" action="" method="POST">
               <div className="input-group">
                 <input type="text" name="keywords" className="form-control" placeholder="Search.." />
@@ -107,7 +68,7 @@ const Header = ({ MainMenu}) => {
                 </div>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

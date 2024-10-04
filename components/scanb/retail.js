@@ -1,6 +1,7 @@
+import Image from 'next/image';
 import React from 'react';
 
-const ScanRetailSection = () => {
+const ScanRetailSection = ({ data }) => {
   return (
     <div className="paralx clearfix">
       <div className="container">
@@ -8,9 +9,9 @@ const ScanRetailSection = () => {
           <div className="row justify-content-center">
             <div className="col-lg-11 col-md-11 col-12">
               <div className="">
-                <h1>Retail Thrives on Business Intelligence</h1>
+                <h1>{data?.content?.scanb_section_2_title}</h1>
                 <p className="intro-texts text-center mt-lg-4 mt-md-4 mt-3">
-                  Retail's data surge demands smarter tools. Legacy systems struggle with today's data complexity, hindering valuable insights. Business intelligence unlocks growth, optimizes inventory, and personalizes experiences. BI provides a competitive edge, enabling data-driven decisions to thrive in the ever-changing retail landscape.
+                  {data?.content?.scanb_section_2_short_description}
                 </p>
               </div>
             </div>
@@ -24,13 +25,25 @@ const ScanRetailSection = () => {
             <div className="col-lg-12 col-md-12 col-12">
               <div className="">
                 <h1 className="mb-lg-5 mb-md-5 mb-3" style={{ fontSize: '25px' }}>
-                  Retailers need a high-efficient business intelligence system that offers them:
+                  {data?.content?.scanb_section_2_sub_title}
                 </h1>
               </div>
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-lg-3 col-md-3 col-12">
+
+            {
+              data?.content?.listing_id_scanb?.map((obj, index) => (
+                <div key={index} className="col-lg-3 col-md-3 col-12">
+                  <div className="retalilersc text-center mt-lg-0 mt-md-0 mt-3" data-aos="zoom-in-down" data-aos-duration="500">
+                    <Image width={100} height={100} src={obj?.media_id?.file_path} alt={obj?.media_id?.file_path}  className="d-block m-auto mb-3" />
+                    <h3>{obj?.title}</h3>
+                    <p dangerouslySetInnerHTML={{__html:obj?.short_description}} className="mb-lg-0 mb-md-0 mb-4"  />
+                  </div>
+                </div>
+              ))
+            }
+            {/* <div className="col-lg-3 col-md-3 col-12">
               <div className="retalilersc text-center mt-lg-0 mt-md-0 mt-3" data-aos="zoom-in-down" data-aos-duration="500">
                 <img src="/img/scanb/icons/sr1.png" alt="Visibility" className="d-block m-auto mb-3" />
                 <h3>Visibility</h3>
@@ -38,8 +51,9 @@ const ScanRetailSection = () => {
                   to holistic <br /> business insights
                 </p>
               </div>
-            </div>
-            <div className="col-lg-3 col-md-3 col-12">
+            </div> */}
+
+            {/* <div className="col-lg-3 col-md-3 col-12">
               <div className="retalilersc text-center" data-aos="zoom-in-down" data-aos-duration="1000">
                 <img src="/img/scanb/icons/sr2.png" alt="Accessibility" className="d-block m-auto mb-3" />
                 <h3>Accessibility</h3>
@@ -48,6 +62,7 @@ const ScanRetailSection = () => {
                 </p>
               </div>
             </div>
+
             <div className="col-lg-3 col-md-3 col-12">
               <div className="retalilersc text-center" data-aos="zoom-in-down" data-aos-duration="1500">
                 <img src="/img/scanb/icons/sr3.png" alt="Scalability" className="d-block m-auto mb-3" />
@@ -65,7 +80,7 @@ const ScanRetailSection = () => {
                   to see <br /> multidimensional insights
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

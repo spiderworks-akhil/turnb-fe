@@ -3,8 +3,9 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Image from 'next/image';
 
-const KeyMembersSection = () => {
+const KeyMembersSection = ({ data, team }) => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
@@ -81,7 +82,7 @@ const KeyMembersSection = () => {
     <div className="container mt-lg-5 mt-md-5 mt-3">
       <div className="text-center position-relative" data-aos="fade-down">
         <h1 className="title-ak2 font-htd ft-wt2 mb-lg-0 mb-md-0 mb-0 mt-lg-0 mt-md-0 mt-4">
-          <span className="clr-g">Key <span className="clr-grn">Members</span></span>
+          <span className="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.title_6 }} />
         </h1>
       </div>
 
@@ -91,21 +92,24 @@ const KeyMembersSection = () => {
             <div className="row justify-content-center">
               <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent">
                 <div className="owl-carousel carousel-main bg-transparent">
-                  {teamMembers.map((member, index) => (
+                  {team?.data?.map((member, index) => (
                     <div key={index}>
                       <div className="single-person mt-5" data-aos={index % 2 === 0 ? 'fade-up' : 'fade-down'}>
                         <div className="person-image">
-                          <img src={member.img} className="img-fluid" alt={member.name} />
+                          <Image width={300} height={400} src={member?.featured_image?.file_path} className="img-fluid" alt={member?.featured_image?.alt_text || member.name} />
                         </div>
                         <div className="person-info text-center">
                           <h3 className="full-name clr-grn">{member.name}</h3>
-                          <span className="speciality">{member.role}</span>
+                          <span className="speciality">{member.designation}</span>
                         </div>
-                        <div className="social-icons text-center">
-                          <a href={member.linkedIn} target="_blank" rel="noreferrer">
-                            <i className="fa fa-linkedin lindd" aria-hidden="true"></i>
-                          </a>
-                        </div>
+                        {
+                          member?.linkedin_link &&
+                          <div className="social-icons text-center">
+                            <a href={member.linkedin_link} target="_blank" rel="noreferrer">
+                              <i className="fa fa-linkedin lindd" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        }
                       </div>
                     </div>
                   ))}

@@ -1,12 +1,19 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
+import { useRouter } from 'next/router';
 
-const FooterSection = () => {
+const FooterSection = ({data}) => {
+
+  const router = useRouter();
+  const pageUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + router.asPath
+      : '';
 
   return (
     <div>
       {/* Main Section */}
-      <div
+      {/* <div
         className="container mb-lg-5 mb-md-5 mb-4"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
@@ -51,12 +58,12 @@ const FooterSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Share on LinkedIn Section */}
       <div className="container">
         <a
-          href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://turnb.com/ethical-considerations-in-data-analytics.php&amp;title=ethical-considerations-in-data-analytics&amp;summary=Write%20a%20short%20description%20of%20your%20blog%20here."
+          href={`https://www.linkedin.com/shareArticle?mini=true&amp;url=${pageUrl};title=${data?.slug};summary=${data?.short_description}`}
           target="_blank"
           rel="noopener noreferrer"
         >
