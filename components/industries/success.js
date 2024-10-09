@@ -47,7 +47,12 @@ const IndustrySuccess = ({ data }) => {
                 <h1 className="title-ak2 ft-wt2 text-center mb-lg-5 mb-md-5 mb-4 mt-lg-0 mt-md-0 mt-4">
                   {/* <span className="text-dark">Data Driven <span className="clr-grn ft-wt3">Success </span></span>
                   <span className="text-dark">{data?.content?.title_3}</span> */}
-                  <span className="text-dark industries-heading" dangerouslySetInnerHTML={{ __html: data?.content?.title_3 }} />
+                  {
+                    data?.content?.title_3 ?
+                      <span className="text-dark industries-heading" dangerouslySetInnerHTML={{ __html: data?.content?.title_3 }} />
+                      :
+                      <span className="text-dark">Data Driven <span className="clr-grn ft-wt3">Success </span> </span>
+                  }
 
 
                 </h1>

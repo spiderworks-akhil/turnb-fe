@@ -1,12 +1,9 @@
 // components/AboutSection.js
 import React, { useEffect } from 'react';
-import AOS from 'aos';
 import Link from 'next/link';
 
 const AboutSection = ({ data }) => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
+
 
   return (
     <div className="bg-infographic clearfix">
@@ -30,7 +27,7 @@ const AboutSection = ({ data }) => {
                   className="text-justify position-relative aos-init aos-animate"
                   data-aos="fade-up"
                 >
-                  <p dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} className="w-auto mt-0 text-justify mb-2" />
+                  <div dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} className="w-auto mt-0 text-justify mb-2" />
                     {/* {data?.content?.description_2}
                   </p> */}
                   <div className="knw-more mt-lg-3 mt-md-3 clearfix">

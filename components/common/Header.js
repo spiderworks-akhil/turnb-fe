@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 const Header = ({ MainMenu, Settings }) => {
-  
+
 
   const router = useRouter()
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -33,8 +33,8 @@ const Header = ({ MainMenu, Settings }) => {
             {
               MainMenu?.Main_Menu?.map((obj, index) => (
                 obj?.children?.length > 0 ?
-                  <li key={index} className="nav-item dropdown cursor-pointer">
-                    <a className="nav-link scrollto dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                  <li key={index} className="nav-item dropdown">
+                    <a style={{ cursor: 'pointer' }} className="nav-link scrollto dropdown-toggle" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                       {obj?.title}
                     </a>
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
@@ -43,7 +43,6 @@ const Header = ({ MainMenu, Settings }) => {
                           <li key={childIndex}><Link href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
                         ))
                       }
-
                     </ul>
                   </li>
                   :

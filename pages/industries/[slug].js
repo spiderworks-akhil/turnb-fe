@@ -9,17 +9,23 @@ import { MenuApi } from "@/Datas/Endpoints/Menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Slug({general, data}) {
+export default function Slug({ general, data }) {
 
     console.log(data);
-    
+
 
     return (
         <Layout general={general} data={data}>
             <BannerIndustries data={data} />
             <RetailSection data={data} />
-            <SolutionAreas data={data} />
-            <IndustrySuccess data={data} />
+            {
+                data?.content?.industries_process_listing_name?.list?.length > 0 &&
+                <SolutionAreas data={data} />
+            }
+            {
+                data?.case_studies?.length > 0 &&
+                < IndustrySuccess data={data} />
+            }
         </Layout>
     );
 }
@@ -35,7 +41,7 @@ export async function getStaticPaths() {
     return { paths, fallback: 'blocking' };
 }
 
-export async function getStaticProps(context) {    
+export async function getStaticProps(context) {
     try {
 
         const general = await MenuApi.genralSettings()
