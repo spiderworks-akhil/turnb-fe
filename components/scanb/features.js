@@ -60,7 +60,7 @@ const ScanbFeatures = ({ data }) => {
                 <div className="item" style={{ backgroundImage: 'url(/img/scanb/v5.png)' }}>
                   <div className="item-desc text-center">
                     <h3 className="text-white">Powered by Microsoft</h3>
-                    <p>Built utilizing Microsoft's sophisticated Power BI platform for advanced analytics capabilities.</p>
+                    <p>Built utilizing Microsoft&apos;s sophisticated Power BI platform for advanced analytics capabilities.</p>
                   </div>
                 </div>
                 <div className="item" style={{ backgroundImage: 'url(/img/scanb/v7.png)' }}>

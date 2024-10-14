@@ -39,7 +39,7 @@ const ListingSections = () => {
                     <p className="m-0">
                       <span className="clr-b">Privacy Challenges:</span> At the core of ethical deliberations in data analytics
                       lies the issue of privacy infringement. The extensive gathering of personal data, often without
-                      explicit consent, raises concerns about an individual's right to privacy and the ethical boundaries of
+                      explicit consent, raises concerns about an individual&apos;s right to privacy and the ethical boundaries of
                       data utilization.
                     </p>
                   </div>
