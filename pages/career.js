@@ -8,15 +8,18 @@ import { CareerApi } from "@/Datas/Endpoints/Career";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Career({general, data}) {
+export default function Career({ general, data, jobs }) {
 
-    console.log(data);
+    const settings=general?.all_settings?.original?.data
     
+
+    console.log(jobs);
+
     return (
         <Layout general={general} data={data}>
             <CareerBanner data={data} />
             <WhyWorkWithTurnB data={data} />
-            <CareerSection data={data} />
+            <CareerSection data={data} jobs={jobs} settings={settings} />
         </Layout>
     );
 }
@@ -26,11 +29,13 @@ export async function getStaticProps() {
     try {
         const general = await MenuApi.genralSettings()
         const data = await CareerApi.index()
+        const jobs = await CareerApi.jobs()
 
         return {
             props: {
                 general: general?.data,
                 data: data?.data?.data,
+                jobs: jobs?.data
             },
             revalidate: 10,
         };
