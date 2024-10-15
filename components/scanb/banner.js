@@ -11,7 +11,7 @@ const ScanbBanner = ({ data }) => {
         {/* Desktop Banner */}
         <div
           className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none desktop-banB"
-          style={{ background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`, backgroundSize: 'cover', height: '750px' }}
+          style={{ background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`, backgroundSize: 'cover',  }}
         >
           <a href={data?.content?.scanb_button_link_1} target="_blank" style={{ textDecoration: 'none' }}>
             <button id="watch-video">{data?.content?.scanb_button_text_1}</button>

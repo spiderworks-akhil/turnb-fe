@@ -14,12 +14,12 @@ const LifeMiddleSection = ({ data }) => {
   };
 
   return (
-    <div className="grey-seclife clearfix">
+    <div className="grey-seclife clearfix ">
       <div className="container">
-        <div className="row">
-          <div className="col-lg-6 col-md-6 col-12">
+        <div className="row ">
+          <div className="col-lg-6 col-md-6 col-12 ">
             <div className="img-lifet mt-lg-4 mt-md-4 mt-3" data-aos="fade-up">
-              <div className="imginner-lfe mb-lg-4 mb-md-4 mb-3" >
+              <div className="imginner-lfe mb-lg-4 mb-md-4 mb-3 " >
 
                 <div dangerouslySetInnerHTML={{ __html: data?.content?.life_at_turnb_description_1 }} />
 

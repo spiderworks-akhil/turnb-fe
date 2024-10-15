@@ -11,7 +11,7 @@ const BannerIndustries = ({data}) => {
         width={1520}
         height={714}
         src={data?.content?.industry_banner_media_id?.file_path}
-        className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+        className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
       />
       <Image
         width={960} height={540}

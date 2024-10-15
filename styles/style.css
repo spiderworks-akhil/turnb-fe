@@ -3073,7 +3073,7 @@ section {
 }
 
 .homebanner .carousel-item {
-    height: 100vh;
+    height: calc(100vh + 90px);
     /* min-height: 300px;*/
 }
 
@@ -3267,7 +3267,7 @@ section {
     }
 
     .mrhometop {
-        margin-top: 81px !important;
+        margin-top: 165px !important;
     }
 
     .homebanner .carousel-item {
@@ -5106,7 +5106,7 @@ h5 {
 }
 
 .scanb-advance {
-    /* background: url(/img/scanb-advance.png) no-repeat;*/
+    background: url(/img/scanb-advance.png) no-repeat;
     padding: 0px;
     background-size: cover;
 }
@@ -5117,12 +5117,16 @@ h5 {
 }
 
 .scan-bmoblatp h1 {
-    color: #929292;
+    color: #ffffff;
     text-align: center;
-    font-size: 29px;
+    font-size: 75px;
     font-style: normal;
     font-weight: 700;
     line-height: 114.778%;
+}
+
+.scan-bmoblatp span {
+    color: var(--brand-gradient, #0AA8A8);
 }
 
 .grs {
@@ -5183,6 +5187,32 @@ h5 {
     /* margin-top: 143px; */
     position: absolute;
     top: 25%;
+}
+
+.game-section .item-desc {
+    padding: 0 24px 38px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    /* transform: translateY(calc(100% - 54px)); */
+    /* -webkit-transform: translateY(calc(100% - 54px)); */
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+}
+
+.item.scanb-feature-block {
+    height: 430px;
+    display: -webkit-flex;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    background: #343434 no-repeat center center / cover;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    cursor: pointer;
 }
 
 .point-one p {

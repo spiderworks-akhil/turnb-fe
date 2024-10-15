@@ -12,9 +12,9 @@ const ConsultBanner = ({ data }) => {
       <div className="carousel-inner">
         <div className="carousel-item active" data-aos="fade-in">
           <Image
-            width={1520} height={714}
+            width={1920} height={1080}
             alt={data?.content?.consult_banner_media_id?.alt_text || data?.name}
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
             src={data?.content?.consult_banner_media_id?.file_path}
             data-aos="fade-in"
           />

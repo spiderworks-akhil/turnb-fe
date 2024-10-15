@@ -13,9 +13,9 @@ const ServiceBanner = ({ data }) => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <Image
-            width={1520} height={714}
+            width={1920} height={1080}
             alt={data?.content?.services_banner_media_id?.alt_text || data?.name}
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+            className="d-block text-center m-auto img-height w-100 img-fluid d-lg-block d-md-block d-none"
             src={data?.content?.services_banner_media_id?.file_path}
           />
           <Image

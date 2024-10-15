@@ -4,9 +4,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const ScanbFeatures = ({ data }) => {
+
+  console.log(data);
+
+
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -30,16 +34,19 @@ const ScanbFeatures = ({ data }) => {
             <section className="scanb-feature-s game-section">
               <Slider {...settings}>
                 {
-                  data?.content?.listing_id_scanb_feature?.map((obj,index) => (
-                    <div key={index} className="item" style={{ backgroundImage: `url(${obj?.media_id}})` }}>
-                      <div className="item-desc text-center">
-                        <h3 className="text-white">{obj?.title}</h3>
-                        <p>{obj?.short_description}</p>
+                  data?.content?.listing_id_scanb_feature?.map((obj, index) => (
+                  <div key={index}>
+                      <div className="item scanb-feature-block" style={{ backgroundImage: `url('${obj?.media_id?.file_path}')` }} >
+                        <div className="item-desc text-center">
+                          <h3 className="text-white">{obj?.title}</h3>
+                          <p className='text-white'>{obj?.short_description}</p>
+                        </div>
                       </div>
-                    </div>
+                  </div>
                   ))
                 }
-                <div className="item" style={{ backgroundImage: 'url(/img/scanb/v3.png)' }}>
+
+                {/* <div className="item" style={{ backgroundImage: 'url(/img/scanb/v3.png)' }}>
                   <div className="item-desc text-center">
                     <h3 className="text-white">Interactive dashboards</h3>
                     <p>Our data dashboards will enable users to drill down the data into specific details, filter data based on different criteria, and view information from different angles.</p>
@@ -80,7 +87,9 @@ const ScanbFeatures = ({ data }) => {
                     <h3 className="text-white">Change management</h3>
                     <p>Capability to enhance/modify product post-deployment, including creating customized dashboards and metrics upon request.</p>
                   </div>
-                </div>
+                </div> */}
+
+
               </Slider>
             </section>
           </div>

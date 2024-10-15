@@ -17,7 +17,7 @@ const LifeBanner = ({ data }) => {
           <Image
             alt={data?.content?.life_at_banner_media_id?.alt_text || data?.name}
             src={data?.content?.life_at_banner_media_id?.file_path}
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
             width={1200} // Adjust width and height based on your image
             height={600}
             layout="responsive"

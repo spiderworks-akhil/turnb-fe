@@ -1,6 +1,9 @@
+import Image from 'next/image';
 import React from 'react';
 
 const ScanbAdvance = ({ data }) => {
+
+
   return (
     <div className="paralx clearfix">
       <div className="d-block pt-lg-0 pt-md-0 pt-0 position-relative scanb-advance clearfix">
@@ -8,13 +11,10 @@ const ScanbAdvance = ({ data }) => {
           <div className="row justify-content-left scanb-newsection">
             <div className="col-lg-10 col-md-10 col-12">
               <div className="text-center scan-bmoblatp clearfix">
-                <h1 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_title_1 }} className="text-left">
-                  {/* Scan<span className="grs">B</span> */}
-                </h1>
+                <h1 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" />
                 <div className="image-subheading">
-                  <img src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '80%' }} />
+                  <Image width={'800'} height={'486'} src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '80%' }} />
                   <h6 className="text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} />
-
                 </div>
                 <hr id="image-hrline" />
                 <div className="row pt-5">
