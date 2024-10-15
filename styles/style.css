@@ -131,8 +131,8 @@ body {
 
 @font-face {
     font-family: 'romelio_sansregular';
-    src: url('../public/fonts/romelio-webfont.woff2') format('woff2'),
-        url('../public/fonts/romelio-webfont.woff') format('woff');
+    src: url('/fonts/romelio-webfont.woff2') format('woff2'),
+        url('/fonts/romelio-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -447,7 +447,7 @@ section {
 
 .retail-bg {
     position: relative;
-    background: url(../public/img/bg-retail.jpg) no-repeat;
+    background: url(/img/bg-retail.jpg) no-repeat;
     background-size: cover;
     background-position: center center;
 }
@@ -597,7 +597,7 @@ section {
 }
 
 .bg-lifeturnb {
-    background: url(../public/img/banners/banner-lifecont.jpg) no-repeat;
+    background: url(/img/banners/banner-lifecont.jpg) no-repeat;
     background-size: cover;
     position: relative;
 }
@@ -1620,7 +1620,7 @@ section {
 
 
 .career-bg {
-    /*    background: url(../public/img/career-bg.jpg) no-repeat;
+    /*    background: url(/img/career-bg.jpg) no-repeat;
 */
     position: relative;
     background-size: cover;
@@ -1748,7 +1748,7 @@ section {
 }
 
 .bg-contact {
-    background: url(../public/img/contact-bg.png) no-repeat;
+    background: url(/img/contact-bg.png) no-repeat;
     border-radius: 17px;
     position: relative;
     padding-left: 63px;
@@ -1883,7 +1883,7 @@ section {
 
 
 .bg-whywork {
-    background: url(../public/img/whywork.png) no-repeat;
+    background: url(/img/whywork.png) no-repeat;
     background-size: cover;
     position: relative;
     border-radius: 23px;
@@ -2232,16 +2232,16 @@ section {
 
 
 .expense {
-    /* background: url(../public/img/exp.png) no-repeat;
+    /* background: url(/img/exp.png) no-repeat;
      background-size: cover; 
  background-position: center;
     min-height: 600px;*/
     position: relative;
 }
 
-/*.expense:hover{    background: url(../public/img/exp-over.png) no-repeat;}
+/*.expense:hover{    background: url(/img/exp-over.png) no-repeat;}
 */
-/*.imgexp img:hover{ background: url(../public/img/exp-over.png) no-repeat;}
+/*.imgexp img:hover{ background: url(/img/exp-over.png) no-repeat;}
 */
 
 .exp-content {
@@ -2259,7 +2259,7 @@ section {
 .homeicon-b {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c1.png) no-repeat;
+    background: url(/img/homeicon/c1.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2270,8 +2270,8 @@ section {
 }
 
 .homeicon-b:hover {
-    diplay: block;
-    background: url(../public/img/homeicon/c1-g.png) no-repeat;
+    display: block;
+    background: url(/img/homeicon/c1-g.png) no-repeat;
     background-position: center;
 }
 
@@ -2288,7 +2288,7 @@ section {
 .homeicon-b2 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c2.png) no-repeat;
+    background: url(/img/homeicon/c2.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2300,7 +2300,7 @@ section {
 
 .homeicon-b2:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c2-g.png) no-repeat;
+    background: url(/img/homeicon/c2-g.png) no-repeat;
     background-position: center;
 }
 
@@ -2309,7 +2309,7 @@ section {
 .homeicon-b3 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c3.png) no-repeat;
+    background: url(/img/homeicon/c3.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2321,7 +2321,7 @@ section {
 
 .homeicon-b3:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c3-g.png) no-repeat;
+    background: url(/img/homeicon/c3-g.png) no-repeat;
     background-position: center;
 }
 
@@ -2329,7 +2329,7 @@ section {
 .homeicon-b4 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c4.png) no-repeat;
+    background: url(/img/homeicon/c4.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2340,15 +2340,15 @@ section {
 }
 
 .homeicon-b4:hover {
-    diplay: block;
-    background: url(../public/img/homeicon/c4-g.png) no-repeat;
+    display: block;
+    background: url(/img/homeicon/c4-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b5 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c5.png) no-repeat;
+    background: url(/img/homeicon/c5.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2360,14 +2360,14 @@ section {
 
 .homeicon-b5:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c5-g.png) no-repeat;
+    background: url(/img/homeicon/c5-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b6 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c6.png) no-repeat;
+    background: url(/img/homeicon/c6.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2379,14 +2379,14 @@ section {
 
 .homeicon-b6:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c6-g.png) no-repeat;
+    background: url(/img/homeicon/c6-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b7 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c7.png) no-repeat;
+    background: url(/img/homeicon/c7.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2398,14 +2398,14 @@ section {
 
 .homeicon-b7:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c7-g.png) no-repeat;
+    background: url(/img/homeicon/c7-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b8 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c8.png) no-repeat;
+    background: url(/img/homeicon/c8.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2417,14 +2417,14 @@ section {
 
 .homeicon-b8:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c8-g.png) no-repeat;
+    background: url(/img/homeicon/c8-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b9 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c9.png) no-repeat;
+    background: url(/img/homeicon/c9.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2436,14 +2436,14 @@ section {
 
 .homeicon-b9:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c9-g.png) no-repeat;
+    background: url(/img/homeicon/c9-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b10 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c10.png) no-repeat;
+    background: url(/img/homeicon/c10.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2455,14 +2455,14 @@ section {
 
 .homeicon-b10:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c10-g.png) no-repeat;
+    background: url(/img/homeicon/c10-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b11 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c11.png) no-repeat;
+    background: url(/img/homeicon/c11.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2474,14 +2474,14 @@ section {
 
 .homeicon-b11:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c11-g.png) no-repeat;
+    background: url(/img/homeicon/c11-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b12 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c12.png) no-repeat;
+    background: url(/img/homeicon/c12.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2492,15 +2492,15 @@ section {
 }
 
 .homeicon-b12:hover {
-    diplay: block;
-    background: url(../public/img/homeicon/c12-g.png) no-repeat;
+    display: block;
+    background: url(/img/homeicon/c12-g.png) no-repeat;
     background-position: center;
 }
 
 .homeicon-b13 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c13.png) no-repeat;
+    background: url(/img/homeicon/c13.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2512,7 +2512,7 @@ section {
 
 .homeicon-b13:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c13-g.png) no-repeat;
+    background: url(/img/homeicon/c13-g.png) no-repeat;
     background-position: center;
 }
 
@@ -2520,7 +2520,7 @@ section {
 .homeicon-b14 {
     display: block;
     height: 89px;
-    background: url(../public/img/homeicon/c14.png) no-repeat;
+    background: url(/img/homeicon/c14.png) no-repeat;
     /* margin-top: 30px; */
     padding-top: 10px;
     width: 89px;
@@ -2532,7 +2532,7 @@ section {
 
 .homeicon-b14:hover {
     diplay: block;
-    background: url(../public/img/homeicon/c14-g.png) no-repeat;
+    background: url(/img/homeicon/c14-g.png) no-repeat;
     background-position: center;
 }
 
@@ -2668,7 +2668,7 @@ section {
 
 
 .bg-infographic {
-    background: url(../public/img/info-bg-home.jpg) no-repeat;
+    background: url(/img/info-bg-home.jpg) no-repeat;
     position: relative;
     background-size: cover;
     padding-bottom: 95px;
@@ -2910,7 +2910,7 @@ section {
 }
 
 .slide1 {
-    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../public/img/banners/b1.jpg);
+    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/img/banners/b1.jpg);
 */
     background-size: cover;
     background-position: center;
@@ -2918,21 +2918,21 @@ section {
 }
 
 .slide2 {
-    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../public/img/banners/desk-ak-b2.jpg);
+    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/img/banners/desk-ak-b2.jpg);
 */
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .slide3 {
-    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../public/img/banners/desk-ak-b3.jpg);
+    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/img/banners/desk-ak-b3.jpg);
 */
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .slide4 {
-    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../public/img/banners/desk-ak-b4.jpg);
+    /*    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/img/banners/desk-ak-b4.jpg);
 */
     background-position: center;
     background-repeat: no-repeat;
@@ -3487,17 +3487,17 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
 }
 
 .panWrapper a.controls.in {
-    background-image: url('../public/img/zoomIn.png');
+    background-image: url('/img/zoomIn.png');
     margin-left: -30px;
 }
 
 .panWrapper a.controls.out {
-    background-image: url('../public/img/zoomOut.png');
+    background-image: url('/img/zoomOut.png');
     margin-left: 30px;
 }
 
 .panWrapper a.controls.close {
-    background-image: url('../public/img/close.png');
+    background-image: url('/img/close.png');
     left: auto;
     right: 30px;
     top: 30px;
@@ -3511,7 +3511,7 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
     margin: -50px 0 0 -50px;
     width: 100px;
     height: 100px;
-    background-image: url(../public/img/loading.gif);
+    background-image: url(/img/loading.gif);
     background-repeat: no-repeat;
     background-size: 100%;
     display: block;
@@ -3686,7 +3686,7 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
 }
 
 .why-us-banner {
-    /* background: url(../public/img/banners/whyus-banner.jpg) no-repeat; */
+    /* background: url(/img/banners/whyus-banner.jpg) no-repeat; */
     position: relative;
     background-size: cover;
     /* background-position: center right; */
@@ -3898,7 +3898,7 @@ h5 {
 
     font-family: 'Montserrat', sans-serif;
     padding: 0px 0;
-    background: url(../public/img/team-bg.jpg) no-repeat;
+    background: url(/img/team-bg.jpg) no-repeat;
     background-position: 73px 126px;
     margin-top: -71px;
 }
@@ -4147,7 +4147,7 @@ h5 {
 
 
 .bg-partwhywork {
-    /*    background: url(../public/img/bg-partnerwork.jpg) no-repeat;
+    /*    background: url(/img/bg-partnerwork.jpg) no-repeat;
 */
 
     background-color: #e7f9f6;
@@ -4612,7 +4612,7 @@ h5 {
 }
 
 .bg-services-box {
-    background: url(../public/img/bg-services-box.png) no-repeat;
+    background: url(/img/bg-services-box.png) no-repeat;
 }
 
 .bg-services-box2 {
@@ -4754,7 +4754,7 @@ h5 {
 
 .banner-data {
     position: relative;
-    background: url(../public/img/banner-data.jpg) no-repeat;
+    background: url(/img/banner-data.jpg) no-repeat;
     background-size: cover;
     height: 960px;
 }
@@ -5106,7 +5106,7 @@ h5 {
 }
 
 .scanb-advance {
-    /* background: url(../public/img/scanb-advance.png) no-repeat;*/
+    /* background: url(/img/scanb-advance.png) no-repeat;*/
     padding: 0px;
     background-size: cover;
 }
@@ -5369,7 +5369,7 @@ h5 {
 
 .scanb-borgana {
     position: relative;
-    background: url(../public/img/organisation-img.png) no-repeat;
+    background: url(/img/organisation-img.png) no-repeat;
     padding: 25px;
     background-size: cover;
 }
@@ -5400,7 +5400,7 @@ h5 {
 
 .scanb-busi {
     position: relative;
-    background: url(../public/img/business-img.png) no-repeat;
+    background: url(/img/business-img.png) no-repeat;
     padding: 0px;
     background-size: cover;
 }
@@ -5816,7 +5816,7 @@ h5 {
 }
 
 .bg-real {
-    background: url(../public/img/bg-real.jpg) no-repeat;
+    background: url(/img/bg-real.jpg) no-repeat;
     position: relative;
     background-size: cover;
     padding-bottom: 30px;
@@ -5992,7 +5992,7 @@ h5 {
 }
 
 #milestone {
-    /* background: linear-gradient(rgba(255, 77, 41, 0.85), rgba(255, 77, 41, 0.85)), url(../public/img/bg_banner1.html); */
+    /* background: linear-gradient(rgba(255, 77, 41, 0.85), rgba(255, 77, 41, 0.85)), url(/img/bg_banner1.html); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -6118,7 +6118,7 @@ h5 {
 
 #reviews {
 
-    /* background: linear-gradient(-90deg, rgba(8, 32, 50, 0.8), rgba(8, 32, 50, 0.8)), url(../public/img/bg_banner1.html), #082032;; */
+    /* background: linear-gradient(-90deg, rgba(8, 32, 50, 0.8), rgba(8, 32, 50, 0.8)), url(/img/bg_banner1.html), #082032;; */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

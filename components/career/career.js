@@ -1,7 +1,8 @@
 import React from 'react';
 import BreadCrumbs from '../common/breadCrumbs';
+import Link from 'next/link';
 
-const CareerSection = ({ data, jobs ,settings}) => {
+const CareerSection = ({ data, jobs, settings }) => {
   return (
     <div className="career-bg clearfix">
       <div className="container">
@@ -31,7 +32,7 @@ const CareerSection = ({ data, jobs ,settings}) => {
             {/* India Tab Content */}
             {
               jobs?.map((obj, index) => (
-                <div key={index} className={`tab-pane fade ${index==0?'active show':''}`} id={`nav-${obj?.country_name}`} role="tabpanel" aria-labelledby={`nav-${obj?.country_name}-tab`}>
+                <div key={index} className={`tab-pane fade ${index == 0 ? 'active show' : ''}`} id={`nav-${obj?.country_name}`} role="tabpanel" aria-labelledby={`nav-${obj?.country_name}-tab`}>
                   <div className="row justify-content-center mt-lg-4 mt-md-4 mt-3 mb-lg-5 mb-md-5 mb-4">
                     {
                       obj?.jobs?.map((job, jobIndex) => (
@@ -42,9 +43,14 @@ const CareerSection = ({ data, jobs ,settings}) => {
                                 <div className="p-3 pb-2">
                                   <h3 className="fnt-22" dangerouslySetInnerHTML={{ __html: job?.title }} />
                                 </div>
-                                <div className="learn-more mt-topln d-block text-center mb-3 clearfix">
-                                  <button className="lrn-b"><a href="/img/pdf/sales-%26-marketing.pdf" className="text-d" target="_blank" download="">Know More</a></button>
-                                </div>
+                                {
+                                  job?.pdf?.file_path &&
+                                  <a href={job?.pdf?.file_path} className="text-d" target="_blank" download>
+                                    <div className="learn-more mt-topln d-block text-center mb-3 clearfix">
+                                      <button className="lrn-b text-d">Know More</button>
+                                    </div>
+                                  </a>
+                                }
                               </div>
                             </div>
                           </div>
@@ -90,7 +96,7 @@ const CareerSection = ({ data, jobs ,settings}) => {
                       <div className="cantfind pt-pg-5 pt-md-5 pt-4 mt-lg-5 mt-md-5 mt-3 mb-lg-5 mb-md-5 mb-3 text-center clearfix">
                         <h3 className="ft-wt2 mb-lg-3 mb-md-3 mb-2">{data?.content?.career_footer_title}</h3>
                         <div className="d-block m-auto text-center">
-                          <h4 className="mb-0 pt-3 pb-3">Send your profile to <span className="clr-ab"><a href={obj?.email || settings?.career_secondary_mail_id} className="clr-ab" style={{ textDecoration: 'none', fontWeight: 'bold' }}>{obj?.email || settings?.career_secondary_mail_id}</a></span> and we’ll get back to you.</h4>
+                          <h4 className="mb-0 pt-3 pb-3">Send your profile to <span className="clr-ab"><a href={obj?.country_email || settings?.career_secondary_mail_id} className="clr-ab" style={{ textDecoration: 'none', fontWeight: 'bold' }}>{obj?.country_email || settings?.career_secondary_mail_id}</a></span> and we’ll get back to you.</h4>
                         </div>
                       </div>
                     </div>
