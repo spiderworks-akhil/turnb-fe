@@ -8,7 +8,10 @@ import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu }) => {
 
-  const { register, handleSubmit, watch, formState: { errors },reset } = useForm()
+  const d = new Date();
+  let year = d.getFullYear();  
+
+  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm()
 
   const router = useRouter();
   const pageUrl =
@@ -26,7 +29,7 @@ const Footer = ({ FooterMenu }) => {
       phone_number: details?.mobile,
       message: details?.message,
       source_url: pageUrl,
-      type:'Enquiry'
+      type: 'Enquiry'
     }
     console.log(dataToSubmit);
 
@@ -132,7 +135,7 @@ const Footer = ({ FooterMenu }) => {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-12">
-              <p className="flw2">© 2024 TurnB. All Rights Reserved</p>
+              <p className="flw2">© {year} TurnB. All Rights Reserved</p>
             </div>
           </div>
         </div>
