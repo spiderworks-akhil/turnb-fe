@@ -38,11 +38,11 @@ const SecondSection = () => {
                   2. How is ethics related to data analytics?
                 </h5>
                 <p className="m-0 mt-1 text-left text-bch">
-                  Data analytics holds immense power to drive innovation and decision-making in today's digital age.
+                  Data analytics holds immense power to drive innovation and decision-making in today&apos;s digital age.
                   However, with this power comes a pressing need for ethical considerations to guide its use responsibly.
                   Ethical considerations in data analytics encompass key principles such as privacy, fairness,
                   transparency, consent, security, and social responsibility. In our exploration of this vital topic,
-                  we'll delve into how these principles shape the ethical landscape of data analytics, ensuring that it
+                  we&apos;ll delve into how these principles shape the ethical landscape of data analytics, ensuring that it
                   serves not only organizational objectives but also upholds the rights and well-being of individuals and
                   society.
                 </p>

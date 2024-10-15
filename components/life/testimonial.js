@@ -29,7 +29,7 @@ const LifeTestimonials = ({ data }) => {
                             {/* TESTIMONIAL 1 */}
                             {
                                 data?.content?.listing_id_experience?.map((obj, index) => (
-                                    <div className="item">
+                                    <div key={index} className="item">
                                         <div className="shadow-ef">
                                             <div className="testi-box">
                                                 <div className="testi-cont text-center clearfix">
