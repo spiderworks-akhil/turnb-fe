@@ -25,10 +25,10 @@ function Banner({ data }) {
                         key={index} 
                         className={`carousel-item ${index === 0 ? 'active' : ''}`}>
                         <a><Image 
-                            width={1500} 
-                            height={850} 
+                            width={1920} 
+                            height={1080} 
                             alt={obj?.url?.alt_text} 
-                            className="d-block img-fluid d-lg-block d-md-block d-none" 
+                            className="d-block w-100 img-fluid d-lg-block d-md-block d-none" 
                             src={obj?.url?.file_path} 
                         /></a>
                         <a><Image 
