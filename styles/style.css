@@ -330,8 +330,8 @@ section {
 .carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: 15px;
-    height: 15px;
+    width: 15px !important;
+    height: 15px !important;
     padding: 0;
     margin-right: 3px;
     margin-left: 3px;
