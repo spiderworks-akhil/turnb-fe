@@ -12,7 +12,6 @@ const Footer = ({ FooterMenu }) => {
   const [captchaVerified, setCaptchaVerified] = useState(false);
 
   const handleCaptchaChange = (value) => {
-    console.log("Captcha value:", value);
     setCaptchaVerified(true);
   };
 
@@ -48,7 +47,6 @@ const Footer = ({ FooterMenu }) => {
 
       try {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-        console.log(response);
         if (response?.status == 200 || response?.status == 201) {
           router.push('/thankyou')
           reset()
