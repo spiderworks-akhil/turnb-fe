@@ -34,7 +34,7 @@ const LifeTestimonials = ({ data }) => {
                                             <div className="testi-box">
                                                 <div className="testi-cont text-center clearfix">
                                                     <div className="quoteup">
-                                                        <img src="/img/quote.png" className="img-fluid" alt="quote" />
+                                                        <Image width={100} height={100} src="/img/quote.png" className="img-fluid" alt="quote" />
                                                     </div>
                                                     <p>
                                                         {obj?.short_description}
@@ -45,7 +45,7 @@ const LifeTestimonials = ({ data }) => {
                                                     </div>
                                                     <h4 className="clt ft-wt3 mt-lg-2 mt-md-2 mt-2 mb-1">{obj?.title}</h4>
                                                     <div className="quotedwn">
-                                                        <img src="/img/quotedown.png" className="img-fluid" alt="quote down" />
+                                                        <Image width={100} height={100} src="/img/quotedown.png" className="img-fluid" alt="quote down" />
                                                     </div>
                                                 </div>
                                             </div>

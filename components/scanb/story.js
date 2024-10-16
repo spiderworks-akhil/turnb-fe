@@ -50,7 +50,9 @@ const ProductTell = ({ data }) => {
           </div>
         </div>
         <div className="scan-struct clearfix">
-          <img
+          <Image
+            width={100}
+            height={100}
             src="/img/scanb/line-struct.png"
             alt="Line Structure"
             className="img-fluid"

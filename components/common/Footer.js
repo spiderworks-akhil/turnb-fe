@@ -4,12 +4,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu }) => {
 
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+
+  const handleCaptchaChange = (value) => {
+    console.log("Captcha value:", value);
+    setCaptchaVerified(true);
+  };
+
   const d = new Date();
-  let year = d.getFullYear();  
+  let year = d.getFullYear();
 
   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm()
 
@@ -22,32 +30,39 @@ const Footer = ({ FooterMenu }) => {
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async (details) => {
-    setLoading(true)
-    let dataToSubmit = {
-      name: details?.name,
-      email: details?.email,
-      phone_number: details?.mobile,
-      message: details?.message,
-      source_url: pageUrl,
-      type: 'Enquiry'
-    }
-    console.log(dataToSubmit);
 
+    if (!captchaVerified) {
+      alert('Please verify the reCAPTCHA');
+      return;
+    } else {
 
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-      console.log(response);
-      if (response?.status == 200 || response?.status == 201) {
-        reset()
-        setLoading(false)
-        reset
-      } else {
+      setLoading(true)
+      let dataToSubmit = {
+        name: details?.name,
+        email: details?.email,
+        phone_number: details?.mobile,
+        message: details?.message,
+        source_url: pageUrl,
+        type: 'Enquiry'
+      }
+
+      try {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+        console.log(response);
+        if (response?.status == 200 || response?.status == 201) {
+          router.push('/thankyou')
+          reset()
+          setLoading(false)
+          reset
+        } else {
+          setLoading(false)
+        }
+      } catch (error) {
+        console.log(error);
         setLoading(false)
       }
-    } catch (error) {
-      console.log(error);
-      setLoading(false)
     }
+
 
   }
 
@@ -55,6 +70,9 @@ const Footer = ({ FooterMenu }) => {
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
+    if(!isModalOpen){
+      reset()
+    }
   };
 
 
@@ -253,11 +271,16 @@ const Footer = ({ FooterMenu }) => {
                         </div>
                         <div className="col-lg-6 col-md-6 col-12 mt-0">
                           <div className="m-0 mt-3">
+                            <ReCAPTCHA
+                              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
+                              onChange={handleCaptchaChange}
+                            />
                             {/* <ReCAPTCHA
                             sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"
                           /> */}
                           </div>
                         </div>
+
                         <div className="col-12">
                           <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
                             {

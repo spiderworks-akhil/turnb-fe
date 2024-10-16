@@ -6777,3 +6777,45 @@ input.form-control {
     top: calc(50% - 6px);
 
 }
+
+.thankyou-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.thankyou-content {
+    text-align: center;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.thankyou-content h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+ .thankyou-content p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #666;
+  }
+  
+  .thankyou-homeLink {
+    margin-top: 30px;
+    display: inline-block;
+    font-size: 16px;
+    color: #0070f3;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+  }
+  
+  .thankyou-homeLink:hover {
+    border-bottom: 1px solid #0070f3;
+  }

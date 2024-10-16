@@ -3,17 +3,18 @@ import { useRouter } from 'next/router';
 import React from 'react'
 
 function SEO({ data, settings }) {
-    
+
     const router = useRouter();
     const canonicalPathname = router?.asPath.split('?')[0];
+    console.log(settings);
+    
 
     return (
         <Head>
-
-            {/* <meta name="google-site-verification" content="yJZ7VXN-hsMlmKiEb5QDU7maaHtSBkoK2MyH0lCtlaQ" /> */}
-
+            <script dangerouslySetInnerHTML={{__html:settings?.google_tag_manager_head}}>    
+            </script>
+            <meta name="google-site-verification" content="dghu7IaS1_edNpNrqGVUwJKvGzPld5lFGJG5JD0y_QE" />
             {/* <link rel="canonical" href={`https://www.bmyholisticwellness.com${canonicalPathname == '/index' ? '/' : canonicalPathname}`} /> */}
-
             <link rel="icon" href={settings?.fav_icon} />
 
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />

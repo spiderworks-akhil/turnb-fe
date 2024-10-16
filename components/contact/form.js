@@ -27,13 +27,11 @@ const ContactForm = ({ data }) => {
       source_url: pageUrl,
       type: 'Contact'
     }
-    console.log(dataToSubmit);
-
 
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-      console.log(response);
       if (response?.status == 200 || response?.status == 201) {
+        router.push('/thankyou')
         reset()
         setLoading(false)
       } else {
