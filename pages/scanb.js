@@ -10,6 +10,7 @@ import ScanbImpact from "@/components/scanb/impact";
 import BookDemoSection from "@/components/scanb/achieve";
 import { MenuApi } from "@/Datas/Endpoints/Menu";
 import { ScanbApi } from "@/Datas/Endpoints/Scanb";
+import FeaturesTest from "@/components/scanb/featuresTest";
 
 const inter = Inter({ subsets: ["latin"] });
 

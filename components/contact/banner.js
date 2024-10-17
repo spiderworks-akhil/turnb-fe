@@ -31,7 +31,7 @@ const ContactBanner = ({ data }) => {
           <div class="carousel-item active" data-aos="fade-up">
             <Image width={1520} height={714} alt={data?.content?.contact_us_banner_media_id?.alt_text || data?.name} class="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
               src={data?.content?.contact_us_banner_media_id?.file_path} data-aos="fade-right" />
-            <Image width={1600} height={900} alt={data?.content?.contact_us_mobile_banner_media_id?.alt_text || data?.name} class="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+            <Image width={1600} height={900} alt={data?.content?.contact_us_mobile_banner_media_id?.alt_text || data?.name} class="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
               src={data?.content?.contact_us_mobile_banner_media_id?.file_path} data-aos="fade-left" />
             <div class="carousel-caption">
             </div>

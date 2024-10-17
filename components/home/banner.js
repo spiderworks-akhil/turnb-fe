@@ -28,7 +28,7 @@ function Banner({ data }) {
                             width={1920} 
                             height={1080} 
                             alt={obj?.url?.alt_text} 
-                            className="d-block  img-fluid d-lg-block d-md-block d-none" 
+                            className="d-block img-fluid d-lg-block d-md-block d-none" 
                             src={obj?.url?.file_path} 
                         /></a>
                         <a><Image 

@@ -7,6 +7,7 @@ const LifeMiddleSection = ({ data }) => {
 
   const options = {
     dots: true, // Show navigation dots
+    arrows: false,
     infinite: true, // Infinite loop sliding
     speed: 500, // Speed of the transition
     slidesToShow: 1, // Number of slides to show

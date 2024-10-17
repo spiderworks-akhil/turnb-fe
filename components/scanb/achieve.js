@@ -21,7 +21,7 @@ const BookDemoSection = ({data}) => {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-12">
-              <Image width={300} height={400} src={data?.content?.scanb_section_6_media_id_3?.file_path} className="img-fluid d-block m-auto text-center" alt={data?.content?.scanb_section_6_media_id_3?.alt_text} />
+              <Image width={300} height={400}  src={data?.content?.scanb_section_6_media_id_3?.file_path} className="img-fluid d-block m-auto text-center w-full-img" alt={data?.content?.scanb_section_6_media_id_3?.alt_text} />
             </div>
           </div>
         </div>

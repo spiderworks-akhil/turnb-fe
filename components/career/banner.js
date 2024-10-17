@@ -13,7 +13,7 @@ const CareerBanner = ({data}) => {
       <Image
         width={1600} height={900}
         alt={data?.content?.career_mobile_banner_media_id?.alt_text || data?.name}
-        className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+        className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
         src={data?.content?.career_mobile_banner_media_id?.file_path}
       />
     </div>

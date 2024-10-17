@@ -15,13 +15,13 @@ const ServiceBanner = ({ data }) => {
           <Image
             width={1920} height={1080}
             alt={data?.content?.services_banner_media_id?.alt_text || data?.name}
-            className="d-block text-center m-auto img-height w-100 img-fluid d-lg-block d-md-block d-none"
+            className="d-block abt-banner text-center m-auto img-height w-100 img-fluid d-lg-block d-md-block d-none "
             src={data?.content?.services_banner_media_id?.file_path}
           />
           <Image
             width={1600} height={900}
             alt={data?.content?.case_study_mobile_banner_media_id?.alt_text || data?.name}
-            className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+            className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
             src={data?.content?.case_study_mobile_banner_media_id?.file_path}
           />
           {/* Uncomment if you need captions */}

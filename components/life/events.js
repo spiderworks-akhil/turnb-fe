@@ -8,12 +8,12 @@ const LifeEventsSection = ({ data }) => {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: true,
     appendDots: dots => (
       <div style={{ bottom: '-30px' }}>
         <ul style={{ margin: '0px' }}>{dots}</ul>
@@ -37,7 +37,6 @@ const LifeEventsSection = ({ data }) => {
           <div className="row justify-content-center">
             <div className="col-lg-11 col-md-11 col-12">
               <Slider {...settings}>
-                {/* Event 1 */}
                 {
                   data?.content?.listing_id_events?.map((obj, index) => (
                     <div key={index} className="item">
@@ -48,27 +47,6 @@ const LifeEventsSection = ({ data }) => {
                     </div>
                   ))
                 }
-
-                {/* <div className="item">
-                  <div className="shadow-effect text-center">
-                    <img src="/img/e2.png" className="img-fluid d-block text-center" alt="Marathon" />
-                    <p className="mt-3 mb-0 text-center">Marathon</p>
-                  </div>
-                </div>
-
-                <div className="item">
-                  <div className="shadow-effect text-center">
-                    <img src="/img/e3.png" className="img-fluid d-block text-center" alt="Medical Test" />
-                    <p className="mt-3 mb-0 text-center">Medical Test</p>
-                  </div>
-                </div>
-
-                <div className="item">
-                  <div className="shadow-effect text-center">
-                    <img src="/img/e4.png" className="img-fluid d-block text-center" alt="Team Lunch" />
-                    <p className="mt-3 mb-0 text-center">Team Lunch</p>
-                  </div>
-                </div> */}
 
               </Slider>
             </div>

@@ -5,10 +5,11 @@ const BlogDetailBanner = ({data}) => {
     <div className="mr-topinnerpage">
       <div className="banner-container">
         {/* Image for large screens */}
-        <Image
+        <Image 
+        style={{marginTop:'90px'}}
           alt={data?.banner_image?.alt_text}
           src={data?.banner_image?.file_path}
-          className="d-lg-block d-md-block d-none"
+          className="d-block img-fluid d-lg-block d-md-block d-none"
           layout="responsive"
           width={1920} // You can adjust these values based on the image's aspect ratio
           height={1080} // Adjust height accordingly
@@ -18,7 +19,7 @@ const BlogDetailBanner = ({data}) => {
         <Image
           alt={data?.banner_image?.alt_text}
           src={data?.banner_image?.file_path}
-          className="d-lg-none d-md-none d-block"
+          className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
           layout="responsive"
           width={1920} // Same width
           height={1080} // Same height, adjusted for smaller screens

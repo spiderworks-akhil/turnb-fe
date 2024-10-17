@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 
 const AboutWhyUsBanner = ({ data }) => {
+
+  console.log(data);
+  
   
 
   return (

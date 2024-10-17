@@ -13,7 +13,7 @@ const BlogBanner = ({data}) => {
             
             <Image
                 alt={data?.content?.blog_mobile_banner_media_id?.alt_path || data?.name}
-                className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+                className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
                 src={data?.content?.blog_mobile_banner_media_id?.file_path}
                 width={500}  // Add appropriate width
                 height={300}  // Add appropriate height

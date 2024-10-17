@@ -649,7 +649,9 @@ section {
     border: 1px solid #87c5e4;
     display: block;
     border-radius: 13px;
-    min-height: 369px
+    min-height: 369px;
+    /* width: 335.5px; */
+    margin-right: 10px;
 }
 
 .bg-brdeer {
@@ -1386,7 +1388,7 @@ section {
 
 .bg-image-sec p {
     text-align: justify;
-    font-size: 16px;
+    font-size: 16px !important;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -3113,9 +3115,26 @@ section {
     width: auto !important;
 }
 
+.w-full-img{
+    height: 100%;
+    width: 100%;
+}
+
 .text-d {
     text-decoration: none;
 }
+
+.cont-lifpad ul.slick-dots {
+    position: relative;
+    bottom: auto !important;
+    margin-bottom: 20px;
+}
+.imginner-lfe ul.slick-dots {
+    position: relative;
+    bottom: auto !important;
+    margin-bottom: 20px;
+}
+
 
 @media only screen and (max-width: 767px) {
     .mob-input input.form-control {
@@ -5213,6 +5232,7 @@ h5 {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     cursor: pointer;
+    margin: 0 15px;
 }
 
 .point-one p {
@@ -6819,3 +6839,164 @@ input.form-control {
   .thankyou-homeLink:hover {
     border-bottom: 1px solid #0070f3;
   }
+
+  .abt-mob-banner{
+    margin-top: 79px;
+    width: 100% !important;
+  }
+
+  .abt-banner{
+    margin-top: 75px !important;
+  }
+
+  .scan-bmoblatp {
+    display: block;
+    padding-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 37px;
+}
+
+.image-subheading h6 {
+    position: absolute;
+    right: 20px;
+    bottom: 35px;
+    font-size: 19px;
+    text-align: end;
+    font-weight: 500;
+    width: 25%;
+}
+
+
+.small-scanb-content p{
+    font-weight:400 !important;
+    font-size:16px !important;
+    text-align:left !important;
+    padding-left: 50px;
+    margin-bottom: 13px !important;
+}
+.image-subheading {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    /* border-right: 2.4px solid #06B6AB; */
+}
+
+.small-scanb-content hr {
+    border: 0.7px solid #06B6AB;
+    opacity: 1 !important;
+    margin-bottom: 61px !important;
+    width: 40%;
+    margin-left: 52px;
+}
+
+
+.scanb-feature-s{}
+/* adapted from  https://codepen.io/glebkema/pen/Xjryjd*/
+.scanb-feature-s .owl-item > div:after {
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+
+}
+
+.scanb-feature-s .active.center {
+  transform: scale(1);
+ 
+
+}
+.scanb-feature-s .active {
+  transform: scale(.9111);
+  transition: .6s ease;
+  }
+
+.scanb-feature-s .slick-prev {
+    left: -50px;
+    position: absolute;
+    top: auto;
+    width: 43px;
+    line-height: 33px;
+    bottom: 55%;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #000 !important;
+    /* height: 100%; */
+    font-size: 47px !important;
+}
+.scanb-feature-s .slick-next {
+    right: -50px;
+    position: absolute;
+    top: auto;
+    width: 43px;
+    line-height: 33px;
+    bottom: 55%;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #000 !important;
+    /* height: 100%; */
+    font-size: 47px !important;
+    left: auto !important;
+}
+
+.slick-next:before {
+    content: '>';
+    font-weight: bold;
+    color: #000;
+    font-size: 39px;
+    opacity: 1 !important;
+}
+
+.slick-prev:before {
+    content: '<';
+    font-weight: bold;
+    color: #000;
+    font-size: 39px;
+    opacity: 1 !important;
+}
+
+
+.slick-dots{
+    bottom: -35px !important;
+}
+.slick-dots li button:before {
+    font-size: 38px !important;
+    color: #D6D6D6 !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity: 1 !important;
+}
+
+
+
+.slick-dots li.slick-active button:before
+{
+    opacity: 1 !important;
+    color: #018080 !important
+    
+}
+.scanb-bbusi h2{
+    text-align: right;
+}
+.scanb-org h2, .scanb-bbusi h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.scanb-org h4, .scanb-bbusi h4{
+    font-size: 16px;
+}
+.scanb-org p, .scanb-bbusi p{
+    font-size: 14px;
+    color: #fff;
+}
+
+.scanb-org h2, .scanb-org h4 , .scanb-bbusi h2, .scanb-bbusi h4{
+    color: #fff !important;
+}
+
+.scanb-bbusi p{
+    text-align: right;
+}
+
+.shadow-effect.text-center p{
+    color: #516171;
+}

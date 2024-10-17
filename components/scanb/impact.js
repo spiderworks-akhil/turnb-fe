@@ -16,7 +16,7 @@ const ScanbImpact = ({ data }) => {
         <div className="scanb-borgana mt-lg-4 mt-md-4 mt-3 clearfix">
           <div className="row">
             <div className="col-lg-5 col-md-5 col-12">
-              <div className="scanb-org clearfix" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_1 }} />
+              <div className="scanb-org clearfix mt-0 mb-lg-3 mb-md-3 mb-2 text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_1 }} />
               {/* <h4 className="mt-0 mb-lg-3 mb-md-3 mb-2 text-white" data-aos="fade-up" data-aos-duration="400">
                   On Organizations:
                 </h4>
@@ -45,7 +45,7 @@ const ScanbImpact = ({ data }) => {
         <div className="scanb-busi mt-lg-3 mt-md-3 mt-3 clearfix">
           <div className="row justify-content-end">
             <div className="col-lg-5 col-md-5 col-12">
-              <div dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_2 }} className="scanb-bbusi clearfix" data-aos="fade-up" data-aos-duration="2000" />
+              <div dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_2 }} className="scanb-bbusi  clearfix" data-aos="fade-up" data-aos-duration="2000" />
                 {/* <h4 className="mt-0 mb-lg-3 mb-md-3 mb-2 text-white" data-aos="fade-up" data-aos-duration="400">
                   On Businesses:
                 </h4>

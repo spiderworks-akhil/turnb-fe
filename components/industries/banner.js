@@ -11,13 +11,13 @@ const BannerIndustries = ({data}) => {
         width={1520}
         height={714}
         src={data?.content?.industry_banner_media_id?.file_path}
-        className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
+        className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100 abt-banner"
       />
       <Image
         width={960} height={540}
         src={data?.content?.industry_mobile_banner_media_id?.file_path}
         alt={data?.content?.industry_mobile_banner_media_id?.alt_text || data?.name}
-        className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+        className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
       />
     </div>
   );

@@ -17,7 +17,7 @@ const LifeBanner = ({ data }) => {
           <Image
             alt={data?.content?.life_at_banner_media_id?.alt_text || data?.name}
             src={data?.content?.life_at_banner_media_id?.file_path}
-            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100"
+            className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none w-100 abt-banner"
             width={1200} // Adjust width and height based on your image
             height={600}
             layout="responsive"
@@ -26,7 +26,7 @@ const LifeBanner = ({ data }) => {
           <Image
             alt={data?.content?.life_at_mobile_banner_media_id?.alt_text || data?.name}
             src={data?.content?.life_at_mobile_banner_media_id?.file_path}
-            className="d-block w-100 img-fluid d-lg-none d-md-none d-block"
+            className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
             width={800} // Adjust width and height based on your image
             height={400}
             layout="responsive"
