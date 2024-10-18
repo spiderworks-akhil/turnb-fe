@@ -69,7 +69,7 @@ const ServicesSection = ({ data }) => {
                                                             <div className="row">
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box2 pd-ridser">
                                                                     <div className="pt-lg-4 pt-md-4 pt-5 pb-0 pt-lft text-left clearfix aos-init aos-animate" data-aos="fade-up">
-                                                                        <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}:</span></h5>
+                                                                        <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}</span></h5>
                                                                         <p className="mb-0">{obj?.short_description}</p>
                                                                     </div>
                                                                 </div>

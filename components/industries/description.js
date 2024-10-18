@@ -4,7 +4,7 @@ const RetailSection = ({data}) => {
 
   return (
     <div className="retail-bg clearfix">
-      <div className="container">
+      <div className="container p-4">
         <div className="about-cont2 pt-lg-5 pt-md-5 pt-3 pb-lg-5 pb-md-5 pb-3 clearfix">
           <div className="row p-0 justify-content-center">
             <div className="col-lg-11 col-md-11 col-12">

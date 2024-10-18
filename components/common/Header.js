@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header = ({ MainMenu, Settings }) => {
 
@@ -10,8 +10,32 @@ const Header = ({ MainMenu, Settings }) => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
+
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollDirection, setScrollDirection] = useState('fade-up'); // Default to fade-up
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // Determine scroll direction
+    if (currentScrollY > scrollY) {
+      setScrollDirection('scrolled-down'); // Scrolling down
+    } else {
+      setScrollDirection('scrolled-up'); // Scrolling up
+    }
+
+    // Update the scroll position
+    setScrollY(currentScrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollY])
+  
+
   return (
-    <nav className="autohide navbar navbar-expand-lg navbar-light sticky-top topnav">
+    <nav className={`autohide navbar navbar-expand-lg navbar-light sticky-top topnav ${scrollDirection}`}>
       <div className="container">
         <Link href="/" className="navbar-brand">
           <Image width={140} height={43} src={Settings?.logo} className="img-fluid wdd-logo" alt="Logo" />

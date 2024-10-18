@@ -148,8 +148,8 @@ h6,
 .display-2,
 .display-3,
 .display-4 {
+    margin-bottom: 1.5rem;
     font-weight: 700;
-
     color: var(--dark);
 }
 
@@ -936,6 +936,14 @@ section {
 
 }
 
+ .shadow-effect p {
+    font-family: inherit;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 0 17px 0;
+
+}
+
 .testimonial-name {
     margin: -17px auto 0;
     display: table;
@@ -1688,7 +1696,7 @@ section {
     display: block;
     background-color: #fff;
     position: relative;
-    min-height: 525px;
+    min-height: 415px;
     border: 1px solid #058181;
     border-radius: 25px;
 }
@@ -1718,7 +1726,7 @@ section {
 }
 
 .minhtblog-sec {
-    min-height: 325px !important;
+    min-height: 415px !important;
 }
 
 .minhtbloghdg {
@@ -1729,7 +1737,7 @@ section {
 /*.boxcasep .case-box{min-height: 584px !important;}
 */
 .boxcasep .case-box .knw-more {
-    margin-top: 71px !important;
+    /* margin-top: 71px !important; */
 }
 
 /*.width-tiltb{width: 27%!important}
@@ -3031,6 +3039,7 @@ section {
     padding-right: 0.7rem;
     padding-left: 0.7rem;
     font-size: 14px;
+    font-weight: 500;
 }
 
 .navbar .navbar-nav .nav-link:hover {
@@ -3599,6 +3608,9 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
 
 .prt-git2 {
     padding: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .ft-wt2 {
@@ -6999,4 +7011,8 @@ input.form-control {
 
 .shadow-effect.text-center p{
     color: #516171;
+}
+
+.consult-stage span{
+    font-weight: 500;
 }

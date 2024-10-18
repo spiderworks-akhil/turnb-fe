@@ -6,6 +6,9 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Image from 'next/image';
 
 const KeyMembersSection = ({ data, team }) => {
+
+  const carouselId = 'members'
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
@@ -14,10 +17,12 @@ const KeyMembersSection = ({ data, team }) => {
       window.jQuery = $;
       require('owl.carousel');
 
+      const owl = $(`#${carouselId}`);
+
       $('.carousel-main').owlCarousel({
         loop: true,
         margin: 10,
-        nav: true,
+        nav: false,
         responsive: {
           0: {
             items: 1,
@@ -30,53 +35,18 @@ const KeyMembersSection = ({ data, team }) => {
           },
         },
       });
-    }
-  }, []);
 
-  const teamMembers = [
-    {
-      name: 'Rufin Alikhan',
-      role: 'Founder and CEO',
-      img: 'img/team/rufin.png',
-      linkedIn: 'https://www.linkedin.com/in/rufin-alikhan-84b0577/',
-    },
-    {
-      name: 'Fathima Sadiq Hassan',
-      role: 'Chief Financial Officer',
-      img: 'img/team/team2.png',
-      linkedIn: 'https://www.linkedin.com/in/fathima-hassan-1407a7103/',
-    },
-    {
-      name: 'Subha V Menon',
-      role: 'Vice President, Finance',
-      img: 'img/team/team3.png',
-      linkedIn: 'https://www.linkedin.com/in/subha-menon-94a91326/',
-    },
-    {
-      name: 'Mahesh Pillai',
-      role: 'Vice President, Consulting',
-      img: 'img/team/team1.png',
-      linkedIn: 'https://www.linkedin.com/in/mahesh-pillai-16045743/',
-    },
-    {
-      name: 'Mohammed Ameer',
-      role: 'Vice President, Consulting',
-      img: 'img/team/ammer.png',
-      linkedIn: 'https://www.linkedin.com/in/mohammed-ameer-ca-42560884/',
-    },
-    {
-      name: 'Ajin Das',
-      role: 'Vice President, Consulting',
-      img: 'img/team/das.png',
-      linkedIn: 'https://www.linkedin.com/in/ajin-das-b9341ba9/',
-    },
-    {
-      name: 'Adil E',
-      role: 'Social Media Strategist',
-      img: 'img/team/adil.png',
-      linkedIn: 'https://www.linkedin.com/in/adil-e-914b59103/',
-    },
-  ];
+      $(`#${carouselId}-next`).click(() => {
+        owl.trigger('next.owl.carousel');
+      });
+
+      $(`#${carouselId}-prev`).click(() => {
+        owl.trigger('prev.owl.carousel');
+      });
+
+    }
+  }, [carouselId]);
+
 
   return (
     <div className="container mt-lg-5 mt-md-5 mt-3">
@@ -90,8 +60,10 @@ const KeyMembersSection = ({ data, team }) => {
         <section className="section-team pt-0 pb-5">
           <div className="ak-amenites clearfix">
             <div className="row justify-content-center">
-              <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent">
-                <div className="owl-carousel carousel-main bg-transparent">
+              <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent d-flex justify-content-center">
+
+                <a id={`${carouselId}-prev`} className="customPrevBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
+                <div id={carouselId} className="owl-carousel carousel-main bg-transparent">
                   {team?.data?.map((member, index) => (
                     <div key={index}>
                       <div className="single-person mt-5" data-aos={index % 2 === 0 ? 'fade-up' : 'fade-down'}>
@@ -114,6 +86,8 @@ const KeyMembersSection = ({ data, team }) => {
                     </div>
                   ))}
                 </div>
+                <a id={`${carouselId}-next`} className="customNextBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/right-arw.jpg'} width={47} height={44} /></a>
+
               </div>
             </div>
           </div>

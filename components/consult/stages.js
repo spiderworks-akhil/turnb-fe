@@ -10,9 +10,9 @@ const ConsultStages = ({ data }) => {
                     <div class="row justify-content-center">
                         <div class="col-lg-9 col-md-9 col-12">
                             <div class="text-center position-relative" data-aos="fade-down">
-                                <h1 class="title-ak2 ft-wt2 text-center mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
-                                    <span class="text-dark home-title" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_1 }} />
-                                </h1>
+                                <h2 class="title-ak2 ft-wt2 text-center mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
+                                    <span class="text-dark home-title consult-stage" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_1 }} />
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,9 @@ const ConsultStages = ({ data }) => {
                             <div class="col-lg-9 col-md-9 col-12">
                                 <div class="cosult-box p-4 clearfix">
                                     <div class="box" data-aos="fade-down">
-                                        <button class="spin circle"><Image width={100} height={100} src={obj?.media_id?.file_path} alt={obj?.media_id?.alt_text} className="img-fluid d-block m-auto text-center" /></button>
+                                        <button class="spin circle">
+                                            <Image width={90} height={71} src={obj?.media_id?.file_path} alt={obj?.media_id?.alt_text} className="img-fluid d-block m-auto text-center" />
+                                        </button>
                                     </div>
                                     <div class="dec-text clearfix" data-aos="fade-up">
                                         <h5 class="clr-grn mt-0 mb-2 consult-listing-title" dangerouslySetInnerHTML={{ __html: obj?.title }} />
@@ -140,7 +142,7 @@ const ConsultStages = ({ data }) => {
                         <div class="row justify-content-center">
                             <div class="col-lg-7 col-md-7 col-12">
                                 <div class="position-relative" data-aos="fade-down">
-                                    <h1 class="title-ak2 text-dark ft-wt3 text-lf mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
+                                    <h1 class="title-ak2 text-dark  text-lf mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
                                         <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_3 }} />
                                         {/* <span class="clr-grn">doesn't end with delivery!</span> */}
                                     </h1>
@@ -156,7 +158,7 @@ const ConsultStages = ({ data }) => {
                             </div>
                             <div class="col-lg-5 col-md-5 col-12">
                                 <div class="text-lf position-relative" data-aos="fade-down">
-                                    <Image width={800} height={500} src={data?.content?.consult_section_3_media_id?.file_path} alt={data?.content?.consult_section_3_media_id?.alt_text} class="img-fluid imgrit" />
+                                    <Image width={300} height={279} src={data?.content?.consult_section_3_media_id?.file_path} alt={data?.content?.consult_section_3_media_id?.alt_text} class="img-fluid imgrit" />
                                 </div>
                             </div>
                         </div>
@@ -168,7 +170,7 @@ const ConsultStages = ({ data }) => {
                                     <h4 class="ft-wt3">
                                         <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_1 }} />
                                     </h4>
-                                    <div dangerouslySetInnerHTML={{__html:data?.content?.consult_description_2}} />
+                                    <div dangerouslySetInnerHTML={{ __html: data?.content?.consult_description_2 }} />
                                     {/* <ul class="mt-lg-4 mt-md-4 mt-3 mb-0">
                                         <li>Ongoing maintenance and support</li>
                                         <li>Product enhancements and updates</li>
@@ -183,7 +185,7 @@ const ConsultStages = ({ data }) => {
                                     <h4 class="ft-wt3">
                                         <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_2 }} />
                                     </h4>
-                                    <div dangerouslySetInnerHTML={{__html:data?.content?.consult_description_3}} />
+                                    <div dangerouslySetInnerHTML={{ __html: data?.content?.consult_description_3 }} />
 
                                     {/* <ul class="mt-lg-5 mt-md-5 mt-3 mb-0">
                                         <li>Re-examine your business needs, goals, and priorities</li>

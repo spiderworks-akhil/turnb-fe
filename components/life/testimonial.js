@@ -42,7 +42,7 @@ const LifeTestimonials = ({ data }) => {
                                                     </p>
                                                     <div className="line-tst m-auto d-block text-center"></div>
                                                     <div className="d-block m-auto text-center p-3">
-                                                        <Image width={100} height={100} src={obj?.media_id?.file_path}className="img-fluid d-block m-auto text-center" alt={obj?.media_id?.alt_text} style={{ width: 'auto' }} />
+                                                        <Image width={200} height={150} src={obj?.media_id?.file_path}className="img-fluid d-block m-auto text-center" alt={obj?.media_id?.alt_text} style={{ width: 'auto' }} />
                                                     </div>
                                                     <h4 className="clt ft-wt3 mt-lg-2 mt-md-2 mt-2 mb-1">{obj?.title}</h4>
                                                     <div className="quotedwn">

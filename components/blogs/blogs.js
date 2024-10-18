@@ -42,7 +42,7 @@ const BlogList = ({ data, list }) => {
                       {list?.data?.map((obj, index) => (
                         Math.floor(index / 3) == carouselIndex &&
                         <div className="col-lg-4 col-md-4 col-12" key={index}>
-                          <div className="case-box mb-lg-4 mb-md-4 mb-3 clearfix">
+                          <div className="minhtblog-sec case-box mb-lg-4 mb-md-4 mb-3 clearfix">
                             <div className="img-case">
                               <Image
                                 src=
@@ -68,7 +68,7 @@ const BlogList = ({ data, list }) => {
                                 }
                               </h2>
                              
-                              <div className="knw-more text-left pb-lg-3 pb-md-3 pb-2 mt-lg-2 mt-md-2 mt-3 clearfix">
+                              <div className="knw-more text-left mt-lg-2 mt-md-2 mt-3 clearfix">
                                 <Link href={`/blogs/${obj?.slug}`}>
                                   <span className="btn btn-primary kn-mb">Read More</span>
                                 </Link>

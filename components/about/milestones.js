@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos'; // Import AOS library
-import 'aos/dist/aos.css'; // Import AOS styles
 import 'owl.carousel/dist/assets/owl.carousel.css'; // Owl carousel styles
 import 'owl.carousel/dist/assets/owl.theme.default.css'; // Owl theme
+import 'aos/dist/aos.css'; // AOS styles
+import Image from 'next/image';
 
-const MilestonesSection = ({data}) => {
+const MilestonesSection = ({ data, }) => { // Accept a carouselId as prop
+
+  const carouselId = 'milestone'
+
   useEffect(() => {
-    
-    // Ensure jQuery and Owl Carousel work only on the client side
     if (typeof window !== 'undefined') {
-      const $ = require('jquery'); // Dynamically require jQuery on client-side
-      window.jQuery = $; // Assign jQuery to window object
-      require('owl.carousel'); // Owl Carousel dependency
-      
-      $('.carousel-main').owlCarousel({
+      const $ = require('jquery');
+      window.jQuery = $;
+      require('owl.carousel');
+
+      // Initialize Owl Carousel using unique ID
+      const owl = $(`#${carouselId}`); // Use ID selector for unique carousel
+      owl.owlCarousel({
         loop: true,
         margin: 10,
-        nav: true,
+        nav: false,
         responsive: {
           0: {
             items: 1,
@@ -29,8 +33,17 @@ const MilestonesSection = ({data}) => {
           },
         },
       });
+
+      // Custom next and prev button controls for the specific carousel
+      $(`#${carouselId}-next`).click(() => {
+        owl.trigger('next.owl.carousel');
+      });
+
+      $(`#${carouselId}-prev`).click(() => {
+        owl.trigger('prev.owl.carousel');
+      });
     }
-  }, []);
+  }, [carouselId]); // Dependency on carouselId to initialize each instance independently
 
   return (
     <div className="container mt-lg-5 mt-md-5 mt-3 mb-lg-5 mb-md-5 mb-3">
@@ -41,9 +54,10 @@ const MilestonesSection = ({data}) => {
       </div>
       <div className="ak-amenites clearfix">
         <div className="row justify-content-center">
-          <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent">
-            <div className="owl-carousel carousel-main bg-transparent">
-              {/* Start of milestone item */}
+          <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent d-flex justify-content-center">
+            {/* Custom Navigation Arrows with unique IDs */}
+            <a id={`${carouselId}-prev`} className="customPrevBtn " style={{cursor:'pointer'}}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
+            <div id={carouselId} className="owl-carousel carousel-main bg-transparent">
               {data?.content?.listing_id_milestone.map((milestone, index) => (
                 <div key={index}>
                   <div className="mile-box text-center">
@@ -56,13 +70,16 @@ const MilestonesSection = ({data}) => {
                       <div className="bx-line"></div>
                       <div className="dot-b"></div>
                     </div>
-                    <div className='text-black' dangerouslySetInnerHTML={{__html:milestone.short_description}} />
-                    {/* <p className="text-center">{milestone.short_description}</p> */}
+                    <div
+                      className="text-black"
+                      dangerouslySetInnerHTML={{ __html: milestone.short_description }}
+                    />
                   </div>
                 </div>
               ))}
-              {/* End of milestone item */}
             </div>
+            <a id={`${carouselId}-next`} className="customNextBtn "><Image style={{ cursor: 'pointer' }} src={'/img/right-arw.jpg'} width={47} height={44} /></a>
+
           </div>
         </div>
       </div>
