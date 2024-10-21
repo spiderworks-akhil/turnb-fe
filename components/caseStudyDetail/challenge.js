@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import BreadCrumbs from '../common/breadCrumbs';
 
 const CaseStudyChallenge = ({ data }) => {
   console.log(data);
@@ -10,19 +11,7 @@ const CaseStudyChallenge = ({ data }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-12">
-            <nav aria-label="breadcrumb">
-              <ol
-                className="breadcrumb mt-lg-5 mt-md-5 mt-3 mb-lg-4 mb-md-4 mb-3"
-                style={{ fontSize: '16px' }}
-              >
-                <li className="breadcrumb-item">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  <Link href="/case-studies">Case Studies</Link>
-                </li>
-              </ol>
-            </nav>
+            <BreadCrumbs secondCrumb={data?.name} />
           </div>
         </div>
       </div>
@@ -31,20 +20,26 @@ const CaseStudyChallenge = ({ data }) => {
       <div className="container">
         <div
           style={{
-            padding: '20px 0',
-            backgroundColor: '#f9f9f9',
+            padding: '20px 30px',
+
             marginBottom: '40px',
             borderRadius: '8px',
           }}
         >
           <div className="row">
             <div className="col-lg-3 col-md-3 col-12">
-              <h1 style={{ fontWeight: 'bold' }}>
-                {data?.content?.title_1}:
-              </h1>
+              <h2 className='busi-hdgc' style={{ fontWeight: 'bold' }}>
+                {/* {data?.content?.title_1} */}
+                Business
+                < br />
+                Challenge:
+              </h2>
             </div>
             <div className="col-lg-9 col-md-9 col-12">
-              <div className='case-study-detail-challenge' style={{ listStyleType: 'none' }} dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
+              <div className="clearfix aos-init m-0 p-0 aos-animate" data-aos="fade-up">
+
+                <div className='="m-0 clearfix aos-init aos-animate' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
+              </div>
             </div>
           </div>
         </div>

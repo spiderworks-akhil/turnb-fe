@@ -1,34 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
 
-function Implications({data}) {
+function Implications({ data }) {
   return (
     <div className="container">
-       {/* Implications Section */}
-       <div
-          style={{
-            padding: '20px 0',
-            // backgroundColor: '#f9f9f9',
-            borderRadius: '8px',
-          }}
-        >
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-12">
-              <h2>Implications</h2>
-              <div
-                style={{
-                  width: '100px',
-                  height: '4px',
-                  backgroundColor: '#000',
-                  margin: '10px 0',
-                }}
-              ></div>
-            </div>
+      {/* Implications Section */}
+      <div
+        style={{
+          padding: '20px 0',
+          // backgroundColor: '#f9f9f9',
+          borderRadius: '8px',
+        }}
+        className='turnb-approch bg-white pt-lg-4 p-md-4 pt-3 pb-lg-4 pb-md-4 pb-3 mt-lg-4 mt-md-4 mt-4 mb-lg-5 mb-md-5 mb-5 clearfix'
+      >
+        <div className="row">
+          <div class="col-lg-12 col-md-12 col-12">
+            <h2>Implications</h2>
+            <span class="line-turnb"></span>
           </div>
+        </div>
 
-          <div className="row">
+        <div className="">
+          <div className='row case-study-approach implication-bg'>
             <div className="col-lg-7 col-md-7 col-12">
-            <div style={{backgroundColor:'white'}} className='case-study-approach' dangerouslySetInnerHTML={{ __html: data?.content?.description_3 }} />
+              <div style={{ backgroundColor: 'white' }} className='turnb-txt ' dangerouslySetInnerHTML={{ __html: data?.content?.description_3 }} />
 
               {/* <p>Following were the outcomes after designing the incentive program model:</p>
 
@@ -65,19 +60,22 @@ function Implications({data}) {
                 </div>
               ))} */}
             </div>
+          
 
-            {/* Image on the Right */}
-            <div className="col-lg-5 col-md-5 col-12">
-              <Image
-                src={data?.content?.media_id_3?.file_path}
-                alt={data?.content?.media_id_3?.alt_text}
-                width={500}
-                height={400}
-                className="img-fluid"
-              />
-            </div>
+          {/* Image on the Right */}
+          <div className="col-lg-5 col-md-5 col-12">
+            <Image
+              src={`/img/implication.png`}
+              // src={data?.content?.media_id_3?.file_path}
+              // alt={data?.content?.media_id_3?.alt_text}
+              width={566}
+              height={463}
+              className="img-fluid"
+            />
+          </div>
           </div>
         </div>
+      </div>
     </div>
   )
 }

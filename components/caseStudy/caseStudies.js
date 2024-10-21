@@ -71,15 +71,15 @@ const CaseStudiesList = ({ data, list }) => {
                                                     <div className="prt-git2 aos-init aos-animate" data-aos="fade-up">
                                                         <h2 className="text-left pt-2 mt-0 pb-lg-2 pb-md-2 pb-2 ft-wtcase2">
                                                             {
-                                                                obj?.name?.length > 60 ?
-                                                                    obj?.name?.slice(0, 60) + '....' :
+                                                                obj?.name?.length > 50 ?
+                                                                    obj?.name?.slice(0, 50) + '....' :
                                                                     obj?.name
                                                             }
                                                         </h2>
                                                         <p className="text-left mt-1 fnt-15">
                                                             {
-                                                                obj?.short_description?.length > 160 ?
-                                                                    obj?.short_description?.slice(0, 160) + '....' :
+                                                                obj?.short_description?.length > 120 ?
+                                                                    obj?.short_description?.slice(0, 120) + '....' :
                                                                     obj?.short_description
                                                             }
                                                         </p>

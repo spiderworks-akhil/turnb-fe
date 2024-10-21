@@ -1548,7 +1548,7 @@ section {
     border-right: 2px solid #505050;
 }
 
-.busi-hdgc h1 {
+h1.busi-hdgc, h2.busi-hdgc {
     font-size: 26px;
     margin-left: 23px;
     color: #606060;
@@ -1568,6 +1568,11 @@ section {
     position: relative;
     display: block;
     background-color: #f4f4f4;
+}
+.turnb-txt ul {
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 0;
 }
 
 .turnb-approch h2 {
@@ -3700,7 +3705,9 @@ background-image: linear-gradient(to right top, #786f6f, #8f8a8a, #979798, #9791
     width: 29%;
     /* margin-top: -10px; */
 }
-
+.case-study-approach.implication-bg {
+    background-color: transparent;
+}
 
 .about-cont {
     display: block;
@@ -6786,17 +6793,19 @@ input.form-control {
 }
 
 .case-study-approach {
-    padding: 50px;
     background-color: #f4f4f4;
     position: relative;
 }
 
 .case-study-approach ul li {
     position: relative;
-    padding-left: 20px;
+    padding-left: 35px;
     list-style: none;
+    margin-left: 6px;
+    line-height: 24px;
+    font-size: 16px;
+    padding-bottom: 12px;
 }
-
 
 .case-study-approach ul li::after {
     content: "";
@@ -6804,10 +6813,9 @@ input.form-control {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #333;
+    background-color: #3a53cd;
     left: 0;
-    top: calc(50% - 6px);
-
+    top: 7px;
 }
 
 .thankyou-container {

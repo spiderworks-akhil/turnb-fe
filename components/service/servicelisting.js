@@ -56,7 +56,7 @@ const ServicesSection = ({ data }) => {
 
                                                             <div className="row">
                                                                 <div className="col-lg-3 col-md-3 col-12 pd-ridser">
-                                                                    <Image width={300} height={200} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-one" data-aos="fade-down" alt={obj?.media_id?.alt_text} />
+                                                                    <Image width={401} height={268} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-one" data-aos="fade-down" alt={obj?.media_id?.alt_text} />
                                                                 </div>
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box">
                                                                     <div className="pt-lft pt-lg-4 pt-md-4 pt-3 pb-0 text-left clearfix aos-init aos-animate" data-aos="fade-up">
@@ -74,7 +74,7 @@ const ServicesSection = ({ data }) => {
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-lg-3 col-md-3 col-12 pd-ridser-lft">
-                                                                    <Image width={300} height={200} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-two" data-aos="fade-down" alt={obj?.media_id?.alt_text} />
+                                                                    <Image width={401} height={268} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-two" data-aos="fade-down" alt={obj?.media_id?.alt_text} />
                                                                 </div>
                                                             </div>
                                                     }
