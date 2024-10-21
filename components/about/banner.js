@@ -3,7 +3,7 @@ import React from 'react';
 
 const AboutBanner = ({ data }) => {
   return (
-    <div className="m-auto d-block text-center mr-topinnerpage" id="carouselExampleIndicators">
+    <div className=" d-block text-center mr-topinnerpage" id="carouselExampleIndicators">
       {/* Carousel Images */}
       <Image
         width={1520} height={800}

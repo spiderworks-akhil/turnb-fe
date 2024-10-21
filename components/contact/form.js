@@ -25,7 +25,7 @@ const ContactForm = ({ data }) => {
       phone_number: details?.mobile,
       message: details?.message,
       source_url: pageUrl,
-      type: 'Contact'
+      lead_type: 'Contact'
     }
 
     try {

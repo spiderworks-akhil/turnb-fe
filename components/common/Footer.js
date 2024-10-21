@@ -9,7 +9,11 @@ import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu }) => {
 
+  const router = useRouter();
+
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [url, seturl] = useState(router.pathname)
+
 
   const handleCaptchaChange = (value) => {
     setCaptchaVerified(true);
@@ -20,7 +24,6 @@ const Footer = ({ FooterMenu }) => {
 
   const { register, handleSubmit, watch, formState: { errors }, reset } = useForm()
 
-  const router = useRouter();
   const pageUrl =
     typeof window !== 'undefined'
       ? window.location.origin + router.asPath
@@ -39,10 +42,13 @@ const Footer = ({ FooterMenu }) => {
       let dataToSubmit = {
         name: details?.name,
         email: details?.email,
+        ...(router?.pathname === '/scanb' && { company_name: details?.companyName }),
+        ...(router?.pathname === '/scanb' && { job_position: details?.jobPosition }),
         phone_number: details?.mobile,
         message: details?.message,
         source_url: pageUrl,
-        type: 'Enquiry'
+        ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' }:{ lead_type: 'Enquiry' }),
+        // type: 'Enquiry'
       }
 
       try {
@@ -68,7 +74,7 @@ const Footer = ({ FooterMenu }) => {
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
-    if(!isModalOpen){
+    if (!isModalOpen) {
       reset()
     }
   };
@@ -159,6 +165,9 @@ const Footer = ({ FooterMenu }) => {
 
       <div>
         {/* Feedback Enquiry and Popup Button */}
+        {
+
+        }
         <div id="feedback-enquiry" className="d-none">
           <div
             id="feedback-tab-enquiry"
@@ -170,7 +179,11 @@ const Footer = ({ FooterMenu }) => {
         </div>
         <div className="popup-btnnew">
           <a className="btn blink-text " onClick={handleModalToggle}>
-            Enquire Now
+            {
+              url == '/scanb' ?
+                'Book a Demo' :
+                'Enquire Now'
+            }
           </a>
         </div>
 
@@ -205,10 +218,19 @@ const Footer = ({ FooterMenu }) => {
                       >
                         <input type="hidden" name="date" value="2024-09-05 06:07:47" />
                         <div>
-                          <h1 className="text-white">Get in touch</h1>
+                          <h1 className="text-white">
+                            {url == '/scanb' ?
+                              'Book a Demo Today'
+                              :
+                              'Get in touch'}
+                          </h1>
                           <p className="ft text-white mb-0">
-                            Please feel free to contact us and we will get back to you as soon as
-                            possible
+                            {url == '/scanb' ?
+                              'We will get back to you as soon as possible'
+                              :
+                              'Please feel free to contact us and we will get back to you as soon as possible'
+                            }
+
                           </p>
                         </div>
                         <div className="col-lg-6 col-md-6 col-12">
@@ -219,8 +241,33 @@ const Footer = ({ FooterMenu }) => {
                           {errors.name && <span className='form-validation'>{errors.name.message}</span>}
 
                         </div>
+
+                        {
+                          url == '/scanb' &&
+                          <div className="col-lg-6 col-md-6 col-12">
+                            <label htmlFor="companyName" className="form-label text-white">Company Name</label>
+                            <input {...register('companyName', {
+                              required: 'Full Name is required',
+                            })} type="text" className="form-control" id="companyName" name="companyName" />
+                            {errors.companyName && <span className='form-validation'>{errors.companyName.message}</span>}
+                          </div>
+                        }
+
+                        {
+                          url == '/scanb' &&
+                          <div className="col-lg-6 col-md-6 col-12">
+                            <label htmlFor="jobPosition" className="form-label text-white">Job Position</label>
+                            <input {...register('jobPosition', {
+                              required: 'Full Name is required',
+                            })} type="text" className="form-control" id="jobPosition" name="jobPosition" />
+                            {errors.jobPosition && <span className='form-validation'>{errors.jobPosition.message}</span>}
+                          </div>
+                        }
+
                         <div className="col-lg-6 col-md-6 col-12">
-                          <label htmlFor="userEmail" className="form-label text-white">Email Address</label>
+                          <label htmlFor="userEmail" className="form-label text-white">
+                            {url == '/scanb' ? 'Company Email ID' : 'Email Address'}
+                          </label>
                           <input
                             type="email"
                             className="form-control"

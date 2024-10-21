@@ -22,8 +22,11 @@ const ScanbBanner = ({ data }) => {
     setCaptchaVerified(true);
   };
 
+  console.log(data);
+
 
   const onSubmit = async (details) => {
+
 
     if (!captchaVerified) {
       alert('Please verify the reCAPTCHA');
@@ -34,18 +37,19 @@ const ScanbBanner = ({ data }) => {
       let dataToSubmit = {
         name: details?.name,
         email: details?.email,
+        companyName:details?.companyName,
         phone_number: details?.mobile,
-        message: details?.message,
         source_url: pageUrl,
-        type: 'Enquiry'
+        lead_type: 'ScanB'
       }
 
       try {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
         if (response?.status == 200 || response?.status == 201) {
-          window.open(data.content.pdf_url, '_blank');
+          window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
           reset()
           setLoading(false)
+          setIsModalOpen(false)
           reset
         } else {
           setLoading(false)
@@ -81,11 +85,11 @@ const ScanbBanner = ({ data }) => {
           className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none desktop-banB "
           style={{ background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`, backgroundSize: 'cover', }}
         >
-          <a href={data?.content?.scanb_button_link_1} target="_blank" style={{ textDecoration: 'none' }}>
+          <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
             <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
           </a>
 
-          <a onClick={handleModalToggle}  style={{ textDecoration: 'none' }}>
+          <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
             <button id="brouchure">{data?.content?.scanb_button_text_2}</button>
           </a>
         </div>
@@ -96,11 +100,11 @@ const ScanbBanner = ({ data }) => {
           className="d-lg-none d-md-none d-block img-fluid"
           style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
-          <a href={data?.content?.scanb_button_link_1} target="_blank" style={{ textDecoration: 'none' }}>
+          <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
             <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
           </a>
           {/* href={data?.content?.scanb_button_link_2} */}
-          <a onClick={handleModalToggle} target="_blank" style={{ textDecoration: 'none' }}>
+          <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
             <button id="brouchure">{data?.content?.scanb_button_text_2}</button>
           </a>
         </div>
@@ -123,7 +127,7 @@ const ScanbBanner = ({ data }) => {
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden={!isModalOpen}
-        style={{ display: isModalOpen ? 'block' : 'none',}} // add backdrop: 'static' if needed
+        style={{ display: isModalOpen ? 'block' : 'none', }} // add backdrop: 'static' if needed
       >
         <div className="modal-dialog modal-dialog-centered">
           <div onClick={(e) => e.stopPropagation()} className="modal-content">
@@ -146,11 +150,9 @@ const ScanbBanner = ({ data }) => {
                     >
                       <input type="hidden" name="date" value="2024-09-05 06:07:47" />
                       <div>
-                        <h1 className="text-white">Get in touch</h1>
-                        <p className="ft text-white mb-0">
-                          Please feel free to contact us and we will get back to you as soon as
-                          possible
-                        </p>
+                        <h5 class="text-white">Thank you for your interest in ScanB. <br />
+                          <span style={{fontSize:'16px',fontWeight:600}}>To view or download the brochure, please complete the short form below.</span>
+                        </h5>
                       </div>
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userName" className="form-label text-white">Full Name</label>
@@ -160,8 +162,17 @@ const ScanbBanner = ({ data }) => {
                         {errors.name && <span className='form-validation'>{errors.name.message}</span>}
 
                       </div>
+
                       <div className="col-lg-6 col-md-6 col-12">
-                        <label htmlFor="userEmail" className="form-label text-white">Email Address</label>
+                        <label htmlFor="companyName" className="form-label text-white">Full Name</label>
+                        <input {...register('companyName', {
+                          required: 'Full Name is required',
+                        })} type="text" className="form-control" id="companyName" name="companyName" />
+                        {errors.companyName && <span className='form-validation'>{errors.companyName.message}</span>}
+
+                      </div>
+                      <div className="col-lg-6 col-md-6 col-12">
+                        <label htmlFor="userEmail" className="form-label text-white">Company Email ID</label>
                         <input
                           type="email"
                           className="form-control"
@@ -198,16 +209,7 @@ const ScanbBanner = ({ data }) => {
                         {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
 
                       </div>
-                      <div className="col-lg-6 col-md-6 col-12">
-                        <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
-                        <textarea
-                          {...register('message')}
-                          className="form-control"
-                          id="userMessage"
-                          rows="1"
-                          name="message"
-                        ></textarea>
-                      </div>
+                   
                       <div className="col-lg-6 col-md-6 col-12 mt-0">
                         <div className="m-0 mt-3">
                           <ReCAPTCHA

@@ -1324,8 +1324,6 @@ section {
     width: 28px;
 }
 
-#myModalpopup {}
-
 #myModalpopup .carousel-item {
     height: auto !important;
 }
@@ -1363,7 +1361,7 @@ section {
 }
 
 .modal-content {
-    background: rgba(1, 108, 102, 0.9);
+    background-color: rgba(1, 108, 102, 0.9) !important;
 }
 
 .btnsubmt {
@@ -1679,9 +1677,9 @@ h1.busi-hdgc, h2.busi-hdgc {
 
 .tab-career .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
-    background: #026762;
-    color: #fff;
-    border: 2.3px solid #018381;
+    background: #026762 !important;
+    color: #fff !important;
+    border: 2.3px solid #018381 !important;
     border-radius: 7px;
     font-size: 16px;
     font-weight: 570;
@@ -6390,6 +6388,13 @@ input.form-control {
 }
 
 
+@media all and (max-width: 1200px) {
+
+    .mr-topinnerpage {
+        margin-top: -11px !important;
+    }
+}
+
 
 @media all and (max-width: 767px) {
     .scanb-busi {
@@ -6865,9 +6870,9 @@ input.form-control {
     width: 100% !important;
   }
 
-  .abt-banner{
+  /* .abt-banner{
     margin-top: 75px !important;
-  }
+  } */
 
   .scan-bmoblatp {
     display: block;
@@ -6938,7 +6943,6 @@ input.form-control {
     bottom: 55%;
     height: 42px;
     border-radius: 50%;
-    border: 1px solid #000 !important;
     /* height: 100%; */
     font-size: 47px !important;
 }
@@ -6951,14 +6955,19 @@ input.form-control {
     bottom: 55%;
     height: 42px;
     border-radius: 50%;
-    border: 1px solid #000 !important;
     /* height: 100%; */
     font-size: 47px !important;
     left: auto !important;
 }
 
 .slick-next:before {
-    content: '>';
+    content: "";
+    position: absolute;
+    background-image: url(/img/right-arw.jpg);
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: contain;
     font-weight: bold;
     color: #000;
     font-size: 39px;
@@ -6966,7 +6975,13 @@ input.form-control {
 }
 
 .slick-prev:before {
-    content: '<';
+    content: "";
+    position: absolute;
+    background-image: url(/img/left-arw.jpg);
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-size: contain;
     font-weight: bold;
     color: #000;
     font-size: 39px;
