@@ -3,9 +3,10 @@ import React from 'react';
 
 const AboutBanner = ({ data }) => {
   return (
-    <div className=" d-block text-center mr-topinnerpage" id="carouselExampleIndicators">
+    <div  className=" d-block text-center mr-topinnerpage" id="carouselExampleIndicators">
       {/* Carousel Images */}
       <Image
+      style={{width:'100%'}}
         width={1520} height={800}
         alt={data?.content?.about_us_banner_media_id?.alt_text || data?.name}
         className="d-block img-fluid d-lg-block d-md-block d-none abt-banner"

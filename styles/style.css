@@ -1886,13 +1886,13 @@ h1.busi-hdgc, h2.busi-hdgc {
     margin-top: 18px;
 }
 
-.mr-topinnerpage {
+/* .mr-topinnerpage {
     margin-top: -171px !important;
 }
 
 .mr-topinnerpage-n {
     margin-top: -86px !important;
-}
+} */
 
 /* .mr-topinnerpagescan {
     margin-top: -86px !important;
@@ -1943,7 +1943,7 @@ h1.busi-hdgc, h2.busi-hdgc {
     font-family: 'Montserrat', sans-serif;
 }
 
-.cantfind {}
+
 
 .cantfind h3 {
     color: #606060;
@@ -1958,7 +1958,6 @@ h1.busi-hdgc, h2.busi-hdgc {
     color: #606060;
     font-size: 19px;
     font-weight: bold;
-    padding: ;
 }
 
 .dwn-b:hover {
@@ -3004,7 +3003,7 @@ h1.busi-hdgc, h2.busi-hdgc {
 .navbar {
     box-shadow: var(--shadow);
     background: rgba(0, 0, 0, 0.6);
-    position: fixed;
+    position: fixed !important;
     z-index: 999;
     width: 100%;
 }
@@ -3416,7 +3415,7 @@ h1.busi-hdgc, h2.busi-hdgc {
 }
 
 .floorplan-section .border {
-    border: 1px solid #4d5152 !importantt;
+    border: 1px solid #4d5152 !important;
 }
 
 .floor-plan-cont {
@@ -6390,15 +6389,6 @@ input.form-control {
     box-shadow: none;
     border-color: var(--brand);
 }
-
-
-@media all and (max-width: 1200px) {
-
-    .mr-topinnerpage {
-        margin-top: -11px !important;
-    }
-}
-
 
 @media all and (max-width: 767px) {
     .scanb-busi {

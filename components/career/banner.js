@@ -3,7 +3,7 @@ import React from 'react';
 
 const CareerBanner = ({data}) => {
   return (
-    <div className="banner-container">
+    <div className="banner-container mr-topinnerpage">
       <Image
         width={1520} height={714}
         alt={data?.content?.career_banner_media_id?.alt_text || data?.name}
