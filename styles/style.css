@@ -3068,12 +3068,12 @@ h1.busi-hdgc, h2.busi-hdgc {
 }
 
 .btn-brand {
-    border-color: #016b66;
-    background-color: transparent;
-    color: #222;
-    border: 2px solid #016b66;
-    border-radius: 11px;
-    font-weight: 600;
+    border-color: #016b66 !important;
+    background-color: transparent !important;
+    color: #222 !important;
+    border: 2px solid #016b66 !important;
+    border-radius: 11px !important;
+    font-weight: 600 !important;
 }
 
 .btn-brand:hover {
