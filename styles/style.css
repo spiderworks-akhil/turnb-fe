@@ -1368,12 +1368,7 @@ section {
     background-color: rgba(1, 108, 102, 0.9) !important;
 }
 
-.btnsubmt {
-    border-radius: 25px;
-    border-color: #fff !important;
-    color: #fff !important;
-    font-size: 14.3px;
-}
+
 
 .closebutton {
     position: absolute;
@@ -3071,10 +3066,10 @@ h1.busi-hdgc, h2.busi-hdgc {
 }
 
 .btn-brand {
-    border-color: #016b66 ;
-    background-color: transparent ;
-    color: #222 ;
-    border: 2px solid #016b66 ;
+    border-color: #016b66 !important;
+    background-color: transparent !important;
+    color: #222 !important;
+    border: 2px solid #016b66 !important;
     border-radius: 11px ;
     font-weight: 600 ;
 }
@@ -5589,6 +5584,13 @@ h5 {
     font-size: 24px;
     font-weight: bold;
 
+}
+
+.btnsubmt {
+    border-radius: 15px;
+    border-color: #fff !important;
+    color: #fff !important;
+    font-size: 14.3px;
 }
 
 .scanb-feature-s .active.center {
