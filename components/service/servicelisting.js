@@ -54,7 +54,7 @@ const ServicesSection = ({ data }) => {
                                                     {
                                                         index % 2 == 0 ?
 
-                                                            <div className="row">
+                                                            <div className="row g-0">
                                                                 <div className="col-lg-3 col-md-3 col-12 pd-ridser">
                                                                     <Image width={401} height={268} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-one" data-aos="fade-down" alt={obj?.media_id?.alt_text} />
                                                                 </div>
@@ -66,7 +66,7 @@ const ServicesSection = ({ data }) => {
                                                                 </div>
                                                             </div>
                                                             :
-                                                            <div className="row">
+                                                            <div className="row g-0">
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box2 pd-ridser">
                                                                     <div className="pt-lg-4 pt-md-4 pt-5 pb-0 pt-lft text-left clearfix aos-init aos-animate" data-aos="fade-up">
                                                                         <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}</span></h5>
