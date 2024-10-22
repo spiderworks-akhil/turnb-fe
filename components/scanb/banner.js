@@ -37,7 +37,7 @@ const ScanbBanner = ({ data }) => {
       let dataToSubmit = {
         name: details?.name,
         email: details?.email,
-        companyName:details?.companyName,
+        companyName: details?.companyName,
         phone_number: details?.mobile,
         source_url: pageUrl,
         lead_type: 'ScanB'
@@ -149,90 +149,82 @@ const ScanbBanner = ({ data }) => {
                       onSubmit={handleSubmit(onSubmit)}
                     >
                       <input type="hidden" name="date" value="2024-09-05 06:07:47" />
+
                       <div>
-                        <h5 class="text-white">Thank you for your interest in ScanB. <br />
-                          <span style={{fontSize:'16px',fontWeight:600}}>To view or download the brochure, please complete the short form below.</span>
+                        <h5 className="text-white">Thank you for your interest in ScanB. <br />
+                          <span style={{ fontSize: '16px', fontWeight: 600 }}>To view or download the brochure, please complete the short form below.</span>
                         </h5>
                       </div>
+
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userName" className="form-label text-white">Full Name</label>
-                        <input {...register('name', {
-                          required: 'Full Name is required',
-                        })} type="text" className="form-control" id="userName" name="name" />
+                        <input
+                          {...register('name')}
+                          type="text"
+                          className="form-control"
+                          id="userName"
+                          name="name"
+                          required
+                        />
                         {errors.name && <span className='form-validation'>{errors.name.message}</span>}
-
                       </div>
 
                       <div className="col-lg-6 col-md-6 col-12">
-                        <label htmlFor="companyName" className="form-label text-white">Full Name</label>
-                        <input {...register('companyName', {
-                          required: 'Full Name is required',
-                        })} type="text" className="form-control" id="companyName" name="companyName" />
+                        <label htmlFor="companyName" className="form-label text-white">Company Name</label>
+                        <input
+                          {...register('companyName')}
+                          type="text"
+                          className="form-control"
+                          id="companyName"
+                          name="companyName"
+                          required
+                        />
                         {errors.companyName && <span className='form-validation'>{errors.companyName.message}</span>}
-
                       </div>
+
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userEmail" className="form-label text-white">Company Email ID</label>
                         <input
                           type="email"
                           className="form-control"
                           id="userEmail"
-                          aria-describedby="emailHelp"
                           name="email"
-                          {...register('email', {
-                            required: 'Email is required',
-                            pattern: {
-                              value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                              message: 'Please enter a valid email address'
-                            }
-                          })}
+                          required
                         />
                         {errors.email && <span className='form-validation'>{errors.email.message}</span>}
                       </div>
+
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userMobile" className="form-label text-white">Mobile Number</label>
-                        <input type="tel" className="form-control" id="userMobile" name="mobile"  {...register('mobile', {
-                          required: 'Mobile number is required',
-                          minLength: {
-                            value: 10,
-                            message: 'Mobile number must be at least 10 digits',
-                          },
-                          maxLength: {
-                            value: 15,
-                            message: 'Mobile number must not exceed 15 digits',
-                          },
-                          pattern: {
-                            value: /^[0-9]+$/,
-                            message: 'Only numeric values are allowed',
-                          }
-                        })} />
+                        <input
+                          type="tel"
+                          className="form-control"
+                          id="userMobile"
+                          name="mobile"
+                          minLength="10"
+                          maxLength="15"
+                          required
+                          pattern="[0-9]+"
+                        />
                         {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
-
                       </div>
-                   
+
                       <div className="col-lg-6 col-md-6 col-12 mt-0">
                         <div className="m-0 mt-3">
                           <ReCAPTCHA
                             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
                             onChange={handleCaptchaChange}
                           />
-                          {/* <ReCAPTCHA
-                            sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"
-                          /> */}
                         </div>
                       </div>
 
                       <div className="col-12">
                         <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
-                          {
-                            loading ?
-                              <div className="loading-spinner"></div>
-                              : 'Submit'
-                          }
+                          {loading ? <div className="loading-spinner"></div> : 'Submit'}
                         </button>
-                        {/* <input type="submit" className="btn btn-brand btnsubmt" value="Submit" /> */}
                       </div>
                     </form>
+
                   </div>
                 </div>
               </div>

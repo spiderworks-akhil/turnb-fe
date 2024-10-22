@@ -47,7 +47,7 @@ const Footer = ({ FooterMenu }) => {
         phone_number: details?.mobile,
         message: details?.message,
         source_url: pageUrl,
-        ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' }:{ lead_type: 'Enquiry' }),
+        ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' } : { lead_type: 'Enquiry' }),
         // type: 'Enquiry'
       }
 
@@ -219,91 +219,86 @@ const Footer = ({ FooterMenu }) => {
                         <input type="hidden" name="date" value="2024-09-05 06:07:47" />
                         <div>
                           <h1 className="text-white">
-                            {url == '/scanb' ?
-                              'Book a Demo Today'
-                              :
-                              'Get in touch'}
+                            {url == '/scanb' ? 'Book a Demo Today' : 'Get in touch'}
                           </h1>
                           <p className="ft text-white mb-0">
-                            {url == '/scanb' ?
-                              'We will get back to you as soon as possible'
-                              :
-                              'Please feel free to contact us and we will get back to you as soon as possible'
-                            }
-
+                            {url == '/scanb'
+                              ? 'We will get back to you as soon as possible'
+                              : 'Please feel free to contact us and we will get back to you as soon as possible'}
                           </p>
                         </div>
+
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userName" className="form-label text-white">Full Name</label>
-                          <input {...register('name', {
-                            required: 'Full Name is required',
-                          })} type="text" className="form-control" id="userName" name="name" />
+                          <input
+                            {...register('name')}
+                            type="text"
+                            className="form-control"
+                            id="userName"
+                            name="name"
+                            required
+                          />
                           {errors.name && <span className='form-validation'>{errors.name.message}</span>}
-
                         </div>
 
-                        {
-                          url == '/scanb' &&
+                        {url == '/scanb' && (
                           <div className="col-lg-6 col-md-6 col-12">
                             <label htmlFor="companyName" className="form-label text-white">Company Name</label>
-                            <input {...register('companyName', {
-                              required: 'Full Name is required',
-                            })} type="text" className="form-control" id="companyName" name="companyName" />
+                            <input
+                              {...register('companyName')}
+                              type="text"
+                              className="form-control"
+                              id="companyName"
+                              name="companyName"
+                              required
+                            />
                             {errors.companyName && <span className='form-validation'>{errors.companyName.message}</span>}
                           </div>
-                        }
+                        )}
 
-                        {
-                          url == '/scanb' &&
+                        {url == '/scanb' && (
                           <div className="col-lg-6 col-md-6 col-12">
                             <label htmlFor="jobPosition" className="form-label text-white">Job Position</label>
-                            <input {...register('jobPosition', {
-                              required: 'Full Name is required',
-                            })} type="text" className="form-control" id="jobPosition" name="jobPosition" />
+                            <input
+                              {...register('jobPosition')}
+                              type="text"
+                              className="form-control"
+                              id="jobPosition"
+                              name="jobPosition"
+                              required
+                            />
                             {errors.jobPosition && <span className='form-validation'>{errors.jobPosition.message}</span>}
                           </div>
-                        }
+                        )}
 
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userEmail" className="form-label text-white">
                             {url == '/scanb' ? 'Company Email ID' : 'Email Address'}
                           </label>
                           <input
+                            {...register('email')}
                             type="email"
                             className="form-control"
                             id="userEmail"
-                            aria-describedby="emailHelp"
                             name="email"
-                            {...register('email', {
-                              required: 'Email is required',
-                              pattern: {
-                                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                                message: 'Please enter a valid email address'
-                              }
-                            })}
+                            required
                           />
                           {errors.email && <span className='form-validation'>{errors.email.message}</span>}
                         </div>
+
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userMobile" className="form-label text-white">Mobile Number</label>
-                          <input type="tel" className="form-control" id="userMobile" name="mobile"  {...register('mobile', {
-                            required: 'Mobile number is required',
-                            minLength: {
-                              value: 10,
-                              message: 'Mobile number must be at least 10 digits',
-                            },
-                            maxLength: {
-                              value: 15,
-                              message: 'Mobile number must not exceed 15 digits',
-                            },
-                            pattern: {
-                              value: /^[0-9]+$/,
-                              message: 'Only numeric values are allowed',
-                            }
-                          })} />
+                          <input
+                            {...register('mobile')}
+                            type="tel"
+                            className="form-control"
+                            id="userMobile"
+                            name="mobile"
+                            required
+                          />
                           {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
-
                         </div>
+
                         <div className="col-lg-6 col-md-6 col-12">
                           <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
                           <textarea
@@ -314,29 +309,23 @@ const Footer = ({ FooterMenu }) => {
                             name="message"
                           ></textarea>
                         </div>
+
                         <div className="col-lg-6 col-md-6 col-12 mt-0">
                           <div className="m-0 mt-3">
                             <ReCAPTCHA
                               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
                               onChange={handleCaptchaChange}
                             />
-                            {/* <ReCAPTCHA
-                            sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"
-                          /> */}
                           </div>
                         </div>
 
                         <div className="col-12">
                           <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
-                            {
-                              loading ?
-                                <div className="loading-spinner"></div>
-                                : 'Submit'
-                            }
+                            {loading ? <div className="loading-spinner"></div> : 'Submit'}
                           </button>
-                          {/* <input type="submit" className="btn btn-brand btnsubmt" value="Submit" /> */}
                         </div>
                       </form>
+
                     </div>
                   </div>
                 </div>
