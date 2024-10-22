@@ -1368,12 +1368,7 @@ section {
     background-color: rgba(1, 108, 102, 0.9) !important;
 }
 
-.btnsubmt {
-    border-radius: 25px;
-    border-color: #fff !important;
-    color: #fff !important;
-    font-size: 14.3px;
-}
+
 
 .closebutton {
     position: absolute;
@@ -1886,13 +1881,13 @@ h1.busi-hdgc, h2.busi-hdgc {
     margin-top: 18px;
 }
 
-.mr-topinnerpage {
+/* .mr-topinnerpage {
     margin-top: -171px !important;
 }
 
 .mr-topinnerpage-n {
     margin-top: -86px !important;
-}
+} */
 
 /* .mr-topinnerpagescan {
     margin-top: -86px !important;
@@ -1943,7 +1938,7 @@ h1.busi-hdgc, h2.busi-hdgc {
     font-family: 'Montserrat', sans-serif;
 }
 
-.cantfind {}
+
 
 .cantfind h3 {
     color: #606060;
@@ -1958,7 +1953,6 @@ h1.busi-hdgc, h2.busi-hdgc {
     color: #606060;
     font-size: 19px;
     font-weight: bold;
-    padding: ;
 }
 
 .dwn-b:hover {
@@ -3004,7 +2998,7 @@ h1.busi-hdgc, h2.busi-hdgc {
 .navbar {
     box-shadow: var(--shadow);
     background: rgba(0, 0, 0, 0.6);
-    position: fixed;
+    position: fixed !important;
     z-index: 999;
     width: 100%;
 }
@@ -3072,10 +3066,10 @@ h1.busi-hdgc, h2.busi-hdgc {
 }
 
 .btn-brand {
-    border-color: #016b66 ;
-    background-color: transparent ;
-    color: #222 ;
-    border: 2px solid #016b66 ;
+    border-color: #016b66 !important;
+    background-color: transparent !important;
+    color: #222 !important;
+    border: 2px solid #016b66 !important;
     border-radius: 11px ;
     font-weight: 600 ;
 }
@@ -3416,7 +3410,7 @@ h1.busi-hdgc, h2.busi-hdgc {
 }
 
 .floorplan-section .border {
-    border: 1px solid #4d5152 !importantt;
+    border: 1px solid #4d5152 !important;
 }
 
 .floor-plan-cont {
@@ -5592,6 +5586,13 @@ h5 {
 
 }
 
+.btnsubmt {
+    border-radius: 15px;
+    border-color: #fff !important;
+    color: #fff !important;
+    font-size: 14.3px;
+}
+
 .scanb-feature-s .active.center {
     transform: scale(1);
     -webkit-filter: grayscale(0);
@@ -6390,15 +6391,6 @@ input.form-control {
     box-shadow: none;
     border-color: var(--brand);
 }
-
-
-@media all and (max-width: 1200px) {
-
-    .mr-topinnerpage {
-        margin-top: -11px !important;
-    }
-}
-
 
 @media all and (max-width: 767px) {
     .scanb-busi {
