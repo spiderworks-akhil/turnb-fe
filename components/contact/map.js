@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
 
-const ContactMap = ({ data }) => {
+const ContactMap = ({ data }) => {  
+
   return (
     <div className="container">
       <div className="row mt-lg-5 mt-md-5 mt-3 pb-5">
