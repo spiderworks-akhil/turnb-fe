@@ -16,9 +16,9 @@ export default function Career({general, data}) {
     return (
         <Layout general={general} data={data}>
             <BlogDetailBanner data={data} />
+            <SecondSection data={data} />
             <BlogContent data={data} />
-            {/* <SecondSection  />
-            <ListingSections /> */}
+            {/* <ListingSections /> */}
             <FooterSection data={data} />
         </Layout>
     );

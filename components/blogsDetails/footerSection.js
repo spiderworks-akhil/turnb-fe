@@ -61,7 +61,7 @@ const FooterSection = ({data}) => {
       </div> */}
 
       {/* Share on LinkedIn Section */}
-      <div className="container">
+      <div className="container mb-4">
         <a
           href={`https://www.linkedin.com/shareArticle?mini=true&amp;url=${pageUrl};title=${data?.slug};summary=${data?.short_description}`}
           target="_blank"

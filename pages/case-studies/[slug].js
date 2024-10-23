@@ -13,9 +13,18 @@ export default function Slug({ general, data }) {
     return (
         <Layout general={general} data={data}>
             <CaseStudyDetailBanner data={data} />
-            <CaseStudyChallenge data={data} />
-            <CaseStudyApproaches data={data} />
-            <Implications data={data} />
+            {
+                data?.content?.description_1 &&
+                <CaseStudyChallenge data={data} />
+            }
+            {
+                data?.content?.description_2 &&
+                <CaseStudyApproaches data={data} />
+            }
+            {
+                data?.content?.description_3 &&
+                <Implications data={data} />
+            }
         </Layout>
     );
 }

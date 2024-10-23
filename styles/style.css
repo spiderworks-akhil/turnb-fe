@@ -7035,3 +7035,9 @@ input.form-control {
 .consult-stage span{
     font-weight: 500;
 }
+
+.case-challenge p{
+    font-size: 16px;
+    line-height: 1.7;
+    color: #878c93 !important;
+}

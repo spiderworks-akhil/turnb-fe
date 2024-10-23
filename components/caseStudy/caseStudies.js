@@ -78,8 +78,8 @@ const CaseStudiesList = ({ data, list }) => {
                                                         </h2>
                                                         <p className="text-left mt-1 fnt-15">
                                                             {
-                                                                obj?.short_description?.length > 120 ?
-                                                                    obj?.short_description?.slice(0, 120) + '....' :
+                                                                obj?.short_description?.length > 100 ?
+                                                                    obj?.short_description?.slice(0, 100) + '....' :
                                                                     obj?.short_description
                                                             }
                                                         </p>
