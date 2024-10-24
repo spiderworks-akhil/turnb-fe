@@ -18,7 +18,7 @@ function BlogContent({ data }) {
 
                         {/* {
                             data?.content?.map((obj, index) => (
-                                (index + 1 == data?.content?.length && data?.length % 2 != 0) ?
+                                (data?.content?.length==1 || (index + 1 == data?.content?.length && data?.length % 2 != 0)) ?
                                     <div key={index} className="col-lg-12 col-md-12 col-12" data-aos="fade-up" data-aos-duration="3000">
                                         <div className="real-timebox real-boxheit position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
                                             <h5 className="clrblue-s m-0 p-0 mb-2">

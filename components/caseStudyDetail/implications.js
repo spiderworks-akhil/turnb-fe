@@ -23,7 +23,7 @@ function Implications({ data }) {
         <div className="">
           <div className='row case-study-approach implication-bg'>
             <div className="col-lg-7 col-md-7 col-12">
-              <div style={{ backgroundColor: 'white' }} className='turnb-txt ' dangerouslySetInnerHTML={{ __html: data?.content?.description_3 }} />
+              <div style={{ backgroundColor: 'white' }} className='turnb-txt case-study-image' dangerouslySetInnerHTML={{ __html: data?.content?.description_3 }} />
 
               {/* <p>Following were the outcomes after designing the incentive program model:</p>
 

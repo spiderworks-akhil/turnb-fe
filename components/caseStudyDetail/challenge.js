@@ -38,7 +38,7 @@ const CaseStudyChallenge = ({ data }) => {
             <div className="col-lg-9 col-md-9 col-12">
               <div className="clearfix aos-init m-0 p-0 aos-animate" data-aos="fade-up">
 
-                <div className='="m-0 clearfix aos-init aos-animate case-challenge' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
+                <div className='="m-0 clearfix aos-init aos-animate case-challenge case-study-image' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
               </div>
             </div>
           </div>

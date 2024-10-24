@@ -56,7 +56,7 @@ const AboutSection = ({ data }) => {
 
         <div className="row justify-content-center">
           <div className="col-lg-9 col-md-9 col-12">
-            <video width="100%" height="100%" className="heithvdo" autoPlay loop controls>
+            <video width="100%" height="100%" className="heithvdo" autoPlay={false} loop controls>
               <source src={data?.content?.home_vedio_media_id?.file_path} type="video/mp4" />
               {/* <source src="/consult.ogg" type="video/ogg" /> */}
               Your browser does not support the video tag.

@@ -28,7 +28,7 @@ function CaseStudyApproaches({ data }) {
 
                                 <div className="row">
                                     <div className="col-lg-7 col-md-7 col-12">
-                                        <div className='turnb-txt' dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} />
+                                        <div className='turnb-txt case-study-image' dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} />
 
                                         {/* <p>
         We identified and extracted relevant data elements from the
