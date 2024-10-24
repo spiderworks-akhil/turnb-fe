@@ -5,7 +5,7 @@ const CaseStudyDetailBanner = ({ data }) => {
   return (
     <div className="banner-container">
       <div className="d-block img-fluid d-lg-block d-md-block d-none abt-banner">
-        <Image width={1600} height={900} alt={data?.content?.case_study_banner_media_id?.alt_text || data?.name} className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
+        <Image style={{width:'100%'}} width={1600} height={900} alt={data?.content?.case_study_banner_media_id?.alt_text || data?.name} className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
           src={data?.content?.case_study_banner_media_id?.file_path} data-aos="fade-right" />
       </div>
 
