@@ -6396,6 +6396,17 @@ input.form-control {
     border-color: var(--brand);
 }
 
+
+
+
+@media all and (max-width: 1200px) {
+    #watch-video {
+        position: absolute;
+        left: 5% !important;
+        top: 80%;
+    }
+}
+
 @media all and (max-width: 767px) {
     .scanb-busi {
         background-position: bottom !important;
