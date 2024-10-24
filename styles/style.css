@@ -343,7 +343,7 @@ section {
     text-indent: -999px;
     cursor: pointer;
     border-radius: 100%;
-    background-color: #018381;
+    background-color: #018381 !important;
     background-clip: padding-box;
     border: 0;
     border-top: 10px solid transparent;
