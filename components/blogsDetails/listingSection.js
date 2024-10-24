@@ -14,7 +14,7 @@ const ListingSections = () => {
                   City Planners & Public Officials: Transforming Cities into Living, Breathing Organisms
                 </h5>
                 <p className="mb-0">
-                  Picture a city that adapts to its residents' needs in real-time. Sensors embedded in traffic lights
+                  Picture a city that adapts to its residents&apos; needs in real-time. Sensors embedded in traffic lights
                   analyze traffic flow, dynamically adjusting light cycles to alleviate congestion during peak hours.
                   Real-time data on energy consumption optimizes power grid usage, curbs costs, and promotes sustainability.
                   Waste management becomes more efficient with real-time monitoring of bin fill levels, ensuring timely
@@ -50,12 +50,12 @@ const ListingSections = () => {
                   The Future of Real-Time Data Analytics: A World of Endless Possibilities
                 </h5>
                 <p className="mb-0">
-                  What you've seen is just the tip of the iceberg in the realm of real-time data
+                  What you&apos;ve seen is just the tip of the iceberg in the realm of real-time data
                   analytics. With technologies like Artificial Intelligence and Machine Learning at your disposal, the
                   horizon stretches infinitely. Envision a future where real-time data analytics personalize every aspect
                   of our lives, from tailored product recommendations to proactive healthcare
                   interventions. Businesses will operate with unparalleled efficiency, anticipating needs and
-                  exceeding expectations at every turn. This isn't science fiction—it's the future we're building today.
+                  exceeding expectations at every turn. This isn&apos;t science fiction—it&apos;s the future we&apos;re building today.
                 </p>
                 <div className="line-leftblue"></div>
                 <div className="line-rightblue"></div>
