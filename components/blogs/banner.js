@@ -4,6 +4,7 @@ const BlogBanner = ({data}) => {
     return (
         <div className="banner-container">
             <Image
+                  style={{width:'100%'}}
                 alt={data?.content?.blog_banner_media_id?.alt_path || data?.name}
                 className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none"
                 src={data?.content?.blog_banner_media_id?.file_path}
