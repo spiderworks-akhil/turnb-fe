@@ -1,6 +1,8 @@
 import React from 'react'
 
 function BlogContent({ data }) {
+
+
     return (
 
         // <div className="container mt-lg-5 mt-md-5 mt-3">
@@ -16,48 +18,42 @@ function BlogContent({ data }) {
                 <div class="col-lg-11 col-md-11  col-12">
                     <div class="row justify-content-center">
 
-                        {/* {
+                        {
                             data?.content?.map((obj, index) => (
-                                (data?.content?.length==1 || (index + 1 == data?.content?.length && data?.length % 2 != 0)) ?
+                                // (data?.content?.length == 1 || (index + 1 == data?.content?.length && data?.length % 2 != 2)) ?
                                     <div key={index} className="col-lg-12 col-md-12 col-12" data-aos="fade-up" data-aos-duration="3000">
                                         <div className="real-timebox real-boxheit position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
                                             <h5 className="clrblue-s m-0 p-0 mb-2">
-                                                The Future of Real-Time Data Analytics: A World of Endless Possibilities
+                                                {obj?.title}
                                             </h5>
-                                            <p className="mb-0">
+                                            <div dangerouslySetInnerHTML={{ __html: obj?.description }} />
+                                            {/* <p className="mb-0">
                                                 What you've seen is just the tip of the iceberg in the realm of real-time data
                                                 analytics. With technologies like Artificial Intelligence and Machine Learning at your disposal, the
                                                 horizon stretches infinitely. Envision a future where real-time data analytics personalize every aspect
                                                 of our lives, from tailored product recommendations to proactive healthcare
                                                 interventions. Businesses will operate with unparalleled efficiency, anticipating needs and
                                                 exceeding expectations at every turn. This isn't science fiction—it's the future we're building today.
-                                            </p>
-                                            <div className="line-leftblue"></div>
-                                            <div className="line-rightblue"></div>
+                                            </p> */}
+                                            <div className={`${index%2==0?'line-leftblue':'line-leftreal'}`}></div>
+                                            <div className={`${index%2==0?'line-rightblue':'line-rightreal'}`}></div>
                                         </div>
                                     </div>
-                                    :
-                                    <div key={index} className="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-duration="3000">
-                                        <div className="real-timebox position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
-                                            <h5 className="blyeckr m-0 p-0 mb-2">
-                                                City Planners & Public Officials: Transforming Cities into Living, Breathing Organisms
-                                            </h5>
-                                            <p className="mb-0">
-                                                Picture a city that adapts to its residents' needs in real-time. Sensors embedded in traffic lights
-                                                analyze traffic flow, dynamically adjusting light cycles to alleviate congestion during peak hours.
-                                                Real-time data on energy consumption optimizes power grid usage, curbs costs, and promotes sustainability.
-                                                Waste management becomes more efficient with real-time monitoring of bin fill levels, ensuring timely
-                                                collections and minimizing unnecessary trips. This data-driven approach to city management creates a more
-                                                efficient, sustainable, and livable urban environment.
-                                            </p>
-                                            <div className="line-leftreal"></div>
-                                            <div className="line-rightreal"></div>
-                                        </div>
-                                    </div>
+                                    // :
+                                    // <div key={index} className="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-duration="3000">
+                                    //     <div className="real-timebox position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
+                                    //         <h5 className="clrblue-s m-0 p-0 mb-2">
+                                    //             {obj?.title}
+                                    //         </h5>
+                                    //         <div dangerouslySetInnerHTML={{ __html: obj?.description }} />
+                                    //         <div className="line-leftreal"></div>
+                                    //         <div className="line-rightreal"></div>
+                                    //     </div>
+                                    // </div>
                             ))
-                        } */}
+                        }
 
-                        <div className="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-duration="3000">
+                        {/* <div className="col-lg-6 col-md-6 col-12" data-aos="fade-up" data-aos-duration="3000">
                             <div className="real-timebox position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
                                 <h5 className="blyeckr m-0 p-0 mb-2">
                                     City Planners & Public Officials: Transforming Cities into Living, Breathing Organisms
@@ -109,7 +105,7 @@ function BlogContent({ data }) {
                                 <div className="line-leftblue"></div>
                                 <div className="line-rightblue"></div>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>

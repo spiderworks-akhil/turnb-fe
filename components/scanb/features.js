@@ -16,6 +16,24 @@ const ScanbFeatures = ({ data }) => {
     slidesToScroll: 1,       // Number of slides to scroll
     autoplay: true,          // Enable autoplay
     autoplaySpeed: 3000,     // Autoplay speed (3 seconds)
+    responsive: [
+      {
+        breakpoint: 1024, // Screen width at which this rule applies
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600, // Another breakpoint for smaller screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (

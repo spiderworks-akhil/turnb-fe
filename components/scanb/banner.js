@@ -116,14 +116,14 @@ const ScanbBanner = ({ data }) => {
       <div id="button-video-brou">
         <a href={data?.content?.scanb_button_link_1} target="_blank" style={{ textDecoration: 'none' }}><button id="watch-video1" fdprocessedid="dbo1sj">{data?.content?.scanb_button_text_1}</button></a>
         <a href={data?.content?.scanb_button_link_2} target="_blank" style={{ textDecoration: 'none' }}>
-          <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
+          <button id="brouchure" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
       </div>
 
       {/* brochure form */}
       <div
         onClick={() => setIsModalOpen(false)}
         className={`modal fade ${isModalOpen ? 'show' : ''}`}
-        id="exampleModal"
+        id="brouchure"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden={!isModalOpen}

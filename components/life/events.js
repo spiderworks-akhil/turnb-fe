@@ -14,6 +14,25 @@ const LifeEventsSection = ({ data }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024, // Screen width at which this rule applies
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600, // Another breakpoint for smaller screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
     appendDots: dots => (
       <div style={{ bottom: '-30px' }}>
         <ul style={{ margin: '0px' }}>{dots}</ul>

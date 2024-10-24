@@ -12,7 +12,26 @@ const LifeTestimonials = ({ data }) => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+              breakpoint: 1024, // Screen width at which this rule applies
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                infinite: true,
+                dots: true,
+              },
+            },
+            {
+              breakpoint: 600, // Another breakpoint for smaller screens
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: false,
+              },
+            },
+          ],
     };
 
 

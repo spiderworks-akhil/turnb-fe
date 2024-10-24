@@ -3201,7 +3201,7 @@ h2.busi-hdgc {
 
     .nav-tab-career nav {
         left: 26.8% !important;
-        bottom: -666px !important;
+        bottom: -706px !important;
     }
 
     .cantfind {
@@ -3243,7 +3243,7 @@ h2.busi-hdgc {
     }
 
     .navbar {
-        padding-top: 0.9rem;
+        padding-top: 0rem;
         background: rgba(0, 0, 0, 0.9) !important;
     }
 
@@ -3296,11 +3296,7 @@ h2.busi-hdgc {
     }
 
     .navbar-collapse {
-        padding-top: 20px;
-    }
-
-    .mrhometop {
-        margin-top: 165px !important;
+        padding-top: 0px;
     }
 
     .homebanner .carousel-item {
@@ -3326,7 +3322,7 @@ h2.busi-hdgc {
     }
 
     .navbar-toggler {
-        background-color: #02817f;
+        background-color: #02817f !important;
     }
 
     /*   .slide{margin-top: 81px;}*/
@@ -3337,6 +3333,7 @@ h2.busi-hdgc {
     .carousel-caption {
         bottom: 165px;
     }
+    
 
     .carousel-caption h5 {
         font-size: 17px;
@@ -6697,6 +6694,11 @@ input.form-control {
         width: 63%;
     }
 
+    .pl_text {
+        padding-left: 0px;
+    }
+    
+
     .mr-lfttt {
         margin-left: 0px;
         margin-top: 21px;
@@ -6793,6 +6795,38 @@ input.form-control {
         border-bottom: 1px solid #306376 !important;
     }
 
+    .scanb-feature-s .slick-next {
+        right: -30px !important;
+    }
+
+    .scanb-org {
+        display: block;
+        padding-left: 0;
+    }
+    .scanb-bbusi {
+        display: block;
+        padding: 25px;
+        padding-right: 25px;
+    }    
+
+    .scanb-feature-s .slick-prev {
+        left: -30px !important;
+        display: block !important;
+    }
+
+    .homebanner .carousel-inner {
+        margin-top: 0px !important;
+    }
+    .mrhometop {
+        margin-top: 65px !important;
+    }
+    .title-akn {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 42px;
+    }
+
 }
 
 
@@ -6877,9 +6911,8 @@ input.form-control {
 .thankyou-homeLink:hover {
     border-bottom: 1px solid #0070f3;
 }
-
 .abt-mob-banner {
-    margin-top: 79px;
+    margin-top: 64px;
     width: 100% !important;
 }
 

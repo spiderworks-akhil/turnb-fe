@@ -11,7 +11,26 @@ const LifeMiddleSection = ({ data }) => {
     infinite: true, // Infinite loop sliding
     speed: 500, // Speed of the transition
     slidesToShow: 1, // Number of slides to show
-    slidesToScroll: 1 // Number of slides to scroll at a time
+    slidesToScroll: 1 ,
+    responsive: [
+      {
+        breakpoint: 1024, // Screen width at which this rule applies
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600, // Another breakpoint for smaller screens
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
   };
 
   return (
