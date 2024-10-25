@@ -3200,12 +3200,12 @@ h2.busi-hdgc {
     }
 
     .nav-tab-career nav {
-        left: 26.8% !important;
-        bottom: -706px !important;
+        left: auto;
+        bottom: auto;
+        position: relative;
     }
-
     .cantfind {
-        margin-top: 69px !important;
+        margin-top: 0% !important;
     }
 
     .career-box p {
@@ -3245,6 +3245,7 @@ h2.busi-hdgc {
     .navbar {
         padding-top: 0rem;
         background: rgba(0, 0, 0, 0.9) !important;
+        padding-bottom: 0px !important;
     }
 
     .imginner-lfe {
@@ -6396,6 +6397,17 @@ input.form-control {
     border-color: var(--brand);
 }
 
+
+
+
+@media all and (max-width: 1200px) {
+    #watch-video {
+        position: absolute;
+        left: 5% !important;
+        top: 80%;
+    }
+}
+
 @media all and (max-width: 767px) {
     .scanb-busi {
         background-position: bottom !important;
@@ -6818,7 +6830,7 @@ input.form-control {
         margin-top: 0px !important;
     }
     .mrhometop {
-        margin-top: 65px !important;
+        margin-top: 57px !important;
     }
     .title-akn {
         font-family: 'Montserrat', sans-serif;
@@ -6912,7 +6924,7 @@ input.form-control {
     border-bottom: 1px solid #0070f3;
 }
 .abt-mob-banner {
-    margin-top: 64px;
+    margin-top: 57px;
     width: 100% !important;
 }
 
