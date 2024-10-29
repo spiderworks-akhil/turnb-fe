@@ -6,11 +6,6 @@ const EXTERNAL_DATA_URL = 'https://jsonplaceholder.typicode.com/posts';
 // using static page instead of dynamic maping
 
 
-{/*
-  below <lastmod>
-   <changefreq>daily</changefreq>
-          <priority>1.0</priority> */}
-
 const today = new Date();
 const formattedDate = `${today.toISOString().slice(0, 19)}+00:00`
 
