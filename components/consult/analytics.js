@@ -7,7 +7,7 @@ const AnalyticalConsultingSpectrum = ({data}) => {
         <div className="row justify-content-center">
           <div className="col-lg-9 col-md-9 col-12">
             <div className="text-center p-5 pb-0">
-              <h2 className="text-dark ft-wt3 mb-3">{data?.content?.consult_section_4_title}</h2>
+              <h2 className="text-dark ft-wt3 mb-3 ft-600">{data?.content?.consult_section_4_title}</h2>
               <p className="clr-grn ft-st">
                 {data?.content?.consult_section_4_description}
               </p>

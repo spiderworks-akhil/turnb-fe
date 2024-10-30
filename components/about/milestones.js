@@ -56,7 +56,7 @@ const MilestonesSection = ({ data, }) => { // Accept a carouselId as prop
         <div className="row justify-content-center">
           <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent d-flex justify-content-center">
             {/* Custom Navigation Arrows with unique IDs */}
-            <a id={`${carouselId}-prev`} className="customPrevBtn " style={{cursor:'pointer'}}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
+            <a id={`${carouselId}-prev`} className="customPrevBtn " style={{ cursor: 'pointer' }}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
             <div id={carouselId} className="owl-carousel carousel-main bg-transparent">
               {data?.content?.listing_id_milestone.map((milestone, index) => (
                 <div key={index}>
@@ -71,8 +71,8 @@ const MilestonesSection = ({ data, }) => { // Accept a carouselId as prop
                       <div className="dot-b"></div>
                     </div>
                     <div
-                      className="text-black"
-                      dangerouslySetInnerHTML={{ __html: milestone.short_description }}
+                      className="text-black milestone-div"
+                      dangerouslySetInnerHTML={{ __html: milestone.detailed_description }}
                     />
                   </div>
                 </div>

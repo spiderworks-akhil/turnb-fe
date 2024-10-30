@@ -9,13 +9,15 @@ import { CaseStudyApi } from "@/Datas/Endpoints/CaseStudy";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Slug({ general, data }) {
+export default function Slug({ general, data ,staticPage}) {
+    console.log(staticPage);
+    
     return (
         <Layout general={general} data={data}>
             <CaseStudyDetailBanner data={data} />
             {
                 data?.content?.description_1 &&
-                <CaseStudyChallenge data={data} />
+                <CaseStudyChallenge staticPage={staticPage} data={data} />
             }
             {
                 data?.content?.description_2 &&
@@ -46,9 +48,10 @@ export async function getStaticProps(context) {
 
         const general = await MenuApi.genralSettings()
         const data = await CaseStudyApi.detail({ slug: context?.params?.slug })
+        const staticPage = await CaseStudyApi.index()
         return {
             props: {
-                general: general?.data, data: data?.data?.data
+                general: general?.data, data: data?.data?.data, staticPage:staticPage?.data?.data
             },
             revalidate: 10,
         };
