@@ -2,6 +2,9 @@ import Image from 'next/image';
 import React, { useEffect } from 'react'
 
 function Banner({ data }) {
+
+    console.log(data);
+    
     
     const buttonLength =  data?.other_sections?.home_banner_slider?.desktop?.photos?.length
 
@@ -24,7 +27,7 @@ function Banner({ data }) {
                     <div 
                         key={index} 
                         className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                        <a><Image 
+                        <a ><Image 
                             width={1920} 
                             height={1080} 
                             alt={obj?.url?.alt_text} 
