@@ -83,9 +83,9 @@ body {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--body);
-    line-height: 1.7;
+    font-family: 'Montserrat', sans-serif !important;
+    color: var(--body) !important;
+    line-height: 1.7 !important;
 }
 
 .title-ak {
@@ -170,7 +170,7 @@ h6,
 
 
 a {
-    color: var(--dark);
+    color: var(--dark) !important;
     transition: all 0.4s ease;
     font-weight: 500;
 }
