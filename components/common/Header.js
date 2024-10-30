@@ -64,7 +64,7 @@ const Header = ({ MainMenu, Settings }) => {
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                       {
                         obj?.children?.map((child, childIndex) => (
-                          <li key={childIndex}><Link href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
+                          <li key={childIndex}><Link style={{color:'#fff'}} href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
                         ))
                       }
                     </ul>
