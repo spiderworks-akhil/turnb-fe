@@ -68,71 +68,6 @@ const ConsultStages = ({ data }) => {
                     ))
                 }
 
-                {/* <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
-                    <div class="col-lg-9 col-md-9 col-12">
-                        <div class="cosult-box p-4 clearfix">
-                            <div class="box" data-aos="fade-down">
-                                <button class="spin circle"><img src="img/icons/de.png" class="img-fluid d-block m-auto text-center" /></button>
-                            </div>
-                            <div class="dec-text clearfix" data-aos="fade-up">
-                                <h5 class="clr-grn mt-0 mb-2"><span class="ft-wt2">Define:</span> We Describe You</h5>
-                                <p class="mb-0">Once the business problem is identified, we proceed to describe it by understanding
-                                    the symptoms. We kick-start the problem-solving process by categorizing it into a defined problem
-                                    terrain. This segmentation aids in a clearer definition of the problem, facilitating its effective
-                                    resolution.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
-                    <div class="col-lg-9 col-md-9 col-12">
-                        <div class="cosult-box p-4 clearfix">
-                            <div class="box" data-aos="fade-down">
-                                <button class="spin circle"><img src="img/icons/design.png" class="img-fluid d-block m-auto text-center" /></button>
-                            </div>
-                            <div class="dec-text clearfix" data-aos="fade-up">
-                                <h5 class="clr-grn mt-0 mb-2"><span class="ft-wt2">Design:</span> We Plan for You</h5>
-                                <p class="mb-0">After identifying and categorizing the central problem, our competent team of
-                                    Analytics Consultants break it down into smaller chunks to reduce complexity and determine
-                                    achievable targets. We then use timelines and flowcharts to design an effective Line of Execution
-                                    (LoE).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
-                    <div class="col-lg-9 col-md-9 col-12">
-                        <div class="cosult-box p-4 clearfix">
-                            <div class="box" data-aos="fade-down">
-                                <button class="spin circle"><img src="img/icons/do.png" class="img-fluid d-block m-auto text-center" /></button>
-                            </div>
-                            <div class="dec-text clearfix" data-aos="fade-up">
-                                <h5 class="clr-grn mt-0 mb-2"><span class="ft-wt2">Do:</span> We Act For You</h5>
-                                <p class="mb-0">Using the LoE as our guide, we implement a variety of advanced data science
-                                    techniques, such as machine learning and artificial intelligence to develop innovative solutions to
-                                    your business problems. We also develop strategies, build reports, and create statistical models to
-                                    help you take your business to the next level of innovation.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
-                    <div class="col-lg-9 col-md-9 col-12">
-                        <div class="cosult-box p-4 clearfix">
-                            <div class="box" data-aos="fade-down">
-                                <button class="spin circle"><img src="img/icons/dev.png" class="img-fluid d-block m-auto text-center" /></button>
-                            </div>
-                            <div class="dec-text clearfix" data-aos="fade-up">
-                                <h5 class="clr-grn mt-0 mb-2"><span class="ft-wt2">Deliver:</span> We Transform You</h5>
-                                <p class="mb-0">In the final stage of your data-driven journey, we present the solutions to you and
-                                    provide comprehensive training to ensure that you can implement them effectively in your business
-                                    workflow. We also continuously evaluate our proposed solutions to make improvements and enhance
-                                    your current operations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
 
             {/* <!-- Partner Section --> */}
@@ -143,7 +78,7 @@ const ConsultStages = ({ data }) => {
                             <div class="col-lg-7 col-md-7 col-12">
                                 <div class="position-relative" data-aos="fade-down">
                                     <h1 class="title-ak2 text-dark  text-lf mb-lg-3 mb-md-3 mb-3 mt-lg-0 mt-md-0 mt-4">
-                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_3 }} />
+                                        <span class="clr-g ft-600" dangerouslySetInnerHTML={{ __html: data?.content?.consult_title_3 }} />
                                         {/* <span class="clr-grn">doesn't end with delivery!</span> */}
                                     </h1>
                                     <div class="boxline-new2 mt-lg-3 mt-md-3 mt-2"></div>
@@ -168,14 +103,9 @@ const ConsultStages = ({ data }) => {
                             <div class="text-lf justify position-relative" data-aos="fade-up">
                                 <div class="parter-list border-ritnew clearfix">
                                     <h4 class="ft-wt3">
-                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_1 }} />
+                                        <span class="clr-g ft-600" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_1 }} />
                                     </h4>
                                     <div dangerouslySetInnerHTML={{ __html: data?.content?.consult_description_2 }} />
-                                    {/* <ul class="mt-lg-4 mt-md-4 mt-3 mb-0">
-                                        <li>Ongoing maintenance and support</li>
-                                        <li>Product enhancements and updates</li>
-                                        <li>New product development</li>
-                                    </ul> */}
                                 </div>
                             </div>
                         </div>
@@ -183,15 +113,9 @@ const ConsultStages = ({ data }) => {
                             <div class="text-lf justify position-relative" data-aos="fade-up">
                                 <div class="parter-list mr-lfttt clearfix">
                                     <h4 class="ft-wt3">
-                                        <span class="clr-g" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_2 }} />
+                                        <span class="clr-g ft-600" dangerouslySetInnerHTML={{ __html: data?.content?.consult_sub_title_2 }} />
                                     </h4>
                                     <div dangerouslySetInnerHTML={{ __html: data?.content?.consult_description_3 }} />
-
-                                    {/* <ul class="mt-lg-5 mt-md-5 mt-3 mb-0">
-                                        <li>Re-examine your business needs, goals, and priorities</li>
-                                        <li>Identify any new or emerging opportunities</li>
-                                        <li>Develop a plan to execute on your revised goals</li>
-                                    </ul> */}
                                 </div>
                             </div>
                         </div>

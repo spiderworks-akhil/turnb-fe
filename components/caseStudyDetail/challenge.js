@@ -2,8 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import BreadCrumbs from '../common/breadCrumbs';
 
-const CaseStudyChallenge = ({ data }) => {
-  console.log(data);
+const CaseStudyChallenge = ({ data,staticPage }) => {
 
   return (
     <div>
@@ -11,7 +10,7 @@ const CaseStudyChallenge = ({ data }) => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-12">
-            <BreadCrumbs secondCrumb={data?.name} />
+            <BreadCrumbs secondCrumb={staticPage?.title} secondCrumbLink={staticPage?.slug} thirdCrumb={data?.name} />
           </div>
         </div>
       </div>

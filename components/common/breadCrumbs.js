@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-function BreadCrumbs({secondCrumb,secondCrumbLink}) {
+function BreadCrumbs({ secondCrumb, secondCrumbLink, thirdCrumb }) {
     return (
         <div className="container">
             <div className="row">
@@ -9,7 +9,18 @@ function BreadCrumbs({secondCrumb,secondCrumbLink}) {
                     <nav aria-label="breadcrumb">
                         <ol className="breadcrumb mt-lg-5 mt-md-5 mt-3 mb-lg-4 mb-md-4 mb-3">
                             <li className="breadcrumb-item"><Link href="/">Home</Link></li>
-                            <li className="breadcrumb-item active" aria-current="page">{secondCrumb}</li>
+                            <li className="breadcrumb-item active" aria-current="page">
+                                {
+                                    thirdCrumb ?
+                                        <Link href={`/${secondCrumbLink}` || '#'}>{secondCrumb} </Link>
+                                        :
+                                        secondCrumb
+                                }
+                            </li>
+                            {
+                                thirdCrumb &&
+                                <li className="breadcrumb-item active" aria-current="page">{thirdCrumb}</li>
+                            }
                         </ol>
                     </nav>
                 </div>

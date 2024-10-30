@@ -158,6 +158,10 @@ h6,
     color: var(--dark);
 }
 
+.ft-600 {
+    font-weight: 600 !important;
+}
+
 .bg-cover {
     background-size: cover;
     background-position: center;
@@ -3204,6 +3208,7 @@ h2.busi-hdgc {
         bottom: auto;
         position: relative;
     }
+
     .cantfind {
         margin-top: 0% !important;
     }
@@ -3334,7 +3339,7 @@ h2.busi-hdgc {
     .carousel-caption {
         bottom: 165px;
     }
-    
+
 
     .carousel-caption h5 {
         font-size: 17px;
@@ -5238,7 +5243,18 @@ h5 {
     -webkit-transition: all 0.4s ease-in-out;
 }
 
+.game-section .item-desc h3 {
+    font-size: 21px;
+}
+
+.game-section .item-desc p {
+    font-size: 17px;
+    line-height: 23px;
+    color: #ccc !important;
+}
+
 .item.scanb-feature-block {
+    width: 320px;
     height: 430px;
     display: -webkit-flex;
     align-items: flex-end;
@@ -5250,7 +5266,7 @@ h5 {
     transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     cursor: pointer;
-    margin: 0 15px;
+    margin: 0 9px 0;
 }
 
 .point-one p {
@@ -5578,7 +5594,9 @@ h5 {
     margin-top: -83px !important;
 }
 
-.scanb-feature-s {}
+.scanb-feature-s {
+    padding-top: 0px !important;
+}
 
 /* adapted from  https://codepen.io/glebkema/pen/Xjryjd*/
 
@@ -6075,8 +6093,7 @@ h5 {
     background-repeat: no-repeat;
 }
 
-#milestone h1,
-#milestone p {
+#milestone h1 {
     color: #fff;
 }
 
@@ -6709,7 +6726,7 @@ input.form-control {
     .pl_text {
         padding-left: 0px;
     }
-    
+
 
     .mr-lfttt {
         margin-left: 0px;
@@ -6815,11 +6832,12 @@ input.form-control {
         display: block;
         padding-left: 0;
     }
+
     .scanb-bbusi {
         display: block;
         padding: 25px;
         padding-right: 25px;
-    }    
+    }
 
     .scanb-feature-s .slick-prev {
         left: -30px !important;
@@ -6829,9 +6847,11 @@ input.form-control {
     .homebanner .carousel-inner {
         margin-top: 0px !important;
     }
+
     .mrhometop {
         margin-top: 57px !important;
     }
+
     .title-akn {
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
@@ -6923,6 +6943,7 @@ input.form-control {
 .thankyou-homeLink:hover {
     border-bottom: 1px solid #0070f3;
 }
+
 .abt-mob-banner {
     margin-top: 57px;
     width: 100% !important;
@@ -7110,6 +7131,10 @@ input.form-control {
     font-weight: 500;
 }
 
+.consult-stage {
+    font-size: 2.5rem;
+}
+
 .case-challenge p {
     font-size: 16px;
     line-height: 1.7;
@@ -7124,4 +7149,12 @@ input.form-control {
 .case-study-image figure img {
     width: 656px;
     height: 328px;
+}
+
+
+.milestone-div p::before {
+    content: "-";
+    /* position: absolute;
+    left: 0;
+    top: 0; */
 }
