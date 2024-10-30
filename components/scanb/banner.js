@@ -22,12 +22,8 @@ const ScanbBanner = ({ data }) => {
     setCaptchaVerified(true);
   };
 
-  console.log(data);
-
-
   const onSubmit = async (details) => {
-
-
+    
     if (!captchaVerified) {
       alert('Please verify the reCAPTCHA');
       return;
@@ -89,7 +85,7 @@ const ScanbBanner = ({ data }) => {
             <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
           </a>
 
-          <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
+          <a onClick={handleModalToggle} data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: 'none' }}>
             <button id="brouchure">{data?.content?.scanb_button_text_2}</button>
           </a>
         </div>
@@ -123,20 +119,19 @@ const ScanbBanner = ({ data }) => {
       <div
         onClick={() => setIsModalOpen(false)}
         className={`modal fade ${isModalOpen ? 'show' : ''}`}
-        id="brouchure"
+        id="exampleModal2"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden={!isModalOpen}
         style={{ display: isModalOpen ? 'block' : 'none', }} // add backdrop: 'static' if needed
       >
         <div className="modal-dialog modal-dialog-centered">
-          <div onClick={(e) => e.stopPropagation()} className="modal-content">
-            {/* Modal Header */}
+          <div className="modal-content">
             <div className="modal-header p-0 border-none">
               <button
                 type="button"
                 className="btn-close closebutton"
-                onClick={handleModalToggle}
+                data-bs-toggle="modal" data-bs-target="#exampleModal2"
                 aria-label="Close"
               ></button>
             </div>

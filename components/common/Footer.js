@@ -79,6 +79,11 @@ const Footer = ({ FooterMenu }) => {
     }
   };
 
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    reset()
+  }
+
 
 
   return (
@@ -178,7 +183,7 @@ const Footer = ({ FooterMenu }) => {
           </div>
         </div>
         <div className="popup-btnnew">
-          <a className="btn blink-text " onClick={handleModalToggle}>
+          <a className="btn blink-text " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleModalToggle}>
             {
               url == '/scanb' ?
                 'Book a Demo' :
@@ -189,26 +194,28 @@ const Footer = ({ FooterMenu }) => {
 
         {/* Enquire Now Form Modal */}
         <div
-          onClick={() => { setIsModalOpen(false) }}
+          // onClick={handleModalClose}
           className={`modal fade ${isModalOpen ? 'show' : ''}`}
           id="exampleModal"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden={!isModalOpen}
+          aria-modal={isModalOpen}
           style={{ display: isModalOpen ? 'block' : 'none' }}
         >
           <div className="modal-dialog modal-dialog-centered">
-            <div onClick={(e) => e.stopPropagation()} className="modal-content">
+            <div className="modal-content">
               {/* Modal Header */}
               <div className="modal-header p-0 border-none">
                 <button
+                  data-bs-toggle="modal" data-bs-target="#exampleModal"
                   type="button"
                   className="btn-close closebutton"
-                  onClick={handleModalToggle}
+                  // onClick={handleModalClose}
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body p-0">
+              <div onClick={(e) => e.stopPropagation()} className="modal-body p-0">
                 <div className="container-fluid">
                   <div className="row justify-content-center gy-4 mob-input">
                     <div className="col-lg-12 col-md-12 col-12">
