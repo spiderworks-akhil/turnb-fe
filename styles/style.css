@@ -15,11 +15,11 @@ body {
 }
 
 .wdd-logo {
-    width: 73% !important;
+    width: 100% !important;
 }
 
 .wdd-logoin {
-    width: 73% !important;
+    width: 100% !important;
 }
 
 .lindd {
@@ -2791,6 +2791,8 @@ h2.busi-hdgc {
 ::-webkit-input-placeholder {
     color: #555 !important;
 }
+
+
 
 @media (max-width: 767px) {
 
@@ -5917,7 +5919,13 @@ h5 {
 }
 
 .bg-realtext {
-    margin-top: 85px;
+    margin-top: 215px;
+}
+
+@media (max-width: 1600px) {
+    .bg-realtext {
+        margin-top: 125px;
+    }
 }
 
 .bg-realtext p {
