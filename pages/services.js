@@ -8,11 +8,12 @@ import { ServicesApi } from "@/Datas/Endpoints/Services";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({general, data}) {
+export default function About({general, data,list}) {
+    
     return (
         <Layout general={general} data={data}>
            <ServiceBanner data={data} />
-           <ServicesSection data={data} />
+           <ServicesSection data={data} list={list} />
         </Layout>
     );
 }
@@ -22,11 +23,13 @@ export async function getStaticProps() {
     try {
         const general = await MenuApi.genralSettings()
         const data = await ServicesApi.index()
+        const list = await ServicesApi.list()
 
         return {
             props: {
                 general: general?.data,
                 data: data?.data?.data,
+                list:list?.data?.data
             },
             revalidate: 10,
         };
