@@ -8,7 +8,6 @@ import { BlogApi } from "@/Datas/Endpoints/Blogs";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Career({general,data,list}) {
-    console.log(list);
     return (
         <Layout general={general}>
             <BlogBanner data={data} />

@@ -11,7 +11,6 @@ import BlogContent from "@/components/blogsDetails/blogContent";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Career({general, data}) {
-    console.log(data);
     
     return (
         <Layout general={general} data={data}>
