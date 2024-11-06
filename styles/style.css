@@ -2116,7 +2116,6 @@ h2.busi-hdgc {
     top: 49%;
     position: fixed;
     right: -57px;
-
     z-index: 1000;
     border-radius: 9px 9px 0px 0px;
     text-decoration: none;
@@ -2125,7 +2124,7 @@ h2.busi-hdgc {
     padding: 6px 17px 33px;
     height: 0px;
     /* background-color: #000; */
-    color: #fff;
+    color: #fff !important;
     font-size: 17px;
 }
 
