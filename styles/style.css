@@ -5727,6 +5727,71 @@ h5 {
     font-size: 59px !important;
 }
 
+img.w-full.img-responsive {
+    width: 100%;
+}
+
+.service-detail-banner{
+    width: 100%;
+    height: 700px;
+}
+
+.service-detail-banner img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.container.mt-10 {
+    margin-top: 130px;
+}
+
+.bg-services-box {
+    object-fit: cover;
+    background: rgb(54, 224, 213);
+    background: linear-gradient(90deg, rgb(54 224 213 / 50%) 0%, rgb(54 224 215 / 50%) 46%, rgba(255, 255, 255, 1) 100%);
+}
+.row.g-0.Competitive-Marketing-Analytics-block {
+    margin-bottom: 35px;
+}
+.row.g-0.Competitive-Marketing-Analytics-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+img.img-responsive{
+    width: 100%;
+    height: auto;
+}
+.accordion-question {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+span.icon {
+    color: #02837c !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.accordion-item {
+    border-top: 1px solid #ededed;
+    padding: 18px 0;
+    border-bottom: 1px solid #ededed;
+    cursor: pointer;
+}
+.accordion-item:first-child{
+    border-top: 0px;
+}
+.accordion-item:last-child{
+    border-bottom: 0px;
+}
+.mt-10 {
+    margin-top: 20px;
+}
+.accordion-answer.active {
+    padding: 20px;
+    border-top: 1px solid #ededed;
+    margin-top: 10px;
+    font-size: 16px;
+}
 @media (min-width: 768px) {
     .row_flex {
         display: flex;

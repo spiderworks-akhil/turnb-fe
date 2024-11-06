@@ -35,6 +35,64 @@
  #button-video-brou{
      display:none;
  }
+
+ @media screen and (max-width: 991px) {
+
+    .navbar {
+        box-shadow: var(--shadow);
+        background: rgb(0 0 0);
+        position: fixed !important;
+        z-index: 999;
+        width: 100%;
+    }
+    .homebanner .carousel-item {
+        height: calc(100vh + 90px);
+        /* min-height: 300px; */
+        margin-top: 140px;
+    }
+    .carousel-item img {
+        height: 100%;
+    }
+}
+
+
+@media screen and (max-width: 767px) {
+    .homebanner .carousel-item {
+        height: calc(100vh + 90px);
+        /* min-height: 300px; */
+        margin-top: 0px;
+    }
+    .carousel-item img {
+        height: auto;
+    }
+
+    a#milestone-prev {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+    }
+    a#milestone-next{
+        position: absolute;
+        right: 0;
+        z-index: 10;
+    }
+    .ak-amenites.clearfix {
+        position: relative;
+    }
+    a#members-prev {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        top: 50%;
+    }
+    a#members-next {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+    }
+}
+
  @media screen and (max-width: 600px) {
    #brouchure,
    #watch-video{
@@ -77,6 +135,10 @@
 }
 .desktop-banB{
  height:637px;
+}
+
+button.navbar-toggler {
+    background-color: #02817f !important;
 }
 
 @media screen and (min-width: 1440px) {
