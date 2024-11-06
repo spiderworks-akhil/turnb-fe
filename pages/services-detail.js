@@ -175,7 +175,7 @@ export default function About({general, data}) {
                                                                     <div className="pt-lft pt-lg-4 pt-md-4 pt-3 pb-0 text-left clearfix aos-init aos-animate" data-aos="fade-up">
                                                                         <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">Step 3: Gather Information
                                                                         </span></h5>
-                                                                        <p className="mb-0">The next stage is data collection, which comes after identifying your competitors. This data is essential to your analysis. To gain an understanding of competitors' product offerings, pricing structures, target markets, and customer service approaches, start by looking through their websites. Examine their return policies and promotions to learn about their customer service philosophy.
+                                                                        <p className="mb-0">The next stage is data collection, which comes after identifying your competitors. This data is essential to your analysis. To gain an understanding of competitors&apos; product offerings, pricing structures, target markets, and customer service approaches, start by looking through their websites. Examine their return policies and promotions to learn about their customer service philosophy.
 
 
                                                                         </p>
@@ -206,7 +206,7 @@ export default function About({general, data}) {
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box">
                                                                     <div className="pt-lft pt-lg-4 pt-md-4 pt-3 pb-0 text-left clearfix aos-init aos-animate" data-aos="fade-up">
                                                                         <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">Step 5: Take Advantage of Competitive Insights</span></h5>
-                                                                        <p className="mb-0">Depending on how you apply the knowledge you've gained from a competitive analysis, it can be valuable. By understanding the competitive landscape, you can find untapped opportunities to fulfill customer needs. It’s possible that they are overlooking a niche market or a specific product feature that customers want. Adjust your marketing strategy using this valuable information.
+                                                                        <p className="mb-0">Depending on how you apply the knowledge you&apos;ve gained from a competitive analysis, it can be valuable. By understanding the competitive landscape, you can find untapped opportunities to fulfill customer needs. It’s possible that they are overlooking a niche market or a specific product feature that customers want. Adjust your marketing strategy using this valuable information.
 
                                                                         </p>
                                                                     </div>
