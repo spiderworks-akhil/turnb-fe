@@ -1,8 +1,6 @@
 import React from 'react'
 
 function BlogContent({ data }) {
-
-    console.log(data);
     
     return (
 
@@ -32,8 +30,8 @@ function BlogContent({ data }) {
                                                 {obj?.title}
                                             </h5>
                                             <div dangerouslySetInnerHTML={{ __html: obj?.description }} />
-                                            <div className={`line-leftblue`}></div>
-                                            <div className={`line-rightblue`}></div>
+                                            <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-leftblue`}></div>
+                                            <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-rightblue`}></div>
 
                                             {/* <div className={`${index%2==0?'line-leftblue':'line-leftreal'}`}></div>
                                             <div className={`${index%2==0?'line-rightblue':'line-rightreal'}`}></div> */}
