@@ -9,9 +9,6 @@ import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu, data }) => {
 
-  console.log(data);
-
-
   const router = useRouter();
 
   const [captchaVerified, setCaptchaVerified] = useState(false);
