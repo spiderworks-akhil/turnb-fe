@@ -17,7 +17,7 @@ const Layout = ({ page, children, general,data }) => {
             <div>
                 <Header MainMenu={MainMenu} Settings={Settings} />
                 {children}
-                <Footer FooterMenu={FooterMenu} />
+                <Footer FooterMenu={FooterMenu} data={data} />
             </div>
         </>
     );

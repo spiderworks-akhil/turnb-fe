@@ -9,12 +9,11 @@ import { ServicesApi } from "@/Datas/Endpoints/Services";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function About({general, data,list}) {
-    console.log(list);
     
     return (
         <Layout general={general} data={data}>
            <ServiceBanner data={data} />
-           <ServicesSection data={data} />
+           <ServicesSection data={data} list={list} />
         </Layout>
     );
 }
