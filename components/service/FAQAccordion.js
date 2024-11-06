@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FAQAccordion = () => {
+const FAQAccordion = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleToggle = (index) => {
@@ -21,37 +21,37 @@ const FAQAccordion = () => {
   return (
     <div>
 
-          <div className="row justify-content-center">
-                        <div className="col-lg-12 col-md-12 col-12">
-                            <div className="text-center position-relative aos-init aos-animate" data-aos="fade-down">
-                                <h1 className="title-ak2 ft-wt2 text-center mb-lg-2 mb-md-2 mb-2 mt-lg-0 mt-md-0 mt-0">
-                                    <span className="text-dark home-title"
-                                          dangerouslySetInnerHTML={{__html: 'FAQs'}}/>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="row justify-content-center mt-10">
-                        <div className="col-lg-10 col-md-12 col-12">
-      {faqData.map((item, index) => (
-        <div key={index} className="accordion-item">
-          <div onClick={() => handleToggle(index)} className="accordion-question">
-            <h3>{item.question}</h3>
-            <span className="icon">
-              {activeIndex === index ? "−" : "+"}
-            </span>
-          </div>
-          <div
-            className={`accordion-answer ${activeIndex === index ? "active" : ""}`}
-            style={{ display: activeIndex === index ? "block" : "none" }}
-          >
-            {item.answer}
+      <div className="row justify-content-center">
+        <div className="col-lg-12 col-md-12 col-12">
+          <div className="text-center position-relative aos-init aos-animate" data-aos="fade-down">
+            <h1 className="title-ak2 ft-wt2 text-center mb-lg-2 mb-md-2 mb-2 mt-lg-0 mt-md-0 mt-0">
+              <span className="text-dark home-title"
+                dangerouslySetInnerHTML={{ __html: 'FAQs' }} />
+            </h1>
           </div>
         </div>
-      ))}
       </div>
+
+
+      <div className="row justify-content-center mt-10">
+        <div className="col-lg-10 col-md-12 col-12">
+          {data.map((item, index) => (
+            <div key={index} className="accordion-item">
+              <div onClick={() => handleToggle(index)} className="accordion-question">
+                <h3>{item.question}</h3>
+                <span className="icon">
+                  {activeIndex === index ? "−" : "+"}
+                </span>
+              </div>
+              <div
+                className={`accordion-answer ${activeIndex === index ? "active" : ""}`}
+                style={{ display: activeIndex === index ? "block" : "none" }}
+                dangerouslySetInnerHTML={{__html:item.answer}}
+              >
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
