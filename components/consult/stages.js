@@ -49,7 +49,7 @@ const ConsultStages = ({ data }) => {
                 </div>
 
                 {
-                    data?.content?.listing_id_consult?.map((obj, index) => (
+                    data?.content?.listing_id_consult?.list?.map((obj, index) => (
                         <div key={index} class="row justify-content-center mb-lg-5 mb-md-5 mb-4">
                             <div class="col-lg-9 col-md-9 col-12">
                                 <div class="cosult-box p-4 clearfix">
