@@ -7238,6 +7238,9 @@ input.form-control {
     height: 328px;
 }
 
+.blog-img figure img {
+    width: 100%;
+}
 
 .milestone-div p::before {
     content: "-";

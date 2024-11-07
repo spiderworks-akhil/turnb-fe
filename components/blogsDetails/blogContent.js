@@ -29,7 +29,7 @@ function BlogContent({ data }) {
                                             <h5 className="clrblue-s m-0 p-0 mb-2">
                                                 {obj?.title}
                                             </h5>
-                                            <div dangerouslySetInnerHTML={{ __html: obj?.description }} />
+                                            <div className='blog-img' dangerouslySetInnerHTML={{ __html: obj?.description }} />
                                             <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-leftblue`}></div>
                                             <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-rightblue`}></div>
 
