@@ -8,7 +8,7 @@ import { ServicesApi } from "@/Datas/Endpoints/Services";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({general, data,list}) {
+export default function About({general, data,list}) {    
     
     return (
         <Layout general={general} data={data}>
@@ -23,7 +23,7 @@ export async function getStaticProps() {
     try {
         const general = await MenuApi.genralSettings()
         const data = await ServicesApi.index()
-        const list = await ServicesApi.list()
+        const list = await ServicesApi.list({limit:50})
 
         return {
             props: {

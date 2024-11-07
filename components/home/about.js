@@ -16,10 +16,11 @@ const AboutSection = ({ data }) => {
                   className="text-center position-relative aos-init aos-animate"
                   data-aos="fade-down"
                 >
-                  <h1 className="title-akn text-lf mb-lg-4 mb-md-4 mb-3 mt-lg-0 mt-md-0 mt-4">
+                  <h2 className="title-akn text-lf mb-lg-4 mb-md-4 mb-3 mt-lg-0 mt-md-0 mt-4">
                     <span dangerouslySetInnerHTML={{ __html: data?.content?.title_2 }} className="clr-g" />
-                    
-                  </h1>
+
+                  </h2>
+
                 </div>
               </div>
               <div className="col-lg-8 col-md-8 col-12">
@@ -28,7 +29,7 @@ const AboutSection = ({ data }) => {
                   data-aos="fade-up"
                 >
                   <div dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} className="w-auto mt-0 text-justify mb-2" />
-                    {/* {data?.content?.description_2}
+                  {/* {data?.content?.description_2}
                   </p> */}
                   <div className="knw-more mt-lg-3 mt-md-3 clearfix">
                     <Link href={data?.content?.button_url_section_2} className="btn btn-primary kn-mb">{data?.content?.button_text_section_2}</Link>
@@ -45,7 +46,9 @@ const AboutSection = ({ data }) => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-md-12 col-12">
               <div className="intro">
-                <h1 className="mr-bplong mb-0">{data?.content?.title_4}</h1>
+                <h2 className="mr-bplong mb-0">{data?.content?.title_4}</h2>
+
+                {/* <h1 className="mr-bplong mb-0">{data?.content?.title_4}</h1> */}
                 <p className="text-center" style={{ width: 'auto' }}>
                   {data?.content?.short_description_4}
                 </p>

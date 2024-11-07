@@ -9,9 +9,7 @@ import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu, data }) => {
 
-  console.log(data);
-
-
+  const fullSEOcontent = `${data?.seo_h1_title ? `<h1>${data?.seo_h1_title}</h1>` : ''}${data?.bottom_description}`
   const router = useRouter();
 
   const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -97,8 +95,10 @@ const Footer = ({ FooterMenu, data }) => {
           data?.bottom_description &&
           <div className="container">
             <div className="row">
-              <div className="col-lg-12 footer-content" dangerouslySetInnerHTML={{__html:data?.bottom_description}} />
-                
+              <div className="col-lg-12 footer-content" dangerouslySetInnerHTML={{ __html: fullSEOcontent }} >
+                {/* <h1>{data?.seo_h1_title}</h1> */}
+              </div>
+
             </div>
           </div>
         }

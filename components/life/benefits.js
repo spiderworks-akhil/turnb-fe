@@ -50,7 +50,7 @@ const BenefitsSection = ({ data }) => {
                 <Slider {...settings}>
                   {/* First Benefit */}
                   {
-                    data?.content?.listing_id_benefits?.map((obj, index) => (
+                    data?.content?.listing_id_benefits?.list?.map((obj, index) => (
                       <div key={index} className="item">
                         <div className="bene-box text-center p-3 mt-lg-5 mt-md-5 mt-4 clearfix">
                           <div className="imgbn clearfix">
