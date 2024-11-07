@@ -33,7 +33,7 @@ const ScanRetailSection = ({ data }) => {
           <div className="row justify-content-center">
 
             {
-              data?.content?.listing_id_scanb?.list?.map((obj, index) => (
+              data?.content?.listing_id_scanb?.map((obj, index) => (
                 <div key={index} className="col-lg-3 col-md-3 col-12">
                   <div className="retalilersc text-center mt-lg-0 mt-md-0 mt-3" data-aos="zoom-in-down" data-aos-duration="500">
                     <Image width={100} height={100} src={obj?.media_id?.file_path} alt={obj?.media_id?.file_path}  className="d-block m-auto mb-3" />

@@ -48,7 +48,7 @@ const LifeTestimonials = ({ data }) => {
                         <Slider {...settings}>
                             {/* TESTIMONIAL 1 */}
                             {
-                                data?.content?.listing_id_experience?.list?.map((obj, index) => (
+                                data?.content?.listing_id_experience?.map((obj, index) => (
                                     <div key={index} className="item">
                                         <div className="shadow-ef">
                                             <div className="testi-box">

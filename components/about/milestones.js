@@ -58,7 +58,7 @@ const MilestonesSection = ({ data, }) => { // Accept a carouselId as prop
             {/* Custom Navigation Arrows with unique IDs */}
             <a id={`${carouselId}-prev`} className="customPrevBtn " style={{ cursor: 'pointer' }}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
             <div id={carouselId} className="owl-carousel carousel-main bg-transparent">
-              {data?.content?.listing_id_milestone?.list?.map((milestone, index) => (
+              {data?.content?.listing_id_milestone?.map((milestone, index) => (
                 <div key={index}>
                   <div className="mile-box text-center">
                     <div className="crlce clearfix">
