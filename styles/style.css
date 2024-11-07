@@ -5818,7 +5818,11 @@ span.icon {
         display: none;
     }
 }
-
+@media (max-width: 576px) {
+    .p-5 {
+        padding: 1.5rem !important;
+    }
+}
 .accordion_images img {
     opacity: 0;
     transition: 0.3s;
