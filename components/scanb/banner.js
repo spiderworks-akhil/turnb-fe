@@ -117,7 +117,7 @@ const ScanbBanner = ({ data }) => {
 
       {/* brochure form */}
       <div
-        onClick={() => setIsModalOpen(false)}
+       
         className={`modal fade ${isModalOpen ? 'show' : ''}`}
         id="exampleModal2"
         tabIndex="-1"
