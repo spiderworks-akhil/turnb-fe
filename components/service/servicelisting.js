@@ -43,10 +43,10 @@ const ServicesSection = ({ data, list }) => {
                     <div className="carousel slide" data-bs-ride="carousel" id="carouselExampleIndicatorsnew">
                         <div className="carousel-inner" style={{ overflow: 'hidden' }}>
                             <div className="carousel-item active">
-                                <div className="row">
+                                <div className="row service-inner-block">
                                     {
                                         list?.map((obj, index) => (
-                                            <div key={index} className="col-lg-12 col-md-12 col-12">
+                                            <div key={index} className="col-lg-12 col-md-12 col-12 service-inner-block-item">
                                                 <div className="career-box border-non-serices mb-lg-5 mb-md-5 mb-3 clearfix">
                                                     {
                                                         index % 2 == 0 ?

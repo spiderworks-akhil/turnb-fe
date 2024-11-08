@@ -1563,11 +1563,10 @@ section {
     border-right: 2px solid #505050;
 }
 
-h1.busi-hdgc,
-h2.busi-hdgc {
+h1.busi-hdgc, h2.busi-hdgc {
     font-size: 26px;
     margin-left: 23px;
-    color: #606060;
+    color: #606060 !important;
 }
 
 .cont-busic {
@@ -1594,7 +1593,7 @@ h2.busi-hdgc {
 
 .turnb-approch h2 {
     font-size: 29px;
-    color: #606060;
+    color: #606060 !important;
 }
 
 .line-turnb {
@@ -4436,6 +4435,11 @@ h5 {
 .icon-cont2 .spin::after {
     border: 0 solid transparent;
 }
+input.form-control {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
 
 .icon-cont2 .spin:hover::after {
     border-top: 2px solid #018381;
@@ -4455,7 +4459,20 @@ h5 {
     border-radius: 100%;
 }
 
+.imginner-lfe p strong {
+    color: #058381 !important;
+}
+.imginner-lfe p b {
+    color: #058381 !important;
+}
 
+.cont-lifpad p strong {
+    color: #058381 !important;
+}
+
+.cont-lifpad p b {
+    color: #058381 !important;
+}
 
 .icon-consutlone3 {
     position: absolute;
@@ -7035,7 +7052,7 @@ input.form-control {
 }
 
 .abt-mob-banner {
-    margin-top: 57px;
+    margin-top: 50px;
     width: 100% !important;
 }
 
