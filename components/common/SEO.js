@@ -4,6 +4,9 @@ import React from 'react'
 
 function SEO({ data, settings }) {
 
+    // console.log(settings);
+    
+
     const router = useRouter();
     const canonicalPathname = router?.asPath.split('?')[0];
     

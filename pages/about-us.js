@@ -14,8 +14,6 @@ import { TeamApi } from "@/Datas/Endpoints/Team";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function About({general, data,team}) {
-
-    console.log(data);
     
     
     return (
