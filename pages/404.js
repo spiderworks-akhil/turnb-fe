@@ -1,8 +1,10 @@
+import Layout from '@/components/common/Layout';
+import { MenuApi } from '@/Datas/Endpoints/Menu';
 import { RedirectApi } from '@/Datas/Endpoints/Redirect';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react'
 
-function NotFound({ data }) {
+function NotFound({ general, data }) {
 
     const router = useRouter()
     const fromUrl = router.asPath.substring(1)
@@ -14,9 +16,9 @@ function NotFound({ data }) {
     }, []);
 
     return (
-        <div>
+        <Layout general={general}>
             404
-        </div>
+        </Layout>
     )
 }
 
@@ -25,11 +27,12 @@ export default NotFound
 
 export async function getStaticProps() {
     try {
-
+        const general = await MenuApi.genralSettings()
         const data = await RedirectApi.list()
 
         return {
             props: {
+                general: general?.data,
                 data: data?.data,
             },
             revalidate: 10,
