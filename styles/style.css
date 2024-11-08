@@ -107,6 +107,9 @@ body {
     color: #606060;
 }
 
+.clr-g span {
+    color: #016c66;
+}
 .clr-grn {
     color: #016c66;
 }
@@ -1544,7 +1547,7 @@ section {
 }
 
 .breadcrumb-item.active {
-    color: #016b66;
+    color: #016b66 !important;
     font-weight: 500;
 }
 
