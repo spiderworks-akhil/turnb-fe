@@ -8,7 +8,8 @@ import { ServicesApi } from "@/Datas/Endpoints/Services";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({general, data,list}) {    
+export default function About({general, data,list}) {   
+     
     
     return (
         <Layout general={general} data={data}>
