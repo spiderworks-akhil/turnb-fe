@@ -48,7 +48,7 @@ const ScanbFeatures = ({ data }) => {
           <div className="col-lg-12 col-md-12 col-12">
             <section className="scanb-feature-s game-section">
               <Slider {...settings}>
-                {data?.content?.listing_id_scanb_feature?.map((obj, index) => (
+                {data?.content?.listing_id_scanb_feature?.list?.  map((obj, index) => (
                   <div key={index} className="d-flex justify-content-center">
                     <div
                       className="item scanb-feature-block"

@@ -15,7 +15,7 @@ const AboutWhyUsBanner = ({ data }) => {
         </div>
         <div className="row">
           {
-            data?.content?.listing_id_why_us?.map((obj, index) => (
+            data?.content?.listing_id_why_us?.list?.map((obj, index) => (
               <div key={index} className="col-lg-3 col-md-3 col-12">
                 <div className="box-exp2 clearfix mt-3 pb-3" data-aos="fade-down">
                   <div className="rect-box2 text-center clearfix">
