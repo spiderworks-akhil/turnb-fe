@@ -11,9 +11,8 @@ import { ConsultApi } from "@/Datas/Endpoints/Consult";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Consult({general,data}) {
-    console.log(data);
     return (
-        <Layout general={general}>
+        <Layout general={general} data={data}>
             <ConsultBanner data={data} />
             <ConsultStages data={data} />
             <AnalyticalConsultingSpectrum data={data} />

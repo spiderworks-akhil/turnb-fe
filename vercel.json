@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "/case-studies.php",
+        "destination": "/case-studies",
+        "permanent": true
+      }
+    ]
+  }
