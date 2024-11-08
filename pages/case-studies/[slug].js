@@ -10,7 +10,6 @@ import { CaseStudyApi } from "@/Datas/Endpoints/CaseStudy";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Slug({ general, data ,staticPage}) {
-    console.log(staticPage);
     
     return (
         <Layout general={general} data={data}>

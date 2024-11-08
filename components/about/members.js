@@ -7,6 +7,9 @@ import Image from 'next/image';
 
 const KeyMembersSection = ({ data, team }) => {
 
+  console.log(team);
+  
+
   const carouselId = 'members'
 
   useEffect(() => {
