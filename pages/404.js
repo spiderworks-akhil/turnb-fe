@@ -17,7 +17,7 @@ function NotFound({ data }) {
     return (
         <div style={styles.container}>
             <h1 style={styles.header}>404 - Page Not Found</h1>
-            <p style={styles.message}>It looks like the page you&apos;re looking for doesn't exist.</p>
+            <p style={styles.message}>It looks like the page you&apos;re looking for doesn&apos;t exist.</p>
             <Link href="/" passHref>
                 <div style={styles.homeLink}>Go Back Home</div>
             </Link>
