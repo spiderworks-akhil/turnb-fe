@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
@@ -25,10 +25,7 @@ const ScanbBanner = ({ data }) => {
   const handleVideoModalToggle = () => setIsVideoModalOpen(!isVideoModalOpen);
 
   const onSubmit = async (details) => {
-    if (!captchaVerified) {
-      alert('Please verify the reCAPTCHA');
-      return;
-    }
+
 
     setLoading(true);
     const dataToSubmit = {
@@ -47,7 +44,7 @@ const ScanbBanner = ({ data }) => {
             console.log('Token:', token);
             const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
               params: {
-                secret: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
+                secret: '6LfYSnsqAAAAACIOtBE1eHP9SboxyO7KK1kjLykI',
                 response: token
               }
             });
@@ -68,6 +65,9 @@ const ScanbBanner = ({ data }) => {
                 console.error(error);
                 setLoading(false);
               }
+            }else{
+              alert('reCAPTCHA is not ready.')
+              setLoading(false);
             }
 
           })
@@ -85,10 +85,9 @@ const ScanbBanner = ({ data }) => {
     const loadRecaptchaScript = () => {
       if (!document.querySelector("script[src*='recaptcha/api.js']")) {
         const script = document.createElement('script');
-        script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}`;
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
         script.async = true;
         document.body.appendChild(script);
-
         script.onload = () => {
           console.log('reCAPTCHA script loaded.');
         };
@@ -256,14 +255,14 @@ const ScanbBanner = ({ data }) => {
                         {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
                       </div>
 
-                      <div className="col-lg-6 col-md-6 col-12 mt-0">
+                      {/* <div className="col-lg-6 col-md-6 col-12 mt-0">
                         <div className="m-0 mt-3">
                           <ReCAPTCHA
                             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
                             onChange={handleCaptchaChange}
                           />
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="col-12">
                         <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">

@@ -56,7 +56,7 @@ const Footer = ({ FooterMenu, data }) => {
             console.log('Token:', token);
             const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
               params: {
-                secret: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,
+                secret: '6LfYSnsqAAAAACIOtBE1eHP9SboxyO7KK1kjLykI',
                 response: token
               }
             });
@@ -77,6 +77,8 @@ const Footer = ({ FooterMenu, data }) => {
                 console.log(error);
                 setLoading(false)
               }
+            }else{
+              setLoading(false)
             }
 
           })
@@ -109,7 +111,7 @@ const Footer = ({ FooterMenu, data }) => {
     const loadRecaptchaScript = () => {
       if (!document.querySelector("script[src*='recaptcha/api.js']")) {
         const script = document.createElement('script');
-        script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}`;
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
         script.async = true;
         document.body.appendChild(script);
 
@@ -365,6 +367,16 @@ const Footer = ({ FooterMenu, data }) => {
                             rows="1"
                             name="message"
                           ></textarea>
+                        </div>
+
+                        <div className="col-lg-6 col-md-6 col-12 mt-0">
+                          <div className="m-0 mt-3">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}
+                              size="invisible"
+                            />
+                          </div>
                         </div>
 
                         <div className="col-12">
