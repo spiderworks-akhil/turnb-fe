@@ -6,8 +6,6 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Image from 'next/image';
 
 const KeyMembersSection = ({ data, team }) => {
-
-  console.log(team);
   
 
   const carouselId = 'members'
