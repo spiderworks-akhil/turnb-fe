@@ -40,22 +40,64 @@ const ScanbBanner = ({ data }) => {
       lead_type: 'ScanB',
     };
 
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
-      if (response?.status === 200 || response?.status === 201) {
-        window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
-        reset();
-        setLoading(false);
-        setIsModalOpen(false);
-        window.location.reload()
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async (token) => {
+            console.log('Token:', token);
+            const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
+              params: {
+                secret: '6LfYSnsqAAAAACIOtBE1eHP9SboxyO7KK1kjLykI',
+                response: token
+              }
+            });
+            console.log(response);
+            if (response?.data?.success) {
+              try {
+                const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
+                if (response?.status === 200 || response?.status === 201) {
+                  window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
+                  reset();
+                  setLoading(false);
+                  setIsModalOpen(false);
+                  window.location.reload()
+                } else {
+                  setLoading(false);
+                }
+              } catch (error) {
+                console.error(error);
+                setLoading(false);
+              }
+            }
+
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
+      });
+    } else {
+      console.error('reCAPTCHA is not ready.');
+      alert('reCAPTCHA is not ready.')
     }
   };
+
+  useEffect(() => {
+    const loadRecaptchaScript = () => {
+      if (!document.querySelector("script[src*='recaptcha/api.js']")) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
+        script.async = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+          console.log('reCAPTCHA script loaded.');
+        };
+      }
+    };
+
+    loadRecaptchaScript();
+  }, []);
+
 
   return (
     <>
@@ -120,7 +162,7 @@ const ScanbBanner = ({ data }) => {
       <div id="button-video-brou">
         <button onClick={handleVideoModalToggle} id="watch-video1" fdprocessedid="dbo1sj">{data?.content?.scanb_button_text_1}</button>
         <a onClick={handleModalToggle} data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: 'none' }}>
-        <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
+          <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
       </div>
 
       {/* brochure form */}

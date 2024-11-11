@@ -36,7 +36,7 @@ const Footer = ({ FooterMenu, data }) => {
 
   const onSubmit = async (details) => {
 
-    // setLoading(true)
+    setLoading(true)
     let dataToSubmit = {
       name: details?.name,
       email: details?.email,
@@ -52,7 +52,7 @@ const Footer = ({ FooterMenu, data }) => {
     if (window.grecaptcha) {
       window.grecaptcha.ready(() => {
         window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
-          .then(async(token) => {
+          .then(async (token) => {
             console.log('Token:', token);
             const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
               params: {
@@ -61,27 +61,24 @@ const Footer = ({ FooterMenu, data }) => {
               }
             });
             console.log(response);
-            if(response?.data?.success){
+            if (response?.data?.success) {
+              try {
 
-            }
-            try {
-
-              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-              if (response?.status == 200 || response?.status == 201) {
-                // router.push('/thankyou')
-                //  window.location.href="/thankyou"
-                reset()
-                setLoading(false)
-              } else {
+                const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+                if (response?.status == 200 || response?.status == 201) {
+                  // router.push('/thankyou')
+                  window.location.href = "/thankyou"
+                  reset()
+                  setLoading(false)
+                } else {
+                  setLoading(false)
+                }
+              } catch (error) {
+                console.log(error);
                 setLoading(false)
               }
-            } catch (error) {
-              console.log(error);
-              setLoading(false)
             }
 
-            // Send the token to your backend with other form data
-            // sendFormDataWithToken(token);
           })
           .catch((error) => {
             console.error('reCAPTCHA execution error:', error);
@@ -89,7 +86,7 @@ const Footer = ({ FooterMenu, data }) => {
       });
     } else {
       console.error('reCAPTCHA is not ready.');
-
+      alert('reCAPTCHA is not ready.')
     }
 
   }
