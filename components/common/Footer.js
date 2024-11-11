@@ -57,7 +57,8 @@ const Footer = ({ FooterMenu, data }) => {
       try {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
         if (response?.status == 200 || response?.status == 201) {
-          router.push('/thankyou')
+          // router.push('/thankyou')
+          window.location.href="/thankyou"
           reset()
           setLoading(false)
           reset
