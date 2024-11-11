@@ -15,7 +15,7 @@ body {
 }
 
 .wdd-logo {
-    width: 100% !important;
+    width: 73% !important;
 }
 
 .wdd-logoin {
@@ -108,10 +108,11 @@ body {
 }
 
 .clr-g span {
-    color: #016c66;
+    color: #016c66 !important;
 }
+
 .clr-grn {
-    color: #016c66;
+    color: #016c66 !important;
 }
 
 .knw-more {}
@@ -143,7 +144,6 @@ body {
         url('/fonts/romelio-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 h1,
@@ -174,7 +174,7 @@ h6,
 
 /* !important */
 a {
-    color: var(--dark) ;
+    color: var(--dark);
     transition: all 0.4s ease;
     font-weight: 500;
 }
@@ -1405,12 +1405,13 @@ section {
     font-size: 16px !important;
 }
 
-.ser_desc_text p{
+.ser_desc_text p {
     width: auto;
     margin-top: 0;
-    margin-bottom: 0.5rem; /* Adjust as needed for `mb-2` spacing */
+    margin-bottom: 0.5rem;
+    /* Adjust as needed for `mb-2` spacing */
     text-align: center;
-    color: black; 
+    color: black;
     font-size: 16px !important;
 }
 
@@ -1563,7 +1564,8 @@ section {
     border-right: 2px solid #505050;
 }
 
-h1.busi-hdgc, h2.busi-hdgc {
+h1.busi-hdgc,
+h2.busi-hdgc {
     font-size: 26px;
     margin-left: 23px;
     color: #606060 !important;
@@ -3409,7 +3411,8 @@ h1.busi-hdgc, h2.busi-hdgc {
 
 .intro h1,
 .intro h2 {
-    font-weight: 600; /* 570 replaced with 600 */
+    font-weight: 600;
+    /* 570 replaced with 600 */
     color: #231f20 !important;
     font-size: 33px;
 }
@@ -4435,6 +4438,7 @@ h5 {
 .icon-cont2 .spin::after {
     border: 0 solid transparent;
 }
+
 input.form-control {
     background-color: transparent !important;
     background: transparent !important;
@@ -4462,6 +4466,7 @@ input.form-control {
 .imginner-lfe p strong {
     color: #058381 !important;
 }
+
 .imginner-lfe p b {
     color: #058381 !important;
 }
@@ -5761,16 +5766,17 @@ img.w-full.img-responsive {
     width: 100%;
 }
 
-.service-detail-banner{
+.service-detail-banner {
     width: 100%;
     height: 700px;
 }
 
-.service-detail-banner img{
+.service-detail-banner img {
     height: 100%;
     object-fit: cover;
     width: 100%;
 }
+
 .container.mt-10 {
     margin-top: 130px;
 }
@@ -5780,48 +5786,59 @@ img.w-full.img-responsive {
     background: rgb(54, 224, 213);
     background: linear-gradient(90deg, rgb(54 224 213 / 50%) 0%, rgb(54 224 215 / 50%) 46%, rgba(255, 255, 255, 1) 100%);
 }
+
 .row.g-0.Competitive-Marketing-Analytics-block {
     margin-bottom: 35px;
 }
+
 .row.g-0.Competitive-Marketing-Analytics-block:nth-child(even) {
     flex-direction: row-reverse;
 }
-img.img-responsive{
+
+img.img-responsive {
     width: 100%;
     height: auto;
 }
+
 .accordion-question {
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: space-between;
 }
+
 span.icon {
     color: #02837c !important;
     font-size: 1.5rem;
     font-weight: 700;
 }
+
 .accordion-item {
     border-top: 1px solid #ededed;
     padding: 18px 0;
     border-bottom: 1px solid #ededed;
     cursor: pointer;
 }
-.accordion-item:first-child{
+
+.accordion-item:first-child {
     border-top: 0px;
 }
-.accordion-item:last-child{
+
+.accordion-item:last-child {
     border-bottom: 0px;
 }
+
 .mt-10 {
     margin-top: 20px;
 }
+
 .accordion-answer.active {
     padding: 20px;
     border-top: 1px solid #ededed;
     margin-top: 10px;
     font-size: 16px;
 }
+
 @media (min-width: 768px) {
     .row_flex {
         display: flex;
@@ -5848,11 +5865,13 @@ span.icon {
         display: none;
     }
 }
+
 @media (max-width: 576px) {
     .p-5 {
         padding: 1.5rem !important;
     }
 }
+
 .accordion_images img {
     opacity: 0;
     transition: 0.3s;
@@ -7269,6 +7288,6 @@ input.form-control {
     top: 0; */
 }
 
-.bread-crumb-link{
+.bread-crumb-link {
     color: black !important;
 }

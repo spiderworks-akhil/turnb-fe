@@ -6,15 +6,7 @@ import Image from 'next/image';
 import BreadCrumbs from '../common/breadCrumbs';
 
 const CaseStudiesList = ({ data, list }) => {
-    console.log(list);
 
-    // const objectArray = Array.from({ length: 28 }, (_, index) => ({
-    //     id: index + 1,
-    //     name: `Object ${index + 1}`,
-    //     description: `This is the description for object ${index + 1}`,
-    // }));
-
-    //   console.log(objectArray);
     const slides = Math.ceil(list?.data?.length / 6)
 
     return (

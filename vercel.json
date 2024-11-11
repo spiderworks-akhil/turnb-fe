@@ -1,0 +1,20 @@
+{
+    "redirects": [
+      {
+        "source": "/case-studies.php",
+        "destination": "/case-studies",
+        "permanent": true
+      },
+      {
+        "source": "/blog.php",
+        "destination": "/blogs",
+        "permanent": true
+      },
+      {
+        "source": "/our-services.php",
+        "destination": "/services",
+        "permanent": true
+      }
+    ]
+  }
+  
