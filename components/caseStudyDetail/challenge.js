@@ -18,15 +18,10 @@ const CaseStudyChallenge = ({ data,staticPage }) => {
       {/* Business Challenge Section */}
       <div className="container">
         <div
-          style={{
-            padding: '20px 30px',
-
-            marginBottom: '40px',
-            borderRadius: '8px',
-          }}
+         
         >
           <div className="row">
-            <div className="col-lg-3 col-md-3 col-12">
+            <div className="col-lg-3 col-md-4 col-12">
               <h2 className='busi-hdgc' style={{ fontWeight: 'bold' }}>
                 {/* {data?.content?.title_1} */}
                 Business
@@ -34,7 +29,7 @@ const CaseStudyChallenge = ({ data,staticPage }) => {
                 Challenge:
               </h2>
             </div>
-            <div className="col-lg-9 col-md-9 col-12">
+            <div className="col-lg-9 col-md-8 col-12">
               <div className="clearfix aos-init m-0 p-0 aos-animate" data-aos="fade-up">
 
                 <div className='="m-0 clearfix aos-init aos-animate case-challenge case-study-image' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />

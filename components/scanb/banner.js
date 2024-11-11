@@ -105,7 +105,11 @@ const ScanbBanner = ({ data }) => {
           className="d-lg-none d-md-none d-block img-fluid"
           style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
-          <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
+        
+        </div>
+
+        <div className='scan-b-banner-btn-block'>
+        <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
             <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
           </a>
           {/* href={data?.content?.scanb_button_link_2} */}
