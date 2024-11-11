@@ -3,7 +3,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
@@ -36,7 +36,7 @@ const Footer = ({ FooterMenu, data }) => {
 
   const onSubmit = async (details) => {
 
-    setLoading(true)
+    // setLoading(true)
     let dataToSubmit = {
       name: details?.name,
       email: details?.email,
@@ -49,36 +49,48 @@ const Footer = ({ FooterMenu, data }) => {
       // type: 'Enquiry'
     }
 
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async(token) => {
+            console.log('Token:', token);
+            const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
+              params: {
+                secret: '6LfYSnsqAAAAACIOtBE1eHP9SboxyO7KK1kjLykI',
+                response: token
+              }
+            });
+            console.log(response);
+            if(response?.data?.success){
 
+            }
+            try {
 
-    try {
-      // const token = await recaptchaRef.current.executeAsync();
-      recaptchaRef.current.reset();
-  
-      // console.log(token);
-      const captchaResponse = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
-        params: {
-          secret: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY,  // Replace with your secret key
-          response: process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY,
-        },
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+              if (response?.status == 200 || response?.status == 201) {
+                // router.push('/thankyou')
+                 window.location.href="/thankyou"
+                reset()
+                setLoading(false)
+              } else {
+                setLoading(false)
+              }
+            } catch (error) {
+              console.log(error);
+              setLoading(false)
+            }
+
+            // Send the token to your backend with other form data
+            // sendFormDataWithToken(token);
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
       });
-      console.log(captchaResponse);
+    } else {
+      console.error('reCAPTCHA is not ready.');
 
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-      if (response?.status == 200 || response?.status == 201) {
-        router.push('/thankyou')
-
-        reset()
-        setLoading(false)
-        reset
-      } else {
-        setLoading(false)
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false)
     }
-
 
   }
 
@@ -96,6 +108,22 @@ const Footer = ({ FooterMenu, data }) => {
     reset()
   }
 
+  useEffect(() => {
+    const loadRecaptchaScript = () => {
+      if (!document.querySelector("script[src*='recaptcha/api.js']")) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
+        script.async = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+          console.log('reCAPTCHA script loaded.');
+        };
+      }
+    };
+
+    loadRecaptchaScript();
+  }, []);
 
 
   return (
@@ -353,7 +381,10 @@ const Footer = ({ FooterMenu, data }) => {
                         </div>
 
                         <div className="col-12">
-                          <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
+                          <button
+                            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}
+                            data-size='invisible'
+                            disabled={loading} type="submit" className="g-recaptcha btn btn-brand btnsubmt">
                             {loading ? <div className="loading-spinner"></div> : 'Submit'}
                           </button>
                         </div>
