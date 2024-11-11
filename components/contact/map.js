@@ -9,7 +9,7 @@ const ContactMap = ({ data }) => {
         <div className="col-lg-6 col-md-6 col-12">
           <div className="map-one mt-lg-5 mt-md-5 mt-3 clearfix">
             <div className="row">
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-6 col-md-12 col-12">
 
                 <Image
                   width={500}
@@ -20,7 +20,7 @@ const ContactMap = ({ data }) => {
                   data-aos="fade-down"
                 />
               </div>
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-6 col-md-12 col-12">
                 <div className="aos-init aos-animate" data-aos="fade-up">
                   <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
                     <span className="loc-i">
@@ -59,7 +59,7 @@ const ContactMap = ({ data }) => {
         <div className="col-lg-6 col-md-6 col-12">
           <div className="map-one mt-lg-5 mt-md-5 mt-3 clearfix">
             <div className="row">
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-6 col-md-12 col-12">
                 <Image
                   width={500}
                   height={700}
@@ -69,7 +69,7 @@ const ContactMap = ({ data }) => {
                   data-aos="fade-down"
                 />
               </div>
-              <div className="col-lg-6 col-md-6 col-12">
+              <div className="col-lg-6 col-md-12 col-12">
                 <div className="aos-init aos-animate" data-aos="fade-up">
                   <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
                     <span className="loc-i">

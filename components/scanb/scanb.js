@@ -9,7 +9,7 @@ const ScanbAdvance = ({ data }) => {
       <div className="d-block pt-lg-0 pt-md-0 pt-0 position-relative scanb-advance clearfix">
         <div className="container">
           <div className="row justify-content-left scanb-newsection">
-            <div className="col-lg-10 col-md-10 col-12">
+            <div className="col-lg-10 col-md-12 col-12">
               <div className="text-center scan-bmoblatp clearfix">
                 <h1 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" />
                 <div className="image-subheading">

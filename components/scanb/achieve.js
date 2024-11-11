@@ -5,7 +5,7 @@ const BookDemoSection = ({data}) => {
   return (
     <div className="container mt-lg-5 mt-md-5 mt-4 mb-lg-0 mb-md-0 mb-0" data-aos="flip-down">
       <div className="row justify-content-center">
-        <div className="col-lg-11 col-md-11 col-12">
+        <div className="col-lg-11 col-md-12 col-12">
           <div className="row justify-content-center">
             <div className="col-lg-6 col-md-6 col-12">
               <div className="scanb-feature mt-lg-5 mt-md-5 mt-3 pt-lg-5 pt-md-5 pt-2">
