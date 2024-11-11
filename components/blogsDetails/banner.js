@@ -15,12 +15,12 @@ const BlogDetailBanner = ({ data }) => {
 
       {/* Image for smaller screens */}
       <Image
-        alt={data?.mobile_banner_image?.alt_text}
-        src={data?.mobile_banner_image?.file_path}
+        alt={data?.mobile_banner_image?.alt_text || data?.banner_image?.alt_text}
+        src={data?.mobile_banner_image?.file_path || data?.banner_image?.file_path}
         className="d-block img-fluid d-lg-none d-md-none d-block abt-mob-banner"
         layout="responsive"
-        width={1920} // Same width
-        height={1080} // Same height, adjusted for smaller screens
+        width={375} // Same width
+        height={326} // Same height, adjusted for smaller screens
       />
     </div>
   );

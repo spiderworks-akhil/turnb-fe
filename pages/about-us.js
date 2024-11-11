@@ -15,6 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function About({general, data,team}) {
     
+    
     return (
         <Layout general={general} data={data}>
             <AboutBanner data={data} />

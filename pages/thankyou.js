@@ -31,7 +31,7 @@ const ThankYouPage = () => {
               {/* Button Link */}
               <div className="mg-btn clearfix">
                   <Link href="/" className="btn btn-primary btn-blueback" style={{ backgroundColor: '#018381' }}>
-                    Visit here to know more
+                    Back To Home
                   </Link>
                 
               </div>

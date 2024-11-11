@@ -5,69 +5,57 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 const ScanbBanner = ({ data }) => {
-
-  const { register, handleSubmit, watch, formState: { errors }, reset } = useForm()
-
-
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const router = useRouter();
-  const pageUrl =
-    typeof window !== 'undefined'
-      ? window.location.origin + router?.asPath
-      : '';
 
-  const [loading, setLoading] = useState(false)
+  const pageUrl = typeof window !== 'undefined' ? window.location.origin + router?.asPath : '';
+
+  const [loading, setLoading] = useState(false);
   const [captchaVerified, setCaptchaVerified] = useState(false);
-
-  const handleCaptchaChange = (value) => {
-    setCaptchaVerified(true);
-  };
-
-  const onSubmit = async (details) => {
-    
-    if (!captchaVerified) {
-      alert('Please verify the reCAPTCHA');
-      return;
-    } else {
-
-      setLoading(true)
-      let dataToSubmit = {
-        name: details?.name,
-        email: details?.email,
-        companyName: details?.companyName,
-        phone_number: details?.mobile,
-        source_url: pageUrl,
-        lead_type: 'ScanB'
-      }
-
-      try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-        if (response?.status == 200 || response?.status == 201) {
-          window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
-          reset()
-          setLoading(false)
-          setIsModalOpen(false)
-          reset
-        } else {
-          setLoading(false)
-        }
-      } catch (error) {
-        console.log(error);
-        setLoading(false)
-      }
-    }
-
-
-  }
-
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+  const handleCaptchaChange = (value) => setCaptchaVerified(true);
 
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
-    if (!isModalOpen) {
-      reset()
-    }
+    if (!isModalOpen) reset();
   };
 
+  const handleVideoModalToggle = () => setIsVideoModalOpen(!isVideoModalOpen);
+
+  const onSubmit = async (details) => {
+    if (!captchaVerified) {
+      alert('Please verify the reCAPTCHA');
+      return;
+    }
+
+    setLoading(true);
+    const dataToSubmit = {
+      name: details?.name,
+      email: details?.email,
+      companyName: details?.companyName,
+      phone_number: details?.mobile,
+      source_url: pageUrl,
+      lead_type: 'ScanB',
+    };
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
+      if (response?.status === 200 || response?.status === 201) {
+        window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
+        reset();
+        setLoading(false);
+        setIsModalOpen(false);
+        window.location.reload()
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -81,14 +69,36 @@ const ScanbBanner = ({ data }) => {
           className="d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none desktop-banB "
           style={{ background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`, backgroundSize: 'cover', }}
         >
-          <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
-            <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
-          </a>
+          <button id="watch-video" onClick={handleVideoModalToggle}>
+            {data?.content?.scanb_button_text_1}
+          </button>
 
           <a onClick={handleModalToggle} data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: 'none' }}>
             <button id="brouchure">{data?.content?.scanb_button_text_2}</button>
           </a>
         </div>
+
+
+        {/* Video Modal */}
+        {isVideoModalOpen && (
+          <div className="modal fade show" style={{ display: 'block' }}>
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header p-0 border-none">
+                  <button type="button" className="btn-close" onClick={handleVideoModalToggle}></button>
+                </div>
+                <div className="modal-body p-0">
+                  <video controls style={{ width: '100%', borderRadius: '10px' }}>
+                    <source src={data?.content?.scanb_vedio_media_id?.file_path} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+            {/* Overlay to close the modal */}
+            <div className="modal-backdrop fade show" onClick={handleVideoModalToggle}></div>
+          </div>
+        )}
 
         {/* Mobile Banner */}
 
@@ -96,9 +106,7 @@ const ScanbBanner = ({ data }) => {
           className="d-lg-none d-md-none d-block img-fluid"
           style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
-          <a href={data?.content?.scanb_vedio_media_id?.file_path} target="_blank" style={{ textDecoration: 'none' }}>
-            <button id="watch-video">{data?.content?.scanb_button_text_1}</button>
-          </a>
+          <button onClick={handleVideoModalToggle} id="watch-video">{data?.content?.scanb_button_text_1}</button>
           {/* href={data?.content?.scanb_button_link_2} */}
           <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
             <button id="brouchure">{data?.content?.scanb_button_text_2}</button>
@@ -110,14 +118,14 @@ const ScanbBanner = ({ data }) => {
       </div>
 
       <div id="button-video-brou">
-        <a href={data?.content?.scanb_button_link_1} target="_blank" style={{ textDecoration: 'none' }}><button id="watch-video1" fdprocessedid="dbo1sj">{data?.content?.scanb_button_text_1}</button></a>
-        <a href={data?.content?.scanb_button_link_2} target="_blank" style={{ textDecoration: 'none' }}>
-          <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
+        <button onClick={handleVideoModalToggle} id="watch-video1" fdprocessedid="dbo1sj">{data?.content?.scanb_button_text_1}</button>
+        <a onClick={handleModalToggle} data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: 'none' }}>
+        <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
       </div>
 
       {/* brochure form */}
       <div
-        onClick={() => setIsModalOpen(false)}
+
         className={`modal fade ${isModalOpen ? 'show' : ''}`}
         id="exampleModal2"
         tabIndex="-1"
@@ -180,6 +188,7 @@ const ScanbBanner = ({ data }) => {
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userEmail" className="form-label text-white">Company Email ID</label>
                         <input
+                          {...register('email')}
                           type="email"
                           className="form-control"
                           id="userEmail"
@@ -192,6 +201,7 @@ const ScanbBanner = ({ data }) => {
                       <div className="col-lg-6 col-md-6 col-12">
                         <label htmlFor="userMobile" className="form-label text-white">Mobile Number</label>
                         <input
+                          {...register('mobile')}
                           type="tel"
                           className="form-control"
                           id="userMobile"

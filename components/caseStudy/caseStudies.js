@@ -6,15 +6,7 @@ import Image from 'next/image';
 import BreadCrumbs from '../common/breadCrumbs';
 
 const CaseStudiesList = ({ data, list }) => {
-    console.log(list);
 
-    // const objectArray = Array.from({ length: 28 }, (_, index) => ({
-    //     id: index + 1,
-    //     name: `Object ${index + 1}`,
-    //     description: `This is the description for object ${index + 1}`,
-    // }));
-
-    //   console.log(objectArray);
     const slides = Math.ceil(list?.data?.length / 6)
 
     return (
@@ -50,18 +42,20 @@ const CaseStudiesList = ({ data, list }) => {
                                 <div className={`carousel-item ${carouselIndex === 0 ? 'active' : ''}`} key={carouselIndex}>
                                     <div className="row">
                                         {list?.data?.map((obj, index) => (
-                                            Math.floor(index / 6) == carouselIndex  &&
+                                            Math.floor(index / 6) == carouselIndex &&
                                             <div className="col-lg-4 col-md-4 col-12" key={index}>
                                                 <div className="case-box mb-lg-4 mb-md-4 mb-3 clearfix">
                                                     <div className="img-case">
-                                                        <Image
-                                                            src={obj?.featured_image?.file_path}
-                                                            alt={obj?.featured_image?.alt_text}
-                                                            className="img-fluid aos-init aos-animate"
-                                                            data-aos="fade-down"
-                                                            width={500} // Adjust width as necessary
-                                                            height={300} // Adjust height as necessary
-                                                        />
+                                                        <Link href={`/case-studies/${obj?.slug}`}>
+                                                            <Image
+                                                                src={obj?.featured_image?.file_path}
+                                                                alt={obj?.featured_image?.alt_text}
+                                                                className="img-fluid aos-init aos-animate"
+                                                                data-aos="fade-down"
+                                                                width={500} // Adjust width as necessary
+                                                                height={300} // Adjust height as necessary
+                                                            />
+                                                        </Link>
                                                         <div className="title-hover with-titleh">
                                                             <h5 className="text-white p-0 m-0">
                                                                 {obj?.industry?.name}

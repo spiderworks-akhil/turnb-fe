@@ -60,7 +60,7 @@ const LifeEventsSection = ({ data }) => {
                   data?.content?.listing_id_events?.map((obj, index) => (
                     <div key={index} className="item">
                       <div className="shadow-effect text-center">
-                        <Image width={350} height={260} src={obj?.media_id?.file_path}  className="img-fluid d-block text-center" alt={obj?.media_id?.alt_text} />
+                        <Image width={350} height={260} src={obj?.media_id?.file_path} className="img-fluid d-block text-center" alt={obj?.media_id?.alt_text} />
                         <p className="mt-3 mb-0 text-center">{obj?.title}</p>
                       </div>
                     </div>

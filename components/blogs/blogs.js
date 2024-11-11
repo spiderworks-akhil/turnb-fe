@@ -44,15 +44,17 @@ const BlogList = ({ data, list }) => {
                         <div className="col-lg-4 col-md-4 col-12" key={index}>
                           <div className="minhtblog-sec case-box mb-lg-4 mb-md-4 mb-3 clearfix">
                             <div className="img-case">
-                              <Image
-                                src=
-                                {obj?.featured_image?.file_path}
-                                alt={obj?.featured_image?.alt_text}
-                                className="img-fluid aos-init aos-animate"
-                                data-aos="fade-down"
-                                width={500} // Adjust width as necessary
-                                height={300} // Adjust height as necessary
-                              />
+                              <Link href={`/blogs/${obj?.slug}`}>
+                                <Image
+                                  src=
+                                  {obj?.featured_image?.file_path}
+                                  alt={obj?.featured_image?.alt_text}
+                                  className="img-fluid aos-init aos-animate"
+                                  data-aos="fade-down"
+                                  width={500} // Adjust width as necessary
+                                  height={300} // Adjust height as necessary
+                                />
+                              </Link>
                               <div className="title-hover with-titleh">
                                 <h5 className="text-white p-0 m-0">
                                   {data?.name}
@@ -64,10 +66,10 @@ const BlogList = ({ data, list }) => {
                                 {
                                   // obj?.title?.length > 60 ?
                                   //   obj?.title?.slice(0, 60) + '....' :
-                                    obj?.title
+                                  obj?.title
                                 }
                               </h2>
-                             
+
                               <div className="knw-more text-left mt-lg-2 mt-md-2 mt-3 clearfix">
                                 <Link href={`/blogs/${obj?.slug}`}>
                                   <span className="btn btn-primary kn-mb">Read More</span>
@@ -80,7 +82,7 @@ const BlogList = ({ data, list }) => {
                       ))}
                     </div>
                   </div>
-                ))} 
+                ))}
               </div>
             </div>
             {/* <div className="row justify-content-center">

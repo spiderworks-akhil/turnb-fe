@@ -44,7 +44,7 @@ const LifeTestimonials = ({ data }) => {
                             data-aos="zoom-in" data-aos-duration="1200">{data?.content?.life_at_turnb_section_4_title}
                         </h2>
                     </div>
-                    <div className="col-lg-9 col-md-9 col-12">
+                    <div className="col-lg-9 col-md-12 col-12">
                         <Slider {...settings}>
                             {/* TESTIMONIAL 1 */}
                             {

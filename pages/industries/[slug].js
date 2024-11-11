@@ -11,8 +11,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Slug({ general, data }) {
 
-    console.log(data);
-
 
     return (
         <Layout general={general} data={data}>

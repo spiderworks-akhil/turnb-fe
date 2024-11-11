@@ -59,7 +59,7 @@ const BenefitsSection = ({ data }) => {
                           <div className="content-ben clearfix">
                             <h5 className="mt-lg-4 mt-md-4 mt-3">{obj?.title}</h5>
                             <p style={{color:'#516171'}} className="mt-lg-3">
-                              {obj?.short_description}jssj
+                              {obj?.short_description}
                             </p>
                           </div>
                         </div>

@@ -1,7 +1,21 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function BreadCrumbs({ secondCrumb, secondCrumbLink, thirdCrumb }) {
+
+    const [maxLength, setMaxLength] = useState(100);
+
+    useEffect(() => {
+        const updateMaxLength = () => {
+            setMaxLength(window.innerWidth <= 768 ? 10 : 100);
+        };
+        updateMaxLength();
+        window.addEventListener('resize', updateMaxLength);
+        return () => {
+            window.removeEventListener('resize', updateMaxLength);
+        };
+    }, []);
+
     return (
         <div className="container">
             <div className="row">
@@ -19,7 +33,7 @@ function BreadCrumbs({ secondCrumb, secondCrumbLink, thirdCrumb }) {
                             </li>
                             {
                                 thirdCrumb &&
-                                <li className="breadcrumb-item active" aria-current="page">{thirdCrumb}</li>
+                                <li className="breadcrumb-item active" aria-current="page">{thirdCrumb?.length > maxLength ? thirdCrumb.slice(0, maxLength) + '...' : thirdCrumb}</li>
                             }
                         </ol>
                     </nav>

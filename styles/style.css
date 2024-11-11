@@ -15,7 +15,7 @@ body {
 }
 
 .wdd-logo {
-    width: 100% !important;
+    width: 73% !important;
 }
 
 .wdd-logoin {
@@ -107,8 +107,12 @@ body {
     color: #606060;
 }
 
+.clr-g span {
+    color: #016c66 !important;
+}
+
 .clr-grn {
-    color: #016c66;
+    color: #016c66 !important;
 }
 
 .knw-more {}
@@ -140,7 +144,6 @@ body {
         url('/fonts/romelio-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 h1,
@@ -171,7 +174,7 @@ h6,
 
 /* !important */
 a {
-    color: var(--dark) ;
+    color: var(--dark);
     transition: all 0.4s ease;
     font-weight: 500;
 }
@@ -1402,6 +1405,16 @@ section {
     font-size: 16px !important;
 }
 
+.ser_desc_text p {
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    /* Adjust as needed for `mb-2` spacing */
+    text-align: center;
+    color: black;
+    font-size: 16px !important;
+}
+
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
     color: #c7dedc !important;
@@ -1535,7 +1548,7 @@ section {
 }
 
 .breadcrumb-item.active {
-    color: #016b66;
+    color: #016b66 !important;
     font-weight: 500;
 }
 
@@ -1555,7 +1568,7 @@ h1.busi-hdgc,
 h2.busi-hdgc {
     font-size: 26px;
     margin-left: 23px;
-    color: #606060;
+    color: #606060 !important;
 }
 
 .cont-busic {
@@ -1582,7 +1595,7 @@ h2.busi-hdgc {
 
 .turnb-approch h2 {
     font-size: 29px;
-    color: #606060;
+    color: #606060 !important;
 }
 
 .line-turnb {
@@ -3396,12 +3409,14 @@ h2.busi-hdgc {
 
 
 
-.intro h1 {
-    font-weight: 570;
-
-    color: #231f20;
+.intro h1,
+.intro h2 {
+    font-weight: 600;
+    /* 570 replaced with 600 */
+    color: #231f20 !important;
     font-size: 33px;
 }
+
 
 .info-box {
     align-items: center;
@@ -4424,6 +4439,12 @@ h5 {
     border: 0 solid transparent;
 }
 
+input.form-control {
+    background-color: transparent !important;
+    background: transparent !important;
+}
+
+
 .icon-cont2 .spin:hover::after {
     border-top: 2px solid #018381;
     border-left-width: 2px;
@@ -4442,7 +4463,21 @@ h5 {
     border-radius: 100%;
 }
 
+.imginner-lfe p strong {
+    color: #058381 !important;
+}
 
+.imginner-lfe p b {
+    color: #058381 !important;
+}
+
+.cont-lifpad p strong {
+    color: #058381 !important;
+}
+
+.cont-lifpad p b {
+    color: #058381 !important;
+}
 
 .icon-consutlone3 {
     position: absolute;
@@ -5727,6 +5762,83 @@ h5 {
     font-size: 59px !important;
 }
 
+img.w-full.img-responsive {
+    width: 100%;
+}
+
+.service-detail-banner {
+    width: 100%;
+    height: 700px;
+}
+
+.service-detail-banner img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.container.mt-10 {
+    margin-top: 130px;
+}
+
+.bg-services-box {
+    object-fit: cover;
+    background: rgb(54, 224, 213);
+    background: linear-gradient(90deg, rgb(54 224 213 / 50%) 0%, rgb(54 224 215 / 50%) 46%, rgba(255, 255, 255, 1) 100%);
+}
+
+.row.g-0.Competitive-Marketing-Analytics-block {
+    margin-bottom: 35px;
+}
+
+.row.g-0.Competitive-Marketing-Analytics-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+img.img-responsive {
+    width: 100%;
+    height: auto;
+}
+
+.accordion-question {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+span.icon {
+    color: #02837c !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.accordion-item {
+    border-top: 1px solid #ededed;
+    padding: 18px 0;
+    border-bottom: 1px solid #ededed;
+    cursor: pointer;
+}
+
+.accordion-item:first-child {
+    border-top: 0px;
+}
+
+.accordion-item:last-child {
+    border-bottom: 0px;
+}
+
+.mt-10 {
+    margin-top: 20px;
+}
+
+.accordion-answer.active {
+    padding: 20px;
+    border-top: 1px solid #ededed;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
 @media (min-width: 768px) {
     .row_flex {
         display: flex;
@@ -5751,6 +5863,12 @@ h5 {
 @media (max-width: 767px) {
     .accordion_images {
         display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .p-5 {
+        padding: 1.5rem !important;
     }
 }
 
@@ -6953,7 +7071,7 @@ input.form-control {
 }
 
 .abt-mob-banner {
-    margin-top: 57px;
+    margin-top: 50px;
     width: 100% !important;
 }
 
@@ -7159,6 +7277,9 @@ input.form-control {
     height: 328px;
 }
 
+.blog-img figure img {
+    width: 100%;
+}
 
 .milestone-div p::before {
     content: "-";
@@ -7167,6 +7288,6 @@ input.form-control {
     top: 0; */
 }
 
-.bread-crumb-link{
+.bread-crumb-link {
     color: black !important;
 }
