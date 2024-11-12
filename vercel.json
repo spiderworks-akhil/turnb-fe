@@ -74,6 +74,156 @@
       "source": "/aboutus.php",
       "destination": "/about-us",
       "permanent": true
+    },
+    {
+      "source": "/built-an-incentive-program-model.php",
+      "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/devising-survey-analytics-for-a-technology.php",
+      "destination": "/case-studies/devising-survey-analytics-for-a-technology-giant-to-improve-its-business-by-generating-business-insights-from-surveys",
+      "permanent": true
+    },
+    {
+      "source": "/developed-a-model-to-estimate-the-current.php",
+      "destination": "/case-studies/developed-a-model-estimate-current-$-exposure-committed-training-part-skilling-initivative",
+      "permanent": true
+    },
+    {
+      "source": "/helped-a-tech-learning-giant-to-identify.php",
+      "destination": "/case-studies/helped-a-tech-learning-giant-to-identify-bottlenecks-and-reduced-the-turnaround-to-complete-training",
+      "permanent": true
+    },
+    {
+      "source": "/created-a-world-wide-heat-map-view-on-training.php",
+      "destination": "/case-studies/created-a-world-wide-heat-map-view-on-training-coverage-through-multiple-channels-across-geos",
+      "permanent": true
+    },
+    {
+      "source": "/performed-pricing-validation-analysis.php",
+      "destination": "/case-studies/performed-pricing-validation-analysis-tech-learning-giant",
+      "permanent": true
+    },
+    {
+      "source": "/created-quarterly-newsletters-for-LT-team.php",
+      "destination": "/case-studies/created-quarterly-newsletters-for-lt-team",
+      "permanent": true
+    },
+    {
+      "source": "/analyzing-attendance-drop.php",
+      "destination": "/case-studies/analyzing-attendance-drop-a-case-study-utilizing-drop-off-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/optimizing-lab-utilization-for-cost-efficiency.php",
+      "destination": "/case-studies/optimizing-lab-utilization-for-cost-efficiency",
+      "permanent": true
+    },
+    {
+      "source": "/designed-a-program-and-modelled-a-dashboard-for-an-associate-program.php",
+      "destination": "/case-studies/designed-a-program-and-modelled-a-dashboard-for-an-associate-program",
+      "permanent": true
+    },
+    {
+      "source": "/proactive-session-and-attendance-projections-with-excel-modelling.php",
+      "destination": "/case-studies/proactive-session-and-attendance-projections-with-excel-modelling",
+      "permanent": true
+    },
+    {
+      "source": "/unveiling-insights-dashboard-to-visualize-survey-data.php",
+      "destination": "/case-studies/unveiling-insights-dashboard-to-visualize-survey-data",
+      "permanent": true
+    },
+    {
+      "source": "/optimization-of-trainer-allocation-for-technology-training.php",
+      "destination": "/case-studies/optimization-of-trainer-allocation-for-technology-training",
+      "permanent": true
+    },
+    {
+      "source": "/course-effectiveness-heatmap.php",
+      "destination": "/case-studies/developed-a-dashboard-to-assess-the-effectiveness-of-trainings",
+      "permanent": true
+    },
+    {
+      "source": "/co-marketing-dashboard.php",
+      "destination": "/case-studies/developed-a-dashboard-to-assess-the-impact-and-effectiveness-of-a-jointly-funded-marketing-initiative",
+      "permanent": true
+    },
+    {
+      "source": "/developed-a-dashboard-that-provides-a-holistic-view-of-inventory-for-a-retail-giant.php",
+      "destination": "/case-studies/developed-a-dashboard-that-provides-a-holistic-view-of-inventory-for-a-retail-giant",
+      "permanent": true
+    },
+    {
+      "source": "/target-tracker-articulation-for-a-retail-giant.php",
+      "destination": "/case-studies/target-tracker-articulation-for-a-retail-giant",
+      "permanent": true
+    },
+    {
+      "source": "/display-gap-asessment.php",
+      "destination": "/case-studies/display-gap-assessment",
+      "permanent": true
+    },
+    {
+      "source": "/developed-an-automate-template-for-overseas-purchase-budge-preparation.php",
+      "destination": "/case-studies/developed-an-automated-template-for-overseas-purchase-budget-preparation",
+      "permanent": true
+    },
+    {
+      "source": "/competitor-landscape-study-to-learn-industry-trends-and-best-practices.php",
+      "destination": "/competitor-landscape-study-to-learn-industry-trends-and-best-practices",
+      "permanent": true
+    },
+    {
+      "source": "/designed-and-formulated-requirements-for-defining-partner-membership.php",
+      "destination": "/case-studies/designed-and-formulated-requirements-to-help-determine-the-partner-membership-status",
+      "permanent": true
+    },
+    {
+      "source": "/prediction-model-to-estimate-product-sales-of-a-fortune-100-firm-during-a-specific-campaign-period.php",
+      "destination": "/case-studies/prediction-model-to-estimate-product-sales-of-a-fortune-100-firm-during-a-specific-campaign-period",
+      "permanent": true
+    },
+    {
+      "source": "/managed-allocation-distribution-and-tracking-of-exams-as-part.php",
+      "destination": "/case-studies/e-learning-managing-allocation-distribution-and-tracking-of-exams",
+      "permanent": true
+    },
+    {
+      "source": "/calculated-accrual-figures-for-the-finance-department-of-a-technology-giant.php",
+      "destination": "/case-studies/calculated-accrual-figures-for-the-finance-department-of-a-technology-giant",
+      "permanent": true
+    },
+    {
+      "source": "/designed-and-built-a-dashboard-to-measure-the-marketing-campaign-effectiveness.php",
+      "destination": "/case-studies/designed-and-built-a-dashboard-to-measure-the-marketing-campaign-effectiveness",
+      "permanent": true
+    },
+    {
+      "source": "/newsletter-genre-for-a-comprehensive-view-of-business-in-a-skilling-initiative-program.php",
+      "destination": "/case-studies/newsletter-genre-for-a-comprehensive-view-of-business-in-a-skilling-initiative-program",
+      "permanent": true
+    },
+    {
+      "source": "/designed-a-target-setting-product-using-power-apps.php",
+      "destination": "/case-studies/designed-a-target-setting-product-using-power-apps",
+      "permanent": true
+    },
+    {
+      "source": "/courses-effectiveness-analysi-in-a-3rd-party-online.php",
+      "destination": "/case-studies/courses-effectiveness-analysis-in-a-third-party-online-learning-marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/study-of-supply-demand-comparison-analysis-using-tableau-for.php",
+      "destination": "/case-studies/supply-demand-comparison-analysis-using-tableau",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio.php",
+      "destination": "/case-studies",
+      "permanent": true
     }
   ]
 }
