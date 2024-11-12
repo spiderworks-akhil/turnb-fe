@@ -28,20 +28,38 @@ const ContactForm = ({ data }) => {
       lead_type: 'Contact'
     }
 
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-      if (response?.status == 200 || response?.status == 201) {
-        // router.push('/thankyou')
-          window.location.href="/thankyou"
-        reset()
-        setLoading(false)
-      } else {
-        setLoading(false)
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false)
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async (token) => {
+            if (token) {
+              dataToSubmit['recaptcha_token'] = token
+            }
+            try {
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+              if (response?.status == 200 || response?.status == 201) {
+                // router.push('/thankyou')
+                  window.location.href="/thankyou"
+                reset()
+                setLoading(false)
+              } else {
+                setLoading(false)
+              }
+            } catch (error) {
+              console.log(error);
+              setLoading(false)
+            }
+
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
+      });
+    } else {
+      console.error('reCAPTCHA is not ready.');
+      alert('reCAPTCHA is not ready.')
     }
+
 
   }
 

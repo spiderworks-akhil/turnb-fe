@@ -41,35 +41,24 @@ const ScanbBanner = ({ data }) => {
       window.grecaptcha.ready(() => {
         window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
           .then(async (token) => {
-            console.log('Token:', token);
-            const response = await axios.post(`https://www.google.com/recaptcha/api/siteverify`, null, {
-              params: {
-                secret: '6LfYSnsqAAAAACIOtBE1eHP9SboxyO7KK1kjLykI',
-                response: token
-              }
-            });
-            console.log(response);
-            if (response?.data?.success) {
-              try {
-                const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
-                if (response?.status === 200 || response?.status === 201) {
-                  window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
-                  reset();
-                  setLoading(false);
-                  setIsModalOpen(false);
-                  window.location.reload()
-                } else {
-                  setLoading(false);
-                }
-              } catch (error) {
-                console.error(error);
+            if (token) {
+              dataToSubmit['recaptcha_token'] = token
+            }
+            try {
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
+              if (response?.status === 200 || response?.status === 201) {
+                window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
+                reset();
+                setLoading(false);
+                setIsModalOpen(false);
+                window.location.reload()
+              } else {
                 setLoading(false);
               }
-            }else{
-              alert('reCAPTCHA is not ready.')
+            } catch (error) {
+              console.error(error);
               setLoading(false);
             }
-
           })
           .catch((error) => {
             console.error('reCAPTCHA execution error:', error);
