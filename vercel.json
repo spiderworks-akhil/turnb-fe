@@ -16,16 +16,6 @@
       "permanent": true
     },
     {
-      "source": "/blog.php",
-      "destination": "/blogs",
-      "permanent": true
-    },
-    {
-      "source": "/our-services.php",
-      "destination": "/services",
-      "permanent": true
-    },
-    {
       "source": "/retail-industries.php",
       "destination": "/industries/retail",
       "permanent": true
