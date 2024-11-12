@@ -1,20 +1,89 @@
 {
-    "redirects": [
-      {
-        "source": "/case-studies.php",
-        "destination": "/case-studies",
-        "permanent": true
-      },
-      {
-        "source": "/blog.php",
-        "destination": "/blogs",
-        "permanent": true
-      },
-      {
-        "source": "/our-services.php",
-        "destination": "/services",
-        "permanent": true
-      }
-    ]
-  }
-  
+  "redirects": [
+    {
+      "source": "/case-studies.php",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/blog.php",
+      "destination": "/blogs",
+      "permanent": true
+    },
+    {
+      "source": "/our-services.php",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/blog.php",
+      "destination": "/blogs",
+      "permanent": true
+    },
+    {
+      "source": "/our-services.php",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/retail-industries.php",
+      "destination": "/industries/retail",
+      "permanent": true
+    },
+    {
+      "source": "/technology-industries.php",
+      "destination": "/industries/technology",
+      "permanent": true
+    },
+    {
+      "source": "/elarning-industries.php",
+      "destination": "/industries/e-learning",
+      "permanent": true
+    },
+    {
+      "source": "/realestate-industries.php",
+      "destination": "/industries/real-estate",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce-industries.php",
+      "destination": "/industries/e-commerce",
+      "permanent": true
+    },
+    {
+      "source": "/trading-&-distribution.php",
+      "destination": "/trading-and-distribution",
+      "permanent": true
+    },
+    {
+      "source": "/consult-D5tm.php",
+      "destination": "/consult-d5tm",
+      "permanent": true
+    },
+    {
+      "source": "/scanB",
+      "destination": "/scanb",
+      "permanent": true
+    },
+    {
+      "source": "/life@turnb.php",
+      "destination": "/life-at-turnb",
+      "permanent": true
+    },
+    {
+      "source": "/career.php",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us.php",
+      "destination": "/contact-us",
+      "permanent": true
+    },
+    {
+      "source": "/aboutus.php",
+      "destination": "/about-us",
+      "permanent": true
+    }
+  ]
+}
