@@ -59,6 +59,17 @@ input.form-control {
     background: transparent;
 }
 
+
+@media(max-width: 1100px){
+    .homebanner .carousel-item{
+        height: auto;
+    }
+    .navbar .navbar-nav .nav-link { 
+        padding-right: 0.4rem;
+        padding-left: 0.5rem;
+        font-size: 12px; 
+}
+}
  @media screen and (max-width: 991px) {
 
     .navbar {
@@ -198,6 +209,7 @@ input.form-control {
 }
     .desktop-banB{
     height:637px;
+    position: relative;
     }
 
     button.navbar-toggler {
