@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link'; // If you're using Next.js, otherwise replace it with a normal <a> tag.
 import { MenuApi } from '@/Datas/Endpoints/Menu';
+import Layout from '@/components/common/Layout';
 
 const ThankYouPage = ({general}) => {
   return (
