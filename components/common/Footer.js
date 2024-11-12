@@ -57,13 +57,13 @@ const Footer = ({ FooterMenu, data }) => {
               dataToSubmit['recaptcha_token'] = token
             }
 
-            const formData = new URLSearchParams();
-            for (const [key, value] of Object.entries(dataToSubmit)) {
-              formData.append(key, value);
-            }
+            // const formData = new URLSearchParams();
+            // for (const [key, value] of Object.entries(dataToSubmit)) {
+            //   formData.append(key, value);
+            // }
 
             try {
-              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, formData)
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
               if (response?.status == 200 || response?.status == 201) {
                 // router.push('/thankyou')
                 window.location.href = "/thankyou"
