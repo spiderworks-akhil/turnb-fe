@@ -50,6 +50,15 @@ input.form-control {
 .prt-git2 {
     min-height: 250px;
 }
+.form-text {
+    background: transparent;
+    min-height: 44px !important;
+    margin: 0;
+}
+.form-text:focus {
+    background: transparent;
+}
+
  @media screen and (max-width: 991px) {
 
     .navbar {

@@ -54,10 +54,16 @@ const Footer = ({ FooterMenu, data }) => {
         window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
           .then(async (token) => {
             if (token) {
-              dataToSubmit['recaptcha_token'] = token.toString()
+              dataToSubmit['recaptcha_token'] = token
             }
+
+            const formData = new URLSearchParams();
+            for (const [key, value] of Object.entries(dataToSubmit)) {
+              formData.append(key, value);
+            }
+
             try {
-              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, formData)
               if (response?.status == 200 || response?.status == 201) {
                 // router.push('/thankyou')
                 window.location.href = "/thankyou"
@@ -352,7 +358,7 @@ const Footer = ({ FooterMenu, data }) => {
                           <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
                           <textarea
                             {...register('message')}
-                            className="form-control"
+                            className="form-control form-text"
                             id="userMessage"
                             rows="1"
                             name="message"
