@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/case-studies.php",
-      "destination": "/case-studies",
+      "source": "/built-an-incentive-program-model.php",
+      "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
       "permanent": true
     },
     {
@@ -13,6 +13,11 @@
     {
       "source": "/our-services.php",
       "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies.php",
+      "destination": "/case-studies",
       "permanent": true
     },
     {
@@ -76,11 +81,6 @@
       "permanent": true
     },
     {
-      "source": "/built-an-incentive-program-model.php",
-      "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
-      "permanent": true
-    },
-    {
       "source": "/devising-survey-analytics-for-a-technology.php",
       "destination": "/case-studies/devising-survey-analytics-for-a-technology-giant-to-improve-its-business-by-generating-business-insights-from-surveys",
       "permanent": true
@@ -122,12 +122,12 @@
     },
     {
       "source": "/designed-a-program-and-modelled-a-dashboard-for-an-associate-program.php",
-      "destination": "/case-studies/designed-a-program-and-modelled-a-dashboard-for-an-associate-program",
+      "destination": "/case-studies/designed-a-program-and-modelled-a-dashboard-for-an-associate-Program",
       "permanent": true
     },
     {
       "source": "/proactive-session-and-attendance-projections-with-excel-modelling.php",
-      "destination": "/case-studies/proactive-session-and-attendance-projections-with-excel-modelling",
+      "destination": "/case-studies/proactive-session-and-attendance-projections-with-excel-modellin",
       "permanent": true
     },
     {
@@ -142,7 +142,7 @@
     },
     {
       "source": "/course-effectiveness-heatmap.php",
-      "destination": "/case-studies/developed-a-dashboard-to-assess-the-effectiveness-of-trainings",
+      "destination": "/case-studies/developed-a-a-dashboard-to-assess-the-effectiveness-of-trainings",
       "permanent": true
     },
     {
@@ -161,6 +161,11 @@
       "permanent": true
     },
     {
+      "source": "/evaluating-in-store-promotion-effectiveness-for-a-retail-giant.php",
+      "destination": "/case-studies/evaluating-in-store-promotion-effectiveness-for-a-retail-giant",
+      "permanent": true
+    },
+    {
       "source": "/display-gap-asessment.php",
       "destination": "/case-studies/display-gap-assessment",
       "permanent": true
@@ -172,22 +177,22 @@
     },
     {
       "source": "/competitor-landscape-study-to-learn-industry-trends-and-best-practices.php",
-      "destination": "/competitor-landscape-study-to-learn-industry-trends-and-best-practices",
+      "destination": "/competitor-landscapeStudy-to-learn-industrytrends-and-best%20-practices",
       "permanent": true
     },
     {
       "source": "/designed-and-formulated-requirements-for-defining-partner-membership.php",
-      "destination": "/case-studies/designed-and-formulated-requirements-to-help-determine-the-partner-membership-status",
+      "destination": "/case-studies/technology-designed-and-formulated-requirements-to-help%20-determine-the-partner-membership-status",
       "permanent": true
     },
     {
-      "source": "/prediction-model-to-estimate-product-sales-of-a-fortune-100-firm-during-a-specific-campaign-period.php",
-      "destination": "/case-studies/prediction-model-to-estimate-product-sales-of-a-fortune-100-firm-during-a-specific-campaign-period",
+      "source": "/prediction-model-to-estimate-product-sales%20-of-a-fortune-100-firm-during-a-specific-campaign-period.php",
+      "destination": "/case-studies/prediction-model-to-estimate-product-sal-of-a-fortune-100-firm-during-a-specific-campaign-period",
       "permanent": true
     },
     {
       "source": "/managed-allocation-distribution-and-tracking-of-exams-as-part.php",
-      "destination": "/case-studies/e-learning-managing-allocation-distribution-and-tracking-of-exams",
+      "destination": "/case-studies/e-learning-managing-allocation-distribution-and-trackin-of-exams",
       "permanent": true
     },
     {
@@ -216,14 +221,210 @@
       "permanent": true
     },
     {
-      "source": "/study-of-supply-demand-comparison-analysis-using-tableau-for.php",
-      "destination": "/case-studies/supply-demand-comparison-analysis-using-tableau",
+      "source": "/study-of-users-behavior-on-an-online-learning.php",
+      "destination": "/case-studies/study-of-users-behavior-on-an-online-learning-platform",
       "permanent": true
     },
     {
-      "source": "/portfolio.php",
-      "destination": "/case-studies",
+      "source": "/built-a-certification-analysis-report-for-a-technology-giant.php",
+      "destination": "/case-studies/built-a-certification-analysis-report-for-a-technology-giant",
+      "permanent": true
+    },
+    {
+      "source": "/evaluation-of-training-through-survey-analysis.php",
+      "destination": "/case-studies/evaluation-of-training-through-survey-analysis",
+      "permanent": true
+    },
+    {
+      "source": "/fraud-detection-and-mitigatio-in-online-training-event.php",
+      "destination": "/case-studies/fraud-detection-and-mitigation-in-online-training-event",
+      "permanent": true
+    },
+    {
+      "source": "/optimizing-evangelists-to-drive-product-adoption.php",
+      "destination": "/case-studies/optimizing-evangelists-to-drive-product-adoption",
+      "permanent": true
+    },
+    {
+      "source": "/web-analytics-to-perform-a-cross-Platform-comparison-study.php",
+      "destination": "/case-studies/designed-a-report-to-visualize-training-data-in-a-concise-view",
+      "permanent": true
+    },
+    {
+      "source": "/helped-in-the-development-and-UAT-of-client-dashboard.php",
+      "destination": "/case-studies/helped-in-the-development-and-uat-of-client-dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/cannibalization-study-on-product-offerings.php",
+      "destination": "/case-studies/cannibalization-study-on-product-offerings",
+      "permanent": true
+    },
+    {
+      "source": "/analysis-on-training-duration.php",
+      "destination": "/case-studies/analysis-on-training-duration",
+      "permanent": true
+    },
+    {
+      "source": "/exception-management.php",
+      "destination": "/case-studies/exception-management",
+      "permanent": true
+    },
+    {
+      "source": "/effectively-monitoring-the-rhythmof-business-for-a-real-estate.php",
+      "destination": "/case-studies/effectively-monitoring-rhythm-of-business-for-a-real-estate",
+      "permanent": true
+    },
+    {
+      "source": "/developed-an-agent-performance-dashboard-to-evaluate-the-performance.php",
+      "destination": "/case-studies/developed-an-agent-performance-dashboard-to-evaluate-the-performance",
+      "permanent": true
+    },
+    {
+      "source": "/evaluation-of-lab-utilisation-for-multi-partner-events.php",
+      "destination": "/case-studies/evaluation-of-lab-utilisation-for-multi-partner-events",
+      "permanent": true
+    },
+    {
+      "source": "/discount-code-distribution-and-status-reporting.php",
+      "destination": "/case-studies/discount-code-distribution-and-status-reporting",
+      "permanent": true
+    },
+    {
+      "source": "/discount-code-target-estimation.php",
+      "destination": "/case-studies/discount-code-target-estimation",
+      "permanent": true
+    },
+    {
+      "source": "/analysed-the-impact-of-platform-change-to-sales-for-a-technology-company.php",
+      "destination": "/case-studies/analysed-the-impact-of-platform-change-to-sales-for-a-technology-company",
+      "permanent": true
+    },
+    {
+      "source": "/transformative-strategies-lead-to-reduction-in-e-commerce-order-cancellations.php",
+      "destination": "/case-studies/transformative-strategies-lead-to-10-reduction-in-e-commerce-order-cancellations",
+      "permanent": true
+    },
+    {
+      "source": "/revitalizing-GCC-electronics-supplier.php",
+      "destination": "/case-studies/revitalizing-gcc-electronics-supplier-sales-rejuvenation-through-data-driven-solutions-and-strategic-insights",
+      "permanent": true
+    },
+    {
+      "source": "/transforming-budget-tracking-with-a-custom-powerBI-dashboard.php",
+      "destination": "/case-studies/transforming-budget-tracking-with-a-custom-power-bl-dashboard",
+      "permanent": true
+    },
+    {
+      "source": "/design-and-measure-a-campaign-to-determine-top-associates.php",
+      "destination": "/case-studies/design-and-measure-a-campaign-to-determine-top-associates",
+      "permanent": true
+    },
+    {
+      "source": "/analyzed-and-designed-a-single-slide-for-the-LT-MBR.php",
+      "destination": "/case-studies/analyzed-and-designed-a-single-slide-for-the-lt-mbr",
+      "permanent": true
+    },
+    {
+      "source": "/cause-and-effect-study-batch-vs-normal-training-program.php",
+      "destination": "/case-studies/cause-and-effect-study-batch-program-and-expiry",
+      "permanent": true
+    },
+    {
+      "source": "/industry-and-offering-area-level-analysis-across-region.php",
+      "destination": "/case-studies/industry-and-solution-area-level-analysis-across-geos",
+      "permanent": true
+    },
+    {
+      "source": "/time-zone-analysis-on-trainings.php",
+      "destination": "/case-studies/time-zone-analysis-on-training",
+      "permanent": true
+    },
+    {
+      "source": "/performed-an-audit-for-a-technology-giant-on-inconsistencie-in-training-data-reported-by-its-partners.php",
+      "destination": "/case-studies/performed-an-audit-for-a-technology-giant-on-inconsistencies-in-training-data-reported-by-its-partners",
+      "permanent": true
+    },
+    {
+      "source": "/supported-a-technology-giant-to-enhance-their-skilling-plan-through-partner-motion.php",
+      "destination": "/case-studies/supported-a-technology-giant-to-enhance-their-skilling-plan-through-partner-motion",
+      "permanent": true
+    },
+    {
+      "source": "/validated-partner-websit-requirements-for-a-technology-giant-to-enhance-the-customer-experience.php",
+      "destination": "/case-studies/validated-partner-website-requirements-for-a-technology-giant-to-enhance-customer-experience",
+      "permanent": true
+    },
+    {
+      "source": "/created-monthly-versions-of-the-newsletter-on-a-skilling-initiative-program-lead-by-a-technology-giant.php",
+      "destination": "/case-studies/created-monthly-versions-of-newsletter-on-a-skilling-initiative-program-lead-by-a-technology-giant",
+      "permanent": true
+    },
+    {
+      "source": "/designing-a-report-for-a-concise-visualization-of-trained-learners.php",
+      "destination": "/case-studies/designing-a-report-for-a-concise-visualization-of-trained-learners",
+      "permanent": true
+    },
+    {
+      "source": "/helped-set-the-revenue-targets-for-field-team.php",
+      "destination": "/case-studies/helped-set-the-revenue-targets-for-field-team",
+      "permanent": true
+    },
+    {
+      "source": "/building-data-driven-framework-for-effective-supplier-evaluation.php",
+      "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
+      "permanent": true
+    },
+    {
+      "source": "/optimizing-marketing-investments.php",
+      "destination": "/case-studies/optimizing-marketing-investments",
+      "permanent": true
+    },
+    {
+      "source": "/real-time-analytics.php",
+      "destination": "/blog/real-time-analytics-your-crystal-ball-for-business-success",
+      "permanent": true
+    },
+    {
+      "source": "/data-visualization-techniques.php",
+      "destination": "/blog/data-visualization-techniques-for-better-insights",
+      "permanent": true
+    },
+    {
+      "source": "/making-smarter-choices.php",
+      "destination": "/blog/making-smarter-choices-how-your-business-can-thrive-with-data",
+      "permanent": true
+    },
+    {
+      "source": "/impact-of-AI-and-Machine-learning.php",
+      "destination": "/blog/impact-of-ai-and-machine-learning-on-data-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/ethical-considerations-in-data-analytics.php",
+      "destination": "/blog/ethical-consideration-in-data-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/the-future-of-big-data-analytics.php",
+      "destination": "/blog/the-future-of-big-data-analytics-a-deep-dive-beyond-the-buzzwords",
+      "permanent": true
+    },
+    {
+      "source": "/mastering-the-art-of-personalized-marketing.php",
+      "destination": "/blog/mastering-the-art-of-personalized-marketing-unleashing-the-power-of-data-analytics",
+      "permanent": true
+    },
+    {
+      "source": "/unveiling-the-power-of-social-media-analytics.php",
+      "destination": "/blog/unveiling-the-power-of-social-media-analytics-a-guide-to-understanding-user-engagement",
+      "permanent": true
+    },
+    {
+      "source": "/unveiling-the-secrets-on-the-chain.php",
+      "destination": "/blog/unveiling-the-secrets-on-the-chain-a-beginners-guide-to-blockchain-analytics",
       "permanent": true
     }
+
   ]
 }
