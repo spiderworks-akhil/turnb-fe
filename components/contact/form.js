@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import BreadCrumbs from '../common/breadCrumbs';
 
 import { useForm, SubmitHandler } from "react-hook-form"
-import { ContactApi } from '@/Datas/Endpoints/Contact';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
