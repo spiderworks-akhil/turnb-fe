@@ -7,6 +7,7 @@ import LifeTestimonials from "@/components/life/testimonial";
 import LifeEventsSection from "@/components/life/events";
 import { MenuApi } from "@/Datas/Endpoints/Menu";
 import { LifeAtTurnBApi } from "@/Datas/Endpoints/LifeAtTurnb";
+import Memories from "@/components/life/memori";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +18,7 @@ export default function About({general,data}) {
         <Layout general={general}>
             <LifeBanner data={data} />
             <LifeMiddleSection data={data} />
+            <Memories/>
             <BenefitsSection data={data} />
             <LifeTestimonials data={data} />
             <LifeEventsSection data={data} />
