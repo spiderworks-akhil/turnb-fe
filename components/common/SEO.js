@@ -4,18 +4,20 @@ import React from 'react'
 
 function SEO({ data, settings }) {
 
-    // console.log(settings);
-    
+
 
     const router = useRouter();
-    const canonicalPathname = router?.asPath.split('?')[0];
-    
+    // const domain = typeof window !== "undefined" ? window.location.origin : ''
+    const domain = 'https://www.turnb.com'
+
+    const canonicalPathname = router?.pathname;
+
     return (
         <Head>
-            <script dangerouslySetInnerHTML={{__html:settings?.google_tag_manager_head}}>    
+            <script dangerouslySetInnerHTML={{ __html: settings?.google_tag_manager_head }}>
             </script>
             <meta name="google-site-verification" content="dghu7IaS1_edNpNrqGVUwJKvGzPld5lFGJG5JD0y_QE" />
-            {/* <link rel="canonical" href={`https://www.bmyholisticwellness.com${canonicalPathname == '/index' ? '/' : canonicalPathname}`} /> */}
+            <link rel="canonical" href={`${domain}${canonicalPathname == '/index' ? '' : canonicalPathname == '/' ? '' : canonicalPathname}`} />
             <link rel="icon" href={settings?.fav_icon} />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 

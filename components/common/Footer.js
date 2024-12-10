@@ -3,11 +3,13 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
 const Footer = ({ FooterMenu, data }) => {
+
+  const recaptchaRef = useRef(null);
 
   const fullSEOcontent = `${data?.seo_h1_title ? `<h1>${data?.seo_h1_title}</h1>` : ''}${data?.bottom_description}`
   const router = useRouter();
@@ -34,41 +36,56 @@ const Footer = ({ FooterMenu, data }) => {
 
   const onSubmit = async (details) => {
 
-    if (!captchaVerified) {
-      alert('Please verify the reCAPTCHA');
-      return;
-    } else {
-
-      setLoading(true)
-      let dataToSubmit = {
-        name: details?.name,
-        email: details?.email,
-        ...(router?.pathname === '/scanb' && { company_name: details?.companyName }),
-        ...(router?.pathname === '/scanb' && { job_position: details?.jobPosition }),
-        phone_number: details?.mobile,
-        message: details?.message,
-        source_url: pageUrl,
-        ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' } : { lead_type: 'Enquiry' }),
-        // type: 'Enquiry'
-      }
-
-      try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-        if (response?.status == 200 || response?.status == 201) {
-          // router.push('/thankyou')
-          window.location.href="/thankyou"
-          reset()
-          setLoading(false)
-          reset
-        } else {
-          setLoading(false)
-        }
-      } catch (error) {
-        console.log(error);
-        setLoading(false)
-      }
+    setLoading(true)
+    let dataToSubmit = {
+      name: details?.name,
+      email: details?.email,
+      ...(router?.pathname === '/scanb' && { company_name: details?.companyName }),
+      ...(router?.pathname === '/scanb' && { job_position: details?.jobPosition }),
+      phone_number: details?.mobile,
+      message: details?.message,
+      source_url: pageUrl,
+      ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' } : { lead_type: 'Enquiry' }),
+      // type: 'Enquiry'
     }
 
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async (token) => {
+            if (token) {
+              dataToSubmit['recaptcha_token'] = token
+            }
+
+            // const formData = new URLSearchParams();
+            // for (const [key, value] of Object.entries(dataToSubmit)) {
+            //   formData.append(key, value);
+            // }
+
+            try {
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+              if (response?.status == 200 || response?.status == 201) {
+                // router.push('/thankyou')
+                window.location.href = "/thankyou"
+                reset()
+                setLoading(false)
+              } else {
+                setLoading(false)
+              }
+            } catch (error) {
+              console.log(error);
+              setLoading(false)
+            }
+
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
+      });
+    } else {
+      console.error('reCAPTCHA is not ready.');
+      alert('reCAPTCHA is not ready.')
+    }
 
   }
 
@@ -86,6 +103,22 @@ const Footer = ({ FooterMenu, data }) => {
     reset()
   }
 
+  useEffect(() => {
+    const loadRecaptchaScript = () => {
+      if (!document.querySelector("script[src*='recaptcha/api.js']")) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
+        script.async = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+          console.log('reCAPTCHA script loaded.');
+        };
+      }
+    };
+
+    loadRecaptchaScript();
+  }, []);
 
 
   return (
@@ -325,7 +358,7 @@ const Footer = ({ FooterMenu, data }) => {
                           <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
                           <textarea
                             {...register('message')}
-                            className="form-control"
+                            className="form-control form-text"
                             id="userMessage"
                             rows="1"
                             name="message"
@@ -335,14 +368,18 @@ const Footer = ({ FooterMenu, data }) => {
                         <div className="col-lg-6 col-md-6 col-12 mt-0">
                           <div className="m-0 mt-3">
                             <ReCAPTCHA
-                              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
-                              onChange={handleCaptchaChange}
+                              ref={recaptchaRef}
+                              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}
+                              size="invisible"
                             />
                           </div>
                         </div>
 
                         <div className="col-12">
-                          <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">
+                          <button
+                            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}
+                            data-size='invisible'
+                            disabled={loading} type="submit" className="g-recaptcha btn btn-brand btnsubmt">
                             {loading ? <div className="loading-spinner"></div> : 'Submit'}
                           </button>
                         </div>

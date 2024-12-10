@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BreadCrumbs from '../common/breadCrumbs';
 
 import { useForm, SubmitHandler } from "react-hook-form"
-import { ContactApi } from '@/Datas/Endpoints/Contact';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
@@ -28,22 +27,56 @@ const ContactForm = ({ data }) => {
       lead_type: 'Contact'
     }
 
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-      if (response?.status == 200 || response?.status == 201) {
-        // router.push('/thankyou')
-          window.location.href="/thankyou"
-        reset()
-        setLoading(false)
-      } else {
-        setLoading(false)
-      }
-    } catch (error) {
-      console.log(error);
-      setLoading(false)
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async (token) => {
+            if (token) {
+              dataToSubmit['recaptcha_token'] = token
+            }
+            try {
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
+              if (response?.status == 200 || response?.status == 201) {
+                // router.push('/thankyou')
+                  window.location.href="/thankyou"
+                reset()
+                setLoading(false)
+              } else {
+                setLoading(false)
+              }
+            } catch (error) {
+              console.log(error);
+              setLoading(false)
+            }
+
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
+      });
+    } else {
+      console.error('reCAPTCHA is not ready.');
+      alert('reCAPTCHA is not ready.')
     }
 
+
   }
+
+  useEffect(() => {
+    const loadRecaptchaScript = () => {
+      if (!document.querySelector("script[src*='recaptcha/api.js']")) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
+        script.async = true;
+        document.body.appendChild(script);
+        script.onload = () => {
+          console.log('reCAPTCHA script loaded.');
+        };
+      }
+    };
+
+    loadRecaptchaScript();
+  }, []);
 
   return (
     <div className="career-bg clearfix">

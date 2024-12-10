@@ -32,7 +32,7 @@ const AboutSection = ({ data }) => {
                   {/* {data?.content?.description_2}
                   </p> */}
                   <div className="knw-more mt-lg-3 mt-md-3 clearfix">
-                    <Link href={data?.content?.button_url_section_2} className="btn btn-primary kn-mb">{data?.content?.button_text_section_2}</Link>
+                    <Link href={data?.content?.button_url_section_2 || '#'} className="btn btn-primary kn-mb">{data?.content?.button_text_section_2}</Link>
                   </div>
                 </div>
               </div>

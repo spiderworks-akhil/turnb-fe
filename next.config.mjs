@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['turnb.spider.ws','placehold.co'], // Add your external image domains here
+    domains: ['turnb.spider.ws','placehold.co','manage.turnb.com'], // Add your external image domains here
   },
   webpack(config) {
     config.module.rules.push({

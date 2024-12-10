@@ -2737,7 +2737,7 @@ h2.busi-hdgc {
     box-shadow: none;
     font-size: 16px;
     width: 100%;
-    background-color: #ccc;
+    /* background-color: #ccc; */
     border-color: transparent;
 }
 

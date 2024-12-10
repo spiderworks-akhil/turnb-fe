@@ -44,7 +44,7 @@ const BlogList = ({ data, list }) => {
                         <div className="col-lg-4 col-md-4 col-12" key={index}>
                           <div className="minhtblog-sec case-box mb-lg-4 mb-md-4 mb-3 clearfix">
                             <div className="img-case">
-                              <Link href={`/blogs/${obj?.slug}`}>
+                              <Link href={`/blog/${obj?.slug}`}>
                                 <Image
                                   src=
                                   {obj?.featured_image?.file_path}
@@ -71,7 +71,7 @@ const BlogList = ({ data, list }) => {
                               </h2>
 
                               <div className="knw-more text-left mt-lg-2 mt-md-2 mt-3 clearfix">
-                                <Link href={`/blogs/${obj?.slug}`}>
+                                <Link href={`/blog/${obj?.slug}`}>
                                   <span className="btn btn-primary kn-mb">Read More</span>
                                 </Link>
 

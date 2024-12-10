@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useForm } from 'react-hook-form';
 
@@ -25,10 +25,7 @@ const ScanbBanner = ({ data }) => {
   const handleVideoModalToggle = () => setIsVideoModalOpen(!isVideoModalOpen);
 
   const onSubmit = async (details) => {
-    if (!captchaVerified) {
-      alert('Please verify the reCAPTCHA');
-      return;
-    }
+
 
     setLoading(true);
     const dataToSubmit = {
@@ -40,22 +37,55 @@ const ScanbBanner = ({ data }) => {
       lead_type: 'ScanB',
     };
 
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
-      if (response?.status === 200 || response?.status === 201) {
-        window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
-        reset();
-        setLoading(false);
-        setIsModalOpen(false);
-        window.location.reload()
-      } else {
-        setLoading(false);
-      }
-    } catch (error) {
-      console.error(error);
-      setLoading(false);
+    if (window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(async (token) => {
+            if (token) {
+              dataToSubmit['recaptcha_token'] = token
+            }
+            try {
+              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit);
+              if (response?.status === 200 || response?.status === 201) {
+                window.open(data?.content?.scanb_pdf_media_id?.file_path, '_blank');
+                reset();
+                setLoading(false);
+                setIsModalOpen(false);
+                window.location.reload()
+              } else {
+                setLoading(false);
+              }
+            } catch (error) {
+              console.error(error);
+              setLoading(false);
+            }
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA execution error:', error);
+          });
+      });
+    } else {
+      console.error('reCAPTCHA is not ready.');
+      alert('reCAPTCHA is not ready.')
     }
   };
+
+  useEffect(() => {
+    const loadRecaptchaScript = () => {
+      if (!document.querySelector("script[src*='recaptcha/api.js']")) {
+        const script = document.createElement('script');
+        script.src = `https://www.google.com/recaptcha/api.js?render=6LfYSnsqAAAAAMMtaAkYKfIAoywDxgbNTBhVaPoF`;
+        script.async = true;
+        document.body.appendChild(script);
+        script.onload = () => {
+          console.log('reCAPTCHA script loaded.');
+        };
+      }
+    };
+
+    loadRecaptchaScript();
+  }, []);
+
 
   return (
     <>
@@ -120,7 +150,7 @@ const ScanbBanner = ({ data }) => {
       <div id="button-video-brou">
         <button onClick={handleVideoModalToggle} id="watch-video1" fdprocessedid="dbo1sj">{data?.content?.scanb_button_text_1}</button>
         <a onClick={handleModalToggle} data-bs-toggle="modal" data-bs-target="#exampleModal2" style={{ textDecoration: 'none' }}>
-        <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
+          <button id="brouchure1" fdprocessedid="cn92ps">{data?.content?.scanb_button_text_2}</button></a>
       </div>
 
       {/* brochure form */}
@@ -214,14 +244,14 @@ const ScanbBanner = ({ data }) => {
                         {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
                       </div>
 
-                      <div className="col-lg-6 col-md-6 col-12 mt-0">
+                      {/* <div className="col-lg-6 col-md-6 col-12 mt-0">
                         <div className="m-0 mt-3">
                           <ReCAPTCHA
                             sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY}
                             onChange={handleCaptchaChange}
                           />
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="col-12">
                         <button disabled={loading} type="submit" className="btn btn-brand btnsubmt">

@@ -13,8 +13,6 @@ export default function Career({ general, data, jobs }) {
     const settings=general?.all_settings?.original?.data
     
 
-    console.log(jobs);
-
     return (
         <Layout general={general} data={data}>
             <CareerBanner data={data} />
