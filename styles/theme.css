@@ -110,6 +110,25 @@ input.form-control {
 .celeb_sec h4 label{ 
     color: rgba(255, 255, 255) !important; 
 }
+.para_wrap{
+    max-width: 900px;
+    border-radius: 26.823px;
+    padding:50px 25px 25px;
+    border: 1px dashed #01847e;
+    margin:-25px auto 25px; 
+   
+
+}
+.celeb_sec p { 
+    font-size: 16px; 
+    line-height: 26px;
+    margin: 0;
+    color: black;
+    font-weight:400;
+}
+.celeb_sec p b {  
+    color: #016B66 !important; 
+}
 .mem-img-wrap {
     position: relative;
     max-width: 447.602px;
@@ -478,6 +497,7 @@ position: relative;
         font-size: 24px; 
         line-height: 36px;
     }
+   
     .celeb_sec {
         position: relative;
         padding-top: 40px;
