@@ -55,7 +55,7 @@ const Memories = () => {
                       fill='#016B66'
                     />
                   </svg>{' '}
-                  A Visionary Contributor
+                  A Legacy of Connection and Creativity
                 </div>
                 <div className='mem-img-wrap_cap2'>
                   <svg
