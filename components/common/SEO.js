@@ -7,7 +7,9 @@ function SEO({ data, settings }) {
 
 
     const router = useRouter();
-    const domain = typeof window !== "undefined" ? window.location.origin : ''
+    // const domain = typeof window !== "undefined" ? window.location.origin : ''
+    const domain = 'https://www.turnb.com'
+
     const canonicalPathname = router?.pathname;
 
     return (
@@ -15,7 +17,7 @@ function SEO({ data, settings }) {
             <script dangerouslySetInnerHTML={{ __html: settings?.google_tag_manager_head }}>
             </script>
             <meta name="google-site-verification" content="dghu7IaS1_edNpNrqGVUwJKvGzPld5lFGJG5JD0y_QE" />
-            <link rel="canonical" href={`${domain}${canonicalPathname == '/index' ? '/' : canonicalPathname}`} />
+            <link rel="canonical" href={`${domain}${canonicalPathname == '/index' ? '' : canonicalPathname == '/' ? '' : canonicalPathname}`} />
             <link rel="icon" href={settings?.fav_icon} />
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
 
