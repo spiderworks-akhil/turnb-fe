@@ -25,8 +25,8 @@ const Memories = () => {
           <div className='row'>
             <div className='col-md-4'>
               <h4>
-                <label>"</label> I will conquer, not immediately but definitely{' '}
-                <label>"</label>
+                <label>`&quot;`</label> I will conquer, not immediately but definitely{' '}
+                <label>`&quot;`</label>
               </h4>
             </div>
 
@@ -184,7 +184,7 @@ const Memories = () => {
                 <p>
                   {' '}
                   Some gifts are meant to be enjoyed only for a short span,
-                  leaving a high impact when lost. Absence of Adil's touch will
+                  leaving a high impact when lost. Absence of Adil`&apos;`s touch will
                   always be a big loss for TurnB. Hope we do justice to the
                   legacy he has left behind.
                 </p>
