@@ -25,8 +25,8 @@ const Memories = () => {
           <div className='row'>
             <div className='col-md-4'>
               <h4>
-                <label>`&quot;`</label> I will conquer, not immediately but definitely{' '}
-                <label>`&quot;`</label>
+                <label>&quot;</label> I will conquer, not immediately but definitely{' '}
+                <label>&quot;</label>
               </h4>
               
             </div>
@@ -96,10 +96,10 @@ const Memories = () => {
           <div className='para_wrap'>
             <p><b>Adil</b> joined TurnB on February 1st, 2019, as a Jr. Analytics Consultant and later transitioned to 
             the role of Social Media Strategist. He quickly became the driving force behind our brand’s presence on social media. 
-            With his visionary mindset and unwavering passion for his work, he built TurnB's social media presence from 
+            With his visionary mindset and unwavering passion for his work, he built TurnB&apos;s social media presence from 
             scratch into a powerhouse. His strategies were sharp, and his ideas always hit the mark. He was a warrior who 
             constantly fought against a rare medical condition while simultaneously working hard towards his vision of increasing 
-            TurnB's social media presence. He left a lasting impression on the TurnB family, as well as on each person who ever 
+            TurnB&apos;s social media presence. He left a lasting impression on the TurnB family, as well as on each person who ever 
             crossed paths with him at least once in their lifetime. For TurnB, marketing and social media are synonymous 
             with <b>Adil E</b> and can never separate the two. We will forever miss our Social Media Strategist.</p>
           </div>
