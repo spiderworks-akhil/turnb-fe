@@ -6,6 +6,7 @@ import ExpertiseSection from "@/components/home/expertise";
 import { MenuApi } from "@/Datas/Endpoints/Menu";
 import { HomeApi } from "@/Datas/Endpoints/Home";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({general,data}) {
