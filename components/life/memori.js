@@ -161,7 +161,7 @@ const Memories = () => {
               <div className='voice_list d-flex   flex-column'>
                 <div className='d-flex align-items-center'>
                   <Image
-                    src={Voi1}
+                    src={Voi3}
                     className='img-fluid'
                     width={80}
                     height={80}
@@ -212,7 +212,7 @@ const Memories = () => {
               <div className='voice_list d-flex  flex-column voice_list3'>
                 <div className='d-flex align-items-center'>
                   <Image
-                    src={Voi3}
+                    src={Voi1}
                     className='img-fluid'
                     width={80}
                     height={80}

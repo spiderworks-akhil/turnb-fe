@@ -13,9 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function About({general,data}) {
 
-    console.log(data);
     return (
-        <Layout general={general}>
+        <Layout general={general} data={data}>
             <LifeBanner data={data} />
             <LifeMiddleSection data={data} />
             <Memories/>
