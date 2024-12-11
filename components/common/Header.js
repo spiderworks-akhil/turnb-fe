@@ -32,7 +32,7 @@ const Header = ({ MainMenu, Settings }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [scrollY])
-  
+
 
   return (
     <nav className={`autohide navbar navbar-expand-lg navbar-light sticky-top topnav ${scrollDirection}`}>
@@ -64,7 +64,7 @@ const Header = ({ MainMenu, Settings }) => {
                     <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                       {
                         obj?.children?.map((child, childIndex) => (
-                          <li key={childIndex}><Link style={{color:'#fff'}} href={`/industries/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
+                          <li key={childIndex}><Link style={{ color: '#fff' }} href={`${obj?.url == 'life-at-turnb' ? '' : '/' + obj?.url}/${child?.url}`} className={`dropdown-item ${router?.pathname == child?.url ? 'active' : ''} `} >{child?.title}</Link></li>
                         ))
                       }
                     </ul>
