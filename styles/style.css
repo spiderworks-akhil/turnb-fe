@@ -6560,6 +6560,10 @@ input.form-control {
         display: none !important;
     }
 
+    .wdd-logo {
+        width: 85% !important;
+    }
+
     .point-one {
         position: relative !important;
         width: 70% !important;
