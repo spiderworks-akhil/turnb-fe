@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SecondSection = ({ data }) => {
-  console.log(data);
+  
 
   return (
     <div className="bg-real clearfix" data-aos="fade-up" data-aos-duration="3000">

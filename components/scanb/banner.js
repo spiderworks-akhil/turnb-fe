@@ -78,7 +78,7 @@ const ScanbBanner = ({ data }) => {
         script.async = true;
         document.body.appendChild(script);
         script.onload = () => {
-          console.log('reCAPTCHA script loaded.');
+          
         };
       }
     };

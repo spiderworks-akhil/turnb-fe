@@ -11,7 +11,7 @@ import React from 'react'
 
 function ServiceDetail({ general, data }) {
 
-  console.log(data);
+  
 
   return (
     <Layout general={general} data={data}>

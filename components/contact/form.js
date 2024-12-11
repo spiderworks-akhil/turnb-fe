@@ -45,7 +45,7 @@ const ContactForm = ({ data }) => {
                 setLoading(false)
               }
             } catch (error) {
-              console.log(error);
+              
               setLoading(false)
             }
 
@@ -70,7 +70,7 @@ const ContactForm = ({ data }) => {
         script.async = true;
         document.body.appendChild(script);
         script.onload = () => {
-          console.log('reCAPTCHA script loaded.');
+          
         };
       }
     };

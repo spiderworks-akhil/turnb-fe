@@ -73,7 +73,7 @@ const Footer = ({ FooterMenu, data }) => {
                 setLoading(false)
               }
             } catch (error) {
-              console.log(error);
+              
               setLoading(false)
             }
 
@@ -112,7 +112,7 @@ const Footer = ({ FooterMenu, data }) => {
         document.body.appendChild(script);
 
         script.onload = () => {
-          console.log('reCAPTCHA script loaded.');
+          
         };
       }
     };

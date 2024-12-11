@@ -8,7 +8,7 @@ const today = new Date();
 const formattedDate = `${today.toISOString().slice(0, 19)}+00:00`
 
 function generateSiteMap(baseUrl, posts) {
-  // console.log(baseUrl);
+  // 
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      ${posts
@@ -32,7 +32,7 @@ function SiteMap() {
 export async function getServerSideProps({ req, res }) {
   // We make an API call to gather the URLs for our site
   const request = await SlugList.industries();
-  //   console.log(request.data);
+  //   
   const posts = await request?.data
 
   // req.headers['x-forwarded-proto'] ||
