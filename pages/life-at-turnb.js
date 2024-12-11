@@ -17,7 +17,7 @@ export default function About({general,data}) {
         <Layout general={general} data={data}>
             <LifeBanner data={data} />
             <LifeMiddleSection data={data} />
-            <Memories/>
+           // <Memories/>
             <BenefitsSection data={data} />
             <LifeTestimonials data={data} />
             <LifeEventsSection data={data} />
