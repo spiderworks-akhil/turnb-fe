@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { RedirectApi } from '@/Datas/Endpoints/Redirect';
 import Link from 'next/link';
+import Head from 'next/head';
 
 function NotFound({ data }) {
     const router = useRouter();
@@ -15,13 +16,19 @@ function NotFound({ data }) {
     }, [searchedUrl, router]);
 
     return (
-        <div style={styles.container}>
-            <h1 style={styles.header}>404 - Page Not Found</h1>
-            <p style={styles.message}>It looks like the page you&apos;re looking for doesn&apos;t exist.</p>
-            <Link href="/" passHref>
-                <div style={styles.homeLink}>Go Back Home</div>
-            </Link>
-        </div>
+        <>
+            <Head>
+            <title>TurnB</title>
+            <link rel="icon" href="https://manage.turnb.com/uploads/settings/favicon-16x1666ff813b9c9c2.png" />
+            </Head>
+            <div style={styles.container}>
+                <h1 style={styles.header}>404 - Page Not Found</h1>
+                <p style={styles.message}>It looks like the page you&apos;re looking for doesn&apos;t exist.</p>
+                <Link href="/" passHref>
+                    <div style={styles.homeLink}>Go Back Home</div>
+                </Link>
+            </div>
+        </>
     );
 }
 

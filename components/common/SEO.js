@@ -10,7 +10,7 @@ function SEO({ data, settings }) {
     // const domain = typeof window !== "undefined" ? window.location.origin : ''
     const domain = 'https://www.turnb.com'
 
-    const canonicalPathname = router?.pathname;
+    const canonicalPathname = router?.asPath.split('?')[0];    
 
     return (
         <Head>
