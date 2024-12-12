@@ -10,7 +10,7 @@ function SEO({ data, settings }) {
     // const domain = typeof window !== "undefined" ? window.location.origin : ''
     const domain = 'https://www.turnb.com'
 
-    const canonicalPathname = router?.asPath.split('?')[0];    
+    const canonicalPathname = router?.asPath.split('?')[0];
 
     return (
         <Head>
@@ -41,6 +41,7 @@ function SEO({ data, settings }) {
                     <meta name="twitter:image" content={data?.og_image?.file_path || data?.banner_image?.file_path}></meta>
                 </>
             }
+            <meta name="google-site-verification" content="bmPRZB5hkAHp9r73BCtvCuz9MTjs1m8YWseClrkgmM0" />
         </Head>
     )
 }
