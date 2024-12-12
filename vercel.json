@@ -6,6 +6,11 @@
       "permanent": true
     },
     {
+      "source": "/index.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/built-an-incentive-program-model.php",
       "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
       "permanent": true
