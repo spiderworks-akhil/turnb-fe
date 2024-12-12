@@ -79,7 +79,7 @@ input.form-control {
     top: 0;
     width: 100%;
     height: 400px;
-    background: linear-gradient(99deg, #018080 0.87%, #DBDBDB 103.48%);
+    background: linear-gradient(99deg, #014f4f 0.87%, #DBDBDB 103.48%);
     z-index: -2;
 }
 
@@ -110,7 +110,7 @@ input.form-control {
 .celeb_sec h4 {
     max-width: 415px;
     margin: 0 auto 15px;
-    color: rgba(255, 255, 255, 0.54) !important;
+    color: rgba(255, 255, 255, 0.75) !important;
     text-align: center;
     font-family: Montserrat;
     font-size: 34px;
@@ -367,6 +367,14 @@ input.form-control {
         padding-left: 0.5rem;
         font-size: 12px;
     }
+
+    .celeb_sec h4 {
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 29px;
+        /* 126.471% */
+    }
 }
 
 
@@ -405,6 +413,10 @@ input.form-control {
 
     .carousel-item img {
         height: 100%;
+    }
+
+    .celeb_sec h4 {
+        color: #0C0F24 !important;
     }
 
     .career-box img {

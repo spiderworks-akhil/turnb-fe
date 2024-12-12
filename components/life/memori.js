@@ -25,8 +25,8 @@ const Memories = () => {
           <div className='row'>
             <div className='col-md-4'>
               <h4>
-                <label>&quot;</label> I will conquer, not immediately but definitely{' '}
-                <label>&quot;</label>
+                &quot; I will conquer, not immediately but definitely{' '}
+                &quot;
               </h4>
               
             </div>
