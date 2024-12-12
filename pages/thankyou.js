@@ -38,7 +38,7 @@ const ThankYouPage = ({ general }) => {
       </div>
     </Layout>
   );
-};
+}; 
 
 export default ThankYouPage;
 
