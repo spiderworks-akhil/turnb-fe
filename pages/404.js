@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { RedirectApi } from '@/Datas/Endpoints/Redirect';
 import Link from 'next/link';
 import Head from 'next/head';
+import StaticSEO from '@/components/common/StaticSEO';
 
 function NotFound({ data }) {
     const router = useRouter();
@@ -17,10 +18,7 @@ function NotFound({ data }) {
 
     return (
         <>
-            <Head>
-            <title>TurnB</title>
-            <link rel="icon" href="https://manage.turnb.com/uploads/settings/favicon-16x1666ff813b9c9c2.png" />
-            </Head>
+            <StaticSEO title={'Page not found'} />
             <div style={styles.container}>
                 <h1 style={styles.header}>404 - Page Not Found</h1>
                 <p style={styles.message}>It looks like the page you&apos;re looking for doesn&apos;t exist.</p>
