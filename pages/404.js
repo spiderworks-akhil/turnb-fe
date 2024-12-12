@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { RedirectApi } from '@/Datas/Endpoints/Redirect';
 import Link from 'next/link';
-import Head from 'next/head';
 import StaticSEO from '@/components/common/StaticSEO';
 
 function NotFound({ data }) {
