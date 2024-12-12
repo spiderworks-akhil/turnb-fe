@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/built-an-incentive-program-model.php",
       "destination": "/case-studies/building-a-data-driven-framework-for-effective-supplier-evaluation",
       "permanent": true
@@ -425,6 +430,5 @@
       "destination": "/blog/unveiling-the-secrets-on-the-chain-a-beginners-guide-to-blockchain-analytics",
       "permanent": true
     }
-
   ]
 }
