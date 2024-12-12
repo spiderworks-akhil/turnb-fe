@@ -111,7 +111,7 @@ const Memories = () => {
           <h4>Memories of an Inspiring Journey</h4>
 
           <div className='row'>
-            <div className='col-6 col-md-3'>
+            <div className='col-6 col-md-4'>
               <Image
                 src={Mem2}
                 className='img-fluid'
@@ -120,7 +120,7 @@ const Memories = () => {
               />
             </div>
 
-            <div className='col-6 col-md-3'>
+            <div className='col-6 col-md-4'>
               <Image
                 src={Mem3}
                 className='img-fluid'
@@ -129,7 +129,7 @@ const Memories = () => {
               />
             </div>
 
-            <div className='col-6 col-md-3'>
+            <div className='col-6 col-md-4'>
               <Image
                 src={Mem4}
                 className='img-fluid'
@@ -138,14 +138,14 @@ const Memories = () => {
               />
             </div>
 
-            <div className='col-6 col-md-3'>
+            {/* <div className='col-6 col-md-3'>
               <Image
                 src={Mem5}
                 className='img-fluid'
                 width={300}
                 height={300}
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -171,7 +171,7 @@ const Memories = () => {
                 <p>
                   While we say no one is indispensable in an organization,
                   Adil’s demise truly created a vacuum. Truthful on intentions,
-                  determined on plan, warrior on actions, he was nothing short
+                  determined on plans, warrior on actions, he was nothing short
                   of a gem.
                 </p>
 
@@ -196,7 +196,7 @@ const Memories = () => {
                 <p>
                   {' '}
                   Some gifts are meant to be enjoyed only for a short span,
-                  leaving a high impact when lost. Absence of Adil`&apos;`s touch will
+                  leaving a high impact when lost. Absence of Adil&apos;s touch will
                   always be a big loss for TurnB. Hope we do justice to the
                   legacy he has left behind.
                 </p>

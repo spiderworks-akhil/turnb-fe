@@ -11,40 +11,40 @@ import Memories from "@/components/life/memori";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function About({general,data}) {
+export default function About({ general, data }) {
 
-    return (
-        <Layout general={general} data={data}>
-            <LifeBanner data={data} />
-            <LifeMiddleSection data={data} />
-           
-            <BenefitsSection data={data} />
-            <LifeTestimonials data={data} />
-            <LifeEventsSection data={data} />
-        </Layout>
-    );
+  return (
+    <Layout general={general} data={data}>
+      <LifeBanner data={data} />
+      <LifeMiddleSection data={data} />
+      {/* <Memories /> */}
+      <BenefitsSection data={data} />
+      <LifeTestimonials data={data} />
+      <LifeEventsSection data={data} />
+    </Layout>
+  );
 }
 
 export async function getStaticProps() {
-    try {
-      const general = await MenuApi.genralSettings()
-      const data = await LifeAtTurnBApi.index()
-  
-      return {
-        props: {
-          general:general?.data,
-          data: data?.data?.data,
-        },
-        revalidate: 10,
-      };
-    } catch (error) {
-      console.error('Error fetching header data contact:', error);
-  
-      return {
-        props: {
-          header: null, // or handle the error in a way that makes sense for your application
-        },
-        revalidate: 10,
-      };
-    }
+  try {
+    const general = await MenuApi.genralSettings()
+    const data = await LifeAtTurnBApi.index()
+
+    return {
+      props: {
+        general: general?.data,
+        data: data?.data?.data,
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error('Error fetching header data contact:', error);
+
+    return {
+      props: {
+        header: null, // or handle the error in a way that makes sense for your application
+      },
+      revalidate: 10,
+    };
   }
+}
