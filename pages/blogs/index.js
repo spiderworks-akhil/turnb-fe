@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Career({general,data,list}) {
     return (
-        <Layout general={general}>
+        <Layout general={general} data={data}>
             <BlogBanner data={data} />
             <BlogList data={data} list={list} />
         </Layout>
