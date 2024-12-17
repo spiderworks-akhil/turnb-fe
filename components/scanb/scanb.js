@@ -11,7 +11,7 @@ const ScanbAdvance = ({ data }) => {
           <div className="row justify-content-left scanb-newsection">
             <div className="col-lg-10 col-md-12 col-12">
               <div className="text-center scan-bmoblatp clearfix">
-                <h1 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" />
+                <h2 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" />
                 <div className="image-subheading">
                   <Image width={'800'} height={'486'} src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '80%' }} />
                   <h6 className="text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} />

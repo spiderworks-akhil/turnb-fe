@@ -7,7 +7,7 @@ const ScanbImpact = ({ data }) => {
         <div className="row justify-content-center">
           <div className="col-lg-11 col-md-11 col-12">
             <div className="">
-              <h1 className="mb-lg-3 mb-md-3 mb-2">{data?.content?.scanb_section_6_title}</h1>
+              <h2 className="mb-lg-3 mb-md-3 mb-2">{data?.content?.scanb_section_6_title}</h2>
               <p className="text-center mb-0 mt-1">
                 {data?.content?.scanb_section_6_sub_title}
               </p>

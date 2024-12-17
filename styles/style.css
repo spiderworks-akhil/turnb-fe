@@ -5405,7 +5405,7 @@ input.form-control {
     position: relative;
 }
 
-.scanb-growth h1 {
+.scanb-growth h2 {
     color: var(--brand-gradient, #0AA8A8);
     text-align: center;
     font-size: 33px;
@@ -6540,7 +6540,9 @@ input.form-control {
     border-color: var(--brand);
 }
 
-
+h2.title-ak2{
+    font-size: calc(1.375rem + 1.5vw);
+}
 
 
 @media all and (max-width: 1200px) {
@@ -6923,6 +6925,7 @@ input.form-control {
         font-size: 37px;
     }
 
+
     .title-ak br {
         display: none;
     }
@@ -6994,6 +6997,7 @@ input.form-control {
     }
 
 }
+
 
 
 .case-study-detail-challenge ul {

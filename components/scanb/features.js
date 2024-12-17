@@ -40,7 +40,7 @@ const ScanbFeatures = ({ data }) => {
       <div className="scanb-growth d-block mt-lg-3 mt-md-3 mt-3 p-4 clearfix mb-lg-5 mb-md-5 mb-4">
         <div className="row justify-content-center">
           <div className="col-lg-11 col-md-11 col-12">
-            <h1 className="mb-lg-5 mb-md-5 mb-3">{data?.content?.scanb_section_5_text}</h1>
+            <h2 className="mb-lg-5 mb-md-5 mb-3">{data?.content?.scanb_section_5_text}</h2>
           </div>
         </div>
 

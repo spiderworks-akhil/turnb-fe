@@ -10,7 +10,7 @@ const BookDemoSection = ({data}) => {
             <div className="col-lg-6 col-md-6 col-12">
               <div className="scanb-feature mt-lg-5 mt-md-5 mt-3 pt-lg-5 pt-md-5 pt-2">
                 <div>
-                  <h1 dangerouslySetInnerHTML={{__html:data?.content?.scanb_section_6_short_text}} className="mb-lg-5 mb-md-5 mb-3 text-left text-ready" />
+                  <h2 dangerouslySetInnerHTML={{__html:data?.content?.scanb_section_6_short_text}} className="mb-lg-5 mb-md-5 mb-3 text-left text-ready" />
                     {/* Ready to achieve <br />
                     insight-driven retail success? */}
                   {/* </h1> */}

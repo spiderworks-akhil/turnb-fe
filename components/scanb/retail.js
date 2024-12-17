@@ -9,7 +9,7 @@ const ScanRetailSection = ({ data }) => {
           <div className="row justify-content-center">
             <div className="col-lg-11 col-md-11 col-12">
               <div className="">
-                <h1>{data?.content?.scanb_section_2_title}</h1>
+                <h2>{data?.content?.scanb_section_2_title}</h2>
                 <p className="intro-texts text-center mt-lg-4 mt-md-4 mt-3">
                   {data?.content?.scanb_section_2_short_description}
                 </p>
@@ -24,9 +24,9 @@ const ScanRetailSection = ({ data }) => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-md-12 col-12">
               <div className="">
-                <h1 className="mb-lg-5 mb-md-5 mb-3" style={{ fontSize: '25px' }}>
+                <h2 className="mb-lg-5 mb-md-5 mb-3" style={{ fontSize: '25px' }}>
                   {data?.content?.scanb_section_2_sub_title}
-                </h1>
+                </h2>
               </div>
             </div>
           </div>

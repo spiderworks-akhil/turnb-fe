@@ -44,7 +44,7 @@ const IndustrySuccess = ({ data }) => {
           <div className="row justify-content-center">
             <div className="col-lg-12 col-md-12 col-12">
               <div className="text-center position-relative aos-init aos-animate" data-aos="fade-down">
-                <h1 className="title-ak2 ft-wt2 text-center mb-lg-5 mb-md-5 mb-4 mt-lg-0 mt-md-0 mt-4">
+                <h2 className="title-ak2 ft-wt2 text-center mb-lg-5 mb-md-5 mb-4 mt-lg-0 mt-md-0 mt-4">
                   {/* <span className="text-dark">Data Driven <span className="clr-grn ft-wt3">Success </span></span>
                   <span className="text-dark">{data?.content?.title_3}</span> */}
                   {
@@ -55,7 +55,7 @@ const IndustrySuccess = ({ data }) => {
                   }
 
 
-                </h1>
+                </h2>
               </div>
             </div>
           </div>
