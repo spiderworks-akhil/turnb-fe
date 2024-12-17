@@ -91,9 +91,9 @@ const ContactForm = ({ data }) => {
       <div className="container">
         <div className="bg-contact pt-5 mt-lg-0 mt-md-0 mt-4 clearfix">
           <div className="intro aos-init aos-animate" data-aos="fade-down">
-            <h1 className="mb-lg-4 mb-md-4 mb-3 text-left">
+            <h2 className="mb-lg-4 mb-md-4 mb-3 text-left">
               Get in Touch with <span className="clr-ab">Our Experts</span>
-            </h1>
+            </h2>
           </div>
           <div className="bg-white form-career p-3 mb-5 aos-init aos-animate" data-aos="fade-up">
             <form
