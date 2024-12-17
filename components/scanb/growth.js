@@ -12,9 +12,9 @@ const ScanBGrowth = ({ data }) => {
               data-aos-easing="linear"
               data-aos-duration="1500"
             >
-              <h1>
+              <h2>
                 {data?.content?.scanb_section_4_text_3}
-              </h1>
+              </h2>
             </div>
           </div>
         </div>
