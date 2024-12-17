@@ -118,7 +118,7 @@ const Footer = ({ FooterMenu, data }) => {
     };
 
     loadRecaptchaScript();
-  }, []);
+  }, []);  
 
 
   return (
@@ -130,7 +130,6 @@ const Footer = ({ FooterMenu, data }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-12 footer-content" dangerouslySetInnerHTML={{ __html: fullSEOcontent }} >
-                {/* <h1>{data?.seo_h1_title}</h1> */}
               </div>
 
             </div>
@@ -273,9 +272,9 @@ const Footer = ({ FooterMenu, data }) => {
                       >
                         <input type="hidden" name="date" value="2024-09-05 06:07:47" />
                         <div>
-                          <h1 className="text-white">
+                          <h2 className="text-white">
                             {url == '/scanb' ? 'Book a Demo Today' : 'Get in touch'}
-                          </h1>
+                          </h2>
                           <p className="ft text-white mb-0">
                             {url == '/scanb'
                               ? 'We will get back to you as soon as possible'
