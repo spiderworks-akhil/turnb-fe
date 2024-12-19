@@ -96,7 +96,7 @@ const CareerSection = ({ data, jobs, settings }) => {
                       <div className="cantfind pt-pg-5 pt-md-5 pt-4 mt-lg-5 mt-md-5 mt-3 mb-lg-5 mb-md-5 mb-3 text-center clearfix">
                         <h3 className="ft-wt2 mb-lg-3 mb-md-3 mb-2">{data?.content?.career_footer_title}</h3>
                         <div className="d-block m-auto text-center">
-                          <h4 className="mb-0 pt-3 pb-3">Send your profile to <span className="clr-ab"><a href={obj?.country_email || settings?.career_secondary_mail_id} className="clr-ab" style={{ textDecoration: 'none', fontWeight: 'bold' }}>{obj?.country_email || settings?.career_secondary_mail_id}</a></span> and we’ll get back to you.</h4>
+                          <h4 className="mb-0 pt-3 pb-3">Send your profile to <span className="clr-ab"><a href={`mailto:${obj?.country_email || settings?.career_secondary_mail_id}`} className="clr-ab" style={{ textDecoration: 'none', fontWeight: 'bold' }}>{obj?.country_email || settings?.career_secondary_mail_id}</a></span> and we’ll get back to you.</h4>
                         </div>
                       </div>
                     </div>

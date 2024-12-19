@@ -15,7 +15,7 @@ function generateSiteMap(baseUrl, posts) {
       .map((obj) => {
         return `
        <url>
-       <loc>${baseUrl}/services${obj?.url == 'index' ? '' : '/' + obj?.slug}</loc>
+       <loc>${baseUrl}/industries${obj?.url == 'index' ? '' : '/' + obj?.slug}</loc>
        <lastmod>${formattedDate}</lastmod>
 </url>
      `;
