@@ -26,9 +26,9 @@ function BlogContent({ data }) {
                             data?.content?.map((obj, index) => (
                                     <div key={index} className="col-lg-12 col-md-12 col-12" data-aos="fade-up" data-aos-duration="3000">
                                         <div className="real-timebox real-boxheit position-relative p-3 clearfix mb-lg-4 mb-md-4 mb-3">
-                                            <h5 className="clrblue-s m-0 p-0 mb-2">
+                                            <h2 className="clrblue-s m-0 p-0 mb-2">
                                                 {obj?.title}
-                                            </h5>
+                                            </h2>
                                             <div className='blog-img' dangerouslySetInnerHTML={{ __html: obj?.description }} />
                                             <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-leftblue`}></div>
                                             <div style={{backgroundColor:index%2==0?'#327cbe':'#068283'}} className={`line-rightblue`}></div>
