@@ -1936,7 +1936,7 @@ h2.busi-hdgc {
 
 .bg-whywork h3 {
     padding: 11px 30px;
-    color: #fff;
+    color: #fff !important;
     background-color: #016b66;
     border-radius: 13px 13px 13px 0px;
     display: inline-block;
@@ -6540,7 +6540,7 @@ input.form-control {
     border-color: var(--brand);
 }
 
-h2.title-ak2{
+h2.title-ak2 {
     font-size: calc(1.375rem + 1.5vw);
 }
 
