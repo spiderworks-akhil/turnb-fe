@@ -57,9 +57,9 @@ const ServicesSection = ({ data, list }) => {
                                                                 </div>
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box">
                                                                     <div className="pt-lft pt-lg-4 pt-md-4 pt-3 pb-0 text-left clearfix aos-init aos-animate" data-aos="fade-up">
-                                                                        <Link style={{ textDecoration: 'none' }} href={`/services/${obj?.slug}`}>
+                                                                        {/* <Link style={{ textDecoration: 'none' }} href={`/services/${obj?.slug}`}> */}
                                                                             <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}</span></h5>
-                                                                        </Link>
+                                                                        {/* </Link> */}
                                                                         <p className="mb-0">{obj?.short_description}</p>
                                                                     </div>
                                                                 </div>
