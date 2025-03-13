@@ -22,6 +22,10 @@ function generateSiteMap(baseUrl) {
       <loc>${baseUrl}/sitemap/blogs</loc>
       <lastmod>${formattedDate}</lastmod>
   </sitemap>
+   <sitemap>
+      <loc>${baseUrl}/sitemap/services</loc>
+      <lastmod>${formattedDate}</lastmod>
+  </sitemap>
 </sitemapindex>
  `;
 }
