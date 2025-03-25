@@ -63,14 +63,14 @@ const CaseStudiesList = ({ data, list }) => {
                                                         </div>
                                                     </div>
                                                     <div className="prt-git2 aos-init aos-animate" data-aos="fade-up">
-                                                        <h2 className="text-left pt-2 mt-0 pb-lg-2 pb-md-2 pb-2 ft-wtcase2">
+                                                        <h2 style={{ height: '67px', overflow: 'hidden' }} className="text-left pt-2 mt-0 pb-lg-2 pb-md-2 pb-2 ft-wtcase2">
                                                             {
                                                                 obj?.name?.length > 50 ?
                                                                     obj?.name?.slice(0, 50) + '....' :
                                                                     obj?.name
                                                             }
                                                         </h2>
-                                                        <p className="text-left mt-1 fnt-15">
+                                                        <p style={{ height: '51px', overflow: 'hidden' }} className="text-left mt-1 fnt-15">
                                                             {
                                                                 obj?.short_description?.length > 90 ?
                                                                     obj?.short_description?.slice(0, 90) + '....' :
