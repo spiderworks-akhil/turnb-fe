@@ -8,9 +8,11 @@ import Link from 'next/link';
 
 const ServicesSection = ({ data, list }) => {
 
+   
+
     const handleNavigate=(index,url)=>{
 
-        if(index==0){
+        if(index==0 || index==3){
             return url
         }else{
             return '#'
