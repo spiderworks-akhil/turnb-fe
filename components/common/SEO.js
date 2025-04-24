@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import React from 'react'
+import parse from 'html-react-parser';
 
 function SEO({ data, settings }) {
 
@@ -11,6 +12,10 @@ function SEO({ data, settings }) {
     const domain = 'https://www.turnb.com'
 
     const canonicalPathname = router?.asPath.split('?')[0];
+
+    const extrajs = parse(typeof data?.extra_js === 'string'
+        ? data?.extra_js
+        : '');
 
     return (
         <Head>
@@ -24,6 +29,7 @@ function SEO({ data, settings }) {
             {
                 data &&
                 <>
+                    {extrajs}
                     <title>{data?.browser_title || data?.title || data?.name}</title>
                     <meta name="keywords" content={data?.meta_keywords} />
                     <meta name="description" content={data?.meta_description} />
