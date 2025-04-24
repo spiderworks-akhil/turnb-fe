@@ -10,7 +10,6 @@ import { ServicesApi } from '@/Datas/Endpoints/Services'
 import React from 'react'
 
 function ServiceDetail({ general, data }) {
-
   
 
   return (
