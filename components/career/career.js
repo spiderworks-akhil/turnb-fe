@@ -37,9 +37,9 @@ const CareerSection = ({ data, jobs, settings }) => {
                     {
                       obj?.jobs?.map((job, jobIndex) => (
                         <div key={jobIndex} className="col-lg-3 col-md-3 col-12">
-                          <div style={{height:'100%'}} className="colb-main b-lg-0 mb-md-0 mb-3 text-center clearfix">
-                            <div style={{height:'100%'}} className="our-colbox clearfix aos-init aos-animate" data-aos="fade-down">
-                              <div className="hover-divcol pb-3">
+                          <div style={{ height: '100%' }} className="colb-main b-lg-0 mb-md-0 mb-3 text-center clearfix">
+                            <div style={{ height: '100%' }} className="our-colbox clearfix aos-init aos-animate" data-aos="fade-down">
+                              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className="hover-divcol pb-3">
                                 <div className="p-3 pb-2">
                                   <h3 className="fnt-22" dangerouslySetInnerHTML={{ __html: job?.title }} />
                                 </div>
