@@ -8,13 +8,13 @@ import Link from 'next/link';
 
 const ServicesSection = ({ data, list }) => {
 
-   
 
-    const handleNavigate=(index,url)=>{
 
-        if(index==0 || index==1 || index==3){
+    const handleNavigate = (index, url) => {
+
+        if (index == 0 || index == 1 || index == 3 || index == 10) {
             return url
-        }else{
+        } else {
             return '#'
         }
 
@@ -69,7 +69,7 @@ const ServicesSection = ({ data, list }) => {
                                                                 </div>
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box">
                                                                     <div className="pt-lft pt-lg-4 pt-md-4 pt-3 pb-0 text-left clearfix aos-init aos-animate" data-aos="fade-up">
-                                                                        <Link style={{ textDecoration: 'none' }} href={handleNavigate(index,`/services/${obj?.slug}`)}>
+                                                                        <Link style={{ textDecoration: 'none' }} href={handleNavigate(index, `/services/${obj?.slug}`)}>
                                                                             <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}</span></h5>
                                                                         </Link>
                                                                         <p className="mb-0">{obj?.short_description}</p>
@@ -80,7 +80,7 @@ const ServicesSection = ({ data, list }) => {
                                                             <div className="row g-0">
                                                                 <div className="col-lg-9 col-md-9 col-12 bg-services-box2 pd-ridser">
                                                                     <div className="pt-lg-4 pt-md-4 pt-5 pb-0 pt-lft text-left clearfix aos-init aos-animate" data-aos="fade-up">
-                                                                        <Link style={{ textDecoration: 'none' }} href={handleNavigate(index,`/services/${obj?.slug}`)}>
+                                                                        <Link style={{ textDecoration: 'none' }} href={handleNavigate(index, `/services/${obj?.slug}`)}>
                                                                             <h5 className="clr-grn mt-0 mb-2"><span className="ft-wt2">{obj?.title}</span></h5>
                                                                         </Link>
                                                                         <p className="mb-0">{obj?.short_description}</p>
