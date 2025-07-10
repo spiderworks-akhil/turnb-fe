@@ -21,7 +21,7 @@ export async function getStaticProps() {
     try {
       const general = await MenuApi.genralSettings()
       const data = await BlogApi.index()
-      const list = await BlogApi.list({limit:100)
+      const list = await BlogApi.list({limit:100})
       return {
         props: {
           general:general?.data,
