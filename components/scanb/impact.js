@@ -19,7 +19,7 @@ const ScanbImpact = ({ data }) => {
         <div style={{background:`url(${data?.content?.scanb_section_6_media_id_1?.file_path}) no-repeat`,backgroundSize:'cover'}} className="scanb-borgana mt-lg-4 mt-md-4 mt-3 clearfix">
           <div className="row">
             <div className="col-lg-5 col-md-5 col-12">
-              <div className="scanb-org clearfix mt-0 mb-lg-3 mb-md-3 mb-2 text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_1 }}  data-aos="fade-up" data-aos-duration="2000"/>
+              <div className="scanb-org clearfix mt-0 mb-lg-3 mb-md-3 mb-2 text-white text-left" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_6_content_1 }}  data-aos="fade-up" data-aos-duration="2000"/>
             </div>
           </div>
         </div>

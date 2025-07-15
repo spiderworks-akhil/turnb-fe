@@ -654,7 +654,9 @@ div#exampleModal {
     background-color: #43e3dc47;
   }
 
-
+.scanb-org h2{
+    text-align: left;
+}
 
 
 @media screen and (min-width: 1440px) {
