@@ -684,6 +684,9 @@ div#exampleModal {
     .loc-con { 
     font-size: 13px; 
 }
+.map-location{
+    height: 300px;
+}
 }
 
 .image-container-small.d-block.d-sm-none {
