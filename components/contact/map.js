@@ -44,12 +44,12 @@ const ContactMap = ({ data }) => {
                       </a>
                     </p>
                   </div>
-                  <Image
+                  <Image 
                     width={600}
                     height={200}
                     src={data?.content?.contact_us_map_media_id_2?.file_path}
                     alt={data?.content?.contact_us_map_media_id_2?.alt_text}
-                    className="img-fluid mt-2 mb-2 d-block text-center m-auto wdth-b"
+                    className="img-fluid mt-2 mb-2 d-block text-center m-auto wdth-b map-img"
                   />
                 </div>
               </div>
@@ -98,7 +98,7 @@ const ContactMap = ({ data }) => {
                      height={200}
                      src={data?.content?.contact_us_map_media_id_4?.file_path}
                      alt={data?.content?.contact_us_map_media_id_4?.alt_text}
-                    className="img-fluid mt-4 mb-2 d-block text-center m-auto wdth-b2"
+                    className="img-fluid mt-4 mb-2 d-block text-center m-auto wdth-b2 map-img"
                   />
                 </div>
               </div>
