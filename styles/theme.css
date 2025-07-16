@@ -673,8 +673,18 @@ div#exampleModal {
         position: absolute;
         left: 35%;
     }
-}
 
+
+}
+@media (max-width: 1450px) {
+ .map-img{
+        height: 55px;
+
+    }
+    .loc-con { 
+    font-size: 13px; 
+}
+}
 
 .image-container-small.d-block.d-sm-none {
     display: none !important;
