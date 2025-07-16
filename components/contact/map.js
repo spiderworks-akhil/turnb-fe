@@ -16,12 +16,12 @@ const ContactMap = ({ data }) => {
                   height={700}
                   src={data?.content?.contact_us_map_media_id_1?.file_path}
                   alt={data?.content?.contact_us_map_media_id_1?.alt_text}
-                  className="img-fluid aos-init aos-animate"
+                  className="img-fluid aos-init aos-animate map-location"
                   data-aos="fade-down"
                 />
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="aos-init aos-animate" data-aos="fade-up">
+                <div className="aos-init aos-animate p-[15px] md:p-0" data-aos="fade-up"  >
                   <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
                     <span className="loc-i">
                       <Image width={35} height={100}  src="/img/loc.png" alt="Location Icon" className="img-fluid" />
@@ -65,12 +65,12 @@ const ContactMap = ({ data }) => {
                   height={700}
                   src={data?.content?.contact_us_map_media_id_3?.file_path}
                   alt={data?.content?.contact_us_map_media_id_3?.alt_text}
-                  className="img-fluid aos-init aos-animate"
+                  className="img-fluid aos-init aos-animate map-location"
                   data-aos="fade-down"
                 />
               </div>
               <div className="col-lg-6 col-md-12 col-12">
-                <div className="aos-init aos-animate" data-aos="fade-up">
+                <div className="aos-init aos-animate p-[15px] md:p-0" data-aos="fade-up">
                   <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
                     <span className="loc-i">
                       <Image width={35} height={100}  src="/img/loc.png" alt="Location Icon" className="img-fluid" />
