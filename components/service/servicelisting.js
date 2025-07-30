@@ -12,7 +12,7 @@ const ServicesSection = ({ data, list }) => {
 
     const handleNavigate = (index, url) => {
 
-        if (index == 0 || index == 1 || index == 3 || index == 10) {
+        if (index == 0 || index == 1 || index == 3 || index == 4 || index == 10) {
             return url
         } else {
             return '#'
