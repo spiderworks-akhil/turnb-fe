@@ -23,7 +23,7 @@ const Memories = () => {
           </h3>
 
           <div className='row'>
-            <div className='col-md-4'>
+            <div className='col-md-4' data-aos="zoom-in-down" data-aos-duration="500">
               <h4>
                 &quot; I will conquer, not immediately but definitely{' '}
                 &quot;
@@ -32,7 +32,7 @@ const Memories = () => {
             </div>
 
             <div className='col-md-4'>
-              <div className='mem-img-wrap'>
+              <div className='mem-img-wrap' data-aos="zoom-in-down" data-aos-duration="500">
                 <div className='mem-img-wrap_cap'> – Adil E </div>
                 <Image
                   src={Mem1}
@@ -93,7 +93,7 @@ const Memories = () => {
             </div>
           </div>
 
-          <div className='para_wrap'>
+          <div className='para_wrap' data-aos="zoom-in-down" data-aos-duration="500">
             <p><b>Adil</b> joined TurnB on February 1st, 2019, as a Jr. Analytics Consultant and later transitioned to 
             the role of Social Media Strategist. He quickly became the driving force behind our brand’s presence on social media. 
             With his visionary mindset and unwavering passion for his work, he built TurnB&apos;s social media presence from 
@@ -111,7 +111,7 @@ const Memories = () => {
           <h4>Memories of an Inspiring Journey</h4>
 
           <div className='row'>
-            <div className='col-6 col-md-4'>
+            <div className='col-6 col-md-4' data-aos="fade-down">
               <Image
                 src={Mem2}
                 className='img-fluid'
@@ -120,7 +120,7 @@ const Memories = () => {
               />
             </div>
 
-            <div className='col-6 col-md-4'>
+            <div className='col-6 col-md-4' data-aos="fade-down">
               <Image
                 src={Mem3}
                 className='img-fluid'
@@ -129,7 +129,7 @@ const Memories = () => {
               />
             </div>
 
-            <div className='col-6 col-md-4'>
+            <div className='col-6 col-md-4' data-aos="fade-down">
               <Image
                 src={Mem4}
                 className='img-fluid'
@@ -158,7 +158,7 @@ const Memories = () => {
 
 
             <div className='col-md-4'>
-              <div className='voice_list d-flex   flex-column'>
+              <div className='voice_list d-flex   flex-column' data-aos="fade-up">
                 <div className='d-flex align-items-center'>
                   <Image
                     src={Voi3}
@@ -183,7 +183,7 @@ const Memories = () => {
             </div>
 
             <div className='col-md-4'>
-              <div className='voice_list voice_list2 d-flex   flex-column'>
+              <div className='voice_list voice_list2 d-flex   flex-column' data-aos="fade-up">
                 <div className='d-flex align-items-center'>
                   <Image
                     src={Voi2}
@@ -209,7 +209,7 @@ const Memories = () => {
             </div>
 
             <div className='col-md-4'>
-              <div className='voice_list d-flex  flex-column voice_list3'>
+              <div className='voice_list d-flex  flex-column voice_list3' data-aos="fade-up">
                 <div className='d-flex align-items-center'>
                   <Image
                     src={Voi1}

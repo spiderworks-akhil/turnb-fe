@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const ScanbFeatures = ({ data }) => {
-  const [activeSlide, setActiveSlide] = useState(0); // Track the active slide index
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const settings = {
     dots: true,
@@ -14,7 +14,9 @@ const ScanbFeatures = ({ data }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    beforeChange: (current, next) => setActiveSlide(next), // Update active slide on change
+    centerMode: true,           // <-- Center the active slide
+    centerPadding: '0px',       // <-- No extra padding around center
+    afterChange: (current) => setActiveSlide(current),
     responsive: [
       {
         breakpoint: 1024,
@@ -23,6 +25,8 @@ const ScanbFeatures = ({ data }) => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
+          centerMode: true,
+          centerPadding: '0px',
         },
       },
       {
@@ -30,6 +34,8 @@ const ScanbFeatures = ({ data }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: '0px',
         },
       },
     ],
@@ -56,7 +62,7 @@ const ScanbFeatures = ({ data }) => {
                     >
                       <div className="item-desc text-center">
                         <h3 className="text-white">{obj?.title}</h3>
-                        {activeSlide + 1 == index && (
+                        {activeSlide === index && (
                           <p className="text-white">{obj?.short_description}</p>
                         )}
                       </div>
