@@ -6547,10 +6547,12 @@ h2.title-ak2 {
 .carousel-inner img {
     width: 100% !important;
 }
+
 .contact-map-block {
     padding-top: 40px;
 
 }
+
 .contact-map-block-item {
     border-radius: 13px;
     border: 1px solid #ABD6E0;
@@ -6566,6 +6568,7 @@ h2.title-ak2 {
     width: 100%;
     height: auto;
 }
+
 .contact-map-block-item h3 {
     color: #2E534F;
     font-size: 16px;
@@ -6573,6 +6576,7 @@ h2.title-ak2 {
     font-weight: 700;
     line-height: 25px;
 }
+
 .contact-map-block-item ul {
     margin: 0px;
     padding: 0;
@@ -6583,20 +6587,24 @@ h2.title-ak2 {
     font-weight: 400;
     line-height: 25px;
 }
-.contact-map-block-item ul li{
+
+.contact-map-block-item ul li {
     margin-bottom: 20px;
 }
+
 .contact-map-block-item ul li {
     margin-bottom: 20px;
     display: flex;
     align-items: flex-start;
     gap: 4px;
 }
-.contact-map-block-item ul li svg{
+
+.contact-map-block-item ul li svg {
     width: 22px;
 }
 
-.contact-map-block-item ul li p, .contact-map-block-item ul li a {
+.contact-map-block-item ul li p,
+.contact-map-block-item ul li a {
     margin: 0px;
     padding: 0;
     list-style: none;
@@ -6607,13 +6615,15 @@ h2.title-ak2 {
     line-height: 25px;
     width: calc(100% - 22px);
 }
-.view-map-block{
+
+.view-map-block {
     position: relative;
 }
 
-.view-map-img{
+.view-map-img {
     display: none;
 }
+
 .map-btn {
     border-radius: 7px;
     border: 1px solid #2E534F;
@@ -6632,17 +6642,18 @@ h2.title-ak2 {
     margin-right: 0;
     margin-top: 30px;
 }
+
 .map-btn svg path {
-   fill: #2E534F;
+    fill: #2E534F;
 }
 
-.contact-map-block-item.active-map{
+.contact-map-block-item.active-map {
     border-radius: 13px;
     background: #DFEFF3;
     border: 0px solid #ABD6E0;
 }
 
-.contact-map-block-item.active-map .map-btn{
+.contact-map-block-item.active-map .map-btn {
     border-radius: 7px;
     background: #2E534F;
     color: #fff;
@@ -6654,10 +6665,10 @@ h2.title-ak2 {
 }
 
 .contact-map-block-item.active-map .map-btn svg path {
-   fill: #fff;
+    fill: #fff;
 }
 
-.contact-map-block-tab-map img{
+.contact-map-block-tab-map img {
     width: 100%;
     height: 350px;
     object-fit: cover;
@@ -6665,34 +6676,49 @@ h2.title-ak2 {
 
 }
 
-.contact-map-block-tab-map{
+.contact-map-block-tab-map {
     margin-bottom: 60px;
 }
 
 .contact-map-block-tab-map {
-  position: relative;
-  height: 350px; /* Adjust based on your image height */
-  overflow: hidden;
+    position: relative;
+    height: 350px;
+    /* Adjust based on your image height */
+    overflow: hidden;
 }
 
 .map-transition-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.3s ease-in-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.map-iframe-container {
+    height: 100%;
+}
+
+.view-map-img iframe {
+    width: 100%;
+    height: 100%;
 }
 
 .map-transition-container.fade-out {
-  opacity: 0;
+    opacity: 0;
 }
 
 .map-transition-container.fade-in {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Optional: Add pointer cursor to map buttons */
 .map-btn {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.map-transition-container iframe {
+    width: 100%;
+    height: 100% !important;
 }
 
 
@@ -6709,9 +6735,11 @@ h2.title-ak2 {
     .contact-map-block-tab-map {
         display: none;
     }
-    .view-map-img{
+
+    .view-map-img {
         display: block;
     }
+
     .map-btn {
         position: absolute;
         bottom: 15px;
@@ -6719,6 +6747,7 @@ h2.title-ak2 {
         background: #2E534F;
         color: #fff;
     }
+
     .map-btn svg path {
         fill: #fff;
     }
@@ -6729,6 +6758,7 @@ h2.title-ak2 {
         object-fit: cover;
         border-radius: 6px;
     }
+
     .contact-map-block-item {
         border-radius: 13px;
         border: 0px solid #ABD6E0;
