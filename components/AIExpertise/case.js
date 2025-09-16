@@ -14,18 +14,26 @@ const AiCase = ({data}) => {
         
 
 
-        <div className='row'>
+        <div className='row'> 
+             {data?.other_sections?.case_studies?.map((item, index) => (
 
-             {data?.content?.listing_id_decision_making?.map((item, index) => (
-
+ 
  
 
   <div className='col-md-4' key={index} >
-                <div className='case-list'>
-                    <Image width={370} height={205} src={item?.media_id?.file_path}  alt={item?.media_id?.alt_text} />
-                    <h4>{item?.title}</h4>
-                    <p> {item?.short_description}</p>
-                    <a className='btn' href={item?.url}> Read More </a> 
+                <div className='case-list'>  
+                    <Image width={370} height={205} src={item?.featured_image?.file_path}  alt={item?.media_id?.alt_text} />
+                    <h4>
+                       {item?.name?.length > 50
+                        ? item.name.slice(0, 50) + "..."
+                        : item?.name}
+                        </h4>
+                    <p>
+                      {item?.short_description?.length > 100
+                        ? item.short_description.slice(0, 100) + "..."
+                        : item?.short_description}
+                    </p>
+                    <a className='btn' href={`/case-studies/${item?.slug}`}> Read More </a> 
                 </div> 
             </div>
                       
