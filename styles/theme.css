@@ -1416,7 +1416,7 @@ background: #2E534F;
  
 
 .mr-topinnerpagescan{
-  margin-top: 70px !important;
+  margin-top: 60px !important;
   position: relative;
 }
 
@@ -1442,4 +1442,10 @@ background: #2E534F;
     #brouchure1, #watch-video1 {
         font-size: 12px;
     }
+
+        #button-video-brou { 
+        justify-content: center;
+        padding-left: 0px;
+    }
+
 }
