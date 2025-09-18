@@ -1437,3 +1437,9 @@ background: #2E534F;
 }
 
 }
+@media (max-width: 640px) {
+
+    #brouchure1, #watch-video1 {
+        font-size: 12px;
+    }
+}
