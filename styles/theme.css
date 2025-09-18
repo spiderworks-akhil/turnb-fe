@@ -1413,4 +1413,27 @@ background: #2E534F;
 .ai-vision-sec{
   padding-bottom: 0;
 }
+ 
+
+.mr-topinnerpagescan{
+  margin-top: 70px !important;
+  position: relative;
+}
+
+
+#watch-video { 
+    top: unset; 
+    bottom: 0;
+    margin-bottom: 10px;
+}
+#brouchure {
+       top: unset; 
+    bottom: 0;
+    margin-bottom: 10px;
+}
+.mob-banner img{
+  width: 100%;
+  height: auto;
+}
+
 }
