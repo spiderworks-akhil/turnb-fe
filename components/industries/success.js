@@ -84,7 +84,7 @@ const IndustrySuccess = ({ data }) => {
                         {data?.case_studies?.map((obj, index) => (
                           Math.floor(index / 3) == carouselIndex &&
                           <div className="col-lg-4 col-md-4 col-12" key={index}>
-                            <div className="case-box mb-lg-4 mb-md-4 mb-3 clearfix">
+                            <div className="case-box mb-lg-4 mb-md-4 mb-3 clearfix  ">
                               <div className="img-case">
                                 <Image
                                   src={obj?.featured_image?.file_path}
@@ -110,8 +110,8 @@ const IndustrySuccess = ({ data }) => {
                                 </h2>
                                 <p className="text-left mt-1 fnt-15">
                                   {
-                                    obj?.short_description?.length > 80 ?
-                                      obj?.short_description?.slice(0, 80) + '....' :
+                                    obj?.short_description?.length > 65 ?
+                                      obj?.short_description?.slice(0, 65) + '....' :
                                       obj?.short_description
                                   }
                                 </p>
