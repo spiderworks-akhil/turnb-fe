@@ -7399,7 +7399,7 @@ h2.title-ak2 {
 .slick-next:before {
     content: "";
     position: absolute;
-    background-image: url(/img/right-arw.jpg);
+    background-image: url(/img/right-arw.png);
     background-repeat: no-repeat;
     width: 40px;
     height: 40px;
@@ -7414,7 +7414,7 @@ h2.title-ak2 {
 .slick-prev:before {
     content: "";
     position: absolute;
-    background-image: url(/img/left-arw.jpg);
+    background-image: url(/img/left-arw.png);
     background-repeat: no-repeat;
     width: 40px;
     height: 40px;
