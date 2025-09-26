@@ -1,111 +1,119 @@
-import Image from 'next/image';
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { EmailIcon, LocationIcon, MapIcon, PhoneIcon } from "../common/Button";
 
-const ContactMap = ({ data }) => {  
+const ContactMap = ({ data }) => {
+  const contacts = data?.other_sections?.contact_locations || [];
+
+  const [activeMap, setActiveMap] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 991);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleMapChange = (index) => {
+    const selected = contacts[index];
+    if (!selected) return;
+
+    // On mobile: open Google Maps link if available
+    if (isMobile) {
+      if (selected?.link) {
+        window.open(selected.link, "_blank");
+      } else if (selected?.map) {
+        // fallback: open embedded map src if available
+        const srcMatch = selected.map.match(/src="([^"]+)"/);
+        if (srcMatch) window.open(srcMatch[1], "_blank");
+      }
+      return;
+    }
+
+    // On desktop: switch iframe
+    if (transitioning || activeMap === index) return;
+    setTransitioning(true);
+    setTimeout(() => {
+      setActiveMap(index);
+      setTransitioning(false);
+    }, 300);
+  };
 
   return (
     <div className="container">
-      <div className="row mt-lg-5 mt-md-5 mt-3 pb-5">
-        <div className="col-lg-6 col-md-6 col-12">
-          <div className="map-one mt-lg-5 mt-md-5 mt-3 clearfix">
-            <div className="row">
-              <div className="col-lg-6 col-md-12 col-12">
+      <div className="row mt-lg-5 mt-md-5 mt-3 pb-5 contact-map-block justify-content-center">
+        {contacts.map((map, index) => (
+          <div className="col-lg-4 col-md-6 col-12" key={map.id}>
+            <div
+              className={`contact-map-block-item ${activeMap === index ? "active-map" : ""
+                }`}
+            >
+              <h3>{map?.name}</h3>
 
-                <Image
-                  width={500}
-                  height={700}
-                  src={data?.content?.contact_us_map_media_id_1?.file_path}
-                  alt={data?.content?.contact_us_map_media_id_1?.alt_text}
-                  className="img-fluid aos-init aos-animate map-location"
-                  data-aos="fade-down"
-                />
-              </div>
-              <div className="col-lg-6 col-md-12 col-12">
-                <div className="aos-init aos-animate p-[15px] md:p-0" data-aos="fade-up"  >
-                  <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
-                    <span className="loc-i">
-                      <Image width={35} height={100}  src="/img/loc.png" alt="Location Icon" className="img-fluid" />
-                    </span>
-                    <p className="loc-con">
-                      {data?.content?.contact_us_add_1}
-                    </p>
+              <ul>
+                {map?.address && (
+                  <li>
+                    <LocationIcon />
+                    <p>{map?.address}</p>
+                  </li>
+                )}
+                {map?.phone_number && (
+                  <li>
+                    <PhoneIcon />
+                    <a href={`tel:${map.phone_number}`} style={{ textDecoration: "none" }}>
+                      {map.phone_number}
+                    </a>
+                  </li>
+                )}
+                {map?.email && (
+                  <li>
+                    <EmailIcon />
+                    <a
+                      href={`mailto:${map.email}`}
+                      className="clr-ab"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {map.email}
+                    </a>
+                  </li>
+                )}
+              </ul>
+
+              {/* MObile ======= */}
+              {map?.map && (
+                <div className="view-map-block">
+                  <div className="view-map-img">
+                    <div
+                      dangerouslySetInnerHTML={{ __html: map.map }}
+                      style={{ width: "100%", height: "300px" }}
+                    />
                   </div>
-                  <div className="map-contact mt-lg-3 mt-md-3 mt-3 clearfix">
-                    <span className="loc-i">
-                      <Image width={35} height={100} src="/img/email.png" alt="Email Icon" className="img-fluid" />
-                    </span>
-                    <p className="loc-con clr-ab">
-                      <a
-                        href="mailto:reachus@turnb.com"
-                        className="clr-ab"
-                        style={{ textDecoration: 'none' }}
-                      >
-                        {data?.content?.contact_us_email_1}
-                      </a>
-                    </p>
+                  <div className="map-btn" onClick={() => handleMapChange(index)}>
+                    View on Map <MapIcon />
                   </div>
-                  <Image 
-                    width={600}
-                    height={200}
-                    src={data?.content?.contact_us_map_media_id_2?.file_path}
-                    alt={data?.content?.contact_us_map_media_id_2?.alt_text}
-                    className="img-fluid mt-2 mb-2 d-block text-center m-auto wdth-b map-img"
-                  />
                 </div>
-              </div>
+              )}
+
+
             </div>
           </div>
-        </div>
-        <div className="col-lg-6 col-md-6 col-12">
-          <div className="map-one mt-lg-5 mt-md-5 mt-3 clearfix">
-            <div className="row">
-              <div className="col-lg-6 col-md-12 col-12">
-                <Image
-                  width={500}
-                  height={700}
-                  src={data?.content?.contact_us_map_media_id_3?.file_path}
-                  alt={data?.content?.contact_us_map_media_id_3?.alt_text}
-                  className="img-fluid aos-init aos-animate map-location"
-                  data-aos="fade-down"
-                />
-              </div>
-              <div className="col-lg-6 col-md-12 col-12">
-                <div className="aos-init aos-animate p-[15px] md:p-0" data-aos="fade-up">
-                  <div className="map-contact mt-lg-4 mt-md-4 mt-3 clearfix">
-                    <span className="loc-i">
-                      <Image width={35} height={100}  src="/img/loc.png" alt="Location Icon" className="img-fluid" />
-                    </span>
-                    <p className="loc-con">
-                      {data?.content?.contact_us_add_2}
-                    </p>
-                  </div>
-                  <div className="map-contact mt-lg-3 mt-md-3 mt-3 clearfix">
-                    <span className="loc-i">
-                      <Image width={35} height={100}  src="/img/email.png" alt="Email Icon" className="img-fluid" />
-                    </span>
-                    <p className="loc-con clr-ab">
-                      <a
-                        href="mailto:reachus@turnb.com"
-                        className="clr-ab"
-                        style={{ textDecoration: 'none' }}
-                      >
-                        {data?.content?.contact_us_email_2}
-                      </a>
-                    </p>
-                  </div>
-                  <Image
-                     width={600}
-                     height={200}
-                     src={data?.content?.contact_us_map_media_id_4?.file_path}
-                     alt={data?.content?.contact_us_map_media_id_4?.alt_text}
-                    className="img-fluid mt-4 mb-2 d-block text-center m-auto wdth-b2 map-img"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        ))}
       </div>
+
+      {!isMobile && contacts[activeMap]?.map && (
+        <div className="contact-map-block-tab-map">
+          <div
+            className={`map-transition-container w-full  overflow-hidden ${transitioning ? "fade-out" : "fade-in"}`}
+          >
+            <div
+              className="map-iframe-container w-full  "
+              dangerouslySetInnerHTML={{ __html: contacts[activeMap]?.map }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -89,7 +90,7 @@ const ScanbBanner = ({ data }) => {
 
   return (
     <>
-      <div className="d-block text-center mr-topinnerpagescan mt-0" data-bs-ride="carousel" id="carouselExampleIndicators">
+      <div className="d-block text-center mr-topinnerpagescan mt-0   " data-bs-ride="carousel" id="carouselExampleIndicators">
         {/* <div className="carousel-indicators">
         <button aria-label="Slide 1" className="active" data-bs-slide-to="0" data-bs-target="#carouselExampleIndicators" type="button"></button>
         <button aria-label="Slide 2" data-bs-slide-to="1" data-bs-target="#carouselExampleIndicators" type="button"></button>
@@ -133,9 +134,10 @@ const ScanbBanner = ({ data }) => {
         {/* Mobile Banner */}
 
         <div
-          className="d-lg-none d-md-none d-block img-fluid"
-          style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
+          className="d-lg-none d-md-none d-block img-fluid  mob-banner"
+          // style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
+          <Image src={data?.content?.scanb_mobile_banner_media_id?.file_path} width={768} height={800} /> 
           <button onClick={handleVideoModalToggle} id="watch-video">{data?.content?.scanb_button_text_1}</button>
           {/* href={data?.content?.scanb_button_link_2} */}
           <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
