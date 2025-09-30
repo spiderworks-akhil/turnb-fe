@@ -114,6 +114,7 @@ const IndustrySuccess = ({ data }) => {
                                       obj?.short_description?.slice(0, 65) + '....' :
                                       obj?.short_description
                                   }
+                                  {/* made by ui changes */}
                                 </p>
                                 <div className="knw-more text-left pb-lg-3 pb-md-3 pb-2 mt-lg-2 mt-md-2 mt-3 clearfix">
                                   <Link href={`/case-studies/${obj?.slug}`}>
