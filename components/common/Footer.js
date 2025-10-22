@@ -16,6 +16,8 @@ const Footer = ({ FooterMenu, data }) => {
 
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const [url, seturl] = useState(router.pathname)
+    const [recaptchaToken, setRecaptchaToken] = useState("");
+    const [recaptchaError, setRecaptchaError] = useState(false);
 
 
   const handleCaptchaChange = (value) => {
@@ -40,53 +42,38 @@ const Footer = ({ FooterMenu, data }) => {
     let dataToSubmit = {
       name: details?.name,
       email: details?.email,
-      ...(router?.pathname === '/scanb' && { company_name: details?.companyName }),
-      ...(router?.pathname === '/scanb' && { job_position: details?.jobPosition }),
+      ...(router?.pathname === "/scanb" && {
+        company_name: details?.companyName,
+      }),
+      ...(router?.pathname === "/scanb" && {
+        job_position: details?.jobPosition,
+      }),
       phone_number: details?.mobile,
       message: details?.message,
       source_url: pageUrl,
-      ...(router?.pathname === '/scanb' ? { lead_type: 'Demo' } : { lead_type: 'Enquiry' }),
+      ...(router?.pathname === "/scanb"
+        ? { lead_type: "Demo" }
+        : { lead_type: "Enquiry" }),
+      recaptcha_token: recaptchaToken,
       // type: 'Enquiry'
+    };
+
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`,
+        dataToSubmit
+      );
+      if (response?.status == 200 || response?.status == 201) {
+        // router.push('/thankyou')
+        window.location.href = "/thankyou";
+        reset();
+        setLoading(false);
+      } else {
+        setLoading(false);
+      }
+    } catch (error) {
+      setLoading(false);
     }
-
-    if (window.grecaptcha) {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
-          .then(async (token) => {
-            if (token) {
-              dataToSubmit['recaptcha_token'] = token
-            }
-
-            // const formData = new URLSearchParams();
-            // for (const [key, value] of Object.entries(dataToSubmit)) {
-            //   formData.append(key, value);
-            // }
-
-            try {
-              const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_PATH}contact/save`, dataToSubmit)
-              if (response?.status == 200 || response?.status == 201) {
-                // router.push('/thankyou')
-                window.location.href = "/thankyou"
-                reset()
-                setLoading(false)
-              } else {
-                setLoading(false)
-              }
-            } catch (error) {
-              
-              setLoading(false)
-            }
-
-          })
-          .catch((error) => {
-            console.error('reCAPTCHA execution error:', error);
-          });
-      });
-    } else {
-      console.error('reCAPTCHA is not ready.');
-      alert('reCAPTCHA is not ready.')
-    }
-
   }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -124,45 +111,47 @@ const Footer = ({ FooterMenu, data }) => {
   return (
     <>
       <footer className="pt-5 pb-5">
-
-        {
-          data?.bottom_description &&
+        {data?.bottom_description && (
           <div className="container">
             <div className="row">
-              <div className="col-lg-12 footer-content" dangerouslySetInnerHTML={{ __html: fullSEOcontent }} >
-              </div>
-
+              <div
+                className="col-lg-12 footer-content"
+                dangerouslySetInnerHTML={{ __html: fullSEOcontent }}
+              ></div>
             </div>
           </div>
-        }
+        )}
 
         <div className="container">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-12">
-              <Image width={191} height={59} src="/img/logo.png" className="img-fluid" alt="Logo" />
+              <Image
+                width={191}
+                height={59}
+                src="/img/logo.png"
+                className="img-fluid"
+                alt="Logo"
+              />
             </div>
           </div>
           <div className="row">
-            {
-              FooterMenu?.Footer_Menu?.map((obj, index) => (
-                <div key={index} className="col-lg-3 col-md-3 col-6">
-                  <div className="footer-links ml-lg-3 mt-lg-4 mt-md-4 mt-3">
-                    <h6 className="clr-ab">{obj?.title}</h6>
-                    <ul>
-                      {
-                        obj?.children?.map((child, childIndex) => (
-                          <li key={childIndex}><Link href={`/${child?.url}`}>{child?.title}</Link></li>
-                        ))
-                      }
-                      {/* <li><a href="/aboutus.html">Why Us</a></li>
+            {FooterMenu?.Footer_Menu?.map((obj, index) => (
+              <div key={index} className="col-lg-3 col-md-3 col-6">
+                <div className="footer-links ml-lg-3 mt-lg-4 mt-md-4 mt-3">
+                  <h6 className="clr-ab">{obj?.title}</h6>
+                  <ul>
+                    {obj?.children?.map((child, childIndex) => (
+                      <li key={childIndex}>
+                        <Link href={`/${child?.url}`}>{child?.title}</Link>
+                      </li>
+                    ))}
+                    {/* <li><a href="/aboutus.html">Why Us</a></li>
                       <li><a href="/aboutus.html">Core Values</a></li>
                       <li><a href="/aboutus.html">Milestones</a></li> */}
-                    </ul>
-                  </div>
+                  </ul>
                 </div>
-              )
-              )
-            }
+              </div>
+            ))}
 
             {/* <div className="col-lg-3 col-md-3 col-6">
               <div className="footer-links ml-lg-3 mt-lg-4 mt-md-4 mt-3">
@@ -200,10 +189,18 @@ const Footer = ({ FooterMenu, data }) => {
             <div className="col-lg-6 col-md-6 col-12">
               <p className="flw">Follow us</p>
               <div className="social-icons">
-                <a href="https://www.linkedin.com/company/turnb/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/turnb/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="https://www.instagram.com/turnb_official/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.instagram.com/turnb_official/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <i className="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
@@ -217,9 +214,7 @@ const Footer = ({ FooterMenu, data }) => {
 
       <div>
         {/* Feedback Enquiry and Popup Button */}
-        {
-
-        }
+        {}
         <div id="feedback-enquiry" className="d-none">
           <div
             id="feedback-tab-enquiry"
@@ -230,39 +225,44 @@ const Footer = ({ FooterMenu, data }) => {
           </div>
         </div>
         <div className="popup-btnnew">
-          <a className="btn blink-text " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={handleModalToggle}>
-            {
-              url == '/scanb' ?
-                'Book a Demo' :
-                'Enquire Now'
-            }
+          <a
+            className="btn blink-text "
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            onClick={handleModalToggle}
+          >
+            {url == "/scanb" ? "Book a Demo" : "Enquire Now"}
           </a>
         </div>
 
         {/* Enquire Now Form Modal */}
         <div
           // onClick={handleModalClose}
-          className={`modal fade ${isModalOpen ? 'show' : ''}`}
+          className={`modal fade ${isModalOpen ? "show" : ""}`}
           id="exampleModal"
           tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden={!isModalOpen}
           aria-modal={isModalOpen}
-          style={{ display: isModalOpen ? 'block' : 'none' }}
+          style={{ display: isModalOpen ? "block" : "none" }}
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               {/* Modal Header */}
               <div className="modal-header p-0 border-none">
                 <button
-                  data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
                   type="button"
                   className="btn-close closebutton"
                   // onClick={handleModalClose}
                   aria-label="Close"
                 ></button>
               </div>
-              <div onClick={(e) => e.stopPropagation()} className="modal-body p-0">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="modal-body p-0"
+              >
                 <div className="container-fluid">
                   <div className="row justify-content-center gy-4 mob-input">
                     <div className="col-lg-12 col-md-12 col-12">
@@ -270,93 +270,149 @@ const Footer = ({ FooterMenu, data }) => {
                         className="p-lg-4 col-12 row g-3 pt-3 pb-3"
                         onSubmit={handleSubmit(onSubmit)}
                       >
-                        <input type="hidden" name="date" value="2024-09-05 06:07:47" />
+                        <input
+                          type="hidden"
+                          name="date"
+                          value="2024-09-05 06:07:47"
+                        />
                         <div>
                           <h2 className="text-white">
-                            {url == '/scanb' ? 'Book a Demo Today' : 'Get in touch'}
+                            {url == "/scanb"
+                              ? "Book a Demo Today"
+                              : "Get in touch"}
                           </h2>
                           <p className="ft text-white mb-0">
-                            {url == '/scanb'
-                              ? 'We will get back to you as soon as possible'
-                              : 'Please feel free to contact us and we will get back to you as soon as possible'}
+                            {url == "/scanb"
+                              ? "We will get back to you as soon as possible"
+                              : "Please feel free to contact us and we will get back to you as soon as possible"}
                           </p>
                         </div>
 
                         <div className="col-lg-6 col-md-6 col-12">
-                          <label htmlFor="userName" className="form-label text-white">Full Name</label>
+                          <label
+                            htmlFor="userName"
+                            className="form-label text-white"
+                          >
+                            Full Name
+                          </label>
                           <input
-                            {...register('name')}
+                            {...register("name")}
                             type="text"
                             className="form-control"
                             id="userName"
                             name="name"
                             required
                           />
-                          {errors.name && <span className='form-validation'>{errors.name.message}</span>}
+                          {errors.name && (
+                            <span className="form-validation">
+                              {errors.name.message}
+                            </span>
+                          )}
                         </div>
 
-                        {url == '/scanb' && (
+                        {url == "/scanb" && (
                           <div className="col-lg-6 col-md-6 col-12">
-                            <label htmlFor="companyName" className="form-label text-white">Company Name</label>
+                            <label
+                              htmlFor="companyName"
+                              className="form-label text-white"
+                            >
+                              Company Name
+                            </label>
                             <input
-                              {...register('companyName')}
+                              {...register("companyName")}
                               type="text"
                               className="form-control"
                               id="companyName"
                               name="companyName"
                               required
                             />
-                            {errors.companyName && <span className='form-validation'>{errors.companyName.message}</span>}
+                            {errors.companyName && (
+                              <span className="form-validation">
+                                {errors.companyName.message}
+                              </span>
+                            )}
                           </div>
                         )}
 
-                        {url == '/scanb' && (
+                        {url == "/scanb" && (
                           <div className="col-lg-6 col-md-6 col-12">
-                            <label htmlFor="jobPosition" className="form-label text-white">Job Position</label>
+                            <label
+                              htmlFor="jobPosition"
+                              className="form-label text-white"
+                            >
+                              Job Position
+                            </label>
                             <input
-                              {...register('jobPosition')}
+                              {...register("jobPosition")}
                               type="text"
                               className="form-control"
                               id="jobPosition"
                               name="jobPosition"
                               required
                             />
-                            {errors.jobPosition && <span className='form-validation'>{errors.jobPosition.message}</span>}
+                            {errors.jobPosition && (
+                              <span className="form-validation">
+                                {errors.jobPosition.message}
+                              </span>
+                            )}
                           </div>
                         )}
 
                         <div className="col-lg-6 col-md-6 col-12">
-                          <label htmlFor="userEmail" className="form-label text-white">
-                            {url == '/scanb' ? 'Company Email ID' : 'Email Address'}
+                          <label
+                            htmlFor="userEmail"
+                            className="form-label text-white"
+                          >
+                            {url == "/scanb"
+                              ? "Company Email ID"
+                              : "Email Address"}
                           </label>
                           <input
-                            {...register('email')}
+                            {...register("email")}
                             type="email"
                             className="form-control"
                             id="userEmail"
                             name="email"
                             required
                           />
-                          {errors.email && <span className='form-validation'>{errors.email.message}</span>}
+                          {errors.email && (
+                            <span className="form-validation">
+                              {errors.email.message}
+                            </span>
+                          )}
                         </div>
 
                         <div className="col-lg-6 col-md-6 col-12">
-                          <label htmlFor="userMobile" className="form-label text-white">Mobile Number</label>
+                          <label
+                            htmlFor="userMobile"
+                            className="form-label text-white"
+                          >
+                            Mobile Number
+                          </label>
                           <input
-                            {...register('mobile')}
+                            {...register("mobile")}
                             type="tel"
                             className="form-control"
                             id="userMobile"
                             name="mobile"
                             required
                           />
-                          {errors.mobile && <span className='form-validation'>{errors.mobile.message}</span>}
+                          {errors.mobile && (
+                            <span className="form-validation">
+                              {errors.mobile.message}
+                            </span>
+                          )}
                         </div>
 
                         <div className="col-lg-6 col-md-6 col-12">
-                          <label htmlFor="userMessage" className="form-label text-white">Enter Message</label>
+                          <label
+                            htmlFor="userMessage"
+                            className="form-label text-white"
+                          >
+                            Enter Message
+                          </label>
                           <textarea
-                            {...register('message')}
+                            {...register("message")}
                             className="form-control form-text"
                             id="userMessage"
                             rows="1"
@@ -364,7 +420,7 @@ const Footer = ({ FooterMenu, data }) => {
                           ></textarea>
                         </div>
 
-                        <div className="col-lg-6 col-md-6 col-12 mt-0">
+                        {/* <div className="col-lg-6 col-md-6 col-12 mt-0">
                           <div className="m-0 mt-3">
                             <ReCAPTCHA
                               ref={recaptchaRef}
@@ -372,18 +428,43 @@ const Footer = ({ FooterMenu, data }) => {
                               size="invisible"
                             />
                           </div>
+                        </div> */}
+                        {/* reCAPTCHA v2 */}
+                        <div className="col-12 d-flex flex-column align-items-start px-3">
+                          <ReCAPTCHA
+                            sitekey={
+                              process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY
+                            }
+                            onChange={(token) => {
+                              setRecaptchaToken(token);
+                              setRecaptchaError(false);
+                            }}
+                          />
+                          {recaptchaError && (
+                            <span className="form-validation mt-2 text-danger">
+                              Please verify that you are not a robot.
+                            </span>
+                          )}
                         </div>
 
                         <div className="col-12">
                           <button
-                            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY}
-                            data-size='invisible'
-                            disabled={loading} type="submit" className="g-recaptcha btn btn-brand btnsubmt">
-                            {loading ? <div className="loading-spinner"></div> : 'Submit'}
+                            data-sitekey={
+                              process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY_KEY
+                            }
+                            data-size="invisible"
+                            disabled={loading}
+                            type="submit"
+                            className="g-recaptcha btn btn-brand btnsubmt"
+                          >
+                            {loading ? (
+                              <div className="loading-spinner"></div>
+                            ) : (
+                              "Submit"
+                            )}
                           </button>
                         </div>
                       </form>
-
                     </div>
                   </div>
                 </div>
@@ -393,7 +474,7 @@ const Footer = ({ FooterMenu, data }) => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default Footer;
