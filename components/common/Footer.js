@@ -37,7 +37,10 @@ const Footer = ({ FooterMenu, data }) => {
   const [loading, setLoading] = useState(false)
 
   const onSubmit = async (details) => {
-
+    if (!recaptchaToken) {
+      setRecaptchaError(true);
+      return;
+    }
     setLoading(true)
     let dataToSubmit = {
       name: details?.name,
