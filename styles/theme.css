@@ -1243,7 +1243,9 @@ background: #2E534F;
     fill: #fff;  
 }
 
-
+.ser-det-text, .ser-det-text p, .ser-det-text h2, .ser-det-text h3 {
+  text-align: left;
+}
 
 @media screen and (min-width: 1440px) {
   .desktop-banB {

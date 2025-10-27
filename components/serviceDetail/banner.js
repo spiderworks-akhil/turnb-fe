@@ -32,7 +32,7 @@ function SerDetBanner({ data }) {
                             <div className="row p-4 justify-content-center">
                                 <div className="col-lg-10 col-md-10 col-12">
                                     <div className="text-justify position-relative aos-init aos-animate" data-aos="fade-up">
-                                        <div className="ser_desc_text" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
+                                        <div className="ser_desc_text ser-det-text" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
                                     </div>
                                 </div>
                             </div>
