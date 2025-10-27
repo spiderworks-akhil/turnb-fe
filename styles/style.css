@@ -5769,6 +5769,7 @@ img.w-full.img-responsive {
 .service-detail-banner {
     width: 100%;
     height: 700px;
+    overflow: hidden;
 }
 
 .service-detail-banner img {
