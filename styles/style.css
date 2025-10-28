@@ -5773,7 +5773,7 @@ img.w-full.img-responsive {
 }
 
 .service-detail-banner img {
-    height: 100%;
+    height: 100% !important;
     object-fit: cover;
     width: 100%;
 }
