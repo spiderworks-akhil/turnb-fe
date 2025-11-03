@@ -33,10 +33,11 @@ const CareerSection = ({ data, jobs, settings }) => {
             {
               jobs?.map((obj, index) => (
                 <div key={index} className={`tab-pane fade ${index == 0 ? 'active show' : ''}`} id={`nav-${obj?.country_name}`} role="tabpanel" aria-labelledby={`nav-${obj?.country_name}-tab`}>
-                  <div className="row justify-content-center mt-lg-4 mt-md-4 mt-3 mb-lg-5 mb-md-5 mb-4">
+                 <div style={{ maxWidth: '950px', margin:'0 auto' }}>
+                   <div className="row justify-content-center mt-lg-4 mt-md-4 mt-3 mb-lg-5 mb-md-5 mb-4">
                     {
                       obj?.jobs?.map((job, jobIndex) => (
-                        <div key={jobIndex} className="col-lg-3 col-md-3 col-12">
+                        <div key={jobIndex} className="col-lg-4 col-md-4 col-12">
                           <div style={{ height: '100%' }} className="colb-main b-lg-0 mb-md-0 mb-3 text-center clearfix">
                             <div style={{ height: '100%' }} className="our-colbox clearfix aos-init aos-animate" data-aos="fade-down">
                               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className="hover-divcol pb-3">
@@ -90,6 +91,9 @@ const CareerSection = ({ data, jobs, settings }) => {
                     </div> */}
 
                   </div>
+
+                 </div>
+                 
 
                   <div className="row justify-content-center">
                     <div className="col-lg-12 col-md-12 col-12">
