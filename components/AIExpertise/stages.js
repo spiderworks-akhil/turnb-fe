@@ -40,7 +40,7 @@ const AiStages = ({data}) => {
 
           {/* Right side: Tab Content */}
           <div className="col-md-8">
-            <div className="tab-content" id="v-pills-tabContent">
+            <div className="tab-content h-[100%]" id="v-pills-tabContent">
               {data?.content?.listing_id_analytics?.map((tab, index) => {
                 const tabId = `tab-${index + 1}`;
                 return (
@@ -62,6 +62,7 @@ const AiStages = ({data}) => {
                       
                       <h4>{tab?.title}</h4>
                       <p>{tab?.short_description}</p>
+                      
                     </div>
                   </div>
                 );
@@ -69,6 +70,8 @@ const AiStages = ({data}) => {
             </div>
           </div>
         </div>
+        <hr className='m-0' style={{borderColor: '#c8c8c8ff'}} />
+
       </div>
     </section>
   )

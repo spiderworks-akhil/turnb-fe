@@ -30,7 +30,10 @@ const AiFeatures = ({data}) => {
         ))}
 
         {/* Extra Background Feature Block */}
-        <div className="feat-list feat-bg"></div>
+        <div className="feat-list feat-bg" style={{  top: '-500px' }}></div>
+
+ 
+         
       </div>
     </section>
   )

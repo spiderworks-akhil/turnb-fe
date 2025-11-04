@@ -22,10 +22,10 @@ export default function Career({general,data}) {
             <AiBanner data={data}/>
             <AiAnalytics data={data}/>
             <AiStages data={data}/>
-            <div>
+            
             <AiFeatures data={data}/>
             <AiIn data={data}/>
-            </div>
+             
             <AiVision data={data}/>
             <AiBenefits data={data}/>
             <AiCase data={data}/>
