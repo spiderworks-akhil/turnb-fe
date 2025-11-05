@@ -195,7 +195,7 @@ const ContactForm = ({ data }) => {
                     setRecaptchaToken(token);
                     setRecaptchaError(false);
                   }}
-                />
+                /> 
                 {recaptchaError && (
                   <span className="form-validation mt-2 text-danger">
                     Please verify that you are not a robot.

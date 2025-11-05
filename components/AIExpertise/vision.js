@@ -9,7 +9,7 @@ const AiVision = ({data}) => {
         <div className='row'>
           <div className='col-md-6 '>
             <div className='ai-vis-left'>
-              <h3> {data?.content?.listing_title_6}</h3>
+              <h3> {data?.content?.title_6}</h3> 
                <div dangerouslySetInnerHTML={{__html:data?.content?.description_6}}/>
               <div className='key-feat'>
                 <h5> {data?.content?.listing_title_6}</h5>
@@ -29,7 +29,7 @@ const AiVision = ({data}) => {
           <div className='col-md-6 '>
             <div className='ai-vis-right'>
             <video
-              src='videos/vision.mp4' // Place video in the "public/videos" folder
+              src={data?.content?.vision_media_id?.file_path} // Place video in the "public/videos" folder
               autoPlay
               loop
               muted
