@@ -4,7 +4,11 @@ import CaseiImg from '../../public/img/ai/case.png'
 
 const AiCase = ({data}) => {
   return (
-    <section className='ai-case-sec'>
+    <>
+
+    {data?.other_sections?.case_studies &&
+
+      <section className='ai-case-sec'>
       <div className='container'>
 
         <div className='case-title'>
@@ -69,6 +73,11 @@ const AiCase = ({data}) => {
  
       </div>
     </section>
+
+
+    }
+    </>
+    
   )
 }
 
