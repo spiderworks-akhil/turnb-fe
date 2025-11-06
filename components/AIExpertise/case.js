@@ -6,8 +6,7 @@ const AiCase = ({data}) => {
   return (
     <>
 
-    {data?.other_sections?.case_studies &&
-
+   
       <section className='ai-case-sec'>
       <div className='container'>
 
@@ -75,7 +74,7 @@ const AiCase = ({data}) => {
     </section>
 
 
-    }
+   
     </>
     
   )

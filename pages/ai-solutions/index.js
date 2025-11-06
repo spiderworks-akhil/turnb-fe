@@ -28,7 +28,11 @@ export default function Career({general,data}) {
              
             <AiVision data={data}/>
             <AiBenefits data={data}/>
-            <AiCase data={data}/>
+            {
+            data?.other_sections?.case_studies?.length  ? <AiCase data={data}/> : null
+             
+            }
+            
         </Layout>
     );
 }
