@@ -12,7 +12,7 @@ const AiStages = ({data}) => {
           {/* Left side: Nav Pills */}
           <div className="col-md-4">
             <div
-              className="nav flex-column nav-pills"
+              className="nav flex-column nav-pills flex flex-col"
               id="v-pills-tab"
               role="tablist"
               aria-orientation="vertical"
