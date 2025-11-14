@@ -764,7 +764,7 @@ div#exampleModal {
   font-style: normal;
   font-weight: 400;
   line-height: 28px; /* 179.167% */
-  max-width: 1105px;
+  max-width: 1200px;
   width: 95%;
   margin: 0 auto;
 }
@@ -851,6 +851,8 @@ div#exampleModal {
   margin-bottom: 53px;
 }
 .ai-features-sec{
+  position: sticky;
+  top: 0;
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -859,9 +861,10 @@ div#exampleModal {
 }
 
 .ai-features-sec h3 {
-  color: #202020 !important;
+  color:#2d463c !important;
+  
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 31px; /* 155% */
@@ -921,11 +924,11 @@ div#exampleModal {
 }
 
 .feat-list.feat-bg {
-  background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 49%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(180deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 70%, rgba(255, 255, 255, 1) 100%);
   margin: 0;
   top: 0;
-  height: 900px;
-   margin-bottom: -300px; 
+  height: 1900px;
+   /* margin-bottom: -300px;  */
   border: 0;
 }
 .ai-in-sec {
@@ -938,13 +941,31 @@ div#exampleModal {
   width: 100%;
   height: 660px;
   object-fit: cover;
-  opacity: .6;
+ 
 }
 
 .ai-in-cntr {
   width: 100%;
   max-width: 750px;
   margin-left: auto;
+}
+.ai-in-cap::after{
+     content: "";
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 60%;
+    height: 100%;
+    background: #000000a0;
+ 
+    opacity:1;
+    z-index: 0;
+
+       backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: hsla(0,0%,100%,.1);
+    -webkit-mask: linear-gradient(275deg,transparent 0,#000 12.5%,#000 25%,transparent 37.5%);
+    mask: linear-gradient(275deg,transparent 0,#000 0,#000 29%,transparent 114.5%)
 }
 
 .ai-in-cap {
@@ -953,7 +974,7 @@ div#exampleModal {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
   padding: 50px 0;
 }
 .ai-in-cntr h3 {
@@ -1033,7 +1054,7 @@ div#exampleModal {
   font-style: normal;
   font-weight: 700;
   line-height: 50px; /* 208.889% */
-  margin-bottom: 25px;
+  margin-bottom: 25px !important;
 }
 .ai-vis-left p {
   color: #202020;
@@ -1092,7 +1113,7 @@ margin-bottom: 35px !important;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    object-fit: cover;
+    object-fit: contain;
     /* transform: scale(1.25);  */
 }
 .ai-benefits-sec{
@@ -1100,9 +1121,9 @@ margin-bottom: 35px !important;
     padding-bottom: 0;
 }
 .ai-benefits-sec h3{
-    color: #1F0A0A !important;
+    color: #2D463C !important;
 font-family: Montserrat;
-font-size: 20px !important;
+font-size: 24px !important;
 font-style: normal;
 font-weight: 600;
 line-height: 31px; /* 155% */

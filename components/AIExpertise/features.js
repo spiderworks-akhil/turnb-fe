@@ -20,7 +20,7 @@ const AiFeatures = ({data}) => {
                 />
               </div>
               <div className="col-md-7">
-                <span>{String(index + 1).padStart(2, "0")}.</span>
+                {/* <span>{String(index + 1).padStart(2, "0")}.</span> */}
                 <h4>{feat?.title}</h4>
                 <div dangerouslySetInnerHTML={{__html:feat?.detailed_description}}/> 
                 
