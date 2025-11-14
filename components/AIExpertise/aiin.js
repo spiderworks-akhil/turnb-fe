@@ -12,7 +12,7 @@ const AiIn = ({data}) => {
       <Image width={1450} height={660} src={data?.content?.scanb_banner_media_id?.file_path} />
 
       <div className='ai-in-cap'>
-        <div className='container'>
+        <div className='container ' style={{position : "relative", zIndex : "2"}}>
           <div className='ai-in-cntr'>
             <h3> {data?.content?.title_5} </h3>
              <div dangerouslySetInnerHTML={{__html:data?.content?.description_5}}/>
