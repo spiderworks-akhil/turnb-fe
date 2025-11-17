@@ -9,6 +9,8 @@ const CaseStudiesList = ({ data, list }) => {
 
     const slides = Math.ceil(list?.data?.length / 6)
 
+   
+
     return (
         <>
             <div className="career-bg clearfix">
@@ -57,10 +59,15 @@ const CaseStudiesList = ({ data, list }) => {
                                                             />
                                                         </Link>
                                                         <div className="title-hover with-titleh">
-                                                            <h5 className="text-white p-0 m-0">
-                                                                {obj?.industry?.name}
-                                                            </h5>
-                                                        </div>
+                                                          {obj?.industry === null ? (
+                                                                    <h5 className="text-white p-0 m-0">AI</h5>
+                                                                ) : (
+                                                                    <h5 className="text-white p-0 m-0">
+                                                                          {obj?.industry?.name}
+                                                                    </h5>
+                                                                )}
+
+                                                                            </div>
                                                     </div>
                                                     <div className="prt-git2 aos-init aos-animate" data-aos="fade-up">
                                                         <h2 style={{ height: '67px', overflow: 'hidden' }} className="text-left pt-2 mt-0 pb-lg-2 pb-md-2 pb-2 ft-wtcase2">
