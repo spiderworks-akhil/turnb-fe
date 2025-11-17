@@ -7,10 +7,23 @@ const AiVision = ({data}) => {
     <section className='ai-vision-sec'>
       <div className='container'>
         <div className='row'>
-          <div className='col-md-6 '>
+
+            <div className='col-md-12 md-block d-none'>
             <div className='ai-vis-left'>
               <h3> {data?.content?.title_6}</h3> 
                <div dangerouslySetInnerHTML={{__html:data?.content?.description_6}}/>
+           
+            </div>
+          </div>
+
+
+
+          <div className='col-md-6 '>
+            <div className='ai-vis-left'>
+              <div className="md-hide"> 
+              <h3> {data?.content?.title_6}</h3> 
+               <div dangerouslySetInnerHTML={{__html:data?.content?.description_6}}/>
+               </div>
               <div className='key-feat'>
                 <h5> {data?.content?.listing_title_6}</h5>
 
@@ -25,6 +38,9 @@ const AiVision = ({data}) => {
               </div>
             </div>
           </div>
+
+
+
 
           <div className='col-md-6 '>
             <div className='ai-vis-right'>
