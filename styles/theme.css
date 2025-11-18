@@ -957,17 +957,20 @@ div#exampleModal {
     width: 70%;
     height: 100%;
     background: #000000a0;
+
     opacity: 1;
     z-index: 0;
+ 
+background: linear-gradient(275deg, rgba(8, 0, 0, .6) 72%, rgba(0, 0, 0, 0) 100%);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); */
 
-    background: hsla(0,0%,100%,.1);
+    /* background: hsla(0,0%,100%,.1); */
 
-    -webkit-mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%);
+    /* -webkit-mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%);
 
-    mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%);
+    mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%); */
 }
 
 
@@ -1082,11 +1085,14 @@ font-size: 24px !important;
 font-style: normal;
 font-weight: 600;
 line-height: 31px; /* 129.167% */
-margin-bottom: 35px !important;
+margin-bottom: 15px !important;
 }
  .key-feat ul{
     padding: 0 ;
     margin: 0;
+    height: 338px;
+    overflow: auto;
+
  }
 .key-feat ul li {
   position: relative;
@@ -1284,6 +1290,14 @@ background: #2E534F;
 
 .ser-det-text, .ser-det-text p, .ser-det-text h2, .ser-det-text h3 {
   text-align: left;
+}
+
+.navbar-nav li.nav-item:last-child .nav-link{
+ padding: 8px 10px;
+    border-radius: 10px;
+    color: #fff !important;
+    background-color: #43e3dc;
+    height: 100%;
 }
 
 @media screen and (min-width: 1440px) {
