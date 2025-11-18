@@ -59,14 +59,11 @@ const CaseStudiesList = ({ data, list }) => {
                                                             />
                                                         </Link>
                                                         <div className="title-hover with-titleh">
-                                                          {obj?.industry === null ? (
-                                                                    <h5 className="text-white p-0 m-0">AI</h5>
-                                                                ) : (
+                                                         
                                                                     <h5 className="text-white p-0 m-0">
-                                                                          {obj?.industry?.name}
+                                                                          {obj?.industry === null?"AI":obj?.industry?.name}
                                                                     </h5>
-                                                                )}
-
+                                                               
                                                                             </div>
                                                     </div>
                                                     <div className="prt-git2 aos-init aos-animate" data-aos="fade-up">

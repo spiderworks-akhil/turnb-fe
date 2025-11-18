@@ -67,7 +67,7 @@ const ContactForm = ({ data }) => {
       </div>
 
       <div className="container">
-        <div className="bg-contact pt-5 mt-lg-0 mt-md-0 mt-4 clearfix">
+        <div className="bg-contact pt-5 mt-lg-0 mt-md-0 mt-4 clearfix" id="contact_form">
           <div className="intro" data-aos="fade-down">
             <h2 className="mb-lg-4 mb-md-4 mb-3 text-left">
               Get in Touch with <span className="clr-ab">Our Experts</span>
