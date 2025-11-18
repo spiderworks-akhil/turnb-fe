@@ -1293,12 +1293,47 @@ background: #2E534F;
 }
 
 .navbar-nav li.nav-item:last-child .nav-link{
- padding: 8px 10px;
+ padding: 4px 10px;
     border-radius: 10px;
-    color: #fff !important;
-    background-color: #43e3dc;
-    height: 100%;
+    color: #43e3dc !important;
+    background-color: #fff; 
+    margin-top: 2px;
+    transition: all .3s;
 }
+.navbar-nav li.nav-item:last-child .nav-link:hover{ 
+    color: #fff !important;
+    background-color: #43e3dc;  
+}
+
+
+/* Apply to any element by adding .thin-scrollbar */
+.thin-scrollbar {
+  scrollbar-width: thin;           /* Firefox */
+  scrollbar-color: #999 transparent; /* Firefox */
+}
+
+/* Chrome, Edge, Safari */
+.key-feat ul::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  
+}
+
+.key-feat ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.key-feat ul::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 20px;
+}
+.key-feat ul:hover::-webkit-scrollbar-thumb {
+  background-color: #333; 
+}
+.key-feat ul::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
 
 @media screen and (min-width: 1440px) {
   .desktop-banB {
@@ -1315,6 +1350,7 @@ background: #2E534F;
     left: 35%;
   }
 }
+
 @media (max-width: 1450px) {
   .map-img {
     height: 55px;
@@ -1338,6 +1374,23 @@ background: #2E534F;
     left: 20%;
     width: 80%; 
 }
+.key-feat ul { 
+    height: 240px; 
+}
+
+
+}
+
+@media (max-width: 1200px) {
+
+ .key-feat { 
+    min-height: unset;
+}
+.key-feat ul { 
+    height: 115px; 
+}
+
+
 }
 
 @media (max-width: 1024px) {
@@ -1352,9 +1405,25 @@ background: #2E534F;
   .md-hide{
     display: none;
   }
-  
+  .key-feat ul { 
+    height: 360px; 
+}
  
 }
+
+
+@media (max-width: 998px) {
+
+ 
+.key-feat ul { 
+    height: 227px; 
+}
+
+
+}
+
+
+
 @media (max-width: 768px) {
   .image-container-small.d-block.d-sm-none {
     display: block !important;
@@ -1514,6 +1583,10 @@ background: #2E534F;
   width: 100%;
   height: auto;
 }
+
+    .key-feat ul {
+        height: auto;
+    }
 
 }
 @media (max-width: 640px) {
