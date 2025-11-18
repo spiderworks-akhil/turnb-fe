@@ -965,21 +965,9 @@ div#exampleModal {
 
     background: hsla(0,0%,100%,.1);
 
-    -webkit-mask: linear-gradient(275deg, 
-        transparent 0%, 
-        transparent 10%, 
-        #000 25%, 
-        #000 60%, 
-        transparent 90%
-    );
+    -webkit-mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%);
 
-    mask: linear-gradient(275deg, 
-        transparent 0%, 
-        transparent 10%, 
-        #000 25%, 
-        #000 60%, 
-        transparent 90%
-    );
+    mask:  linear-gradient(275deg,transparent,transparent 0%,#000 0%,#000 60%,transparent 100%);
 }
 
 
