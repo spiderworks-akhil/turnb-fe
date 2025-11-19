@@ -1363,12 +1363,24 @@ background: #2E534F;
   }
 }
 
+@media (max-width: 1450px) {
+
+  .ai-in-cntr { 
+    max-width: 680px; 
+}
+ 
+}
+
+
+
 .image-container-small.d-block.d-sm-none {
   display: none !important;
 }
 
 @media (max-width: 1280px) {
-
+.ai-in-cntr { 
+    max-width: 650px; 
+}
 
 .ai-in-cap::after { 
     left: 20%;
