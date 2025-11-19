@@ -10,59 +10,59 @@ import AiVision from "@/components/AIExpertise/vision";
 import AiBenefits from "@/components/AIExpertise/benefit";
 import AiCase from "@/components/AIExpertise/case";
 import { AIexpertiseApi } from "@/Datas/Endpoints/AI-expertise";
- 
- 
- 
-
-export default function Career({general,data}) {
-    return (
-        <Layout general={general} data={data}>
 
 
-            <AiBanner data={data}/>
-            <AiAnalytics data={data}/>
-            <AiStages data={data}/>
-            <div >
-            <AiFeatures data={data}/>
 
-            
-            <AiIn data={data}/>
 
-            </div>
-             
-            <AiVision data={data}/>
-            <AiBenefits data={data}/>
-            {
-            data?.other_sections?.case_studies?.length  ? <AiCase data={data}/> : null
-             
-            }
-            
-        </Layout>
-    );
+export default function Career({ general, data }) {
+  return (
+    <Layout general={general} data={data}>
+
+
+      <AiBanner data={data} />
+      <AiAnalytics data={data} />
+      <AiStages data={data} />
+      <div >
+        <AiFeatures data={data} />
+
+
+        <AiIn data={data} />
+
+      </div>
+
+      <AiVision data={data} />
+      <AiBenefits data={data} />
+      {
+        data?.other_sections?.case_studies?.length ? <AiCase data={data} /> : null
+
+      }
+
+    </Layout>
+  );
 }
 
- 
- export async function getStaticProps() {
-     try {
-       const general = await MenuApi.genralSettings()
-      const data = await AIexpertiseApi.index()
+
+export async function getStaticProps() {
+  try {
+    const general = await MenuApi.genralSettings()
+    const data = await AIexpertiseApi.index()
     //    const list = await BlogApi.list({limit:100})
-       return {
-         props: {
-           general:general?.data,
-             data: data?.data?.data,
+    return {
+      props: {
+        general: general?.data,
+        data: data?.data?.data,
         //    list: list?.data
-         },
-         revalidate: 10,
-       };
-     } catch (error) {
-       console.error('Error fetching header data contact:', error);
-   
-       return {
-         props: {
-           header: null, // or handle the error in a way that makes sense for your application
-         },
-         revalidate: 10,
-       };
-     }
-   }
+      },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error('Error fetching header data contact:', error);
+
+    return {
+      props: {
+        header: null, // or handle the error in a way that makes sense for your application
+      },
+      revalidate: 10,
+    };
+  }
+}
