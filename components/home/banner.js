@@ -7,7 +7,7 @@ function Banner({ data }) {
     const buttonLength = data?.other_sections?.home_banner_slider?.desktop?.photos?.length
 
     return (
-        <div className="carousel slide mrhometop homebanner" data-bs-ride="carousel" id="carouselExampleIndicators">
+        <div className="carousel slide mrhometop homebanner" data-bs-interval="4500" data-bs-ride="carousel" id="carouselExampleIndicators">
             <div className="carousel-indicators">
                 {Array.from({ length: buttonLength }, (_, index) => (
                     <button
