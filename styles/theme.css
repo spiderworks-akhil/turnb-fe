@@ -352,6 +352,19 @@ input.form-control {
   bottom: -15px;
   position: relative;
 }
+.homebanner .carousel-item{
+  height: 100vh;
+}
+.homebanner .carousel-inner {
+    margin-top: 0px;
+}
+
+.homebanner .carousel-inner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center ;
+}
 
 @media (max-width: 1100px) {
   .homebanner .carousel-item {
