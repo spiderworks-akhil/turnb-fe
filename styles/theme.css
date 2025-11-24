@@ -365,7 +365,9 @@ input.form-control {
   object-fit: cover;
   object-position: center ;
 }
- 
+ .carousel-item .case-box{
+  overflow: hidden;
+ }
 
 
 @media (max-width: 1100px) {
