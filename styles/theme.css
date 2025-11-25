@@ -1442,7 +1442,21 @@ div#exampleModal {
   background-color: transparent;
   border-color: #43e3dc;
 }
+.dropdown-menu-dark{
+  background-color: #fff;
+  padding: 0 !important;
+  overflow: hidden;
+}
+.dropdown-menu-dark .dropdown-item{ 
+  color: #222 !important;
+}
 
+.dropdown-menu-dark .dropdown-item:hover{ 
+  color: #43e3dc !important ;
+}
+.dropdown-menu-dark li {
+    border-bottom: 1px solid #e7e7e7 !important;
+}
 
 /* Apply to any element by adding .thin-scrollbar */
 .thin-scrollbar {
@@ -1581,6 +1595,21 @@ div#exampleModal {
 
 
 }
+
+@media (max-width: 991px) {
+
+
+
+    .navbar { 
+        background: #fff; 
+    }
+.dropdown-menu-dark .dropdown-item {
+   font-size: 14px;
+}
+
+}
+
+
 
 
 
