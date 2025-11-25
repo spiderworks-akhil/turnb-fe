@@ -1431,16 +1431,16 @@ div#exampleModal {
   padding: 4px 10px;
   border-radius: 10px;
   color: #fff !important;
-  background-color: #43e3dc;
+  background-color: #038681;
   border: 1px solid transparent;
   margin-top: 2px;
   transition: all .3s;
 }
 
 .navbar-nav li.nav-item:last-child .nav-link:hover {
-  color: #43e3dc !important;
+  color: #038681 !important;
   background-color: transparent;
-  border-color: #43e3dc;
+  border-color: #038681;
 }
 .dropdown-menu-dark{
   background-color: #fff;
@@ -1452,7 +1452,7 @@ div#exampleModal {
 }
 
 .dropdown-menu-dark .dropdown-item:hover{ 
-  color: #43e3dc !important ;
+  color: #038681 !important ;
 }
 .dropdown-menu-dark li {
     border-bottom: 1px solid #e7e7e7 !important;
@@ -1488,6 +1488,11 @@ div#exampleModal {
 
 .key-feat ul::-webkit-scrollbar-thumb:hover {
   background-color: #666;
+}
+
+.navbar .navbar-nav .nav-link{
+  color: #038681  !important;
+
 }
 
 
