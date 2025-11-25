@@ -408,14 +408,12 @@ input.form-control {
 }
 
 @media screen and (max-width: 991px) {
-  .navbar {
-    box-shadow: var(--shadow);
-    background: rgb(0 0 0);
-    position: fixed !important;
-    z-index: 999;
-    width: 100%;
+  .navbar { 
+    background:#fff !important; 
   }
-
+    .dropdown-menu-dark .dropdown-item {
+        font-size: 12px;
+    }
   .homebanner .carousel-item {
     height: calc(100vh + 90px);
     /* min-height: 300px; */
@@ -1609,7 +1607,7 @@ div#exampleModal {
         background: #fff; 
     }
 .dropdown-menu-dark .dropdown-item {
-   font-size: 14px;
+   font-size: 12px;
 }
 
 }
