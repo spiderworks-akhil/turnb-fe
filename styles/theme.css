@@ -1430,15 +1430,17 @@ div#exampleModal {
 .navbar-nav li.nav-item:last-child .nav-link {
   padding: 4px 10px;
   border-radius: 10px;
-  color: #43e3dc !important;
-  background-color: #fff;
+  color: #fff !important;
+  background-color: #43e3dc;
+  border: 1px solid transparent;
   margin-top: 2px;
   transition: all .3s;
 }
 
 .navbar-nav li.nav-item:last-child .nav-link:hover {
-  color: #fff !important;
-  background-color: #43e3dc;
+  color: #43e3dc !important;
+  background-color: transparent;
+  border-color: #43e3dc;
 }
 
 
