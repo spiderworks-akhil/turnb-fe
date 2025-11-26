@@ -417,7 +417,7 @@ input.form-control {
   .homebanner .carousel-item {
     height: calc(100vh + 90px);
     /* min-height: 300px; */
-    margin-top: 140px;
+    margin-top: 75px;
   }
 
   .carousel-item img {
@@ -1446,11 +1446,15 @@ div#exampleModal {
   overflow: hidden;
 }
 .dropdown-menu-dark .dropdown-item{ 
-  color: #222 !important;
+  color:#038681  !important;
+  padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    font-size: 13px;
+    font-weight: 500;
 }
 
 .dropdown-menu-dark .dropdown-item:hover{ 
-  color: #038681 !important ;
+  color: #333 !important ;
 }
 .dropdown-menu-dark li {
     border-bottom: 1px solid #e7e7e7 !important;
@@ -1491,6 +1495,10 @@ div#exampleModal {
 .navbar .navbar-nav .nav-link{
   color: #038681  !important;
 
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #333 !important;
 }
 
 
