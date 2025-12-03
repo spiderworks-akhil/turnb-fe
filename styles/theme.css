@@ -1501,6 +1501,21 @@ div#exampleModal {
     color: #333 !important;
 }
 
+.faq_sec .accordion-question h3 {
+    color: #038681 !important;
+        font-size: 22px;
+    font-weight: 500;
+}
+
+.faq_sec .accordion-answer  {
+    padding: 20px 0; 
+    font-size: 14px;
+}
+
+.faq_sec .accordion-answer p {
+    padding: 20px 0; 
+    font-size: 16px;
+}
 
 @media screen and (min-width: 1440px) {
   .desktop-banB {
@@ -1802,6 +1817,19 @@ div#exampleModal {
   .key-feat ul {
     height: auto;
   }
+
+
+  .faq_sec .accordion-question h3 { 
+        font-size: 16px; 
+        line-height: 24px;
+}
+
+ 
+
+.faq_sec .accordion-answer p { 
+    font-size: 14px;
+    line-height: 24px;
+}
 
 }
 
