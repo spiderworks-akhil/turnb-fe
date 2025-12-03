@@ -33,7 +33,7 @@ const FAQAccordion = ({ data }) => {
       </div>
 
 
-      <div className="row justify-content-center mt-10">
+      <div className="row justify-content-center mt-10 faq_sec">
         <div className="col-lg-10 col-md-12 col-12">
           {data.map((item, index) => (
             <div key={index} className="accordion-item">
