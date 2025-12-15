@@ -3,6 +3,8 @@ import BreadCrumbs from '../common/breadCrumbs';
 import Link from 'next/link';
 
 const CareerSection = ({ data, jobs, settings }) => {
+
+ 
   return (
     <div className="career-bg clearfix">
       <div className="container">
@@ -15,6 +17,9 @@ const CareerSection = ({ data, jobs, settings }) => {
 
       <div className="container">
         <div className="tab-career">
+
+          <h1> {data?.seo_h1_title}   </h1> 
+
           <div className="nav-tab-career">
             <nav>
               <div className="nav nav-tabs mb-3" id="nav-tab" role="tablist">

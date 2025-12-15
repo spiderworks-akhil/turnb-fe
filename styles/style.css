@@ -5840,6 +5840,13 @@ span.icon {
     font-size: 16px;
 }
 
+.tab-career h1{
+    color: #333 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center;
+    font-size: 44px;
+}
+
 @media (min-width: 768px) {
     .row_flex {
         display: flex;

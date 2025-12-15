@@ -16,7 +16,7 @@ const CaseStudyChallenge = ({ data,staticPage }) => {
       </div>
 
       {/* Business Challenge Section */}
-      <div className="container">
+      <div className="container footer-content">
         <div
          
         >
@@ -30,9 +30,19 @@ const CaseStudyChallenge = ({ data,staticPage }) => {
               </h2>
             </div>
             <div className="col-lg-9 col-md-8 col-12">
-              <div className="clearfix aos-init m-0 p-0 aos-animate" data-aos="fade-up">
+              <div className="clearfix aos-init m-0 p-0 aos-animate" data-aos="fade-up">                                                                                                                                                                                                                                                                                                                                                                             
 
-                <div className='="m-0 clearfix aos-init aos-animate case-challenge case-study-image' data-aos="fade-up" dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }} />
+                
+                <div className='="m-0 clearfix aos-init aos-animate case-challenge case-study-image' data-aos="fade-up"  > 
+                 <h1>{data?.content?.h1_title}</h1>
+                  <div dangerouslySetInnerHTML={{ __html: data?.content?.description_1 }}/> 
+                  
+
+
+
+                </div>
+             
+             
               </div>
             </div>
           </div>

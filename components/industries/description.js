@@ -10,7 +10,15 @@ const RetailSection = ({data}) => {
             <div className="col-lg-11 col-md-11 col-12">
               <div className="text-center position-relative aos-init aos-animate" data-aos="fade-up">
 
-              <div className="bg-image-sec dark-black" dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} />
+              <div className="bg-image-sec dark-black footer-content" >
+
+                <h1> {data?.content?.h1_title} </h1>
+
+                <div  dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }}/>
+
+
+
+              </div>
 
                 {/* <div className="bg-image-sec">
                   <p className="text-center w-auto mt-0 text-center mb-2 dark-black">
