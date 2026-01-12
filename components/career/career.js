@@ -21,8 +21,8 @@ const CareerSection = ({ data, jobs, settings }) => {
           <h1> {data?.seo_h1_title}   </h1> 
 
           <div className="nav-tab-career">
-            <nav>
-              <div className="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+            <nav style={{ position: 'relative', left: '0', bottom: '0'  }}>
+              <div className="nav nav-tabs mb-3 " id="nav-tab" role="tablist" >
                 {
                   jobs?.map((obj, index) => (
                     <button key={index} className={`nav-link ${index == 0 ? 'active' : ''}`} id={`nav-${obj?.country_name}-tab`} data-bs-toggle="tab" data-bs-target={`#nav-${obj?.country_name}`} type="button" role="tab" aria-controls="nav-home" aria-selected="true">{obj?.country_name}</button>
@@ -42,8 +42,8 @@ const CareerSection = ({ data, jobs, settings }) => {
                    <div className="row justify-content-center mt-lg-4 mt-md-4 mt-3 mb-lg-5 mb-md-5 mb-4">
                     {
                       obj?.jobs?.map((job, jobIndex) => (
-                        <div key={jobIndex} className="col-lg-4 col-md-4 col-12">
-                          <div style={{ height: '100%' }} className="colb-main b-lg-0 mb-md-0 mb-3 text-center clearfix">
+                        <div key={jobIndex} className="col-lg-4 col-md-4 col-12" style={{marginBottom: '25px' }}>
+                          <div style={{ height: '100%'}} className="colb-main b-lg-0 mb-md-0 mb-3 text-center clearfix">
                             <div style={{ height: '100%' }} className="our-colbox clearfix aos-init aos-animate" data-aos="fade-down">
                               <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }} className="hover-divcol pb-3">
                                 <div className="p-3 pb-2">
