@@ -99,7 +99,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           font-size: 20px;
           line-height: 1;
           cursor: pointer;
-          z-index: 4;
+          z-index: 10;
         }
 
         .badge-wrap {
@@ -151,13 +151,13 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         .cert-title {
           margin: 0 auto;
           max-width: 390px;
-          font-size: 29px;
+          font-size: 23px;
           font-weight: 700;
-          line-height: 1.35;
-          background: linear-gradient(90deg, #b90fc3 0%, #5232c7 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          line-height: 36px;
+          background: linear-gradient(90deg, #FF1628 0%, #9810FA 50%, #002171 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
           color: transparent;
           position: relative;
           z-index: 2;
@@ -180,7 +180,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           margin: 0 auto;
           max-width: 530px;
           color: #6f6f6f;
-          font-size: 18px;
+          font-size: 15px;
           line-height: 1.5;
           position: relative;
           z-index: 2;
@@ -262,14 +262,8 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
             border-radius: 28px;
             padding: 42px 20px 34px;
           }
-
-          .cert-title {
-            font-size: 38px;
-          }
-
-          .cert-copy {
-            font-size: 30px;
-          }
+ 
+ 
         }
 
         @media (max-width: 640px) {
@@ -286,11 +280,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
             height: 34px;
             font-size: 18px;
           }
-
-          .badge-wrap {
-            width: 132px;
-            margin-top: 10px;
-          }
+ 
 
           .badge-top {
             font-size: 15px;
@@ -309,19 +299,13 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           }
 
           .cert-title {
-            max-width: 100%;
-            font-size: 26px;
-            line-height: 1.35;
+            max-width: 100%;  
           }
 
           .party-icon {
             font-size: 20px;
           }
-
-          .cert-copy {
-            font-size: 17px;
-            line-height: 1.65;
-          }
+ 
         }
       `}</style>
     </div>
