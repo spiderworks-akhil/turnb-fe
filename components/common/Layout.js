@@ -15,7 +15,7 @@ const Layout = ({ page, children, general, data }) => {
     return (
         <>
 
-            <CertificationPopup />
+            {/* <CertificationPopup /> */}
             <SEO data={data} settings={Settings} />
 
             <noscript dangerouslySetInnerHTML={{ __html: Settings?.google_tag_manager_body }} />
