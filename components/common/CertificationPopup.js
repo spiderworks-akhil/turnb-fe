@@ -1,32 +1,54 @@
- 
-import { useEffect, useMemo } from "react";
- import Image from 'next/image' 
+
+import { useEffect, useState } from "react";
+import Image from 'next/image'
 import FeatImg from '../../public/img/popbg2.png'
 import Feat2Img from '../../public/img/pop3.png'
- 
+import ConfettiEffect from "../effects/confetti";
+function CertificationPopup({ isOpen = true, onClose = () => { } }) {
+  const [shouldShow, setShouldShow] = useState(false);
 
-function CertificationPopup({ isOpen = true, onClose = () => {} }) {
-   
+  useEffect(() => {
+    if (!isOpen || typeof window === "undefined") {
+      setShouldShow(false);
+      return;
+    }
+
+    const isPopupClosed = window.localStorage.getItem("certPopupClosed");
+    setShouldShow(isPopupClosed !== "true");
+  }, [isOpen]);
+
+  const handlePopupClose = () => {
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("certPopupClosed", "true");
+    }
+    setShouldShow(false);
+    onClose();
+  };
+
+  if (!shouldShow) return null;
+
   return (
     <div className="cert-overlay" role="dialog" aria-modal="true" aria-label="Great Place To Work Certification">
       <div className="cert-card">
-        <button type="button" className="cert-close" aria-label="Close popup" onClick={onClose}>
+        <button type="button" className="cert-close" aria-label="Close popup" onClick={handlePopupClose}>
           &#10005;
         </button>
 
-        <Image  width={520} height={550}
-                        src={FeatImg}
-                        className='particle_img'
-                      />
+        <ConfettiEffect />
 
-        
+        {/* <Image width={520} height={550}
+          src={FeatImg}
+          className='particle_img'
+        /> */}
+
+
 
         <div className="badge-wrap">
-          <Image  width={260} height={266}
-                        src={Feat2Img}
-                        
-                      />
-        
+          <Image width={260} height={266}
+            src={Feat2Img}
+
+          />
+
         </div>
 
         <h2 className="cert-title">
@@ -150,7 +172,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
 
         .cert-title {
           margin: 0 auto;
-          max-width: 390px;
+          max-width: 420px;
           font-size: 23px;
           font-weight: 700;
           line-height: 36px;
