@@ -99,7 +99,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           font-size: 20px;
           line-height: 1;
           cursor: pointer;
-          z-index: 4;
+          z-index: 10;
         }
 
         .badge-wrap {
@@ -262,14 +262,8 @@ background-clip: text;
             border-radius: 28px;
             padding: 42px 20px 34px;
           }
-
-          .cert-title {
-            font-size: 38px;
-          }
-
-          .cert-copy {
-            font-size: 30px;
-          }
+ 
+ 
         }
 
         @media (max-width: 640px) {
@@ -286,11 +280,7 @@ background-clip: text;
             height: 34px;
             font-size: 18px;
           }
-
-          .badge-wrap {
-            width: 132px;
-            margin-top: 10px;
-          }
+ 
 
           .badge-top {
             font-size: 15px;
@@ -309,19 +299,13 @@ background-clip: text;
           }
 
           .cert-title {
-            max-width: 100%;
-            font-size: 26px;
-            line-height: 1.35;
+            max-width: 100%;  
           }
 
           .party-icon {
             font-size: 20px;
           }
-
-          .cert-copy {
-            font-size: 17px;
-            line-height: 1.65;
-          }
+ 
         }
       `}</style>
     </div>
