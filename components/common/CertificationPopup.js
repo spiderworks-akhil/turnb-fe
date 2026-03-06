@@ -68,7 +68,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           background:
             linear-gradient(106deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 244, 241, 0.97) 44%, rgba(255, 255, 255, 0.96) 100%),
             radial-gradient(circle at 20% 20%, rgba(239, 240, 255, 0.5), transparent 56%);
-          padding: 30px 22px 30px;
+          padding: 52px 40px 58px;
         }
 
          
@@ -88,23 +88,28 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
 
         .cert-close {
           position: absolute;
-          top: 14px;
-          right: 14px;
-          width: 34px;
-          height: 34px;
+          top: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           border: none;
           background: rgba(226, 226, 226, 0.6);
           color: #9a9a9a;
-          font-size: 16px;
+          font-size: 20px;
           line-height: 1;
           cursor: pointer;
           z-index: 4;
         }
 
         .badge-wrap {
+<<<<<<< HEAD
           width: 260px;
           margin: 0 auto -20px;
+=======
+          width: 190px;
+          margin: 20px auto 30px;
+>>>>>>> 38637b46498cfca32884a1aeaa56c7190cf94b7e
           position: relative;
           z-index: 2;
         }
@@ -164,24 +169,24 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         }
 
         .party-icon {
-          font-size: 20px;
+          font-size: 30px;
           -webkit-text-fill-color: initial;
         }
 
         .title-divider {
-          width: 64px;
-          height: 3px;
+          width: 96px;
+          height: 4px;
           border-radius: 999px;
-          margin: 12px auto 14px;
+          margin: 18px auto 24px;
           background: linear-gradient(90deg, #f6b436 0%, #f4564a 50%, #4f80ff 100%);
         }
 
         .cert-copy {
           margin: 0 auto;
-          max-width: 350px;
+          max-width: 530px;
           color: #6f6f6f;
-          font-size: 13px;
-          line-height: 1.55;
+          font-size: 18px;
+          line-height: 1.5;
           position: relative;
           z-index: 2;
         }
@@ -260,23 +265,23 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           .cert-card {
             min-height: auto;
             border-radius: 28px;
-            padding: 30px 18px 26px;
+            padding: 42px 20px 34px;
           }
 
           .cert-title {
-            font-size: 28px;
+            font-size: 38px;
           }
 
           .cert-copy {
-            font-size: 15px;
+            font-size: 30px;
           }
         }
 
         @media (max-width: 640px) {
           .cert-card {
-            width: 92vw;
-            padding: 24px 14px 20px;
-            border-radius: 20px;
+            width: 96vw;
+            padding: 34px 16px 28px;
+            border-radius: 24px;
           }
 
           .cert-close {
@@ -288,8 +293,8 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           }
 
           .badge-wrap {
-            width: 116px;
-            margin-top: 8px;
+            width: 132px;
+            margin-top: 10px;
           }
 
           .badge-top {
@@ -310,17 +315,17 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
 
           .cert-title {
             max-width: 100%;
-            font-size: 22px;
+            font-size: 26px;
             line-height: 1.35;
           }
 
           .party-icon {
-            font-size: 17px;
+            font-size: 20px;
           }
 
           .cert-copy {
-            font-size: 12px;
-            line-height: 1.55;
+            font-size: 17px;
+            line-height: 1.65;
           }
         }
       `}</style>
