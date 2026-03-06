@@ -151,13 +151,13 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         .cert-title {
           margin: 0 auto;
           max-width: 390px;
-          font-size: 29px;
+          font-size: 23px;
           font-weight: 700;
-          line-height: 1.35;
-          background: linear-gradient(90deg, #b90fc3 0%, #5232c7 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+          line-height: 36px;
+          background: linear-gradient(90deg, #FF1628 0%, #9810FA 50%, #002171 100%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
           color: transparent;
           position: relative;
           z-index: 2;
@@ -180,7 +180,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           margin: 0 auto;
           max-width: 530px;
           color: #6f6f6f;
-          font-size: 18px;
+          font-size: 15px;
           line-height: 1.5;
           position: relative;
           z-index: 2;
