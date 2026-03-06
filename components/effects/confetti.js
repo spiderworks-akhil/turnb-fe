@@ -32,17 +32,26 @@ export default function ConfettiEffect() {
             if (now - lastEmit >= 34) {
                 lastEmit = now;
                 scopedConfetti({
-                    particleCount: Math.floor(randomInRange(2, 5)),
+                    particleCount: 2,
                     startVelocity: 0,
                     ticks,
                     origin: {
                         x: Math.random(),
                         y: Math.random() * skew - 0.2
                     },
-                    colors: ['#3b82f6', '#facc15', '#fb923c', '#ef4444', '#22c55e', '#a855f7'],
-                    shapes: ["circle"],
+                    colors: [
+                        "#3b82f6", // blue
+                        "#22c55e", // green
+                        "#facc15", // yellow
+                        "#fb923c", // orange
+                        "#ef4444", // red
+                        "#ec4899", // pink
+                        "#a855f7", // purple
+                        "#ffffff"  // white
+                    ],
+                    shapes:["circle", "square"],
                     gravity: randomInRange(0.15, 0.25),
-                    scalar: randomInRange(0.35, 0.95),
+                    scalar: randomInRange(0.5, 1.2),
                     drift: randomInRange(-0.35, 0.35),
                     disableForReducedMotion: true
                 });
