@@ -28,8 +28,14 @@ function CertificationPopup({ isOpen = true, onClose = () => { } }) {
   if (!shouldShow) return null;
 
   return (
-    <div className="cert-overlay" role="dialog" aria-modal="true" aria-label="Great Place To Work Certification">
-      <div className="cert-card">
+    <div
+      className="cert-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Great Place To Work Certification"
+      onClick={handlePopupClose}
+    >
+      <div className="cert-card" onClick={(e) => e.stopPropagation()}>
         <button type="button" className="cert-close" aria-label="Close popup" onClick={handlePopupClose}>
           &#10005;
         </button>
