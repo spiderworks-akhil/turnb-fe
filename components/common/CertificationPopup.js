@@ -103,13 +103,8 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         }
 
         .badge-wrap {
-<<<<<<< HEAD
           width: 260px;
           margin: 0 auto -20px;
-=======
-          width: 190px;
-          margin: 20px auto 30px;
->>>>>>> 38637b46498cfca32884a1aeaa56c7190cf94b7e
           position: relative;
           z-index: 2;
         }
