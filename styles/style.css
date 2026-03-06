@@ -5846,6 +5846,27 @@ span.icon {
     text-align: center;
     font-size: 44px;
 }
+  .particle_img{
+          position: absolute;
+          width: 100%;
+          left: 0%; 
+          height: 100%;
+           top: -200px;
+           opacity: 0;
+  animation: moveDown 1s ease forwards;
+        }
+
+        @keyframes moveDown {
+  from {
+    top: -200px;
+     opacity: 0;
+  }
+  to {
+    top: 0px;
+        opacity: 1;
+  }
+}
+
 
 @media (min-width: 768px) {
     .row_flex {
