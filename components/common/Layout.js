@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import SEO from './SEO';
+import CertificationPopup from './CertificationPopup';
 
 
 
@@ -13,6 +14,8 @@ const Layout = ({ page, children, general, data }) => {
 
     return (
         <>
+
+            {/* <CertificationPopup /> */}
             <SEO data={data} settings={Settings} />
 
             <noscript dangerouslySetInnerHTML={{ __html: Settings?.google_tag_manager_body }} />
