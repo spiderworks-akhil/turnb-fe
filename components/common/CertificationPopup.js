@@ -1,8 +1,10 @@
-import React from "react";
+ 
+import { useEffect, useMemo } from "react";
+ import Image from 'next/image' 
+import FeatImg from '../../public/img/popbg2.png'
 
 function CertificationPopup({ isOpen = true, onClose = () => {} }) {
-  
-
+   
   return (
     <div className="cert-overlay" role="dialog" aria-modal="true" aria-label="Great Place To Work Certification">
       <div className="cert-card">
@@ -10,16 +12,12 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           &#10005;
         </button>
 
-        <div className="confetti confetti-1" />
-        <div className="confetti confetti-2" />
-        <div className="confetti confetti-3" />
-        <div className="confetti confetti-4" />
-        <div className="confetti confetti-5" />
-        <div className="confetti confetti-6" />
-        <div className="confetti confetti-7" />
-        <div className="confetti confetti-8" />
-        <div className="confetti confetti-9" />
-        <div className="confetti confetti-10" />
+        <Image  width={520} height={550}
+                        src={FeatImg}
+                        className='particle_img'
+                      />
+
+        
 
         <div className="badge-wrap">
           <div className="badge-top">
@@ -77,27 +75,20 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
           padding: 30px 22px 30px;
         }
 
-        .cert-card::before,
+         
         .cert-card::after {
           content: "";
           position: absolute;
-          width: 120%;
-          left: -10%;
-          border-top: 3px solid;
-          border-radius: 50%;
-          opacity: 0.45;
-          pointer-events: none;
-        }
+          width: 100%;
+          left: 0%;
+          top: 0%;  
+            height: 100%;
+        background:url('../img/popbg.png') no-repeat  ;
+        background-size: 100% auto;
 
-        .cert-card::before {
-          top: 170px;
-          border-color: #f1c98f;
+           
         }
-
-        .cert-card::after {
-          top: 335px;
-          border-color: #8dc6f3;
-        }
+      
 
         .cert-close {
           position: absolute;
@@ -163,7 +154,7 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
 
         .cert-title {
           margin: 0 auto;
-          max-width: 360px;
+          max-width: 390px;
           font-size: 29px;
           font-weight: 700;
           line-height: 1.35;
