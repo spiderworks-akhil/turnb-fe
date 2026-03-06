@@ -2,6 +2,8 @@
 import { useEffect, useMemo } from "react";
  import Image from 'next/image' 
 import FeatImg from '../../public/img/popbg2.png'
+import Feat2Img from '../../public/img/pop3.png'
+ 
 
 function CertificationPopup({ isOpen = true, onClose = () => {} }) {
    
@@ -20,17 +22,11 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         
 
         <div className="badge-wrap">
-          <div className="badge-top">
-            <span>Great</span>
-            <span>Place</span>
-            <span>To</span>
-            <span>Work</span>
-          </div>
-          <div className="badge-bottom">
-            <p className="badge-certified">Certified</p>
-            <p className="badge-date">JAN 2026-JAN 2027</p>
-            <p className="badge-country">INDIA</p>
-          </div>
+          <Image  width={260} height={266}
+                        src={Feat2Img}
+                        
+                      />
+        
         </div>
 
         <h2 className="cert-title">
@@ -61,7 +57,8 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         }
 
         .cert-card {
-          width: min(92vw, 620px);
+          width: min(84vw, 520px);
+           
           border: 2px solid #3f8377;
           border-radius: 40px;
           box-shadow: 0 24px 65px rgba(33, 88, 80, 0.35);
@@ -106,8 +103,13 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
         }
 
         .badge-wrap {
+<<<<<<< HEAD
+          width: 260px;
+          margin: 0 auto -20px;
+=======
           width: 190px;
           margin: 20px auto 30px;
+>>>>>>> 38637b46498cfca32884a1aeaa56c7190cf94b7e
           position: relative;
           z-index: 2;
         }
