@@ -62,7 +62,6 @@ function CertificationPopup({ isOpen = true, onClose = () => {} }) {
 
         .cert-card {
           width: min(92vw, 620px);
-          min-height: 720px;
           border: 2px solid #3f8377;
           border-radius: 40px;
           box-shadow: 0 24px 65px rgba(33, 88, 80, 0.35);
