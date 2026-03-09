@@ -3339,7 +3339,7 @@ h2.busi-hdgc {
 
     .bg-whywork p {
         padding: 0px 30px;
-        text-align: justify;
+        /* text-align: justify; */
     }
 
     .navbar-toggler {
