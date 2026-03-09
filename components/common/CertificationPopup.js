@@ -1,7 +1,6 @@
 
 import { useEffect, useState } from "react";
 import Image from 'next/image'
-import FeatImg from '../../public/img/popbg2.png'
 import Feat2Img from '../../public/img/pop3.png'
 import ConfettiEffect from "../effects/confetti";
 function CertificationPopup({ isOpen = true, onClose = () => { } }) {
@@ -13,13 +12,13 @@ function CertificationPopup({ isOpen = true, onClose = () => { } }) {
       return;
     }
 
-    const isPopupClosed = window.localStorage.getItem("certPopupClosed");
+    const isPopupClosed = window.sessionStorage.getItem("certPopupClosed");
     setShouldShow(isPopupClosed !== "true");
   }, [isOpen]);
 
   const handlePopupClose = () => {
     if (typeof window !== "undefined") {
-      window.localStorage.setItem("certPopupClosed", "true");
+      window.sessionStorage.setItem("certPopupClosed", "true");
     }
     setShouldShow(false);
     onClose();
