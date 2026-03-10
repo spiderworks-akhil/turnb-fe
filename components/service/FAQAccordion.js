@@ -24,10 +24,10 @@ const FAQAccordion = ({ data }) => {
       <div className="row justify-content-center">
         <div className="col-lg-12 col-md-12 col-12">
           <div className="text-center position-relative aos-init aos-animate" data-aos="fade-down">
-            <h1 className="title-ak2 ft-wt2 text-center mb-lg-2 mb-md-2 mb-2 mt-lg-0 mt-md-0 mt-0">
+            <h2 className="title-ak2 ft-wt2 text-center mb-lg-2 mb-md-2 mb-2 mt-lg-0 mt-md-0 mt-0">
               <span className="text-dark home-title"
                 dangerouslySetInnerHTML={{ __html: 'FAQs' }} />
-            </h1>
+            </h2>
           </div>
         </div>
       </div>
