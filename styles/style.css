@@ -5840,31 +5840,33 @@ span.icon {
     font-size: 16px;
 }
 
-.tab-career h1{
+.tab-career h1 {
     color: #333 !important;
     margin-bottom: 0.5rem !important;
     text-align: center;
     font-size: 44px;
 }
-  .particle_img{
-          position: absolute;
-          width: 100%;
-          left: 0%; 
-          height: 100%;
-           top: -200px;
-           opacity: 0;
-  animation: moveDown 1s ease forwards;
-        }
 
-        @keyframes moveDown {
-  from {
+.particle_img {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    height: 100%;
     top: -200px;
-     opacity: 0;
-  }
-  to {
-    top: 0px;
+    opacity: 0;
+    animation: moveDown 1s ease forwards;
+}
+
+@keyframes moveDown {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
         opacity: 1;
-  }
+    }
 }
 
 

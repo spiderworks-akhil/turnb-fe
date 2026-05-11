@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Layout from "@/components/common/Layout";
 import StaticSEO from "@/components/common/StaticSEO";
 import BrochureForm from "@/components/brochure/BrochureForm";
 import BrochureViewer from "@/components/brochure/BrochureViewer";
@@ -15,11 +14,11 @@ export default function BrochurePage({ general, slug }) {
   const brochureUrl = `/view/brochure/${slug}`;
 
   return (
-    <Layout general={general}>
+    <>
       <StaticSEO title="Brochure | Turnb" />
 
       <section className="brochure-page-section clearfix">
-        <div className="container">
+        <div className="container ">
           <div className="row justify-content-center">
             <div className={submitted ? "col-12" : "col-lg-6 col-md-8 col-12"}>
               {!submitted ? (
@@ -31,7 +30,7 @@ export default function BrochurePage({ general, slug }) {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
 
