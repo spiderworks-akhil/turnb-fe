@@ -2,7 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['turnb.spider.ws','placehold.co','manage.turnb.com'], // Add your external image domains here
+    domains: ['turnb.spider.ws', 'placehold.co', 'manage.turnb.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '192.168.1.57',
+        port: '8000',
+        pathname: '/uploads/**',
+      },
+    ],// Add your external image domains here
   },
   webpack(config) {
     config.module.rules.push({
