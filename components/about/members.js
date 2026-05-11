@@ -63,7 +63,7 @@ const KeyMembersSection = ({ data, team }) => {
             <div className="row justify-content-center">
               <div className="col-lg-12 col-md-12 col-12 col-carousel bg-transparent d-flex justify-content-center">
 
-                <a id={`${carouselId}-prev`} className="customPrevBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/left-arw.jpg'} width={47} height={44} /></a>
+                <a id={`${carouselId}-prev`} className="customPrevBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/left-arw.jpg'} width={47} height={44} alt="" /></a>
                 <div id={carouselId} className="owl-carousel carousel-main bg-transparent">
                   {team?.data?.map((member, index) => (
                     <div key={index}>
@@ -87,7 +87,7 @@ const KeyMembersSection = ({ data, team }) => {
                     </div>
                   ))}
                 </div>
-                <a id={`${carouselId}-next`} className="customNextBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/right-arw.jpg'} width={47} height={44} /></a>
+                <a id={`${carouselId}-next`} className="customNextBtn d-flex justify-content-center align-items-center" style={{ cursor: 'pointer' }}><Image src={'/img/right-arw.jpg'} width={47} height={44} alt="" /></a>
 
               </div>
             </div>

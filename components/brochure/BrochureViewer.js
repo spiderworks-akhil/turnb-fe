@@ -14,7 +14,7 @@ const BrochureViewer = ({ slug }) => {
           </svg>
         </div>
         <div>
-          <h2 className="brochure-viewer-title">Here's Your Brochure</h2>
+          <h2 className="brochure-viewer-title">Here&apos;s Your Brochure</h2>
           <p className="brochure-viewer-subtitle">
             You can view, scroll, and download the brochure below.
           </p>

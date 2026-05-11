@@ -51,7 +51,7 @@ function CertificationPopup({ isOpen = true, onClose = () => { } }) {
         <div className="badge-wrap">
           <Image width={260} height={266}
             src={Feat2Img}
-
+            alt="Great Place To Work Certified Badge"
           />
 
         </div>

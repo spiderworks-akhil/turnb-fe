@@ -39,6 +39,7 @@ const Memories = () => {
                   className='img-fluid'
                   width={600}
                   height={400}
+                  alt="Adil E"
                 />
 
                 <div className='mem-img-wrap_cap1'>
@@ -117,6 +118,7 @@ const Memories = () => {
                 className='img-fluid'
                 width={300}
                 height={300}
+                alt="Memory of Adil"
               />
             </div>
 
@@ -126,6 +128,7 @@ const Memories = () => {
                 className='img-fluid'
                 width={300}
                 height={300}
+                alt="Memory of Adil"
               />
             </div>
 
@@ -135,6 +138,7 @@ const Memories = () => {
                 className='img-fluid'
                 width={300}
                 height={300}
+                alt="Memory of Adil"
               />
             </div>
 
@@ -165,6 +169,7 @@ const Memories = () => {
                     className='img-fluid'
                     width={80}
                     height={80}
+                    alt="Rufin Alikhan"
                   />
                   <h4>Rufin Alikhan</h4>
                 </div>
@@ -190,6 +195,7 @@ const Memories = () => {
                     className='img-fluid'
                     width={80}
                     height={80}
+                    alt="Fathima Sadiq Hassan"
                   />
                   <h4> Fathima Sadiq Hassan</h4>
                 </div>
@@ -216,6 +222,7 @@ const Memories = () => {
                     className='img-fluid'
                     width={80}
                     height={80}
+                    alt="Ajin Das"
                   />
                   <h4>Ajin Das </h4>
                 </div>

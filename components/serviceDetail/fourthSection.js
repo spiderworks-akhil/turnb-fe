@@ -52,7 +52,7 @@ function FourthSection({ data }) {
                                                             {
                                                                 obj?.media_id?.file_path &&
                                                                 <div className="col-lg-3 col-md-3 col-12 pd-ridser">
-                                                                    <Image width={401} height={268} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-one" data-aos="fade-down" />
+                                                                    <Image width={401} height={268} src={obj?.media_id?.file_path} className="img-fluid aos-init aos-animate brradis-one" data-aos="fade-down" alt={obj?.media_id?.alt_text || obj?.title || ""} />
                                                                 </div>
                                                             }
                                                             <div className={`${obj?.media_id?.file_path ? "col-lg-9 col-md-9" : "col-lg-12 col-md-12"}col-lg-9 col-md-9 col-12 bg-services-box`}>

@@ -164,6 +164,7 @@ const ScanbBanner = ({ data }) => {
             src={data?.content?.scanb_mobile_banner_media_id?.file_path}
             width={768}
             height={800}
+            alt=""
           />
           <button onClick={handleVideoModalToggle} id='watch-video'>
             {data?.content?.scanb_button_text_1}

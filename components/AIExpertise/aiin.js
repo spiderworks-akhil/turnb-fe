@@ -9,7 +9,7 @@ const AiIn = ({data}) => {
 
   return (
     <section className='ai-in-sec'>
-      <Image width={1450} height={660} src={data?.content?.scanb_banner_media_id?.file_path} />
+      <Image width={1450} height={660} src={data?.content?.scanb_banner_media_id?.file_path} alt="" />
 
       <div className='ai-in-cap'>
         <div className='container ' style={{position : "relative", zIndex : "2"}}>

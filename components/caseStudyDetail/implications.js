@@ -67,7 +67,7 @@ function Implications({ data }) {
             <Image
               src={`/img/implication.png`}
               // src={data?.content?.media_id_3?.file_path}
-              // alt={data?.content?.media_id_3?.alt_text}
+              alt={data?.content?.media_id_3?.alt_text || "Implications"}
               width={566}
               height={463}
               className="img-fluid"

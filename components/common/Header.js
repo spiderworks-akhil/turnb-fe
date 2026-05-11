@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const Header = ({ MainMenu, Settings }) => {
 
@@ -14,7 +14,7 @@ const Header = ({ MainMenu, Settings }) => {
   const [scrollY, setScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState('fade-up'); // Default to fade-up
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
 
     // Determine scroll direction
@@ -26,12 +26,12 @@ const Header = ({ MainMenu, Settings }) => {
 
     // Update the scroll position
     setScrollY(currentScrollY);
-  };
+  }, [scrollY]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrollY])
+  }, [handleScroll])
 
 
   return (
