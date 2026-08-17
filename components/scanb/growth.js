@@ -28,13 +28,16 @@ const ScanBGrowth = ({ data }) => {
               <Image
                 width={800}
                 height={700}
-                src={data?.content?.scanb_section_4_media_id_2?.file_path}
+                // src={data?.content?.scanb_section_4_media_id_2?.file_path}
+                src='/img/infographic.png'
                 alt={data?.content?.scanb_section_4_media_id_2?.alt_text}
                 className="img-fluid m-auto text-center d-block"
               />
             </p>
           </div>
         </div>
+
+   
       </div>
     </div>
   );

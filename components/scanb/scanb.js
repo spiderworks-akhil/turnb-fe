@@ -11,10 +11,16 @@ const ScanbAdvance = ({ data }) => {
           <div className="row justify-content-left scanb-newsection">
             <div className="col-lg-10 col-md-12 col-12">
               <div className="text-center scan-bmoblatp clearfix">
-                <h2 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" />
-                <div className="image-subheading">
-                  <Image width={'800'} height={'486'} src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '80%' }} />
-                  <h6 className="text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} />
+                {/* <h2 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" /> */}
+                <div className="image-subheading" style={{ alignItems: 'center' }}>
+                  <div>
+                    <Image width={'700'} height={'486'} src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '100%', height: 'auto' }} />
+                  </div>
+                  <div style={{ width: '45%', paddingLeft: '30px', textAlign: 'left' }}>
+                    <h6 className="text-white mb-3" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} style={{ position: 'static', width: 'auto', textAlign: 'left' }} />
+                    <span className="text-white" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_short_description }} />
+
+                  </div>
                 </div>
                 <hr id="image-hrline" />
                 <div className="row pt-5">

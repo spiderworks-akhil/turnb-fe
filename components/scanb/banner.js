@@ -27,6 +27,8 @@ const ScanbBanner = ({ data }) => {
   const [recaptchaToken, setRecaptchaToken] = useState('')
   const [recaptchaError, setRecaptchaError] = useState(false)
 
+
+
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen)
     if (!isModalOpen) reset()
@@ -100,24 +102,70 @@ const ScanbBanner = ({ data }) => {
       </div> */}
         {/* Desktop Banner */}
         <div
-          className='d-block text-center m-auto img-height img-fluid d-lg-block d-md-block d-none desktop-banB '
+          className='d-lg-block d-md-block d-none desktop-banB'
           style={{
-            background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
-            backgroundSize: 'cover'
+             background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
+            // background: `url('/img/test23.png') no-repeat center`,
+            backgroundSize: 'cover',
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
-          <button id='watch-video' onClick={handleVideoModalToggle}>
-            {data?.content?.scanb_button_text_1}
-          </button>
-
-          <a
-            onClick={handleModalToggle}
-            data-bs-toggle='modal'
-            data-bs-target='#exampleModal2'
-            style={{ textDecoration: 'none' }}
+          <div
+            className="animate-fade-right"
+            style={{
+              height: '100%',
+              width: '55%',
+              position: 'absolute',
+              right: '0',
+              top: '0',
+              maskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 40%)',
+              zIndex: 0
+            }}
           >
-            <button id='brouchure'>{data?.content?.scanb_button_text_2}</button>
-          </a>
+     
+          </div>
+          <div className="container" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
+            <div className="row align-items-center" style={{ height: '100%' }}>
+              <div className="col-lg-7 col-md-7 text-start d-flex flex-column justify-content-center" style={{ height: '100%' }}>
+                <div className="animate-slide-right" style={{ marginBottom: '20px' }}>
+                  <h1 style={{ color: '#fff', fontSize: '50px', fontWeight: 'bold', margin: 0, letterSpacing: '1px', lineHeight: '1.1' }}>
+                     {data?.content?.scanb_banner_heading_1}
+                  </h1>
+                </div>
+
+                <div className="animate-slide-right-delayed" style={{
+                  marginBottom: '50px',
+                  maxWidth: '800px'
+                }}>
+                  <p style={{ color: '#fff', fontSize: '16px', marginBottom: '8px', fontWeight: '200', lineHeight: '1.4' }}>
+                    {data?.content?.scanb_banner_short_description}
+
+                  </p>
+                </div>
+
+                <div className="animate-slide-right-delayed-2" style={{ display: 'flex', gap: '15px' }}>
+                  <button id='watch-video' onClick={handleVideoModalToggle} style={{ position: 'relative', left: 'auto', top: 'auto', margin: 0 }}>
+                    {data?.content?.scanb_button_text_1}
+                  </button>
+
+                  <a
+                    onClick={handleModalToggle}
+                    data-bs-toggle='modal'
+                    data-bs-target='#exampleModal2'
+                    style={{ textDecoration: 'none', display: 'inline-block' }}
+                  >
+                    <button id='brouchure' style={{ position: 'relative', left: 'auto', top: 'auto', margin: 0 }}>{data?.content?.scanb_button_text_2}</button>
+                  </a>
+                </div>
+              </div>
+
+              <div className="col-lg-5 col-md-5 h-100 position-relative d-none d-md-block">
+                {/* Image is absolutely positioned in the banner background to stretch to the right edge */}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Video Modal */}
@@ -158,7 +206,7 @@ const ScanbBanner = ({ data }) => {
 
         <div
           className='d-lg-none d-md-none d-block img-fluid  mob-banner'
-          // style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
+        // style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
           <Image
             src={data?.content?.scanb_mobile_banner_media_id?.file_path}
@@ -177,6 +225,56 @@ const ScanbBanner = ({ data }) => {
 
         {/* Image for Desktop */}
       </div>
+
+      <style>{`
+        @keyframes slideRight {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes fadeRight {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .animate-slide-right {
+          animation: slideRight 1s ease-out forwards;
+          opacity: 0;
+        }
+        .animate-slide-right-delayed {
+          animation: slideRight 1s ease-out forwards;
+          animation-delay: 0.3s;
+          opacity: 0;
+        }
+        .animate-slide-right-delayed-2 {
+          animation: slideRight 1s ease-out forwards;
+          animation-delay: 0.6s;
+          opacity: 0;
+        }
+        .animate-fade-right {
+          animation: fadeRight 1.5s ease-out forwards;
+          animation-delay: 0.3s;
+          opacity: 0;
+        }
+        .cursor {
+          animation: blink 1s step-end infinite;
+          margin-left: 2px;
+        }
+      `}</style>
 
       <div id='button-video-brou'>
         <button

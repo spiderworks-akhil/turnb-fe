@@ -455,3 +455,22 @@ h6 {
   text-decoration: underline;
   font-weight: 500;
 }
+
+/* Statistical Card Styles */
+.statistical-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7f7 100%);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(3, 133, 133, 0.15);
+  transition: all 0.3s ease;
+}
+
+.statistical-card:hover {
+  background: #018381;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(1, 131, 129, 0.3);
+}
+
+.statistical-card:hover span {
+  color: #ffffff !important;
+}
