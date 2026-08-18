@@ -104,8 +104,8 @@ const ScanbBanner = ({ data }) => {
         <div
           className='d-lg-block d-md-block d-none desktop-banB'
           style={{
-             background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
-            // background: `url('/img/test23.png') no-repeat center`,
+            //  background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
+            background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/scanb-banner.png') no-repeat center`,
             backgroundSize: 'cover',
             position: 'relative',
             overflow: 'hidden'
@@ -124,14 +124,14 @@ const ScanbBanner = ({ data }) => {
               zIndex: 0
             }}
           >
-     
+
           </div>
           <div className="container" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
             <div className="row align-items-center" style={{ height: '100%' }}>
               <div className="col-lg-7 col-md-7 text-start d-flex flex-column justify-content-center" style={{ height: '100%' }}>
                 <div className="animate-slide-right" style={{ marginBottom: '20px' }}>
                   <h1 style={{ color: '#fff', fontSize: '50px', fontWeight: 'bold', margin: 0, letterSpacing: '1px', lineHeight: '1.1' }}>
-                     {data?.content?.scanb_banner_heading_1}
+                    {data?.content?.scanb_banner_heading_1}
                   </h1>
                 </div>
 

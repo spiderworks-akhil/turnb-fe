@@ -7551,3 +7551,12 @@ h2.title-ak2 {
 .bread-crumb-link {
     color: black !important;
 }
+
+@media (max-width: 768px) {
+    .disable-aos-mobile[data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}

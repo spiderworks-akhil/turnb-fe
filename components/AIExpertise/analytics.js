@@ -9,18 +9,18 @@ const AiAnalytics = ({ data }) => {
           .eyebrow-subtitle {
             color:  #018689!important;
           }
-          @media (min-width: 1500px) {
-            .desc {
-              margin-left: -75px !important;
-            }
-          }
+          // @media (min-width: 1500px) {
+          //   .desc {
+          //     margin-left: -75px !important;
+          //   }
+          // }
         `}</style>
         <div className="text-start mb-4">
           <span className="eyebrow-subtitle" style={{ display: 'inline-block', padding: '6px 16px', borderRadius: '30px', textTransform: 'uppercase', fontSize: '14px', letterSpacing: '1px', fontWeight: '300', marginBottom: '16px' }}>
             {data?.content?.subtitle_2 || "How AI creates value"}
           </span>
           <h3 className='text-white text-start m-2'> {data?.content?.title_23 || "Pick a problem. See what changes."} </h3>
-          <div className="text-start desc" dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} />
+          <div className="text-start " dangerouslySetInnerHTML={{ __html: data?.content?.description_2 }} />
         </div>
 
         {/* <div className="mb-4 text-center">
