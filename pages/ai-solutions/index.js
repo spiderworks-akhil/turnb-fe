@@ -33,7 +33,7 @@ export default function Career({ general, data }) {
         <AiIn data={data} />
 
       </div>
-<SolutionsFold />
+
       <AiVision data={data} />
       <AiBenefits data={data} />
       {

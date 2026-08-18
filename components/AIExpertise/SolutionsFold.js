@@ -88,80 +88,110 @@ const solutionsData = [
   }
 ];
 
+const categoriesData = [
+  { title: "AI to Consult", cards: solutionsData.slice(0, 3) },
+  { title: "AI to Scale", cards: solutionsData.slice(3, 6) },
+  { title: "Data to Drive", cards: solutionsData.slice(6, 9) }
+];
+
 const SolutionsFold = () => {
   return (
-    <section className="solutions-fold" style={{ padding: '80px 0', background: '#f8ffff', fontFamily: "'Montserrat', sans-serif" }}>
+    <section className="solutions-fold" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)', fontFamily: "'Montserrat', sans-serif" }}>
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
         <div className="solutions-layout" style={{ 
           display: 'flex', 
-          gap: '60px', 
-          alignItems: 'flex-start',
-          flexWrap: 'wrap'
+          flexDirection: 'column',
+          gap: '80px', 
+          alignItems: 'center',
         }}>
-          {/* Left sticky column */}
-          <div className="solutions-sticky-left" style={{ 
-            flex: '1 1 350px', 
-            position: 'sticky', 
-            top: '120px',
-            paddingBottom: '40px'
+          {/* Top Header section */}
+          <div className="solutions-header" style={{ 
+            textAlign: 'center',
+            maxWidth: '800px',
+            margin: '0 auto'
           }}>
-            <span style={{ color: '#018381', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px', display: 'block', marginBottom: '16px' }}>
+            <span style={{ color: '#2dd4bf', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px', display: 'block', marginBottom: '16px' }}>
               What we build
             </span>
-            <h2 style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', color: '#1f2937', lineHeight: '1.2' }}>
+            <h2 style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', color: '#ffffff', lineHeight: '1.2' }}>
               All of this is possible today.
             </h2>
-            <p style={{ fontSize: '18px', color: '#4b5563', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ fontSize: '18px', color: '#9ca3af', lineHeight: '1.6', margin: 0 }}>
               Three pillars, nine solution areas. Below is scope — what each covers, and on what stack.
             </p>
           </div>
 
-          {/* Right scrolling column */}
-          <div className="solutions-scroll-right" style={{ 
-            flex: '2 1 600px', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '32px' 
-          }}>
-            {solutionsData.map((card, idx) => (
-              <div key={idx} className="solution-card" style={{ 
-                position: 'sticky',
-                top: `${120 + idx * 20}px`,
-                zIndex: idx + 1,
-                background: '#ffffff', 
-                borderRadius: '16px', 
-                padding: '40px', 
-                boxShadow: '0 -8px 30px rgba(0,0,0,0.08)', 
-                border: '1px solid #e5e7eb',
-                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+          {/* Categories loop */}
+          <div className="solutions-categories" style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '100px' }}>
+            {categoriesData.map((cat, catIdx) => (
+              <div key={catIdx} className="category-section" style={{
+                display: 'flex',
+                gap: '60px',
+                alignItems: 'flex-start',
+                flexWrap: 'wrap'
               }}>
-                <h3 style={{ fontSize: '24px', fontWeight: '700', marginBottom: card.subtitle ? '12px' : '24px', color: '#1f2937' }}>
-                  {card.title}
-                </h3>
-                {card.subtitle && (
-                  <p style={{ fontSize: '15px', color: '#018381', fontWeight: '600', marginBottom: '24px', lineHeight: '1.5' }}>
-                    {card.subtitle}
-                  </p>
-                )}
-                <ul style={{ paddingLeft: '24px', margin: '0 0 32px 0', color: '#4b5563', lineHeight: '1.8', fontSize: '16px' }}>
-                  {card.points.map((pt, i) => (
-                    <li key={i} style={{ marginBottom: '12px' }}>{pt}</li>
-                  ))}
-                </ul>
-                <button className="solution-btn" style={{ 
-                  background: '#ffffff', 
-                  color: '#018381', 
-                  border: '2px solid #018381', 
-                  padding: '12px 28px', 
-                  borderRadius: '8px', 
-                  fontWeight: '600', 
-                  fontSize: '15px',
-                  cursor: 'pointer', 
-                  transition: 'all 0.3s',
-                  display: 'inline-block'
+                {/* Left side title */}
+                <div className="category-title-left" style={{
+                  flex: '1 1 300px',
+                  position: 'sticky',
+                  top: '150px',
+                  paddingBottom: '40px'
                 }}>
-                  {card.ctaText}
-                </button>
+                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', textTransform: 'uppercase', margin: 0, lineHeight: '1.3' }}>
+                    {cat.title}
+                  </h3>
+                </div>
+
+                {/* Right side cards with scroll effect */}
+                <div className="category-cards-right" style={{
+                  flex: '2 1 600px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '32px'
+                }}>
+                  {cat.cards.map((card, idx) => {
+                    const isScale = cat.title === "AI to Scale";
+                    const bgColors = isScale 
+                      ? ['#018381', '#017674', '#016867'] 
+                      : ['#ffffff', '#f8fafc', '#f1f5f9'];
+                    const titleColor = isScale ? '#ffffff' : '#1f2937';
+                    const subColor = isScale ? '#ccfbf1' : '#018381';
+                    const bodyColor = isScale ? '#f3f4f6' : '#4b5563';
+                    
+                    return (
+                      <div key={idx} className="solution-card" style={{ 
+                        position: 'sticky',
+                        top: `${150 + idx * 20}px`,
+                        zIndex: idx + 1,
+                        background: bgColors[idx % 3], 
+                        borderRadius: '16px', 
+                        padding: '40px', 
+                        boxShadow: isScale ? '0 -8px 30px rgba(1, 131, 129, 0.15)' : '0 -8px 30px rgba(0,0,0,0.06)', 
+                        border: isScale ? '1px solid #017674' : '1px solid #e5e7eb',
+                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                        display: 'flex',
+                        flexDirection: 'column'
+                      }}>
+                        <span style={{ color: subColor, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '12px', display: 'block', marginBottom: '12px' }}>
+                          {card.ctaText}
+                        </span>
+                        <h3 className={isScale ? "card-title-white" : "card-title-dark"} style={{ fontSize: '24px', fontWeight: '700', marginBottom: card.subtitle ? '12px' : '24px' }}>
+                          {card.title}
+                        </h3>
+                        {card.subtitle && (
+                          <p style={{ fontSize: '15px', color: subColor, fontWeight: '600', marginBottom: '24px', lineHeight: '1.5' }}>
+                            {card.subtitle}
+                          </p>
+                        )}
+                        <ul style={{ paddingLeft: '24px', margin: '0', color: bodyColor, lineHeight: '1.8', fontSize: '16px' }}>
+                          {card.points.map((pt, i) => (
+                            <li key={i} style={{ marginBottom: '12px' }}>{pt}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             ))}
           </div>
@@ -169,7 +199,7 @@ const SolutionsFold = () => {
       </div>
       <style>{`
         @media (max-width: 991px) {
-          .solutions-sticky-left {
+          .category-title-left {
             position: static !important;
             padding-bottom: 20px !important;
           }
@@ -178,9 +208,11 @@ const SolutionsFold = () => {
           transform: translateY(-5px);
           box-shadow: 0 15px 50px rgba(1, 131, 129, 0.1) !important;
         }
-        .solution-btn:hover {
-          background: #018381 !important;
+        .card-title-white {
           color: #ffffff !important;
+        }
+        .card-title-dark {
+          color: #1f2937 !important;
         }
       `}</style>
     </section>
