@@ -106,7 +106,7 @@ const ScanbBanner = ({ data }) => {
           style={{
             //  background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
             background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/scanb-banner.png') no-repeat center`,
-            backgroundSize: 'cover',
+            backgroundSize: '100%',
             position: 'relative',
             overflow: 'hidden'
           }}
@@ -209,7 +209,8 @@ const ScanbBanner = ({ data }) => {
         // style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
           <Image
-            src={data?.content?.scanb_mobile_banner_media_id?.file_path}
+              // src={data?.content?.scanb_mobile_banner_media_id?.file_path}
+            src='/img/scanb-banner-mob.jpeg'
             width={768}
             height={800}
             alt=""

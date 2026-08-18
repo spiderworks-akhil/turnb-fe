@@ -8,6 +8,7 @@ const ScanBGrowth = ({ data }) => {
         <div className="row justify-content-center">
           <div className="col-lg-11 col-md-11 col-12">
             <div
+
               data-aos="fade-down"
               data-aos-easing="linear"
               data-aos-duration="1500"
@@ -37,7 +38,7 @@ const ScanBGrowth = ({ data }) => {
           </div>
         </div>
 
-   
+
       </div>
     </div>
   );

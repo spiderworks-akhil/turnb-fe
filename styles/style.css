@@ -7560,3 +7560,11 @@ h2.title-ak2 {
         animation: none !important;
     }
 }
+@media (max-width: 767px) {
+  .disable-aos-mobile[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
