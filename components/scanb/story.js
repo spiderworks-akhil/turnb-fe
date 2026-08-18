@@ -12,14 +12,14 @@ const ProductTell = ({ data }) => {
                 <div className="row">
                   <div className="col-lg-1 col-md-1 col-12">
                     <div
-                      className="linev-p d-lg-block d-md-block d-none mt-lg-5 mt-md-5 mt-3"
+                      className="linev-p d-lg-block d-md-block d-none mt-lg-5 mt-md-5 mt-3 disable-aos-mobile"
                       data-aos="fade-in"
                       data-aos-duration="3000"
                     />
                   </div>
                   <div className="col-lg-7 col-md-7 col-12 scanbpdd mt-lg-5 mt-md-5 mt-3">
                     <div
-                      className="prodscanb-cont mt-lg-4 mt-md-4 mt-3 clearfix"
+                      className="prodscanb-cont mt-lg-4 mt-md-4 mt-3 clearfix disable-aos-mobile"
                       data-aos="fade-left"
                       data-aos-duration="3000"
                     >
@@ -35,7 +35,7 @@ const ProductTell = ({ data }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4 col-12 p-0" data-aos="fade-left">
+                  <div className="col-lg-4 col-md-4 col-12 p-0 disable-aos-mobile" data-aos="fade-left">
                     <Image
                       height={100}
                       width={400}

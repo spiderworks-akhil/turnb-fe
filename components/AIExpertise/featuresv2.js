@@ -96,6 +96,51 @@ const FeaturesV2 = () => {
     }
   ];
 
+  const outcomes = [
+    {
+      title: "Decisions in hours, not weeks.",
+      description: "The gap between a question forming and an answer landing collapses. Across every function, that compounds.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      )
+    },
+    {
+      title: "Capacity released.",
+      description: "Work that consumed a morning takes minutes. What your people do with the morning is the whole point.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      )
+    },
+    {
+      title: "Nobody queues for an answer.",
+      description: "Your experts stop running a service desk. The question goes to the system; the judgement stays with them.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      )
+    },
+    {
+      title: "The same answer, whoever asks.",
+      description: "Decisions stop depending on who was on shift, how long they have been here, or which spreadsheet they opened.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      )
+    },
+    {
+      title: "Volume grows. The team does not have to.",
+      description: "Twice the contracts, twice the claims, twice the customers — without twice the people.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      )
+    },
+    {
+      title: "What the company knows, stays.",
+      description: "Institutional knowledge outlives the people who built it. Nothing walks out with a resignation letter.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      )
+    }
+  ];
+
   return (
     <section className="features-v2-sec" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #f8ffff 0%, #e8f8f7 100%)', fontFamily: "'Montserrat', sans-serif" }}>
       <div className="container">
@@ -193,12 +238,62 @@ const FeaturesV2 = () => {
             </div>
           )}
 
+          {/* Outcomes Cards Section */}
+          <div style={{ marginTop: '80px' }}>
+            <h3 style={{ fontSize: '32px', fontWeight: '700', textAlign: 'center', marginBottom: '40px', color: '#018381' }}>
+              The Outcomes
+            </h3>
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+              gap: '24px' 
+            }}>
+              {outcomes.map((outcome, index) => (
+                <div key={index} className="outcome-card" style={{
+                  background: '#ffffff',
+                  border: '1px solid #e5f5f5',
+                  borderRadius: '16px',
+                  padding: '32px',
+                  boxShadow: '0 4px 20px rgba(1, 131, 129, 0.05)',
+                  transition: 'all 0.3s ease',
+                  cursor: 'default',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}>
+                  <div style={{ 
+                    width: '48px', 
+                    height: '48px', 
+                    borderRadius: '12px', 
+                    background: '#e8f8f7', 
+                    color: '#018381',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    marginBottom: '20px'
+                  }}>
+                    {outcome.icon}
+                  </div>
+                  <h4 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '12px', color: '#1f2937', lineHeight: '1.4' }}>
+                    {outcome.title}
+                  </h4>
+                  <p style={{ margin: 0, color: '#6b7280', fontSize: '15px', lineHeight: '1.6', fontWeight: '500' }}>
+                    {outcome.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        .outcome-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 8px 30px rgba(1, 131, 129, 0.12) !important;
         }
       `}</style>
     </section>

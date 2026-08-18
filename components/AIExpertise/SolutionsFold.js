@@ -96,7 +96,7 @@ const categoriesData = [
 
 const SolutionsFold = () => {
   return (
-    <section className="solutions-fold" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)', fontFamily: "'Montserrat', sans-serif" }}>
+    <section className="solutions-fold" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #334155 0%, #020617 100%)', fontFamily: "'Montserrat', sans-serif" }}>
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
         <div className="solutions-layout" style={{ 
           display: 'flex', 
@@ -113,10 +113,10 @@ const SolutionsFold = () => {
             <span style={{ color: '#2dd4bf', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px', display: 'block', marginBottom: '16px' }}>
               What we build
             </span>
-            <h2 style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', color: '#ffffff', lineHeight: '1.2' }}>
+            <h2 className="custom-teal-title" style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', lineHeight: '1.2' }}>
               All of this is possible today.
             </h2>
-            <p style={{ fontSize: '18px', color: '#9ca3af', lineHeight: '1.6', margin: 0 }}>
+            <p style={{ fontSize: '18px', color: '#bac2d1ff', lineHeight: '1.6', margin: 0 }}>
               Three pillars, nine solution areas. Below is scope — what each covers, and on what stack.
             </p>
           </div>
@@ -137,7 +137,7 @@ const SolutionsFold = () => {
                   top: '150px',
                   paddingBottom: '40px'
                 }}>
-                  <h3 style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff', textTransform: 'uppercase', margin: 0, lineHeight: '1.3' }}>
+                  <h3 className="custom-teal-title" style={{ fontSize: '32px', fontWeight: '800', textTransform: 'uppercase', margin: 0, lineHeight: '1.3' }}>
                     {cat.title}
                   </h3>
                 </div>
@@ -213,6 +213,9 @@ const SolutionsFold = () => {
         }
         .card-title-dark {
           color: #1f2937 !important;
+        }
+        .custom-teal-title {
+          color: #00b8aeff !important;
         }
       `}</style>
     </section>
