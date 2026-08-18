@@ -14,7 +14,7 @@ const ScanbAdvance = ({ data }) => {
                 {/* <h2 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" /> */}
                 <div className="image-subheading" style={{ alignItems: 'center' }}>
                   <div>
-                    <Image width={'700'} height={'486'} src="/img/scanb/mobile%20laptop.png" alt="Mobile Laptop" style={{ width: '100%', height: 'auto' }} />
+                    <Image width={'700'} height={'486'} src="/img/scanb/sample1.png" alt="Mobile Laptop" style={{paddingTop:'15px', width: '100%', height: 'auto' }} />
                   </div>
                   <div style={{ width: '45%', paddingLeft: '30px', textAlign: 'left' }}>
                     <h6 className="text-white mb-3" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} style={{ position: 'static', width: 'auto', textAlign: 'left' }} />
