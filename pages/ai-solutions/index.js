@@ -10,7 +10,8 @@ import AiVision from "@/components/AIExpertise/vision";
 import AiBenefits from "@/components/AIExpertise/benefit";
 import AiCase from "@/components/AIExpertise/case";
 import { AIexpertiseApi } from "@/Datas/Endpoints/AI-expertise";
-
+import FeaturesV2 from "@/components/AIExpertise/featuresv2";
+import SolutionsFold from "@/components/AIExpertise/SolutionsFold";
 
 
 
@@ -21,15 +22,18 @@ export default function Career({ general, data }) {
 
       <AiBanner data={data} />
       <AiAnalytics data={data} />
+       <FeaturesV2 data={data} />
+       
       <AiStages data={data} />
       <div >
-        <AiFeatures data={data} />
+        {/* <AiFeatures data={data} /> */}
+       <SolutionsFold />
 
 
         <AiIn data={data} />
 
       </div>
-
+<SolutionsFold />
       <AiVision data={data} />
       <AiBenefits data={data} />
       {
