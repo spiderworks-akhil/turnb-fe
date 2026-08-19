@@ -10,7 +10,7 @@ import AiVision from "@/components/AIExpertise/vision";
 import AiBenefits from "@/components/AIExpertise/benefit";
 import AiCase from "@/components/AIExpertise/case";
 import { AIexpertiseApi } from "@/Datas/Endpoints/AI-expertise";
-import FeaturesV2 from "@/components/AIExpertise/featuresv2";
+import FeaturesV2 from "@/components/AIExpertise/featuresv3";
 import SolutionsFold from "@/components/AIExpertise/SolutionsFold";
 
 
