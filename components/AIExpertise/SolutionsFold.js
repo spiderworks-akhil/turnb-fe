@@ -94,346 +94,340 @@ const categoriesData = [
   { title: "Data to Drive", cards: solutionsData.slice(6, 9) }
 ];
 
+
+const CARD_GAP = 32;      // matches the flex gap between stacked cards
+const STICKY_TOP = 150;   // first card's sticky offset
+const STICKY_STEP = 20;   // each subsequent card sits this much lower
+
 const SolutionsFold = () => {
+  const sectionRef = React.useRef(null);
+
+  /* Scroll dynamics for the stacked cards:
+     each card reports how far the next one has covered it as `--cover` (0 → 1),
+     which the CSS below turns into a scale-down + dim, so the deck reads as a
+     deliberate stack instead of cards clipping each other. */
+  React.useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const groups = Array.from(root.querySelectorAll('.category-cards-right'));
+    let frame = null;
+
+    const measure = () => {
+      frame = null;
+      groups.forEach((group) => {
+        const cards = Array.from(group.children);
+        cards.forEach((card, i) => {
+          const next = cards[i + 1];
+          if (!next) return;
+          const gap = next.getBoundingClientRect().top - card.getBoundingClientRect().top;
+          const travel = card.offsetHeight + CARD_GAP - STICKY_STEP;
+          const cover = travel > 0
+            ? Math.min(1, Math.max(0, 1 - (gap - STICKY_STEP) / travel))
+            : 0;
+          card.style.setProperty('--cover', cover.toFixed(3));
+        });
+      });
+    };
+
+    const onScroll = () => {
+      if (frame === null) frame = window.requestAnimationFrame(measure);
+    };
+
+    const cards = Array.from(root.querySelectorAll('.solution-card'));
+
+    /* Only hide-then-reveal once JS is running, so the cards are never
+       stuck invisible if the script never executes. */
+    if (typeof IntersectionObserver === 'undefined') {
+      cards.forEach((c) => c.classList.add('is-in'));
+    }
+    root.classList.add('sf-ready');
+
+    /* Reveal each card as it enters the viewport. */
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+    if (observer) cards.forEach((c) => observer.observe(c));
+
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="sf">
-      <span className="sf-glow sf-glow--a" aria-hidden="true" />
-      <span className="sf-glow sf-glow--b" aria-hidden="true" />
-
-      <div className="container">
-        <div className="sf-inner">
-
-          {/* ---------- header ---------- */}
-          <header className="sf-head">
-            <span className="sf-eyebrow">
-              <span className="sf-eyebrow-dot" />
-              What we build
-            </span>
-            <h2 className="sf-title">All of this is possible today.</h2>
-            <p className="sf-sub">
-              Three pillars, nine solution areas. Below is scope — what each covers, and on what stack.
-            </p>
-            <div className="sf-stats">
-              <span className="sf-stat"><b>3</b> pillars</span>
-              <span className="sf-stat-sep" aria-hidden="true" />
-              <span className="sf-stat"><b>9</b> solution areas</span>
-            </div>
-          </header>
-
-          {/* ---------- pillars ---------- */}
-          <div className="sf-pillars">
-            {categoriesData.map((cat, catIdx) => (
-              <section key={catIdx} className="sf-pillar">
-                <div className="sf-pillar-head">
-                  <span className="sf-node" aria-hidden="true">
-                    {String(catIdx + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="sf-pillar-title">{cat.title}</h3>
-                  <span className="sf-pillar-rule" aria-hidden="true" />
-                  <span className="sf-pillar-count">{cat.cards.length} solution areas</span>
-                </div>
-
-                <div className="sf-cards">
-                  {cat.cards.map((card, idx) => (
-                    <article key={idx} className="sf-card">
-                      <span className="sf-card-idx" aria-hidden="true">
-                        {String(catIdx * 3 + idx + 1).padStart(2, '0')}
-                      </span>
-
-                      <h4 className="sf-card-title">{card.title}</h4>
-
-                      {card.subtitle && (
-                        <p className="sf-card-sub">{card.subtitle}</p>
-                      )}
-
-                      <ul className="sf-points">
-                        {card.points.map((pt, i) => (
-                          <li key={i}>
-                            <span className="sf-tick" aria-hidden="true">
-                              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="m5 13 4 4L19 7"/></svg>
-                            </span>
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-
-        </div>
+    <section ref={sectionRef} className="solutions-fold" style={{ position: 'relative', padding: '80px 0', fontFamily: "'Montserrat', sans-serif" }}>
+      {/* background layer — kept from the previous design, lightened a step.
+          Isolated in its own absolutely-positioned box so `overflow: hidden`
+          here does not break the sticky cards below. */}
+      <div className="sf-bg" aria-hidden="true">
+        <span className="sf-glow sf-glow--a" />
+        <span className="sf-glow sf-glow--b" />
       </div>
 
-      <style>{`
-        .sf {
-          position: relative;
-          padding: 100px 0;
-          background: #041b1f;
-          font-family: 'Montserrat', sans-serif;
+      <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+        <div className="solutions-layout" style={{ 
+          display: 'flex', 
+          flexDirection: 'column',
+          gap: '80px', 
+          alignItems: 'center',
+        }}>
+          {/* Top Header section */}
+          <div className="solutions-header" style={{ 
+            textAlign: 'center',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            <span style={{ color: '#2dd4bf', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px', display: 'block', marginBottom: '16px' }}>
+              What we build
+            </span>
+            <h2 className="custom-teal-title" style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', lineHeight: '1.2' }}>
+              All of this is possible today.
+            </h2>
+            <p style={{ fontSize: '18px', color: '#bac2d1ff', lineHeight: '1.6', margin: 0 }}>
+              Three pillars, nine solution areas. Below is scope — what each covers, and on what stack.
+            </p>
+          </div>
+
+          {/* Categories loop */}
+          <div className="solutions-categories" style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '100px' }}>
+            {categoriesData.map((cat, catIdx) => (
+              <div key={catIdx} className="category-section" style={{
+                display: 'flex',
+                gap: '60px',
+                alignItems: 'flex-start',
+                flexWrap: 'wrap'
+              }}>
+                {/* Left side title */}
+                <div className="category-title-left" style={{
+                  flex: '1 1 300px',
+                  position: 'sticky',
+                  top: '150px',
+                  paddingBottom: '40px'
+                }}>
+                  <h3 className="custom-teal-title" style={{ fontSize: '32px', fontWeight: '800', textTransform: 'uppercase', margin: 0, lineHeight: '1.3' }}>
+                    {cat.title}
+                  </h3>
+                </div>
+
+                {/* Right side cards with scroll effect */}
+                <div className="category-cards-right" style={{
+                  flex: '2 1 600px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: `${CARD_GAP}px`
+                }}>
+                  {cat.cards.map((card, idx) => {
+                    const isScale = cat.title === "AI to Scale";
+                    const bgColors = isScale 
+                      ? ['#018381', '#017674', '#016867'] 
+                      : ['#ffffff', '#f8fafc', '#f1f5f9'];
+                    const subColor = isScale ? '#ccfbf1' : '#018381';
+                    const bodyColor = isScale ? '#f3f4f6' : '#4b5563';
+                    
+                    return (
+                      <div key={idx} className={`solution-card${isScale ? ' solution-card--dark' : ''}`} style={{ 
+                        position: 'sticky',
+                        top: `${STICKY_TOP + idx * STICKY_STEP}px`,
+                        zIndex: idx + 1,
+                        background: bgColors[idx % 3], 
+                        borderRadius: '16px', 
+                        padding: '40px', 
+                        boxShadow: isScale ? '0 -8px 30px rgba(1, 131, 129, 0.15)' : '0 -8px 30px rgba(0,0,0,0.06)', 
+                        border: isScale ? '1px solid #017674' : '1px solid #e5e7eb',
+                        display: 'flex',
+                        flexDirection: 'column'
+                      }}>
+                        <span className="solution-card__eyebrow" style={{ color: subColor, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                          <i className="solution-card__pulse" aria-hidden="true" />
+                          {card.ctaText}
+                        </span>
+                        <h3 className={isScale ? "card-title-white" : "card-title-dark"} style={{ fontSize: '24px', fontWeight: '700', marginBottom: card.subtitle ? '12px' : '24px' }}>
+                          {card.title}
+                        </h3>
+                        {card.subtitle && (
+                          <p style={{ fontSize: '15px', color: subColor, fontWeight: '600', marginBottom: '24px', lineHeight: '1.5' }}>
+                            {card.subtitle}
+                          </p>
+                        )}
+                        <ul style={{ paddingLeft: '24px', margin: '0', color: bodyColor, lineHeight: '1.8', fontSize: '16px' }}>
+                          {card.points.map((pt, i) => (
+                            <li key={i} style={{ marginBottom: '12px' }}>{pt}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .solutions-fold {
+          background: #0a343a;
           color: #e7f4f3;
-          overflow: hidden;
+          isolation: isolate;
         }
-        .sf::before {
+        .sf-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        .sf-bg::before {
           content: '';
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+            linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
           background-size: 64px 64px;
-          mask-image: radial-gradient(circle at 50% 22%, #000 0%, transparent 72%);
-          -webkit-mask-image: radial-gradient(circle at 50% 22%, #000 0%, transparent 72%);
-          pointer-events: none;
+          mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+          -webkit-mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
         }
         .sf-glow {
           position: absolute;
           border-radius: 50%;
           filter: blur(120px);
-          pointer-events: none;
         }
-        .sf-glow--a { width: 620px; height: 620px; top: -260px; left: -180px; background: rgba(1,131,129,0.30); }
-        .sf-glow--b { width: 520px; height: 520px; bottom: -240px; right: -160px; background: rgba(45,212,191,0.14); }
-        .sf-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+        .sf-glow--a { width: 620px; height: 620px; top: -260px; left: -180px; background: rgba(1,131,129,0.34); }
+        .sf-glow--b { width: 520px; height: 520px; bottom: -240px; right: -160px; background: rgba(45,212,191,0.16); }
 
-        /* ---------- header ---------- */
-        .sf-head { max-width: 720px; margin: 0 auto 76px; text-align: center; }
-        .sf-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #5fd4cf;
-          background: rgba(95,212,207,0.08);
-          border: 1px solid rgba(95,212,207,0.22);
-          border-radius: 999px;
-          padding: 7px 15px;
-          margin-bottom: 24px;
-        }
-        .sf-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: #5fd4cf; }
-        .sf-title {
-          font-size: 46px;
-          font-weight: 800;
-          letter-spacing: -0.02em;
-          line-height: 1.16;
-          margin: 0 0 18px;
-          color: #ffffff;
-        }
-        .sf-sub {
-          margin: 0;
-          font-size: 17px;
-          line-height: 1.7;
-          font-weight: 500;
-          color: rgba(231,244,243,0.62);
-        }
-        .sf-stats {
-          display: inline-flex;
-          align-items: center;
-          gap: 18px;
-          margin-top: 28px;
-          padding: 12px 22px;
-          border: 1px solid rgba(255,255,255,0.09);
-          border-radius: 999px;
-          background: rgba(255,255,255,0.03);
-        }
-        .sf-stat {
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          color: rgba(231,244,243,0.6);
-        }
-        .sf-stat b { color: #5fd4cf; font-size: 15px; font-weight: 800; margin-right: 5px; }
-        .sf-stat-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.12); }
-
-        /* ---------- pillars ---------- */
-        .sf-pillars {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 68px;
-          padding-left: 74px;
-        }
-        .sf-pillars::before {
-          content: '';
-          position: absolute;
-          left: 21px;
-          top: 22px;
-          bottom: 40px;
-          width: 2px;
-          border-radius: 2px;
-          background: linear-gradient(180deg, rgba(95,212,207,0.55), rgba(95,212,207,0.18) 55%, rgba(95,212,207,0));
-        }
-        .sf-pillar-head {
-          position: relative;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          margin-bottom: 26px;
-        }
-        .sf-node {
-          position: absolute;
-          left: -74px;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 13px;
-          font-weight: 800;
-          letter-spacing: 0.04em;
-          color: #041b1f;
-          background: linear-gradient(140deg, #5fd4cf, #018381);
-          box-shadow: 0 0 0 6px rgba(1,131,129,0.16), 0 10px 26px -12px rgba(95,212,207,0.9);
-        }
-        .sf-pillar-title {
-          margin: 0;
-          font-size: 24px;
-          font-weight: 800;
-          letter-spacing: 0.02em;
-          text-transform: uppercase;
-          color: #ffffff;
-          white-space: nowrap;
-        }
-        .sf-pillar-rule {
-          flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(95,212,207,0.4), rgba(95,212,207,0));
-        }
-        .sf-pillar-count {
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: rgba(231,244,243,0.42);
-          white-space: nowrap;
-        }
-
-        /* ---------- cards ---------- */
-        .sf-cards {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
-        }
-        .sf-card {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          padding: 30px 28px 28px;
-          border-radius: 20px;
-          background: linear-gradient(160deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018));
-          border: 1px solid rgba(255,255,255,0.08);
+        /* ---------- card dynamics ---------- */
+        .solution-card {
+          --cover: 0;    /* how far the next card has covered this one, 0 → 1 */
+          --lift: 0px;   /* hover lift */
+          --enter: 0px;  /* entrance offset, set once JS takes over */
           overflow: hidden;
-          transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+          transform:
+            translateY(calc(var(--enter) + var(--lift) + var(--cover) * -10px))
+            scale(calc(1 - var(--cover) * 0.055));
+          transform-origin: top center;
+          filter: brightness(calc(1 - var(--cover) * 0.14));
+          transition:
+            transform .55s cubic-bezier(.22,1,.36,1),
+            opacity .55s ease,
+            filter .25s linear,
+            box-shadow .35s ease,
+            border-color .35s ease;
+          will-change: transform;
         }
-        .sf-card::before {
+        .sf-ready .solution-card { opacity: 0; --enter: 34px; }
+        .sf-ready .solution-card.is-in { opacity: 1; --enter: 0px; }
+
+        /* accent rail, drawn on hover */
+        .solution-card::before {
           content: '';
           position: absolute;
-          left: 0; top: 0;
-          width: 3px; height: 100%;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
           background: linear-gradient(180deg, #5fd4cf, #018381);
           transform: scaleY(0);
           transform-origin: top;
-          transition: transform .4s cubic-bezier(.22,1,.36,1);
+          transition: transform .45s cubic-bezier(.22,1,.36,1);
         }
-        .sf-card:hover {
-          transform: translateY(-6px);
-          border-color: rgba(95,212,207,0.34);
-          background: linear-gradient(160deg, rgba(95,212,207,0.10), rgba(255,255,255,0.02));
-          box-shadow: 0 30px 60px -34px rgba(0,0,0,0.9);
-        }
-        .sf-card:hover::before { transform: scaleY(1); }
-        .sf-card-idx {
+        .solution-card--dark::before { background: linear-gradient(180deg, #ffffff, #ccfbf1); }
+        .solution-card:hover::before { transform: scaleY(1); }
+
+        /* light sweep across the surface on hover */
+        .solution-card::after {
+          content: '';
           position: absolute;
-          top: 20px; right: 22px;
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.08em;
-          color: rgba(95,212,207,0.35);
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(115deg, transparent 34%, rgba(45,212,191,0.16) 48%, transparent 62%);
+          transform: translateX(-130%);
+          opacity: 0;
         }
-        .sf-card-title {
-          margin: 0 0 12px;
-          padding-right: 34px;
-          font-size: 19px;
-          font-weight: 700;
-          line-height: 1.38;
-          color: #ffffff;
-        }
-        .sf-card-sub {
-          margin: 0 0 18px;
-          padding: 10px 12px;
-          border-left: 2px solid rgba(95,212,207,0.35);
-          border-radius: 0 8px 8px 0;
-          background: rgba(95,212,207,0.06);
-          font-size: 12.5px;
-          font-weight: 600;
-          line-height: 1.55;
-          color: #9fe2de;
-        }
-        .sf-points {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          padding-top: 18px;
-          border-top: 1px solid rgba(255,255,255,0.07);
-        }
-        .sf-points li {
-          display: flex;
-          gap: 11px;
-          align-items: flex-start;
-          margin-bottom: 13px;
-          font-size: 14.5px;
-          line-height: 1.62;
-          font-weight: 500;
-          color: rgba(231,244,243,0.7);
-        }
-        .sf-points li:last-child { margin-bottom: 0; }
-        .sf-tick {
-          flex: 0 0 auto;
-          width: 18px; height: 18px;
-          margin-top: 3px;
-          border-radius: 6px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(95,212,207,0.14);
-          color: #5fd4cf;
+        .solution-card:hover::after {
+          transform: translateX(130%);
+          opacity: 1;
+          transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .25s ease;
         }
 
-        /* ---------- responsive ---------- */
-        @media (max-width: 1100px) {
-          .sf-cards { grid-template-columns: repeat(2, 1fr); }
+        .solution-card:hover {
+          --lift: -6px;
+          border-color: rgba(1,131,129,0.45) !important;
+          box-shadow: 0 24px 50px -24px rgba(1, 131, 129, 0.55) !important;
         }
+        .solution-card--dark:hover {
+          border-color: rgba(204,251,241,0.55) !important;
+          box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* live dot on the pillar label */
+        .solution-card__pulse {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: currentColor;
+          flex: 0 0 auto;
+          box-shadow: 0 0 0 0 currentColor;
+          animation: sf-pulse 2.6s ease-out infinite;
+        }
+        @keyframes sf-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(1,131,129,0.55); }
+          70%  { box-shadow: 0 0 0 9px rgba(1,131,129,0); }
+          100% { box-shadow: 0 0 0 0 rgba(1,131,129,0); }
+        }
+
+        /* bullets stagger in behind the card */
+        .solution-card li {
+          transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
+        }
+        .sf-ready .solution-card li { opacity: 0; transform: translateX(-10px); }
+        .sf-ready .solution-card.is-in li { opacity: 1; transform: none; }
+        .solution-card.is-in li:nth-child(1) { transition-delay: .18s; }
+        .solution-card.is-in li:nth-child(2) { transition-delay: .28s; }
+        .solution-card.is-in li:nth-child(3) { transition-delay: .38s; }
+        .solution-card.is-in li:nth-child(4) { transition-delay: .48s; }
+        .solution-card li::marker { color: #018381; }
+        .solution-card--dark li::marker { color: #ccfbf1; }
+
         @media (max-width: 991px) {
-          .sf-title { font-size: 36px; }
-          .sf-pillars { padding-left: 0; gap: 56px; }
-          .sf-pillars::before { display: none; }
-          .sf-pillar-head { flex-wrap: wrap; gap: 12px; }
-          .sf-node { position: static; transform: none; width: 38px; height: 38px; font-size: 12px; box-shadow: 0 10px 26px -14px rgba(95,212,207,0.9); }
-          .sf-pillar-title { font-size: 20px; white-space: normal; }
-        }
-        @media (max-width: 767px) {
-          .sf { padding: 64px 0; }
-          .sf-head { margin-bottom: 48px; }
-          .sf-title { font-size: 28px; }
-          .sf-sub { font-size: 15px; }
-          .sf-stats { gap: 14px; padding: 10px 18px; }
-          .sf-cards { grid-template-columns: 1fr; }
-          .sf-card { padding: 24px 22px; border-radius: 16px; }
-          .sf-pillar-rule { display: none; }
+          .category-title-left {
+            position: static !important;
+            padding-bottom: 20px !important;
+          }
         }
         @media (prefers-reduced-motion: reduce) {
-          .sf-card, .sf-card::before { transition: none; }
-          .sf-card:hover { transform: none; }
+          .solution-card,
+          .solution-card li,
+          .solution-card::before,
+          .solution-card::after {
+            transition: none !important;
+            animation: none !important;
+          }
+          .solution-card { opacity: 1; --enter: 0px; transform: none; filter: none; }
+          .solution-card li { opacity: 1; transform: none; }
         }
-      `}</style>
+
+        .card-title-white {
+          color: #ffffff !important;
+        }
+        .card-title-dark {
+          color: #1f2937 !important;
+        }
+        .custom-teal-title {
+          color: #00b8aeff !important;
+        }
+      ` }} />
     </section>
   );
 };

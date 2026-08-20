@@ -302,7 +302,7 @@ const FeaturesV3 = () => {
         </div>
       </div>
 
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .fx {
           position: relative;
           padding: 100px 0;
@@ -632,12 +632,16 @@ const FeaturesV3 = () => {
         }
         .fx-outcome-index {
           position: absolute;
-          right: 20px; bottom: 14px;
-          font-size: 34px;
+          right: 24px; top: 28px;
+          font-size: 32px;
           font-weight: 800;
-          color: rgba(1,131,129,0.06);
+          letter-spacing: -0.02em;
+          color: rgba(1,131,129,0.11);
           line-height: 1;
+          pointer-events: none;
+          transition: color .3s ease;
         }
+        .fx-outcome:hover .fx-outcome-index { color: rgba(1,131,129,0.2); }
 
         /* ---------- responsive ---------- */
         @media (max-width: 1100px) {
@@ -687,7 +691,7 @@ const FeaturesV3 = () => {
           .fx-block { animation: none; }
           .fx-rail-fill { transition: none; }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 };
