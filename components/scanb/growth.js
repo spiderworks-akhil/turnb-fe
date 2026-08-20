@@ -27,10 +27,10 @@ const ScanBGrowth = ({ data }) => {
               data-aos-duration="1500"
             >
               <Image
-                width={800}
-                height={700}
+                width={1536}
+                height={1024}
                 // src={data?.content?.scanb_section_4_media_id_2?.file_path}
-                src='/img/info-g.png'
+                src='/img/info-g2.jpg'
                 alt={data?.content?.scanb_section_4_media_id_2?.alt_text}
                 className="img-fluid m-auto text-center d-block"
               />
