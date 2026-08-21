@@ -30,7 +30,7 @@ const ScanBGrowth = ({ data }) => {
                 width={800}
                 height={700}
                 // src={data?.content?.scanb_section_4_media_id_2?.file_path}
-                src='/img/info-g.png'
+                src='/img/info-gv2.png'
                 alt={data?.content?.scanb_section_4_media_id_2?.alt_text}
                 className="img-fluid m-auto text-center d-block"
               />
