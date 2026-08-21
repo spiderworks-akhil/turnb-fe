@@ -175,6 +175,14 @@ const SolutionsFold = () => {
           Isolated in its own absolutely-positioned box so `overflow: hidden`
           here does not break the sticky cards below. */}
       <div className="sf-bg" aria-hidden="true">
+        <span className="sf-grid" />
+        <span className="sf-scan" />
+        {/* single cells lighting up on the grid, staggered so they never pulse together */}
+        <span className="sf-cell sf-cell--1" />
+        <span className="sf-cell sf-cell--2" />
+        <span className="sf-cell sf-cell--3" />
+        <span className="sf-cell sf-cell--4" />
+        <span className="sf-cell sf-cell--5" />
         <span className="sf-glow sf-glow--a" />
         <span className="sf-glow sf-glow--b" />
       </div>
@@ -291,24 +299,105 @@ const SolutionsFold = () => {
           overflow: hidden;
           pointer-events: none;
         }
-        .sf-bg::before {
-          content: '';
+        /* the mask lives on the static wrapper, so the vignette stays put
+           while the grid layer inside it slides */
+        .sf-grid {
           position: absolute;
           inset: 0;
+          overflow: hidden;
+          mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+          -webkit-mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+        }
+        .sf-grid::before {
+          content: '';
+          position: absolute;
+          /* oversized by one cell in each direction so the slide never shows an edge */
+          top: -64px; left: -64px; right: -64px; bottom: -64px;
           background-image:
             linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
             linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
           background-size: 64px 64px;
-          mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
-          -webkit-mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+          /* one full cell per cycle, so the drift loops seamlessly */
+          animation: sf-grid-drift 12s linear infinite;
+          will-change: transform;
+        }
+        /* a slow teal wash travelling over the grid, so the cells read as "live" */
+        .sf-bg::after {
+          content: '';
+          position: absolute;
+          top: -10%;
+          left: -10%;
+          width: 55%;
+          height: 55%;
+          background: radial-gradient(closest-side, rgba(45,212,191,0.22), transparent 70%);
+          filter: blur(40px);
+          animation: sf-grid-scan 18s ease-in-out infinite;
+        }
+        @keyframes sf-grid-drift {
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(64px, 64px, 0); }
+        }
+        @keyframes sf-grid-scan {
+          0%   { transform: translate3d(-10%, 0, 0); opacity: 0.35; }
+          50%  { transform: translate3d(90%, 28%, 0); opacity: 0.9; }
+          100% { transform: translate3d(-10%, 0, 0); opacity: 0.35; }
         }
         .sf-glow {
           position: absolute;
           border-radius: 50%;
           filter: blur(120px);
         }
-        .sf-glow--a { width: 620px; height: 620px; top: -260px; left: -180px; background: rgba(1,131,129,0.34); }
-        .sf-glow--b { width: 520px; height: 520px; bottom: -240px; right: -160px; background: rgba(45,212,191,0.16); }
+        .sf-glow--a {
+          width: 620px; height: 620px; top: -260px; left: -180px;
+          background: rgba(1,131,129,0.34);
+          animation: sf-float-a 16s ease-in-out infinite;
+        }
+        .sf-glow--b {
+          width: 520px; height: 520px; bottom: -240px; right: -160px;
+          background: rgba(45,212,191,0.16);
+          animation: sf-float-b 20s ease-in-out infinite;
+        }
+        @keyframes sf-float-a {
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+          50%      { transform: translate3d(120px, 80px, 0) scale(1.15); opacity: 0.75; }
+        }
+        @keyframes sf-float-b {
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+          50%      { transform: translate3d(-140px, -70px, 0) scale(1.2); opacity: 1; }
+        }
+
+        /* a bright line sweeping down the section */
+        .sf-scan {
+          position: absolute;
+          left: 0; right: 0;
+          top: -30%;
+          height: 30%;
+          background: linear-gradient(180deg, transparent, rgba(94,234,212,0.10), transparent);
+          animation: sf-scan-down 9s linear infinite;
+        }
+        @keyframes sf-scan-down {
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(0, 460%, 0); }
+        }
+
+        /* grid cells flickering on */
+        .sf-cell {
+          position: absolute;
+          width: 64px;
+          height: 64px;
+          background: linear-gradient(140deg, rgba(94,234,212,0.20), rgba(1,131,129,0.05));
+          opacity: 0;
+          animation: sf-cell-pulse 7s ease-in-out infinite;
+        }
+        .sf-cell--1 { top: 128px;  left: 192px;  animation-delay: 0s; }
+        .sf-cell--2 { top: 320px;  left: 448px;  animation-delay: 1.4s; }
+        .sf-cell--3 { top: 192px;  right: 256px; animation-delay: 2.8s; }
+        .sf-cell--4 { bottom: 256px; left: 320px; animation-delay: 4.2s; }
+        .sf-cell--5 { bottom: 192px; right: 384px; animation-delay: 5.6s; }
+        @keyframes sf-cell-pulse {
+          0%, 70%, 100% { opacity: 0; }
+          18%, 40%      { opacity: 1; }
+        }
 
         /* ---------- card dynamics ---------- */
         .solution-card {
@@ -407,6 +496,11 @@ const SolutionsFold = () => {
           }
         }
         @media (prefers-reduced-motion: reduce) {
+          .sf-grid::before,
+          .sf-bg::after,
+          .sf-scan,
+          .sf-cell,
+          .sf-glow,
           .solution-card,
           .solution-card li,
           .solution-card::before,

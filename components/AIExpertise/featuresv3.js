@@ -1,8 +1,29 @@
 import React, { useRef, useState } from 'react';
+import Slider from 'react-slick';
 
-const FeaturesV3 = () => {
+const FeaturesV3 = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const panelRef = useRef(null);
+
+  const headingText = data?.content?.subtitle_2 || "Six blockers. One way through.";
+
+  /* Arrows live in the section head, so slick's own pair stays off. */
+  const outcomeSliderRef = useRef(null);
+  const outcomeSliderSettings = {
+    dots: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    pauseOnHover: true,
+    responsive: [
+      { breakpoint: 1100, settings: { slidesToShow: 2 } },
+      { breakpoint: 767, settings: { slidesToShow: 1 } }
+    ]
+  };
 
   const accordionData = [
     {
@@ -111,42 +132,42 @@ const FeaturesV3 = () => {
       title: "Decisions in hours, not weeks.",
       description: "The gap between a question forming and an answer landing collapses. Across every function, that compounds.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
       )
     },
     {
       title: "Capacity released.",
       description: "Work that consumed a morning takes minutes. What your people do with the morning is the whole point.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
       )
     },
     {
       title: "Nobody queues for an answer.",
       description: "Your experts stop running a service desk. The question goes to the system; the judgement stays with them.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
       )
     },
     {
       title: "The same answer, whoever asks.",
       description: "Decisions stop depending on who was on shift, how long they have been here, or which spreadsheet they opened.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
       )
     },
     {
       title: "Volume grows. The team does not have to.",
       description: "Twice the contracts, twice the claims, twice the customers — without twice the people.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
       )
     },
     {
       title: "What the company knows, stays.",
       description: "Institutional knowledge outlives the people who built it. Nothing walks out with a resignation letter.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
       )
     }
   ];
@@ -169,14 +190,12 @@ const FeaturesV3 = () => {
 
           {/* ---------- header ---------- */}
           <header className="fx-head">
-            <span className="fx-eyebrow">
-              <span className="fx-dot" />
-              Where enterprise AI stalls
-            </span>
             <h2 className="fx-title">
-              Six blockers.<br />
-              <em>One way through.</em>
+             How AI creates <em>value</em>
             </h2>
+            <p className="fx-subtitle">
+              {headingText}
+            </p>
             <p className="fx-sub">
               Every organisation hits the same six walls. Here is what each one costs today —
               and what it looks like once TurnB is running.
@@ -231,7 +250,7 @@ const FeaturesV3 = () => {
                       {accordionData[activeIndex].todaySteps.map((step, i) => (
                         <li key={i}>
                           <span className="fx-bullet fx-bullet--x" aria-hidden="true">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
                           </span>
                           <span>{step}</span>
                         </li>
@@ -247,7 +266,7 @@ const FeaturesV3 = () => {
                   <div className="fx-shift" aria-hidden="true">
                     <span className="fx-shift-line" />
                     <span className="fx-shift-badge">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
                     </span>
                     <span className="fx-shift-line" />
                   </div>
@@ -261,7 +280,7 @@ const FeaturesV3 = () => {
                       {accordionData[activeIndex].turnbSteps.map((step, i) => (
                         <li key={i}>
                           <span className="fx-bullet fx-bullet--check" aria-hidden="true">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="m5 13 4 4L19 7" /></svg>
                           </span>
                           <span>{step}</span>
                         </li>
@@ -280,29 +299,57 @@ const FeaturesV3 = () => {
           {/* ---------- outcomes ---------- */}
           <div className="fx-outcomes">
             <div className="fx-outcomes-head">
-              <span className="fx-eyebrow">
-                <span className="fx-dot" />
-                The outcomes
-              </span>
-              <h3 className="fx-outcomes-title">What changes once it is running</h3>
+              <div className="fx-outcomes-headings">
+                <span className="fx-eyebrow">
+                  <span className="fx-dot" />
+                  The outcomes
+                </span>
+                <h3 className="fx-outcomes-title">What changes once it is running</h3>
+              </div>
+
+              <div className="fx-outcome-nav">
+                <button
+                  type="button"
+                  className="fx-nav-btn"
+                  aria-label="Previous outcome"
+                  onClick={() => outcomeSliderRef.current?.slickPrev()}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" /></svg>
+                </button>
+                <button
+                  type="button"
+                  className="fx-nav-btn"
+                  aria-label="Next outcome"
+                  onClick={() => outcomeSliderRef.current?.slickNext()}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                </button>
+              </div>
             </div>
 
-            <div className="fx-outcome-grid">
-              {outcomes.map((outcome, index) => (
-                <div key={index} className="fx-outcome">
-                  <span className="fx-outcome-icon">{outcome.icon}</span>
-                  <h4 className="fx-outcome-title">{outcome.title}</h4>
-                  <p className="fx-outcome-desc">{outcome.description}</p>
-                  <span className="fx-outcome-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                </div>
-              ))}
+            <div className="fx-outcome-slider">
+              <Slider ref={outcomeSliderRef} {...outcomeSliderSettings}>
+                {outcomes.map((outcome, index) => (
+                  <div key={index}>
+                    <div className="fx-outcome">
+                      <div className="fx-outcome-top">
+                        <span className="fx-outcome-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                        <span className="fx-outcome-icon">{outcome.icon}</span>
+                      </div>
+                      <h4 className="fx-outcome-title">{outcome.title}</h4>
+                      <p className="fx-outcome-desc">{outcome.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </Slider>
             </div>
           </div>
 
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .fx {
           position: relative;
           padding: 100px 0;
@@ -324,7 +371,7 @@ const FeaturesV3 = () => {
         .fx-orb--b { width: 460px; height: 460px; bottom: -180px; right: -140px; background: rgba(1,131,129,0.10); }
 
         /* ---------- header ---------- */
-        .fx-head { max-width: 660px; margin-bottom: 64px; }
+        .fx-head { max-width: 900px; margin-bottom: 64px; }
         .fx-eyebrow {
           display: inline-flex;
           align-items: center;
@@ -355,6 +402,13 @@ const FeaturesV3 = () => {
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+        .fx-subtitle {
+          margin: 0 0 14px;
+          font-size: 20px;
+          line-height: 1.4;
+          font-weight: 600;
+          color: #0b2422;
         }
         .fx-sub {
           margin: 0;
@@ -567,7 +621,40 @@ const FeaturesV3 = () => {
 
         /* ---------- outcomes ---------- */
         .fx-outcomes { margin-top: 100px; }
-        .fx-outcomes-head { max-width: 620px; margin-bottom: 40px; }
+        .fx-outcomes-head {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: 24px;
+          margin-bottom: 40px;
+        }
+        .fx-outcomes-headings { max-width: 620px; }
+        .fx-outcome-nav {
+          display: flex;
+          gap: 10px;
+          flex-shrink: 0;
+        }
+        .fx-nav-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          border: 1px solid #cfeeec;
+          background: #ffffff;
+          color: #018381;
+          cursor: pointer;
+          padding: 0;
+          transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+        }
+        .fx-nav-btn:hover {
+          background: #018381;
+          border-color: #018381;
+          color: #ffffff;
+          transform: translateY(-2px);
+        }
+        .fx-nav-btn:focus-visible { outline: 2px solid #018381; outline-offset: 2px; }
         .fx-outcomes-title {
           font-size: 34px;
           font-weight: 800;
@@ -576,12 +663,31 @@ const FeaturesV3 = () => {
           margin: 0;
           color: #0b2422;
         }
-        .fx-outcome-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 20px;
+        .fx-outcome-slider { margin: 0 -10px; }
+        /* equal-height cards regardless of copy length */
+        .fx-outcome-slider .slick-track {
+          display: flex;
+          align-items: stretch;
         }
+        .fx-outcome-slider .slick-slide {
+          height: auto;
+          float: none;
+        }
+        .fx-outcome-slider .slick-slide > div {
+          height: 100%;
+          padding: 0 10px;
+        }
+        /* the lift on hover needs room, otherwise slick clips it */
+        .fx-outcome-slider .slick-list { padding: 6px 0 14px; }
+        .fx-outcome-slider .slick-dots { position: static; margin-top: 18px; }
+        .fx-outcome-slider .slick-dots li button:before {
+          font-size: 9px;
+          color: #018381;
+          opacity: 0.25;
+        }
+        .fx-outcome-slider .slick-dots li.slick-active button:before { opacity: 1; }
         .fx-outcome {
+          height: 100%;
           position: relative;
           background: #ffffff;
           border: 1px solid #e4f1f0;
@@ -606,6 +712,13 @@ const FeaturesV3 = () => {
           box-shadow: 0 24px 50px -30px rgba(1,131,129,0.6);
         }
         .fx-outcome:hover::after { transform: scaleX(1); }
+        .fx-outcome-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 16px;
+          margin-bottom: 18px;
+        }
         .fx-outcome-icon {
           display: inline-flex;
           align-items: center;
@@ -614,7 +727,7 @@ const FeaturesV3 = () => {
           border-radius: 13px;
           background: linear-gradient(140deg, #e8f8f7, #d7f0ef);
           color: #018381;
-          margin-bottom: 18px;
+          flex-shrink: 0;
         }
         .fx-outcome-title {
           font-size: 17px;
@@ -631,8 +744,6 @@ const FeaturesV3 = () => {
           color: #6b807e;
         }
         .fx-outcome-index {
-          position: absolute;
-          right: 24px; top: 28px;
           font-size: 32px;
           font-weight: 800;
           letter-spacing: -0.02em;
@@ -667,13 +778,13 @@ const FeaturesV3 = () => {
             color: #ffffff;
           }
           .fx-rail-item.is-active .fx-rail-num { color: rgba(255,255,255,0.75); }
-          .fx-outcome-grid { grid-template-columns: repeat(2, 1fr); }
           .fx-title { font-size: 38px; }
         }
         @media (max-width: 767px) {
           .fx { padding: 64px 0; }
           .fx-head { margin-bottom: 40px; }
           .fx-title { font-size: 30px; }
+          .fx-subtitle { font-size: 18px; }
           .fx-sub { font-size: 15px; }
           .fx-block { padding: 26px 22px; border-radius: 20px; min-height: 0; }
           .fx-block-title { font-size: 20px; }
@@ -685,7 +796,10 @@ const FeaturesV3 = () => {
           .fx-shift-badge { transform: rotate(90deg); }
           .fx-outcomes { margin-top: 64px; }
           .fx-outcomes-title { font-size: 26px; }
-          .fx-outcome-grid { grid-template-columns: 1fr; }
+          .fx-outcomes-head { align-items: flex-start; flex-direction: column; gap: 20px; }
+          .fx-nav-btn { width: 40px; height: 40px; }
+          .fx-outcome-slider { margin: 0 -8px; }
+          .fx-outcome-slider .slick-slide > div { padding: 0 8px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .fx-block { animation: none; }

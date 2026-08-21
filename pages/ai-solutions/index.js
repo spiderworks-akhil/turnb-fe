@@ -21,13 +21,13 @@ export default function Career({ general, data }) {
 
 
       <AiBanner data={data} />
-      <AiAnalytics data={data} />
-       <FeaturesV2 data={data} />
-       
+      {/* <AiAnalytics data={data} /> */}
+      <FeaturesV2 data={data} />
+
       <AiStages data={data} />
       <div >
         {/* <AiFeatures data={data} /> */}
-       <SolutionsFold />
+        <SolutionsFold />
 
 
         <AiIn data={data} />
@@ -38,9 +38,7 @@ export default function Career({ general, data }) {
       <AiBenefits data={data} />
       {
         data?.other_sections?.case_studies?.length ? <AiCase data={data} /> : null
-
       }
-
     </Layout>
   );
 }
