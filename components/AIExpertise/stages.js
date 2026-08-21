@@ -6,7 +6,14 @@ const AiStages = ({data}) => {
   return (
      <section className="ai-stage-sec">
       <div className="container">
-        <h4>{data?.content?.title_3}</h4>
+        <div className="ai-stage-head">
+          <span className="ai-stage-eyebrow">{data?.content?.title_3 || "How We Bring AI to Life"}</span>
+          <h3 className="ai-stage-title">Your AI runs on Consult D5&trade;</h3>
+          <p className="ai-stage-desc">
+            Five stages, built over years of delivery and applied to every engagement we take
+            on. Here is what each one produces.
+          </p>
+        </div>
 
         <div className="row">
           {/* Left side: Nav Pills */}
@@ -73,6 +80,48 @@ const AiStages = ({data}) => {
         <hr className='m-0' style={{borderColor: '#c8c8c8ff'}} />
 
       </div>
+
+      <style dangerouslySetInnerHTML={{ __html: `
+        .ai-stage-sec .ai-stage-head {
+          max-width: 900px;
+          margin-bottom: 40px;
+        }
+        .ai-stage-sec .ai-stage-eyebrow {
+          display: inline-block;
+          color: #01847E;
+          font-family: Montserrat;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 20px;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          background: rgba(1,132,126,0.08);
+          border: 1px solid rgba(1,132,126,0.16);
+          border-radius: 999px;
+          padding: 7px 16px;
+        }
+        .ai-stage-sec .ai-stage-title {
+          color: #212121;
+          font-family: Montserrat;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 1.15;
+          margin: 14px 0 0;
+        }
+        .ai-stage-sec .ai-stage-desc {
+          margin: 16px 0 0;
+          color: #5b7371;
+          font-family: Montserrat;
+          font-size: 16.5px;
+          font-weight: 500;
+          line-height: 1.7;
+        }
+        @media (max-width: 767px) {
+          .ai-stage-sec .ai-stage-head { margin-bottom: 30px; }
+          .ai-stage-sec .ai-stage-title { font-size: 30px; }
+          .ai-stage-sec .ai-stage-desc { font-size: 15px; }
+        }
+      ` }} />
     </section>
   )
 }

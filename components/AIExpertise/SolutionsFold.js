@@ -94,10 +94,100 @@ const categoriesData = [
   { title: "Data to Drive", cards: solutionsData.slice(6, 9) }
 ];
 
+
+const CARD_GAP = 32;      // matches the flex gap between stacked cards
+const STICKY_TOP = 150;   // first card's sticky offset
+const STICKY_STEP = 20;   // each subsequent card sits this much lower
+
 const SolutionsFold = () => {
+  const sectionRef = React.useRef(null);
+
+  /* Scroll dynamics for the stacked cards:
+     each card reports how far the next one has covered it as `--cover` (0 → 1),
+     which the CSS below turns into a scale-down + dim, so the deck reads as a
+     deliberate stack instead of cards clipping each other. */
+  React.useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const groups = Array.from(root.querySelectorAll('.category-cards-right'));
+    let frame = null;
+
+    const measure = () => {
+      frame = null;
+      groups.forEach((group) => {
+        const cards = Array.from(group.children);
+        cards.forEach((card, i) => {
+          const next = cards[i + 1];
+          if (!next) return;
+          const gap = next.getBoundingClientRect().top - card.getBoundingClientRect().top;
+          const travel = card.offsetHeight + CARD_GAP - STICKY_STEP;
+          const cover = travel > 0
+            ? Math.min(1, Math.max(0, 1 - (gap - STICKY_STEP) / travel))
+            : 0;
+          card.style.setProperty('--cover', cover.toFixed(3));
+        });
+      });
+    };
+
+    const onScroll = () => {
+      if (frame === null) frame = window.requestAnimationFrame(measure);
+    };
+
+    const cards = Array.from(root.querySelectorAll('.solution-card'));
+
+    /* Only hide-then-reveal once JS is running, so the cards are never
+       stuck invisible if the script never executes. */
+    if (typeof IntersectionObserver === 'undefined') {
+      cards.forEach((c) => c.classList.add('is-in'));
+    }
+    root.classList.add('sf-ready');
+
+    /* Reveal each card as it enters the viewport. */
+    const observer = typeof IntersectionObserver === 'undefined' ? null : new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+    if (observer) cards.forEach((c) => observer.observe(c));
+
+    measure();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      if (frame !== null) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="solutions-fold" style={{ padding: '80px 0', background: 'linear-gradient(135deg, #334155 0%, #020617 100%)', fontFamily: "'Montserrat', sans-serif" }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
+    <section ref={sectionRef} className="solutions-fold" style={{ position: 'relative', padding: '80px 0', fontFamily: "'Montserrat', sans-serif" }}>
+      {/* background layer — kept from the previous design, lightened a step.
+          Isolated in its own absolutely-positioned box so `overflow: hidden`
+          here does not break the sticky cards below. */}
+      <div className="sf-bg" aria-hidden="true">
+        <span className="sf-grid" />
+        <span className="sf-scan" />
+        {/* single cells lighting up on the grid, staggered so they never pulse together */}
+        <span className="sf-cell sf-cell--1" />
+        <span className="sf-cell sf-cell--2" />
+        <span className="sf-cell sf-cell--3" />
+        <span className="sf-cell sf-cell--4" />
+        <span className="sf-cell sf-cell--5" />
+        <span className="sf-glow sf-glow--a" />
+        <span className="sf-glow sf-glow--b" />
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto', padding: '0 15px' }}>
         <div className="solutions-layout" style={{ 
           display: 'flex', 
           flexDirection: 'column',
@@ -147,32 +237,31 @@ const SolutionsFold = () => {
                   flex: '2 1 600px',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '32px'
+                  gap: `${CARD_GAP}px`
                 }}>
                   {cat.cards.map((card, idx) => {
                     const isScale = cat.title === "AI to Scale";
                     const bgColors = isScale 
                       ? ['#018381', '#017674', '#016867'] 
                       : ['#ffffff', '#f8fafc', '#f1f5f9'];
-                    const titleColor = isScale ? '#ffffff' : '#1f2937';
                     const subColor = isScale ? '#ccfbf1' : '#018381';
                     const bodyColor = isScale ? '#f3f4f6' : '#4b5563';
                     
                     return (
-                      <div key={idx} className="solution-card" style={{ 
+                      <div key={idx} className={`solution-card${isScale ? ' solution-card--dark' : ''}`} style={{ 
                         position: 'sticky',
-                        top: `${150 + idx * 20}px`,
+                        top: `${STICKY_TOP + idx * STICKY_STEP}px`,
                         zIndex: idx + 1,
                         background: bgColors[idx % 3], 
                         borderRadius: '16px', 
                         padding: '40px', 
                         boxShadow: isScale ? '0 -8px 30px rgba(1, 131, 129, 0.15)' : '0 -8px 30px rgba(0,0,0,0.06)', 
                         border: isScale ? '1px solid #017674' : '1px solid #e5e7eb',
-                        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
                         display: 'flex',
                         flexDirection: 'column'
                       }}>
-                        <span style={{ color: subColor, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '12px', display: 'block', marginBottom: '12px' }}>
+                        <span className="solution-card__eyebrow" style={{ color: subColor, fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                          <i className="solution-card__pulse" aria-hidden="true" />
                           {card.ctaText}
                         </span>
                         <h3 className={isScale ? "card-title-white" : "card-title-dark"} style={{ fontSize: '24px', fontWeight: '700', marginBottom: card.subtitle ? '12px' : '24px' }}>
@@ -197,17 +286,232 @@ const SolutionsFold = () => {
           </div>
         </div>
       </div>
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
+        .solutions-fold {
+          background: #0a343a;
+          color: #e7f4f3;
+          isolation: isolate;
+        }
+        .sf-bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        /* the mask lives on the static wrapper, so the vignette stays put
+           while the grid layer inside it slides */
+        .sf-grid {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+          -webkit-mask-image: radial-gradient(circle at 50% 18%, #000 0%, transparent 72%);
+        }
+        .sf-grid::before {
+          content: '';
+          position: absolute;
+          /* oversized by one cell in each direction so the slide never shows an edge */
+          top: -64px; left: -64px; right: -64px; bottom: -64px;
+          background-image:
+            linear-gradient(rgba(255,255,255,0.032) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.032) 1px, transparent 1px);
+          background-size: 64px 64px;
+          /* one full cell per cycle, so the drift loops seamlessly */
+          animation: sf-grid-drift 12s linear infinite;
+          will-change: transform;
+        }
+        /* a slow teal wash travelling over the grid, so the cells read as "live" */
+        .sf-bg::after {
+          content: '';
+          position: absolute;
+          top: -10%;
+          left: -10%;
+          width: 55%;
+          height: 55%;
+          background: radial-gradient(closest-side, rgba(45,212,191,0.22), transparent 70%);
+          filter: blur(40px);
+          animation: sf-grid-scan 18s ease-in-out infinite;
+        }
+        @keyframes sf-grid-drift {
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(64px, 64px, 0); }
+        }
+        @keyframes sf-grid-scan {
+          0%   { transform: translate3d(-10%, 0, 0); opacity: 0.35; }
+          50%  { transform: translate3d(90%, 28%, 0); opacity: 0.9; }
+          100% { transform: translate3d(-10%, 0, 0); opacity: 0.35; }
+        }
+        .sf-glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(120px);
+        }
+        .sf-glow--a {
+          width: 620px; height: 620px; top: -260px; left: -180px;
+          background: rgba(1,131,129,0.34);
+          animation: sf-float-a 16s ease-in-out infinite;
+        }
+        .sf-glow--b {
+          width: 520px; height: 520px; bottom: -240px; right: -160px;
+          background: rgba(45,212,191,0.16);
+          animation: sf-float-b 20s ease-in-out infinite;
+        }
+        @keyframes sf-float-a {
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+          50%      { transform: translate3d(120px, 80px, 0) scale(1.15); opacity: 0.75; }
+        }
+        @keyframes sf-float-b {
+          0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.85; }
+          50%      { transform: translate3d(-140px, -70px, 0) scale(1.2); opacity: 1; }
+        }
+
+        /* a bright line sweeping down the section */
+        .sf-scan {
+          position: absolute;
+          left: 0; right: 0;
+          top: -30%;
+          height: 30%;
+          background: linear-gradient(180deg, transparent, rgba(94,234,212,0.10), transparent);
+          animation: sf-scan-down 9s linear infinite;
+        }
+        @keyframes sf-scan-down {
+          from { transform: translate3d(0, 0, 0); }
+          to   { transform: translate3d(0, 460%, 0); }
+        }
+
+        /* grid cells flickering on */
+        .sf-cell {
+          position: absolute;
+          width: 64px;
+          height: 64px;
+          background: linear-gradient(140deg, rgba(94,234,212,0.20), rgba(1,131,129,0.05));
+          opacity: 0;
+          animation: sf-cell-pulse 7s ease-in-out infinite;
+        }
+        .sf-cell--1 { top: 128px;  left: 192px;  animation-delay: 0s; }
+        .sf-cell--2 { top: 320px;  left: 448px;  animation-delay: 1.4s; }
+        .sf-cell--3 { top: 192px;  right: 256px; animation-delay: 2.8s; }
+        .sf-cell--4 { bottom: 256px; left: 320px; animation-delay: 4.2s; }
+        .sf-cell--5 { bottom: 192px; right: 384px; animation-delay: 5.6s; }
+        @keyframes sf-cell-pulse {
+          0%, 70%, 100% { opacity: 0; }
+          18%, 40%      { opacity: 1; }
+        }
+
+        /* ---------- card dynamics ---------- */
+        .solution-card {
+          --cover: 0;    /* how far the next card has covered this one, 0 → 1 */
+          --lift: 0px;   /* hover lift */
+          --enter: 0px;  /* entrance offset, set once JS takes over */
+          overflow: hidden;
+          transform:
+            translateY(calc(var(--enter) + var(--lift) + var(--cover) * -10px))
+            scale(calc(1 - var(--cover) * 0.055));
+          transform-origin: top center;
+          filter: brightness(calc(1 - var(--cover) * 0.14));
+          transition:
+            transform .55s cubic-bezier(.22,1,.36,1),
+            opacity .55s ease,
+            filter .25s linear,
+            box-shadow .35s ease,
+            border-color .35s ease;
+          will-change: transform;
+        }
+        .sf-ready .solution-card { opacity: 0; --enter: 34px; }
+        .sf-ready .solution-card.is-in { opacity: 1; --enter: 0px; }
+
+        /* accent rail, drawn on hover */
+        .solution-card::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, #5fd4cf, #018381);
+          transform: scaleY(0);
+          transform-origin: top;
+          transition: transform .45s cubic-bezier(.22,1,.36,1);
+        }
+        .solution-card--dark::before { background: linear-gradient(180deg, #ffffff, #ccfbf1); }
+        .solution-card:hover::before { transform: scaleY(1); }
+
+        /* light sweep across the surface on hover */
+        .solution-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          background: linear-gradient(115deg, transparent 34%, rgba(45,212,191,0.16) 48%, transparent 62%);
+          transform: translateX(-130%);
+          opacity: 0;
+        }
+        .solution-card:hover::after {
+          transform: translateX(130%);
+          opacity: 1;
+          transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .25s ease;
+        }
+
+        .solution-card:hover {
+          --lift: -6px;
+          border-color: rgba(1,131,129,0.45) !important;
+          box-shadow: 0 24px 50px -24px rgba(1, 131, 129, 0.55) !important;
+        }
+        .solution-card--dark:hover {
+          border-color: rgba(204,251,241,0.55) !important;
+          box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* live dot on the pillar label */
+        .solution-card__pulse {
+          width: 7px; height: 7px;
+          border-radius: 50%;
+          background: currentColor;
+          flex: 0 0 auto;
+          box-shadow: 0 0 0 0 currentColor;
+          animation: sf-pulse 2.6s ease-out infinite;
+        }
+        @keyframes sf-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(1,131,129,0.55); }
+          70%  { box-shadow: 0 0 0 9px rgba(1,131,129,0); }
+          100% { box-shadow: 0 0 0 0 rgba(1,131,129,0); }
+        }
+
+        /* bullets stagger in behind the card */
+        .solution-card li {
+          transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
+        }
+        .sf-ready .solution-card li { opacity: 0; transform: translateX(-10px); }
+        .sf-ready .solution-card.is-in li { opacity: 1; transform: none; }
+        .solution-card.is-in li:nth-child(1) { transition-delay: .18s; }
+        .solution-card.is-in li:nth-child(2) { transition-delay: .28s; }
+        .solution-card.is-in li:nth-child(3) { transition-delay: .38s; }
+        .solution-card.is-in li:nth-child(4) { transition-delay: .48s; }
+        .solution-card li::marker { color: #018381; }
+        .solution-card--dark li::marker { color: #ccfbf1; }
+
         @media (max-width: 991px) {
           .category-title-left {
             position: static !important;
             padding-bottom: 20px !important;
           }
         }
-        .solution-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 50px rgba(1, 131, 129, 0.1) !important;
+        @media (prefers-reduced-motion: reduce) {
+          .sf-grid::before,
+          .sf-bg::after,
+          .sf-scan,
+          .sf-cell,
+          .sf-glow,
+          .solution-card,
+          .solution-card li,
+          .solution-card::before,
+          .solution-card::after {
+            transition: none !important;
+            animation: none !important;
+          }
+          .solution-card { opacity: 1; --enter: 0px; transform: none; filter: none; }
+          .solution-card li { opacity: 1; transform: none; }
         }
+
         .card-title-white {
           color: #ffffff !important;
         }
@@ -217,7 +521,7 @@ const SolutionsFold = () => {
         .custom-teal-title {
           color: #00b8aeff !important;
         }
-      `}</style>
+      ` }} />
     </section>
   );
 };
