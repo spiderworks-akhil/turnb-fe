@@ -300,11 +300,7 @@ const FeaturesV3 = ({ data }) => {
           <div className="fx-outcomes">
             <div className="fx-outcomes-head">
               <div className="fx-outcomes-headings">
-                <span className="fx-eyebrow">
-                  <span className="fx-dot" />
-                  The outcomes
-                </span>
-                {/* <h3 className="fx-outcomes-title">What changes once it is running</h3> */}
+                <h3 className="fx-outcomes-title">The outcomes</h3>
               </div>
 
               <div className="fx-outcome-nav">
