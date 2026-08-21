@@ -304,7 +304,7 @@ const FeaturesV3 = ({ data }) => {
                   <span className="fx-dot" />
                   The outcomes
                 </span>
-                <h3 className="fx-outcomes-title">What changes once it is running</h3>
+                {/* <h3 className="fx-outcomes-title">What changes once it is running</h3> */}
               </div>
 
               <div className="fx-outcome-nav">

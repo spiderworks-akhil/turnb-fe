@@ -8,7 +8,7 @@ const AiStages = ({data}) => {
       <div className="container">
         <div className="ai-stage-head">
           <span className="ai-stage-eyebrow">{data?.content?.title_3 || "How We Bring AI to Life"}</span>
-          <h3 className="ai-stage-title">Your AI runs on Consult D5&trade;.</h3>
+          <h3 className="ai-stage-title">Your AI runs on Consult D5&trade;</h3>
           <p className="ai-stage-desc">
             Five stages, built over years of delivery and applied to every engagement we take
             on. Here is what each one produces.
