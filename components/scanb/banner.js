@@ -105,7 +105,7 @@ const ScanbBanner = ({ data }) => {
           className='d-lg-block d-md-block d-none desktop-banB'
           style={{
             //  background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
-            background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('/img/bgood.png') no-repeat center`,
+            background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('/img/bgoodv2.png') no-repeat center`,
             backgroundSize: '100%',
             position: 'relative',
             overflow: 'hidden'

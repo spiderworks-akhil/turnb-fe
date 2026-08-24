@@ -27,8 +27,8 @@ const ScanBGrowth = ({ data }) => {
               data-aos-duration="1500"
             >
               <Image
-                width={1536}
-                height={1024}
+                width={800}
+                height={700}
                 // src={data?.content?.scanb_section_4_media_id_2?.file_path}
                 src='/img/info-gv2.png'
                 alt={data?.content?.scanb_section_4_media_id_2?.alt_text}
