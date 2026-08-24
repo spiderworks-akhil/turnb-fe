@@ -139,7 +139,7 @@ const FeaturesV3 = ({ data }) => {
       title: "Capacity released.",
       description: "Work that consumed a morning takes minutes. What your people do with the morning is the whole point.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9.5" cy="6.5" r="3.5" /><path d="M2.5 21v-1.5A6 6 0 0 1 8.5 13.5h1.8" /><circle cx="17" cy="17" r="4.6" /><path d="m15.1 17 1.4 1.4 2.5-2.6" /></svg>
       )
     },
     {
@@ -167,7 +167,7 @@ const FeaturesV3 = ({ data }) => {
       title: "What the company knows, stays.",
       description: "Institutional knowledge outlives the people who built it. Nothing walks out with a resignation letter.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" /><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M10.2 11.3V9.9a1.8 1.8 0 0 1 3.6 0v1.4" /><rect x="9.1" y="11.3" width="5.8" height="4.4" rx="1.1" /></svg>
       )
     }
   ];
@@ -233,10 +233,15 @@ const FeaturesV3 = ({ data }) => {
 
             <div className="fx-stream" ref={panelRef}>
               <article key={activeIndex} className="fx-block">
-                <span className="fx-ghost" aria-hidden="true">{String(activeIndex + 1).padStart(2, '0')}</span>
-
                 <div className="fx-block-head">
-                  <span className="fx-tag">Blocker {String(activeIndex + 1).padStart(2, '0')}</span>
+                  <div className="fx-block-meta">
+                    <span className="fx-tag">Blocker</span>
+                    <span className="fx-count" aria-hidden="true">
+                      <span className="fx-count-now">{String(activeIndex + 1).padStart(2, '0')}</span>
+                      <span className="fx-count-sep" />
+                      <span className="fx-count-all">{String(accordionData.length).padStart(2, '0')}</span>
+                    </span>
+                  </div>
                   <h3 className="fx-block-title">{accordionData[activeIndex].title}</h3>
                 </div>
 
@@ -490,17 +495,14 @@ const FeaturesV3 = ({ data }) => {
           from { opacity: 0; transform: translateY(16px); }
           to { opacity: 1; transform: none; }
         }
-        .fx-ghost {
-          position: absolute;
-          top: -18px; right: 14px;
-          font-size: 108px;
-          font-weight: 800;
-          line-height: 1;
-          letter-spacing: -0.04em;
-          color: rgba(1,131,129,0.05);
-          pointer-events: none;
-        }
         .fx-block-head { position: relative; margin-bottom: 28px; }
+        .fx-block-meta {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          margin-bottom: 12px;
+        }
         .fx-tag {
           display: inline-block;
           font-size: 10px;
@@ -508,8 +510,24 @@ const FeaturesV3 = ({ data }) => {
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: #018381;
-          margin-bottom: 10px;
         }
+        .fx-count {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          line-height: 1;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          pointer-events: none;
+        }
+        .fx-count-now { font-size: 26px; color: #018381; }
+        .fx-count-sep {
+          width: 14px;
+          height: 1px;
+          background: rgba(1,131,129,0.28);
+          transform: rotate(-60deg);
+        }
+        .fx-count-all { font-size: 14px; font-weight: 700; color: rgba(1,131,129,0.42); }
         .fx-block-title {
           margin: 0;
           font-size: 25px;
@@ -784,7 +802,8 @@ const FeaturesV3 = ({ data }) => {
           .fx-sub { font-size: 15px; }
           .fx-block { padding: 26px 22px; border-radius: 20px; min-height: 0; }
           .fx-block-title { font-size: 20px; }
-          .fx-ghost { font-size: 74px; top: -10px; right: 8px; }
+          .fx-count-now { font-size: 22px; }
+          .fx-count-all { font-size: 13px; }
           .fx-tracks { grid-template-columns: 1fr; gap: 0; }
           .fx-shift { flex-direction: row; padding: 12px 0; }
           .fx-shift-line { flex: 1; width: auto; height: 1px; background: linear-gradient(90deg, rgba(1,131,129,0), rgba(1,131,129,0.22)); }
