@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
+import {HTMLParser} from '@/utils/HTMLParser'
 
 const ScanbBanner = ({ data }) => {
   const {
@@ -131,7 +132,7 @@ const ScanbBanner = ({ data }) => {
               <div className="col-lg-7 col-md-7 text-start d-flex flex-column justify-content-center" style={{ height: '100%' }}>
                 <div className="animate-slide-right" style={{ marginBottom: '20px' }}>
                   <h1 style={{ color: '#fff', fontSize: '50px', fontWeight: 'bold', margin: 0, letterSpacing: '1px', lineHeight: '1.1' }}>
-                    {data?.content?.scanb_banner_heading_1}
+                    {HTMLParser(data?.content?.scanb_banner_heading_1)}
                   </h1>
                 </div>
 
@@ -140,7 +141,7 @@ const ScanbBanner = ({ data }) => {
                   maxWidth: '800px'
                 }}>
                   <p style={{ color: '#fff', fontSize: '16px', marginBottom: '8px', fontWeight: '200', lineHeight: '1.4' }}>
-                    {data?.content?.scanb_banner_short_description}
+                    {HTMLParser(data?.content?.scanb_banner_short_description)}
 
                   </p>
                 </div>
