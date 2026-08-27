@@ -14,7 +14,7 @@ const ScanbAdvance = ({ data }) => {
                 {/* <h2 dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_title }} className="text-left" /> */}
                 <div className="image-subheading row align-items-center justify-content-center w-100 m-0">
                   <div className="col-12 col-md-7 p-0">
-                    <Image width={'805'} height={'489'} src="/img/scanb/scanb-advance.png" alt="Advanced Retail BI for data-driven decisions that win" style={{ paddingTop: '15px', width: '100%', height: 'auto' }} />
+                    <Image width={'805'} height={'489'} src="/img/scanb/scanb-2.png" alt="Advanced Retail BI for data-driven decisions that win" style={{ paddingTop: '15px', width: '100%', height: 'auto' }} />
                   </div>
                   <div className="col-12 col-md-5 p-4 text-start">
                     <h6 className="text-white mb-3" dangerouslySetInnerHTML={{ __html: data?.content?.scanb_section_3_sub_title }} style={{ position: 'static', width: 'auto', textAlign: 'left' }} />
