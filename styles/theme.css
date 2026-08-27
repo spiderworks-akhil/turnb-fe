@@ -840,7 +840,7 @@ div#exampleModal {
   /* 155% */
   transition: all 0.3s;
   border-bottom: 1px solid #e2e2e2;
-  min-height: 25%;
+  min-height: 20%;
 }
 
 .ai-stage-sec .nav .nav-link:last-child {

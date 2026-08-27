@@ -3,6 +3,39 @@ import { ArrowRightIcon } from '../common/Button'
 import StageImg from '../../public/img/ai/stage.png'
 
 const AiStages = ({data}) => {
+  const staticStages = [
+    {
+      title: "Decipher",
+      subheading: "Find the opportunity",
+      description: "We learn how your business actually runs before anyone mentions a model. Every AI candidate is scored on value, data readiness and risk — including the ones that do not survive scoring. What you get - A scored shortlist of where AI would pay in your operation, with the weak candidates named as plainly as the strong ones.",
+      image: "/img/ai/case.png"
+    },
+    {
+      title: "Define",
+      subheading: "Agree what good looks like",
+      description: "One use case, scoped tightly. We write down what success means before anything is built, and name every data source it depends on. What you get - A scoped use case with signed success criteria, named data sources, and a clear line around what the agent will not do.",
+      image: "/img/ai/cta.png"
+    },
+    {
+      title: "Design",
+      subheading: "Design the solution",
+      description: "Architecture, data flow and controls, settled before a line of code. This is where we mark every point a person has to sign off, and where the reasoning will be visible. What you get - Solution architecture, data flow, and a written control map marking each decision a human owns.",
+      image: "/img/ai/feat.png"
+    },
+    {
+      title: "Do",
+      subheading: "Build and launch",
+      description: "Built inside your tenant, on your stack, against your real data. Not a pilot that cannot scale. What you get - A working agent in your environment, tested against the criteria you signed at Define.",
+      image: "/img/ai/stage.png"
+    },
+    {
+      title: "Deliver",
+      subheading: "Drive adoption",
+      description: "Adoption is a stage, not a hope. Your team is trained, the documentation is written, and the system can run without us in the room. What you get - A trained team, full documentation, and the option to operate it yourselves.",
+      image: "/img/ai/case.png"
+    }
+  ];
+
   return (
      <section className="ai-stage-sec">
       <div className="container">
@@ -24,7 +57,7 @@ const AiStages = ({data}) => {
               role="tablist"
               aria-orientation="vertical"
             >
-              {data?.content?.listing_id_analytics?.map((tab, index) => {
+              {staticStages.map((tab, index) => {
                 const tabId = `tab-${index + 1}`;
                 return (
                   <button
@@ -48,7 +81,7 @@ const AiStages = ({data}) => {
           {/* Right side: Tab Content */}
           <div className="col-md-8">
             <div className="tab-content h-[100%]" id="v-pills-tabContent">
-              {data?.content?.listing_id_analytics?.map((tab, index) => {
+              {staticStages.map((tab, index) => {
                 const tabId = `tab-${index + 1}`;
                 return (
                   <div
@@ -61,14 +94,15 @@ const AiStages = ({data}) => {
                   >
                     <div className="tab-data">
                       {
-                        tab?.media_id?.file_path &&
+                        tab?.image &&
 
-                        <Image width={750} height={350} src={tab?.media_id?.file_path} alt="Stage" />
+                        <Image width={750} height={350} src={tab.image} alt="Stage" />
 
                       }
                       
                       <h4>{tab?.title}</h4>
-                      <p>{tab?.short_description}</p>
+                      {tab?.subheading && <p style={{ fontStyle: 'italic', marginBottom: '8px', color: '#5b7371' }}>{tab.subheading}</p>}
+                      <p>{tab?.description}</p>
                       
                     </div>
                   </div>
