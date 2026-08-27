@@ -52,7 +52,7 @@ const AiStages = ({data}) => {
           {/* Left side: Nav Pills */}
           <div className="col-md-4">
             <div
-              className="nav flex-column nav-pills flex flex-col"
+              className="nav flex-column nav-pills flex flex-col flex-nowrap"
               id="v-pills-tab"
               role="tablist"
               aria-orientation="vertical"
@@ -70,8 +70,17 @@ const AiStages = ({data}) => {
                     role="tab"
                     aria-controls={tabId}
                     aria-selected={index === 0 ? "true" : "false"}
+                    style={{ textAlign: 'left' }}
                   >
-                    {tab?.title}
+                    <span>{tab?.title}</span>
+                    {tab?.subheading && (
+                      <>
+                        <br />
+                        <span style={{ fontStyle: 'italic', fontSize: '14px', opacity: 0.8 }}>
+                          {tab.subheading}
+                        </span>
+                      </>
+                    )}
                   </button>
                 );
               })}
@@ -101,7 +110,6 @@ const AiStages = ({data}) => {
                       }
                       
                       <h4>{tab?.title}</h4>
-                      {tab?.subheading && <p style={{ fontStyle: 'italic', marginBottom: '8px', color: '#5b7371' }}>{tab.subheading}</p>}
                       <p>{tab?.description}</p>
                       
                     </div>
