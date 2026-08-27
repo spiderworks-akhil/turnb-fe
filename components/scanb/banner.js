@@ -131,7 +131,7 @@ const ScanbBanner = ({ data }) => {
             <div className="row align-items-center" style={{ height: '100%' }}>
               <div className="col-lg-7 col-md-7 text-start d-flex flex-column justify-content-center" style={{ height: '100%' }}>
                 <div className="animate-slide-right" style={{ marginBottom: '20px' }}>
-                  <h1 style={{ color: '#fff', fontSize: '50px', fontWeight: 'bold', margin: 0, letterSpacing: '1px', lineHeight: '1.1' }}>
+                  <h1 style={{ color: '#fff', fontSize: '40px', fontWeight: 'bold', margin: 0, letterSpacing: '1px', lineHeight: '1.1' }}>
                     {HTMLParser(data?.content?.scanb_banner_heading_1)}
                   </h1>
                 </div>
