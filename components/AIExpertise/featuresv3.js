@@ -279,7 +279,7 @@ const FeaturesV3 = ({ data }) => {
                   {/* with turnb */}
                   <div className="fx-track fx-track--turnb">
                     <div className="fx-track-head">
-                      <span className="fx-chip fx-chip--turnb">With TurnB</span>
+                      <span className="fx-chip fx-chip--turnb">WITH TurnB</span>
                     </div>
                     <ul className="fx-steps">
                       {accordionData[activeIndex].turnbSteps.map((step, i) => (
@@ -561,7 +561,7 @@ const FeaturesV3 = ({ data }) => {
           border-radius: 999px;
         }
         .fx-chip--today { background: #eef0f3; color: #6b7280; }
-        .fx-chip--turnb { background: #018381; color: #ffffff; box-shadow: 0 6px 16px -6px rgba(1,131,129,0.7); }
+        .fx-chip--turnb { background: #018381; color: #ffffff; box-shadow: 0 6px 16px -6px rgba(1,131,129,0.7); text-transform: none; }
 
         .fx-steps { list-style: none; margin: 0 0 20px; padding: 0; flex: 1; }
         .fx-steps li {

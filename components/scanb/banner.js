@@ -206,14 +206,14 @@ const ScanbBanner = ({ data }) => {
         {/* Mobile Banner */}
 
         <div
-          className='d-lg-none d-md-none d-block img-fluid  mob-banner'
-         style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
+          className='d-lg-none d-md-none d-block mob-banner position-relative'
         >
           <Image
-              // src={data?.content?.scanb_mobile_banner_media_id?.file_path}
+               src={data?.content?.scanb_mobile_banner_media_id?.file_path}
             // src='/img/scanb-banner-mob.jpeg'
             width={768}
             height={800}
+            className='img-fluid w-100'
             alt=""
           />
           <button onClick={handleVideoModalToggle} id='watch-video'>
@@ -282,7 +282,6 @@ const ScanbBanner = ({ data }) => {
         <button
           onClick={handleVideoModalToggle}
           id='watch-video1'
-          fdprocessedid='dbo1sj'
         >
           {data?.content?.scanb_button_text_1}
         </button>
@@ -292,7 +291,7 @@ const ScanbBanner = ({ data }) => {
           data-bs-target='#exampleModal2'
           style={{ textDecoration: 'none' }}
         >
-          <button id='brouchure1' fdprocessedid='cn92ps'>
+          <button id='brouchure1'>
             {data?.content?.scanb_button_text_2}
           </button>
         </a>
