@@ -105,8 +105,8 @@ const ScanbBanner = ({ data }) => {
         <div
           className='d-lg-block d-md-block d-none desktop-banB'
           style={{
-            //  background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
-            background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('/img/bgoodv21.png') no-repeat center`,
+            background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
+            // background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('/img/bgoodv21.png') no-repeat center`,
             backgroundSize: '100%',
             position: 'relative',
             overflow: 'hidden'
@@ -207,11 +207,11 @@ const ScanbBanner = ({ data }) => {
 
         <div
           className='d-lg-none d-md-none d-block img-fluid  mob-banner'
-        // style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
+         style={{ background: `url(${data?.content?.scanb_mobile_banner_media_id?.file_path}) no-repeat`, backgroundSize: 'cover', height: '488px' }}
         >
           <Image
               // src={data?.content?.scanb_mobile_banner_media_id?.file_path}
-            src='/img/scanb-banner-mob.jpeg'
+            // src='/img/scanb-banner-mob.jpeg'
             width={768}
             height={800}
             alt=""

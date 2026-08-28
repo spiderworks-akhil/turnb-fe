@@ -8,31 +8,31 @@ const AiStages = ({data}) => {
       title: "Decipher",
       subheading: "Find the opportunity",
       description: "We learn how your business actually runs before anyone mentions a model. Every AI candidate is scored on value, data readiness and risk — including the ones that do not survive scoring. What you get - A scored shortlist of where AI would pay in your operation, with the weak candidates named as plainly as the strong ones.",
-      image: "/img/ai/case.png"
+      image: "/img/stage/decipher.png"
     },
     {
       title: "Define",
       subheading: "Agree what good looks like",
       description: "One use case, scoped tightly. We write down what success means before anything is built, and name every data source it depends on. What you get - A scoped use case with signed success criteria, named data sources, and a clear line around what the agent will not do.",
-      image: "/img/ai/cta.png"
+      image: "/img/stage/define.png"
     },
     {
       title: "Design",
       subheading: "Design the solution",
       description: "Architecture, data flow and controls, settled before a line of code. This is where we mark every point a person has to sign off, and where the reasoning will be visible. What you get - Solution architecture, data flow, and a written control map marking each decision a human owns.",
-      image: "/img/ai/feat.png"
+      image: "/img/stage/design.png"
     },
     {
       title: "Do",
       subheading: "Build and launch",
       description: "Built inside your tenant, on your stack, against your real data. Not a pilot that cannot scale. What you get - A working agent in your environment, tested against the criteria you signed at Define.",
-      image: "/img/ai/stage.png"
+      image: "/img/stage/do.png"
     },
     {
       title: "Deliver",
       subheading: "Drive adoption",
       description: "Adoption is a stage, not a hope. Your team is trained, the documentation is written, and the system can run without us in the room. What you get - A trained team, full documentation, and the option to operate it yourselves.",
-      image: "/img/ai/case.png"
+      image: "/img/stage/deliver.png"
     }
   ];
 
@@ -105,7 +105,7 @@ const AiStages = ({data}) => {
                       {
                         tab?.image &&
 
-                        <Image width={750} height={350} src={tab.image} alt="Stage" />
+                        <Image width={750} height={350} src={tab.image} alt="Stage"  />
 
                       }
                       

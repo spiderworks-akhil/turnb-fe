@@ -50,7 +50,7 @@ const solutionsData = [
     ctaText: "AI to Scale"
   },
   {
-    title: "Computer Vision",
+    title: "Vision AI",
     points: [
       "Existing IP cameras, no new hardware",
       "Footfall, dwell and repeat visits, de-duplicated",
