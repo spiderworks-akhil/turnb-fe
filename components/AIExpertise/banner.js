@@ -19,7 +19,7 @@ const AiBanner = ({ data }) => {
 
           <div style={{ maxWidth: "420px" }}>
             <h1
-              style={{ fontSize: '66px' }}
+              style={{ fontSize: '40px' }}
               dangerouslySetInnerHTML={{ __html: data?.content?.title_1 }}
             />
 

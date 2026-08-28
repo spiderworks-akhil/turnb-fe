@@ -105,12 +105,17 @@ const AiStages = ({data}) => {
                       {
                         tab?.image &&
 
-                        <Image width={750} height={350} src={tab.image} alt="Stage"  />
+                        <Image width={750} height={450} src={tab.image} alt="Stage"  />
 
                       }
                       
                       <h4>{tab?.title}</h4>
-                      <p>{tab?.description}</p>
+                      {tab?.subheading && (
+                        <p style={{ fontStyle: 'italic', opacity: 0.8, marginBottom: '10px', marginTop: '-3px' }}>
+                          {tab.subheading}
+                        </p>
+                      )}
+                      <p className="mb-2">{tab?.description}</p>
                       
                     </div>
                   </div>

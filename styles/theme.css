@@ -1,6 +1,7 @@
-.navbar { 
-    background: #fff; 
+.navbar {
+  background: #fff;
 }
+
 #watch-video {
   position: absolute;
   left: 20%;
@@ -355,22 +356,25 @@ input.form-control {
   bottom: -15px;
   position: relative;
 }
-.homebanner .carousel-item{
+
+.homebanner .carousel-item {
   height: 100vh;
 }
+
 .homebanner .carousel-inner {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
-.homebanner .carousel-inner img{
+.homebanner .carousel-inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center ;
+  object-position: center;
 }
- .carousel-item .case-box{
+
+.carousel-item .case-box {
   overflow: hidden;
- }
+}
 
 
 @media (max-width: 1100px) {
@@ -408,12 +412,14 @@ input.form-control {
 }
 
 @media screen and (max-width: 991px) {
-  .navbar { 
-    background:#fff !important; 
+  .navbar {
+    background: #fff !important;
   }
-    .dropdown-menu-dark .dropdown-item {
-        font-size: 12px;
-    }
+
+  .dropdown-menu-dark .dropdown-item {
+    font-size: 12px;
+  }
+
   .homebanner .carousel-item {
     height: calc(100vh + 90px);
     /* min-height: 300px; */
@@ -859,7 +865,7 @@ div#exampleModal {
 
 .ai-stage-sec .tab-content .tab-data img {
   width: 100%;
-  height: 350.534px;
+  height: 440px;
   object-fit: cover;
 }
 
@@ -1438,24 +1444,27 @@ div#exampleModal {
   background-color: transparent;
   border-color: #038681;
 }
-.dropdown-menu-dark{
+
+.dropdown-menu-dark {
   background-color: #fff;
   padding: 0 !important;
   overflow: hidden;
 }
-.dropdown-menu-dark .dropdown-item{ 
-  color:#038681  !important;
+
+.dropdown-menu-dark .dropdown-item {
+  color: #038681 !important;
   padding-right: 0.7rem;
-    padding-left: 0.7rem;
-    font-size: 13px;
-    font-weight: 500;
+  padding-left: 0.7rem;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.dropdown-menu-dark .dropdown-item:hover{ 
-  color: #333 !important ;
+.dropdown-menu-dark .dropdown-item:hover {
+  color: #333 !important;
 }
+
 .dropdown-menu-dark li {
-    border-bottom: 1px solid #e7e7e7 !important;
+  border-bottom: 1px solid #e7e7e7 !important;
 }
 
 /* Apply to any element by adding .thin-scrollbar */
@@ -1490,29 +1499,29 @@ div#exampleModal {
   background-color: #666;
 }
 
-.navbar .navbar-nav .nav-link{
-  color: #038681  !important;
+.navbar .navbar-nav .nav-link {
+  color: #038681 !important;
 
 }
 
 .navbar .navbar-nav .nav-link:hover {
-    color: #333 !important;
+  color: #333 !important;
 }
 
 .faq_sec .accordion-question h3 {
-    color: #038681 !important;
-        font-size: 22px;
-    font-weight: 500;
+  color: #038681 !important;
+  font-size: 22px;
+  font-weight: 500;
 }
 
-.faq_sec .accordion-answer  {
-    padding: 20px 0; 
-    font-size: 14px;
+.faq_sec .accordion-answer {
+  padding: 20px 0;
+  font-size: 14px;
 }
 
 .faq_sec .accordion-answer p {
-    padding: 20px 0; 
-    font-size: 16px;
+  padding: 20px 0;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 1440px) {
@@ -1624,12 +1633,13 @@ div#exampleModal {
 
 
 
-    .navbar { 
-        background: #fff; 
-    }
-.dropdown-menu-dark .dropdown-item {
-   font-size: 12px;
-}
+  .navbar {
+    background: #fff;
+  }
+
+  .dropdown-menu-dark .dropdown-item {
+    font-size: 12px;
+  }
 
 }
 
@@ -1817,17 +1827,17 @@ div#exampleModal {
   }
 
 
-  .faq_sec .accordion-question h3 { 
-        font-size: 16px; 
-        line-height: 24px;
-}
+  .faq_sec .accordion-question h3 {
+    font-size: 16px;
+    line-height: 24px;
+  }
 
- 
 
-.faq_sec .accordion-answer p { 
+
+  .faq_sec .accordion-answer p {
     font-size: 14px;
     line-height: 24px;
-}
+  }
 
 }
 
