@@ -216,13 +216,47 @@ const ScanbBanner = ({ data }) => {
             className='img-fluid w-100'
             alt=""
           />
-          <button onClick={handleVideoModalToggle} id='watch-video'>
-            {data?.content?.scanb_button_text_1}
-          </button>
-          {/* href={data?.content?.scanb_button_link_2} */}
-          <a onClick={handleModalToggle} style={{ textDecoration: 'none' }}>
-            <button id='brouchure'>{data?.content?.scanb_button_text_2}</button>
-          </a>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88))',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: '20px',
+            zIndex: 1
+          }}>
+            <div className="text-start animate-slide-right">
+              <h1 style={{ color: '#fff', fontSize: '28px', fontWeight: 'bold', marginBottom: '15px', lineHeight: '1.2' }}>
+                {HTMLParser(data?.content?.scanb_banner_heading_1)}
+              </h1>
+              <p style={{ color: '#fff', fontSize: '15px', marginBottom: '40px', fontWeight: '200', lineHeight: '1.4' }}>
+                {HTMLParser(data?.content?.scanb_banner_short_description)}
+              </p>
+              <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap' }}>
+                <button
+                  onClick={handleVideoModalToggle}
+                  id='watch-video1'
+                  style={{ margin: 0, position: 'relative', zIndex: 2 }}
+                >
+                  {data?.content?.scanb_button_text_1}
+                </button>
+                <a
+                  onClick={handleModalToggle}
+                  data-bs-toggle='modal'
+                  data-bs-target='#exampleModal2'
+                  style={{ textDecoration: 'none' }}
+                >
+                  <button id='brouchure1' style={{ margin: 0, position: 'relative', zIndex: 2 }}>
+                    {data?.content?.scanb_button_text_2}
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Image for Desktop */}
@@ -278,24 +312,7 @@ const ScanbBanner = ({ data }) => {
         }
       `}</style>
 
-      <div id='button-video-brou'>
-        <button
-          onClick={handleVideoModalToggle}
-          id='watch-video1'
-        >
-          {data?.content?.scanb_button_text_1}
-        </button>
-        <a
-          onClick={handleModalToggle}
-          data-bs-toggle='modal'
-          data-bs-target='#exampleModal2'
-          style={{ textDecoration: 'none' }}
-        >
-          <button id='brouchure1'>
-            {data?.content?.scanb_button_text_2}
-          </button>
-        </a>
-      </div>
+
 
       {/* brochure form */}
       <div

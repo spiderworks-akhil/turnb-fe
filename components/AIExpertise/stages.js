@@ -115,7 +115,7 @@ const AiStages = ({data}) => {
                           {tab.subheading}
                         </p>
                       )}
-                      <p className="mb-2">{tab?.description}</p>
+                      <p className="mb-2 ai-tab-desc">{tab?.description}</p>
                       
                     </div>
                   </div>
@@ -167,6 +167,7 @@ const AiStages = ({data}) => {
           .ai-stage-sec .ai-stage-head { margin-bottom: 30px; }
           .ai-stage-sec .ai-stage-title { font-size: 30px; }
           .ai-stage-sec .ai-stage-desc { font-size: 15px; }
+          .ai-stage-sec .ai-tab-desc { margin-bottom: 40px !important; }
         }
       ` }} />
     </section>
