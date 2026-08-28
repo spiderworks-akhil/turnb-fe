@@ -44,12 +44,22 @@ const AiVision = ({data}) => {
 
           <div className='col-md-6 '>
             <div className='ai-vis-right'>
-            <video
-              src={data?.content?.vision_media_id?.file_path} // Place video in the "public/videos" folder
+            {/* <video
+              // src={data?.content?.vision_media_id?.file_path} // Place video in the "public/videos" folder
+
+              src ="/img/vision.jpeg"
               autoPlay
               loop
               muted
               playsInline
+            /> */}
+
+            <Image
+              width={800}
+              height={700}
+              src="/img/vision.jpeg"
+              alt="AI Vision"
+              className="img-fluid"
             />
           </div>
           </div>

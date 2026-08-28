@@ -198,14 +198,14 @@ const FeaturesV3 = ({ data }) => {
             </p>
             <p className="fx-sub">
               Every organisation hits the same six walls. Here is what each one costs today —
-              and what it looks like once TurnB is running.
+              and what it looks like once AI is running.
             </p>
           </header>
 
           {/* ---------- rail + story ---------- */}
           <div className="fx-grid">
             <aside className="fx-rail">
-              <span className="fx-rail-cap">Contents</span>
+              <span className="fx-rail-cap">Six areas of impact</span>
               <div className="fx-rail-body">
                 <span className="fx-rail-track" aria-hidden="true">
                   <span
