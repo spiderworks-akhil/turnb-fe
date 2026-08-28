@@ -5306,6 +5306,11 @@ input.form-control {
     margin: 0 9px 0;
 }
 
+.item.scanb-feature-block:hover {
+    transform: scale(1.05);
+}
+
+
 .point-one p {
     color: var(--brand-gradient, #0AA8A8);
     font-size: 15px;

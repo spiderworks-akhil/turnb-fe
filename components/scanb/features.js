@@ -58,13 +58,21 @@ const ScanbFeatures = ({ data }) => {
                   <div key={index} className="d-flex justify-content-center">
                     <div
                       className="item scanb-feature-block"
-                      style={{ backgroundImage: `url('${obj?.media_id?.file_path}')` }}
+                      style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.9)), url('${obj?.media_id?.file_path}')` }}
                     >
                       <div className="item-desc text-center">
                         <h3 className="text-white">{obj?.title}</h3>
-                        {activeSlide === index && (
-                          <p className="text-white">{obj?.short_description}</p>
-                        )}
+                        <div
+                          style={{
+                            maxHeight: activeSlide === index ? '150px' : '0',
+                            opacity: activeSlide === index ? 1 : 0,
+                            overflow: 'hidden',
+                            transition: 'all 0.5s ease-in-out',
+                            marginTop: activeSlide === index ? '10px' : '0'
+                          }}
+                        >
+                          <p className="text-white mb-0">{obj?.short_description}</p>
+                        </div>
                       </div>
                     </div>
                   </div>

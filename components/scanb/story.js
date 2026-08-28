@@ -35,13 +35,14 @@ const ProductTell = ({ data }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-4 col-12 p-0 disable-aos-mobile" data-aos="fade-left">
+                  <div className="col-lg-4 col-md-4 col-12 p-0 disable-aos-mobile text-end" style={{ transform: 'translate(30px, 30px)' }} data-aos="fade-left">
                     <Image
                       height={100}
                       width={400}
                       src={data?.content?.scanb_section_4_media_id?.file_path}
                       alt={data?.content?.scanb_section_4_media_id?.alt_text}
                       className="img-fluid m-apple mt-lg-5 mt-md-5 mt-3"
+                      style={{ borderBottomLeftRadius: '40px', borderTopRightRadius: '40px' }}
                     />
                   </div>
                 </div>

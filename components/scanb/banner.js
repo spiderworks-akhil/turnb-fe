@@ -105,8 +105,8 @@ const ScanbBanner = ({ data }) => {
         <div
           className='d-lg-block d-md-block d-none desktop-banB'
           style={{
-            background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
-            // background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('/img/bgoodv21.png') no-repeat center`,
+            // background: `url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`, `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88))`,
+            background: `linear-gradient(rgba(39, 37, 37, 0.38), rgba(19, 16, 16, 0.88)), url('${data?.content?.scanb_banner_media_id?.file_path}') no-repeat center`,
             backgroundSize: '100%',
             position: 'relative',
             overflow: 'hidden'
@@ -138,7 +138,7 @@ const ScanbBanner = ({ data }) => {
 
                 <div className="animate-slide-right-delayed" style={{
                   marginBottom: '50px',
-                  maxWidth: '800px'
+                  maxWidth: '500px'
                 }}>
                   <p style={{ color: '#fff', fontSize: '16px', marginBottom: '8px', fontWeight: '200', lineHeight: '1.4' }}>
                     {HTMLParser(data?.content?.scanb_banner_short_description)}
