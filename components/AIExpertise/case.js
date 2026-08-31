@@ -5,20 +5,25 @@ import CaseiImg from '../../public/img/ai/case.png'
 
 const AiCase = ({data}) => {
 
-  const caseStudies = data?.other_sections?.case_studies || []
+  const caseStudiesData = data?.other_sections?.case_studies || [];
+  const uniqueCaseStudies = Array.from(new Map(caseStudiesData.map(item => [item?.slug, item])).values());
+  const caseStudies = uniqueCaseStudies.sort(
+    (a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0)
+  );
 
   const sliderSettings = {
     dots: true,
     arrows: true,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     infinite: caseStudies.length > 3,
     responsive: [
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
           infinite: caseStudies.length > 2
         }
       },
@@ -26,6 +31,7 @@ const AiCase = ({data}) => {
         breakpoint: 576,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
           arrows: false,
           infinite: caseStudies.length > 1
         }
@@ -50,7 +56,7 @@ const AiCase = ({data}) => {
           <div className='case-slider'>
             <Slider {...sliderSettings}>
               {caseStudies.map((item, index) => (
-                <div key={index}>
+                <div key={item?.slug || index}>
                   <div className='case-list'>
                     <Image width={370} height={205} src={item?.featured_image?.file_path}  alt={item?.media_id?.alt_text} />
                     <h4>
