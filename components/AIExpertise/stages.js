@@ -1,51 +1,27 @@
 import Image from 'next/image'
 import { ArrowRightIcon } from '../common/Button'
 import StageImg from '../../public/img/ai/stage.png'
+import { HTMLParser } from '@/utils/HTMLParser';
 
 const AiStages = ({data}) => {
-  const staticStages = [
-    {
-      title: "Decipher",
-      subheading: "Find the opportunity",
-      description: "We learn how your business actually runs before anyone mentions a model. Every AI candidate is scored on value, data readiness and risk — including the ones that do not survive scoring. What you get - A scored shortlist of where AI would pay in your operation, with the weak candidates named as plainly as the strong ones.",
-      image: "/img/stage/decipher.png"
-    },
-    {
-      title: "Define",
-      subheading: "Agree what good looks like",
-      description: "One use case, scoped tightly. We write down what success means before anything is built, and name every data source it depends on. What you get - A scoped use case with signed success criteria, named data sources, and a clear line around what the agent will not do.",
-      image: "/img/stage/define.png"
-    },
-    {
-      title: "Design",
-      subheading: "Design the solution",
-      description: "Architecture, data flow and controls, settled before a line of code. This is where we mark every point a person has to sign off, and where the reasoning will be visible. What you get - Solution architecture, data flow, and a written control map marking each decision a human owns.",
-      image: "/img/stage/design.png"
-    },
-    {
-      title: "Do",
-      subheading: "Build and launch",
-      description: "Built inside your tenant, on your stack, against your real data. Not a pilot that cannot scale. What you get - A working agent in your environment, tested against the criteria you signed at Define.",
-      image: "/img/stage/do.png"
-    },
-    {
-      title: "Deliver",
-      subheading: "Drive adoption",
-      description: "Adoption is a stage, not a hope. Your team is trained, the documentation is written, and the system can run without us in the room. What you get - A trained team, full documentation, and the option to operate it yourselves.",
-      image: "/img/stage/deliver.png"
-    }
-  ];
+  const stagesData = data?.content?.listing_id_ai_to_life?.length > 0 
+    ? data.content.listing_id_ai_to_life.map(item => ({
+        title: item.title,
+        subheading: item.short_description,
+        description: item.detailed_description,
+        image: item.media_id?.file_path
+      }))
+    : [];
 
   return (
      <section className="ai-stage-sec">
       <div className="container">
         <div className="ai-stage-head">
-          <span className="ai-stage-eyebrow">{data?.content?.title_3 || "How We Bring AI to Life"}</span>
-          <h3 className="ai-stage-title">Your AI runs on Consult D5&trade;</h3>
-          <p className="ai-stage-desc">
-            Five stages, built over years of delivery and applied to every engagement we take
-            on. Here is what each one produces.
-          </p>
+          <span className="ai-stage-eyebrow">{data?.content?.title_3}</span>
+          <h3 className="ai-stage-title">{HTMLParser(data?.content?.short_title_3)}</h3>
+          <div className="ai-stage-desc">
+            {HTMLParser(data?.content?.description_3)} 
+          </div>
         </div>
 
         <div className="row">
@@ -57,7 +33,7 @@ const AiStages = ({data}) => {
               role="tablist"
               aria-orientation="vertical"
             >
-              {staticStages.map((tab, index) => {
+              {stagesData.map((tab, index) => {
                 const tabId = `tab-${index + 1}`;
                 return (
                   <button
@@ -90,7 +66,7 @@ const AiStages = ({data}) => {
           {/* Right side: Tab Content */}
           <div className="col-md-8">
             <div className="tab-content h-[100%]" id="v-pills-tabContent">
-              {staticStages.map((tab, index) => {
+              {stagesData.map((tab, index) => {
                 const tabId = `tab-${index + 1}`;
                 return (
                   <div
@@ -115,7 +91,7 @@ const AiStages = ({data}) => {
                           {tab.subheading}
                         </p>
                       )}
-                      <p className="mb-2 ai-tab-desc">{tab?.description}</p>
+                      <div className="mb-2 ai-tab-desc">{HTMLParser(tab?.description)}</div>
                       
                     </div>
                   </div>
@@ -163,10 +139,14 @@ const AiStages = ({data}) => {
           font-weight: 500;
           line-height: 1.7;
         }
+        .ai-stage-sec .ai-stage-desc p {
+          font-size: 16.5px;
+          margin: 0;
+        }
         @media (max-width: 767px) {
           .ai-stage-sec .ai-stage-head { margin-bottom: 30px; }
           .ai-stage-sec .ai-stage-title { font-size: 30px; }
-          .ai-stage-sec .ai-stage-desc { font-size: 15px; }
+          .ai-stage-sec .ai-stage-desc, .ai-stage-sec .ai-stage-desc p { font-size: 15px; }
           .ai-stage-sec .ai-tab-desc { margin-bottom: 40px !important; }
         }
       ` }} />

@@ -1,105 +1,24 @@
 import React from 'react';
-
-const solutionsData = [
-  {
-    title: "AI Strategy & Transformation Roadmaps",
-    points: [
-      "Opportunities scored on value, data readiness and risk",
-      "Sequenced roadmap with dependencies mapped",
-      "Business case and operating model per candidate"
-    ],
-    ctaText: "AI to Consult"
-  },
-  {
-    title: "Digitization & Document Risk Review",
-    subtitle: "Includes Intelligent OCR · Document Compliance & Risk Review",
-    points: [
-      "Paper, PDFs and scans become machine-readable records",
-      "Contracts and filings checked against your own policy",
-      "Exceptions routed with reviewer assignment and SLA tracking"
-    ],
-    ctaText: "AI to Consult"
-  },
-  {
-    title: "Workflow Automation & Conversational AI",
-    subtitle: "Includes Workflow Automation with AI Agents · Conversational AI for Operations",
-    points: [
-      "Multi-step processes run end to end, human authority at control points",
-      "Chat, email and voice resolved without a queue",
-      "Integrated into ERP, SharePoint, Teams and WhatsApp"
-    ],
-    ctaText: "AI to Consult"
-  },
-  {
-    title: "Custom GenAI Agents & Copilots",
-    subtitle: "Includes Productivity Enhancement · Recommendation & Decision Engines",
-    points: [
-      "Built around your process, not a template",
-      "Copilots inside Microsoft 365 — nothing sends without your say",
-      "Next best action per customer, with measured lift"
-    ],
-    ctaText: "AI to Scale"
-  },
-  {
-    title: "Enterprise Knowledge Platforms",
-    points: [
-      "Policies, manuals and archives answer directly",
-      "Bilingual English and Arabic, text and voice",
-      "Access inherited from your existing directory"
-    ],
-    ctaText: "AI to Scale"
-  },
-  {
-    title: "Vision AI",
-    points: [
-      "Existing IP cameras, no new hardware",
-      "Footfall, dwell and repeat visits, de-duplicated",
-      "Edge or cloud, depending on privacy constraints"
-    ],
-    ctaText: "AI to Scale"
-  },
-  {
-    title: "AI-Ready Data & Enterprise Ontology",
-    points: [
-      "Documents, core systems and feeds pulled into one governed layer",
-      "Entities, relationships and terms defined once, used everywhere",
-      "Built in your tenant, reused by every model and report after"
-    ],
-    ctaText: "Data to Drive"
-  },
-  {
-    title: "Real-Time AI-Powered Dashboards",
-    points: [
-      "Ask why a number moved, get a written answer",
-      "Narrative summaries generated on every refresh",
-      "Built around the decision, not the data source"
-    ],
-    ctaText: "Data to Drive"
-  },
-  {
-    title: "Decision Intelligence, Risk & Value Optimisation",
-    subtitle: "Includes Predictive Analytics · Risk & Anomaly Detection · Performance & Value Analytics · Optimize vs Maximize",
-    points: [
-      "Demand, revenue and churn forecast with the drivers shown",
-      "Fraud, leakage and anomalies detected as they form",
-      "Price, mix and spend tuned together, trade-offs quantified"
-    ],
-    ctaText: "Data to Drive"
-  }
-];
-
-const categoriesData = [
-  { title: "AI to Consult", cards: solutionsData.slice(0, 3) },
-  { title: "AI to Scale", cards: solutionsData.slice(3, 6) },
-  { title: "Data to Drive", cards: solutionsData.slice(6, 9) }
-];
-
+import { HTMLParser } from '@/utils/HTMLParser';
 
 const CARD_GAP = 32;      // matches the flex gap between stacked cards
 const STICKY_TOP = 150;   // first card's sticky offset
 const STICKY_STEP = 20;   // each subsequent card sits this much lower
 
-const SolutionsFold = () => {
+const SolutionsFold = ({ data }) => {
+  const content = data?.content;
+  const pillars = data?.other_sections?.solution_pillars || [];
+  
+  const categoriesData = pillars.map(pillar => ({
+    title: pillar.name,
+    cards: (pillar.areas || []).map(area => ({
+      title: area.title,
+      subtitle: area.includes,
+      points: area.points,
+      ctaText: pillar.name
+    }))
+  }));
+
   const sectionRef = React.useRef(null);
 
   /* Scroll dynamics for the stacked cards:
@@ -201,14 +120,15 @@ const SolutionsFold = () => {
             margin: '0 auto'
           }}>
             <span style={{ color: '#2dd4bf', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '1px', fontSize: '14px', display: 'block', marginBottom: '16px' }}>
-              What we build
+              {content?.short_title_section_5}
             </span>
             <h2 className="custom-teal-title" style={{ fontSize: '42px', fontWeight: '800', margin: '0 0 24px 0', lineHeight: '1.2' }}>
-              All of this is possible today.
+              {content?.title_section_5}
             </h2>
-            <p style={{ fontSize: '18px', color: '#bac2d1ff', lineHeight: '1.6', margin: 0 }}>
-              Three pillars, nine solution areas. Below is scope — what each covers, and on what stack.
-            </p>
+            <div 
+              style={{ fontSize: '18px', color: '#bac2d1ff', lineHeight: '1.6', margin: 0 }}
+              dangerouslySetInnerHTML={{ __html: content?.description_section_5 }} 
+            />
           </div>
 
           {/* Categories loop */}
@@ -240,7 +160,7 @@ const SolutionsFold = () => {
                   gap: `${CARD_GAP}px`
                 }}>
                   {cat.cards.map((card, idx) => {
-                    const isScale = cat.title === "AI to Scale";
+                    const isScale = cat.title.toLowerCase().includes("scale");
                     const bgColors = isScale 
                       ? ['#018381', '#017674', '#016867'] 
                       : ['#ffffff', '#f8fafc', '#f1f5f9'];
@@ -272,11 +192,11 @@ const SolutionsFold = () => {
                             {card.subtitle}
                           </p>
                         )}
-                        <ul style={{ paddingLeft: '24px', margin: '0', color: bodyColor, lineHeight: '1.8', fontSize: '16px' }}>
-                          {card.points.map((pt, i) => (
-                            <li key={i} style={{ marginBottom: '12px' }}>{pt}</li>
-                          ))}
-                        </ul>
+                        <div 
+                          className="points-wrapper" 
+                          style={{ color: bodyColor, lineHeight: '1.8', fontSize: '16px' }}
+                          dangerouslySetInnerHTML={{ __html: card.points }}
+                        />
                       </div>
                     );
                   })}
@@ -477,7 +397,12 @@ const SolutionsFold = () => {
         }
 
         /* bullets stagger in behind the card */
-        .solution-card li {
+        .points-wrapper ul {
+          padding-left: 24px;
+          margin: 0;
+        }
+        .points-wrapper li {
+          margin-bottom: 12px;
           transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
         }
         .sf-ready .solution-card li { opacity: 0; transform: translateX(-10px); }

@@ -27,7 +27,7 @@ export default function Career({ general, data }) {
       <AiStages data={data} />
       <div >
         {/* <AiFeatures data={data} /> */}
-        <SolutionsFold />
+        <SolutionsFold data={data} />
 
 
         <AiIn data={data} />

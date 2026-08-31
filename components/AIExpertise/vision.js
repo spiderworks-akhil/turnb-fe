@@ -57,7 +57,8 @@ const AiVision = ({data}) => {
             <Image
               width={800}
               height={600}
-              src="/img/vision.jpeg"
+              // src="/img/vision.jpeg"
+               src={data?.content?.vision_image_media_id?.file_path} 
               alt="AI Vision"
             />
           </div>

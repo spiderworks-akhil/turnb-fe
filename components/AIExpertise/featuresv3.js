@@ -1,11 +1,13 @@
 import React, { useRef, useState } from 'react';
 import Slider from 'react-slick';
+import parse, { domToReact } from 'html-react-parser';
+import { HTMLParser } from '@/utils/HTMLParser';
 
 const FeaturesV3 = ({ data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const panelRef = useRef(null);
 
-  const headingText = data?.content?.subtitle_2 || "Six blockers. One way through.";
+
 
   /* Arrows live in the section head, so slick's own pair stays off. */
   const outcomeSliderRef = useRef(null);
@@ -25,152 +27,86 @@ const FeaturesV3 = ({ data }) => {
     ]
   };
 
-  const accordionData = [
-    {
-      title: "Nobody agrees where to start",
-      todaySteps: [
-        "Every function arrives with a different AI wish list",
-        "The business case is built on vendor claims",
-        "Twelve months on, pilots that never shipped"
-      ],
-      todayCostLine: "A budget spent proving AI works, not making it pay.",
-      turnbSteps: [
-        "We map where AI actually pays in your operation",
-        "Each candidate scored on value, data readiness and risk",
-        "You get a sequenced roadmap, not a wish list"
-      ],
-      turnbResultLine: "A clear, actionable roadmap optimized for business ROI."
-    },
-    {
-      title: "Your data is not ready, and everyone knows it",
-      todaySteps: [
-        "The conversation stops at “our data is a mess”",
-        "What matters sits in PDFs, scans and email attachments",
-        "Every project rebuilds the same pipeline from scratch"
-      ],
-      todayCostLine: "Eighteen months of AI ambition, still stuck at the data.",
-      turnbSteps: [
-        "Documents, scans and forms turned into structured data",
-        "One governed layer your agents and dashboards both read",
-        "Built once, in your tenant, reused by everything after"
-      ],
-      turnbResultLine: "A single, governed data layer ready for enterprise-wide scale."
-    },
-    {
-      title: "Every decision waits on someone reading something",
-      todaySteps: [
-        "Contracts, invoices, applications, reports — read one at a time",
-        "What was found stays with whoever found it",
-        "Every function queues behind the same few readers"
-      ],
-      todayCostLine: "Decisions paced by reading speed, in every department.",
-      turnbSteps: [
-        "Every document read, understood, and turned into usable data",
-        "What matters is extracted, checked against your rules, and routed",
-        "Legal, finance, procurement and operations draw on one engine"
-      ],
-      turnbResultLine: "Faster, automated extraction that scales across all operations."
-    },
-    {
-      title: "You hear about it after it becomes a problem",
-      todaySteps: [
-        "Renewals, limits and thresholds live in someone’s calendar",
-        "Nobody was watching that particular signal",
-        "It reaches you as an escalation, not a flag"
-      ],
-      todayCostLine: "An outcome you had every chance to prevent.",
-      turnbSteps: [
-        "Dates, limits and anomalies watched continuously",
-        "Routed to the team that owns it, before it matters",
-        "Escalates only if it is not handled"
-      ],
-      turnbResultLine: "Proactive, continuous oversight that stops issues before they arise."
-    },
-    {
-      title: "Every question routes through the same three people",
-      todaySteps: [
-        "The answer exists — in a policy, a report, or someone’s head",
-        "New staff ask the same questions for six months",
-        "Your experts become a queue"
-      ],
-      todayCostLine: "Time spent rediscovering what the organisation already paid to learn.",
-      turnbSteps: [
-        "One place to ask, in plain language, by text or by voice",
-        "Every answer cites the document and section behind it",
-        "Access follows your existing permissions, not a new set"
-      ],
-      turnbResultLine: "Instant, verified answers empowering your entire workforce."
-    },
-    {
-      title: "The tool you need does not exist",
-      todaySteps: [
-        "The product on the market covers most of your process",
-        "You bend the process to fit the software",
-        "What is left stays manual, permanently"
-      ],
-      todayCostLine: "A licence fee, and the work you needed done still done by hand.",
-      turnbSteps: [
-        "Built around your process, not the other way round",
-        "Sits inside Teams, Excel or wherever your team works",
-        "Your data stays in your tenant, your IP stays yours"
-      ],
-      turnbResultLine: "Custom tools that fit your unique workflows, securing your IP."
-    }
-  ];
+  const accordionData = data?.other_sections?.blockers || [];
 
-  const railLabels = [
-    "Where to start",
-    "Data readiness",
-    "Document backlog",
-    "Early warning",
-    "Expert bottleneck",
-    "Custom tooling"
-  ];
+  if (!accordionData || accordionData.length === 0) {
+    return null;
+  }
 
-  const outcomes = [
+  const railLabels = accordionData.map(item => item.nav_title);
+
+  const renderList = (htmlString, type) => {
+    if (!htmlString) return null;
+    const options = {
+      replace: (domNode) => {
+        if (domNode.name === 'ul') {
+          return <ul className="fx-steps">{domToReact(domNode.children, options)}</ul>;
+        }
+        if (domNode.name === 'li') {
+          const isToday = type === 'today';
+          const bulletClass = isToday ? 'fx-bullet--x' : 'fx-bullet--check';
+          const svgContent = isToday ? (
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
+          ) : (
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="m5 13 4 4L19 7" /></svg>
+          );
+
+          return (
+            <li>
+              <span className={`fx-bullet ${bulletClass}`} aria-hidden="true">
+                {svgContent}
+              </span>
+              <span>{domToReact(domNode.children, options)}</span>
+            </li>
+          );
+        }
+      }
+    };
+    return parse(htmlString, options);
+  };
+
+  const defaultOutcomes = [
     {
-      title: "Decisions in hours, not weeks.",
-      description: "The gap between a question forming and an answer landing collapses. Across every function, that compounds.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
       )
     },
     {
-      title: "Capacity released.",
-      description: "Work that consumed a morning takes minutes. What your people do with the morning is the whole point.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="9.5" cy="6.5" r="3.5" /><path d="M2.5 21v-1.5A6 6 0 0 1 8.5 13.5h1.8" /><circle cx="17" cy="17" r="4.6" /><path d="m15.1 17 1.4 1.4 2.5-2.6" /></svg>
       )
     },
     {
-      title: "Nobody queues for an answer.",
-      description: "Your experts stop running a service desk. The question goes to the system; the judgement stays with them.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
       )
     },
     {
-      title: "The same answer, whoever asks.",
-      description: "Decisions stop depending on who was on shift, how long they have been here, or which spreadsheet they opened.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="m9 12 2 2 4-4" /></svg>
       )
     },
     {
-      title: "Volume grows. The team does not have to.",
-      description: "Twice the contracts, twice the claims, twice the customers — without twice the people.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
       )
     },
     {
-      title: "What the company knows, stays.",
-      description: "Institutional knowledge outlives the people who built it. Nothing walks out with a resignation letter.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><path d="M10.2 11.3V9.9a1.8 1.8 0 0 1 3.6 0v1.4" /><rect x="9.1" y="11.3" width="5.8" height="4.4" rx="1.1" /></svg>
       )
     }
   ];
+
+  const outcomes = data?.content?.listing_id_the_outcomes_listing?.length > 0
+    ? data.content.listing_id_the_outcomes_listing.map((item, index) => ({
+      title: item.title,
+      description: item.short_description,
+      icon: item.media_id?.file_path ? (
+        <img src={item.media_id.file_path} alt={item.title} width="22" height="22" style={{ objectFit: 'contain' }} />
+      ) : (defaultOutcomes[index]?.icon || null)
+    }))
+    : defaultOutcomes;
 
   /* Tab click: swap the panel, and on small screens bring it into view. */
   const selectBlocker = (index) => {
@@ -190,22 +126,27 @@ const FeaturesV3 = ({ data }) => {
 
           {/* ---------- header ---------- */}
           <header className="fx-head">
+            {data?.content?.subtitle_2 && (
+              <span className="fx-eyebrow">
+                <span className="fx-dot" aria-hidden="true" />
+                {data?.content?.subtitle_2}
+              </span>
+            )}
             <h2 className="fx-title">
-             How AI creates <em>value</em>
+              {data?.content?.title_section_2}
             </h2>
             <p className="fx-subtitle">
-              {headingText}
+              {data?.content?.short_title_section_2}
             </p>
-            <p className="fx-sub">
-              Every organisation hits the same six walls. Here is what each one costs today —
-              and what it looks like once AI is running.
-            </p>
+            <div className="fx-sub" style={{ fontSize: "16.5px" }}>
+              {HTMLParser(data?.content?.description_section_2)}
+            </div>
           </header>
 
           {/* ---------- rail + story ---------- */}
           <div className="fx-grid">
             <aside className="fx-rail">
-              <span className="fx-rail-cap">Six areas of impact</span>
+              <span className="fx-rail-cap">{data?.content?.section_title_section_2}</span>
               <div className="fx-rail-body">
                 <span className="fx-rail-track" aria-hidden="true">
                   <span
@@ -235,7 +176,7 @@ const FeaturesV3 = ({ data }) => {
               <article key={activeIndex} className="fx-block">
                 <div className="fx-block-head">
                   <div className="fx-block-meta">
-                    <span className="fx-tag">Blocker</span>
+                    <span className="fx-tag">{accordionData[activeIndex].label}</span>
                     <span className="fx-count" aria-hidden="true">
                       <span className="fx-count-now">{String(activeIndex + 1).padStart(2, '0')}</span>
                       <span className="fx-count-sep" />
@@ -249,21 +190,12 @@ const FeaturesV3 = ({ data }) => {
                   {/* today */}
                   <div className="fx-track fx-track--today">
                     <div className="fx-track-head">
-                      <span className="fx-chip fx-chip--today">Today</span>
+                      <span className="fx-chip fx-chip--today">{accordionData[activeIndex].today_label}</span>
                     </div>
-                    <ul className="fx-steps">
-                      {accordionData[activeIndex].todaySteps.map((step, i) => (
-                        <li key={i}>
-                          <span className="fx-bullet fx-bullet--x" aria-hidden="true">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
-                          </span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {renderList(accordionData[activeIndex].today_points, 'today')}
                     <div className="fx-note fx-note--cost">
-                      <span className="fx-note-label">The cost</span>
-                      {accordionData[activeIndex].todayCostLine}
+                      <span className="fx-note-label">{accordionData[activeIndex].cost_label}</span>
+                      {HTMLParser(accordionData[activeIndex].cost_text)}
                     </div>
                   </div>
 
@@ -279,21 +211,12 @@ const FeaturesV3 = ({ data }) => {
                   {/* with turnb */}
                   <div className="fx-track fx-track--turnb">
                     <div className="fx-track-head">
-                      <span className="fx-chip fx-chip--turnb">WITH TurnB</span>
+                      <span className="fx-chip fx-chip--turnb">{accordionData[activeIndex].turnb_label}</span>
                     </div>
-                    <ul className="fx-steps">
-                      {accordionData[activeIndex].turnbSteps.map((step, i) => (
-                        <li key={i}>
-                          <span className="fx-bullet fx-bullet--check" aria-hidden="true">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="m5 13 4 4L19 7" /></svg>
-                          </span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {renderList(accordionData[activeIndex].turnb_points, 'turnb')}
                     <div className="fx-note fx-note--result">
-                      <span className="fx-note-label">The result</span>
-                      {accordionData[activeIndex].turnbResultLine}
+                      <span className="fx-note-label">{accordionData[activeIndex].result_label}</span>
+                      {HTMLParser(accordionData[activeIndex].result_text)}
                     </div>
                   </div>
                 </div>
@@ -305,7 +228,7 @@ const FeaturesV3 = ({ data }) => {
           <div className="fx-outcomes">
             <div className="fx-outcomes-head">
               <div className="fx-outcomes-headings">
-                <h3 className="fx-outcomes-title">The outcomes</h3>
+                <h3 className="fx-outcomes-title">{data?.content?.title_section_3}</h3>
               </div>
 
               <div className="fx-outcome-nav">
@@ -411,9 +334,9 @@ const FeaturesV3 = ({ data }) => {
           font-weight: 600;
           color: #0b2422;
         }
-        .fx-sub {
+        .fx-sub, .fx-sub p, .fx-sub span {
           margin: 0;
-          font-size: 16.5px;
+          font-size: 16.5px !important;
           line-height: 1.7;
           font-weight: 500;
           color: #5b7371;
@@ -799,7 +722,7 @@ const FeaturesV3 = ({ data }) => {
           .fx-head { margin-bottom: 40px; }
           .fx-title { font-size: 30px; }
           .fx-subtitle { font-size: 18px; }
-          .fx-sub { font-size: 15px; }
+          .fx-sub, .fx-sub p, .fx-sub span { font-size: 16.5px !important; }
           .fx-block { padding: 26px 22px; border-radius: 20px; min-height: 0; }
           .fx-block-title { font-size: 20px; }
           .fx-count-now { font-size: 22px; }
