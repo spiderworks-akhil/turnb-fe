@@ -56,10 +56,9 @@ const AiVision = ({data}) => {
 
             <Image
               width={800}
-              height={700}
+              height={600}
               src="/img/vision.jpeg"
               alt="AI Vision"
-              className="img-fluid"
             />
           </div>
           </div>

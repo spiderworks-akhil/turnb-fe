@@ -1176,7 +1176,7 @@ div#exampleModal {
   border-radius: 10px;
   background: #EEFFF3;
   margin-top: 35px;
-  padding: 40px;
+  padding: 40px 40px 60px 40px;
   min-height: 340px;
 }
 
@@ -1227,12 +1227,11 @@ div#exampleModal {
   width: 100%;
 }
 
-.ai-vis-right video {
+.ai-vis-right video, .ai-vis-right img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  object-fit: contain;
-  /* transform: scale(1.25);  */
+  object-fit: cover;
 }
 
 .ai-benefits-sec {
